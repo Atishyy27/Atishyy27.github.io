@@ -7,6 +7,7 @@ const LINKS = [
   ["Shipped", "work"],
   ["Products", "products"],
   ["Hackathons", "hackathons"],
+  ["Build log", "log"],
   ["Stats", "cp"],
   ["About", "about"],
 ];

@@ -17,6 +17,8 @@ import Contact from "@/components/Contact";
 import Eggs from "@/components/Eggs";
 import Terminal from "@/components/Terminal";
 import Track from "@/components/Track";
+import Palette from "@/components/Palette";
+import BuildLog from "@/components/BuildLog";
 import { useOverrides } from "@/lib/overrides";
 
 const Scene = dynamic(() => import("@/components/Scene"), { ssr: false });
@@ -54,6 +56,7 @@ export default function Home() {
       <Eggs />
       <Track />
       <Nav />
+      <Palette />
       <Scene />
 
       <main id="top" className="relative">
@@ -216,9 +219,15 @@ export default function Home() {
           </ol>
         </Wrap>
 
+        {/* BUILD LOG */}
+        <Wrap id="log">
+          <Head n="08" title="Build log" kicker="Notes from building things, with the thing itself embedded rather than described." />
+          <BuildLog />
+        </Wrap>
+
         {/* ASK / TERMINAL */}
         <Wrap id="terminal">
-          <Head n="08" title="Or just ask" kicker="A small language model runs in your browser and answers from my work. Or drop into the shell." />
+          <Head n="09" title="Or just ask" kicker="A small language model runs in your browser and answers from my work. Or drop into the shell." />
           <Terminal />
         </Wrap>
 
@@ -227,7 +236,7 @@ export default function Home() {
 
         {/* ABOUT */}
         <Wrap id="about">
-          <Head n="09" title="About" />
+          <Head n="10" title="About" />
           <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
             <div className="space-y-6">
               {about.map((p, i) => (

@@ -41,6 +41,13 @@ export default function Terminal() {
     scroller.current?.scrollTo(0, scroller.current.scrollHeight);
   }, [lines]);
 
+  // the command palette can hand focus straight here
+  useEffect(() => {
+    const focus = () => input.current?.focus();
+    window.addEventListener("aj-focus-terminal", focus);
+    return () => window.removeEventListener("aj-focus-terminal", focus);
+  }, []);
+
   function push(...l: Line[]) {
     setLines((prev) => [...prev, ...l]);
   }
