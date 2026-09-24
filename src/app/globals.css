@@ -79,10 +79,7 @@ body::after {
 
 /* ---------- cursor ---------- */
 
-@media (pointer: fine) {
-  body { cursor: none; }
-  a, button { cursor: none; }
-}
+/* real system cursor restored (custom cursor removed) */
 
 .cursor-dot,
 .cursor-ring {
