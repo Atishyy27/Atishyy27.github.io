@@ -49,7 +49,7 @@ check("no orphan project pages", orphans.length === 0, "unreachable: " + orphans
 let unbacked = [];
 for (const slug of builtDirs) {
   const html = fs.readFileSync(path.join(OUT, "projects", slug, "index.html"), "utf8");
-  const hasProof = html.includes("PROOF");
+  const hasProof = html.includes(">Proof<");
   if (!hasProof) unbacked.push(slug);
 }
 check(

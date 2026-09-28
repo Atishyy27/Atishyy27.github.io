@@ -31,32 +31,30 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
-      <Link href="/projects/" className="link font-mono text-xs tracking-[0.2em]">
-        PROJECTS
-      </Link>
+      <Link href="/projects/" className="link text-sm">Projects</Link>
 
       <header className="mt-10">
-        <p className="font-mono text-[10px] tracking-[0.25em] text-[var(--accent)]">
-          {CATEGORY_LABEL[p.category].toUpperCase()}
+        <p className="text-sm text-[var(--fg-muted)]">
+          {CATEGORY_LABEL[p.category]}
           {p.org ? ` · ${p.org}` : ""}
         </p>
-        <h1 className="display mt-3 text-3xl sm:text-4xl">{p.name}</h1>
+        <h1 className="display mt-4 text-4xl leading-[1.05] sm:text-5xl">{p.name}</h1>
         {p.story ? <p className="mt-5 text-lg text-[var(--fg-muted)]">{p.story}</p> : null}
       </header>
 
       <section className="mt-12">
-        <h2 className="font-mono text-xs tracking-[0.25em] text-[var(--fg-muted)]">WHAT IT IS</h2>
+        <h2 className="text-sm font-medium text-[var(--fg-muted)]">What it is</h2>
         <p className="mt-4 leading-relaxed">{p.blurb}</p>
       </section>
 
       <section className="mt-12">
-        <h2 className="font-mono text-xs tracking-[0.25em] text-[var(--fg-muted)]">BUILT WITH</h2>
-        <p className="mt-4 font-mono text-sm text-[var(--fg-muted)]">{p.stack.join(" · ")}</p>
+        <h2 className="text-sm font-medium text-[var(--fg-muted)]">Built with</h2>
+        <p className="mt-4 text-[var(--fg-muted)]">{p.stack.join(" · ")}</p>
       </section>
 
       {p.links.length > 0 || p.privateNote ? (
         <section className="mt-12">
-          <h2 className="font-mono text-xs tracking-[0.25em] text-[var(--fg-muted)]">PROOF</h2>
+          <h2 className="text-sm font-medium text-[var(--fg-muted)]">Proof</h2>
           {p.links.length > 0 ? (
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
               {p.links.map((l) => (
@@ -81,14 +79,14 @@ export default async function ProjectPage({ params }: Props) {
 
       {entries.length > 0 ? (
         <section className="mt-12">
-          <h2 className="font-mono text-xs tracking-[0.25em] text-[var(--fg-muted)]">THE LONG VERSION</h2>
+          <h2 className="text-sm font-medium text-[var(--fg-muted)]">The long version</h2>
           <ul className="mt-4 space-y-2">
             {entries.map((e) => (
               <li key={e.slug}>
                 <Link href={`/journal/${e.slug}/`} className="link text-sm">
                   {e.title}
                 </Link>
-                <span className="ml-3 font-mono text-xs text-[var(--fg-muted)]">
+                <span className="ml-3 text-xs text-[var(--fg-muted)]">
                   {formatDate(e.date)}
                 </span>
               </li>

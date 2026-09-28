@@ -14,9 +14,8 @@ export default function JournalIndex() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
-      <p className="font-mono text-xs tracking-[0.3em] text-[var(--accent)]">JOURNAL</p>
-      <h1 className="display mt-4 text-4xl sm:text-5xl">Things I actually lived</h1>
-      <p className="mt-4 text-[var(--fg-muted)]">
+      <h1 className="display text-5xl leading-[1.05] sm:text-6xl">Things I actually lived</h1>
+      <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--fg-muted)]">
         Written from my own narration. Dated, first person, nothing invented.
       </p>
 
@@ -33,13 +32,13 @@ export default function JournalIndex() {
                   </h2>
                   <time
                     dateTime={e.date}
-                    className="shrink-0 font-mono text-xs text-[var(--fg-muted)]"
+                    className="shrink-0 text-xs text-[var(--fg-muted)]"
                   >
                     {formatDate(e.date)}
                   </time>
                 </div>
                 {e.place ? (
-                  <p className="mt-1 font-mono text-xs tracking-wide text-[var(--fg-muted)]">
+                  <p className="mt-1 text-xs text-[var(--fg-muted)]">
                     {e.place}
                   </p>
                 ) : null}
@@ -50,9 +49,7 @@ export default function JournalIndex() {
       )}
 
       <div className="mt-20 border-t border-[var(--line)] pt-6">
-        <Link href="/" className="link font-mono text-xs tracking-[0.2em]">
-          BACK
-        </Link>
+        <Link href="/" className="link text-sm">Back</Link>
       </div>
     </main>
   );

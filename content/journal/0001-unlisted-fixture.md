@@ -3,6 +3,7 @@ title: "Fixture: unlisted, page exists but is not indexed"
 date: "2026-09-28"
 place: "fixture"
 tags: ["fixture"]
+fixture: true
 status: published
 visibility: unlisted
 ---

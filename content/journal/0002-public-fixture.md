@@ -3,6 +3,7 @@ title: "Fixture: published and public"
 date: "2026-09-27"
 place: "fixture"
 tags: ["fixture"]
+fixture: true
 status: published
 visibility: public
 ---

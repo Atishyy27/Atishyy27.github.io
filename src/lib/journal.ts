@@ -24,11 +24,15 @@ export type JournalEntry = {
   status: EntryStatus;
   visibility: EntryVisibility;
   project?: string;      // slug of a project this entry tells the story of
+  fixture: boolean;      // test-only entry, never shipped unless JOURNAL_FIXTURES=1
   body: string;          // raw markdown
 };
 
 const DIR = path.join(process.cwd(), "content", "journal");
 const IS_PROD = process.env.NODE_ENV === "production";
+// Test fixtures exist to prove draft and unlisted filtering. They must never reach a
+// real build, so they are opt-in and the deploy never sets this.
+const WITH_FIXTURES = process.env.JOURNAL_FIXTURES === "1";
 
 function parseEntry(file: string): JournalEntry | null {
   const full = path.join(DIR, file);
@@ -57,6 +61,7 @@ function parseEntry(file: string): JournalEntry | null {
     status,
     visibility,
     project: data.project ? String(data.project) : undefined,
+    fixture: data.fixture === true,
     body: content,
   };
 }
@@ -68,6 +73,7 @@ function readAll(): JournalEntry[] {
     .filter((f) => /\.mdx?$/.test(f))
     .map(parseEntry)
     .filter((e): e is JournalEntry => e !== null)
+    .filter((e) => (WITH_FIXTURES ? true : !e.fixture))
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 

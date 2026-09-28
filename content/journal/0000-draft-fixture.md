@@ -3,6 +3,7 @@ title: "Fixture: draft, must never ship"
 date: "2026-09-28"
 place: "fixture"
 tags: ["fixture"]
+fixture: true
 status: draft
 visibility: public
 ---

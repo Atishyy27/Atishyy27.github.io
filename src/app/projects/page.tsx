@@ -16,9 +16,8 @@ export default function ProjectsIndex() {
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-20 sm:px-8">
-      <p className="font-mono text-xs tracking-[0.3em] text-[var(--accent)]">PROJECTS</p>
-      <h1 className="display mt-4 text-4xl sm:text-5xl">Things that shipped</h1>
-      <p className="mt-4 max-w-xl text-[var(--fg-muted)]">
+      <h1 className="display text-5xl leading-[1.05] sm:text-6xl">Things that shipped</h1>
+      <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--fg-muted)]">
         Grouped by who they were for. Each one links to the code or the live thing where
         that exists, and says plainly where it does not.
       </p>
@@ -29,8 +28,8 @@ export default function ProjectsIndex() {
 
         return (
           <section key={cat} className="mt-16">
-            <h2 className="font-mono text-xs tracking-[0.25em] text-[var(--fg-muted)]">
-              {CATEGORY_LABEL[cat].toUpperCase()}
+            <h2 className="text-sm font-medium text-[var(--fg-muted)]">
+              {CATEGORY_LABEL[cat]}
             </h2>
 
             <ul className="mt-6 space-y-px">
@@ -43,9 +42,7 @@ export default function ProjectsIndex() {
                         {p.name}
                       </h3>
                       {p.org ? (
-                        <span className="font-mono text-[10px] tracking-wider text-[var(--fg-muted)]">
-                          {p.org}
-                        </span>
+                        <span className="text-xs text-[var(--fg-muted)]">{p.org}</span>
                       ) : null}
                     </div>
 
@@ -55,9 +52,7 @@ export default function ProjectsIndex() {
                       <p className="mt-2 max-w-2xl text-sm text-[var(--fg-muted)]">{p.blurb}</p>
                     )}
 
-                    <p className="mt-3 font-mono text-[10px] tracking-wider text-[var(--fg-muted)]">
-                      {p.stack.join(" · ")}
-                    </p>
+                    <p className="mt-3 text-xs text-[var(--fg-muted)]">{p.stack.join(" · ")}</p>
                   </>
                 );
 
@@ -79,9 +74,7 @@ export default function ProjectsIndex() {
       })}
 
       <div className="mt-20 border-t border-[var(--line)] pt-6">
-        <Link href="/" className="link font-mono text-xs tracking-[0.2em]">
-          BACK
-        </Link>
+        <Link href="/" className="link text-sm">Back</Link>
       </div>
     </main>
   );

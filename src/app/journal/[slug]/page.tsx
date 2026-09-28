@@ -6,8 +6,14 @@ import { entrySlugs, getEntry, renderMarkdown, formatDate } from "@/lib/journal"
 // Static export: only these slugs get a page, and nothing else is reachable.
 export const dynamicParams = false;
 
+// output: "export" refuses a dynamic route that generates nothing, and the journal
+// legitimately starts empty. So when there are no entries we still emit one page,
+// which renders the empty state instead of crashing the build.
+const EMPTY_SLUG = "none";
+
 export function generateStaticParams() {
-  return entrySlugs().map((slug) => ({ slug }));
+  const slugs = entrySlugs();
+  return slugs.length > 0 ? slugs.map((slug) => ({ slug })) : [{ slug: EMPTY_SLUG }];
 }
 
 type Props = { params: Promise<{ slug: string }> };
@@ -15,7 +21,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const entry = getEntry(slug);
-  if (!entry) return {};
+  if (!entry) return { title: "Journal", robots: { index: false, follow: false } };
 
   return {
     title: `${entry.title} · Journal`,
@@ -28,19 +34,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function JournalEntryPage({ params }: Props) {
   const { slug } = await params;
   const entry = getEntry(slug);
-  if (!entry) notFound();
+
+  if (!entry) {
+    if (slug === EMPTY_SLUG) {
+      return (
+        <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
+          <Link href="/journal/" className="link text-sm">Journal</Link>
+          <h1 className="display mt-10 text-4xl leading-[1.05]">No entries yet</h1>
+          <p className="mt-6 text-lg text-[var(--fg-muted)]">The first one is being written.</p>
+        </main>
+      );
+    }
+    notFound();
+  }
 
   const html = renderMarkdown(entry.body);
 
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
-      <Link href="/journal/" className="link font-mono text-xs tracking-[0.2em]">
-        JOURNAL
-      </Link>
+      <Link href="/journal/" className="link text-sm">Journal</Link>
 
       <header className="mt-10">
-        <h1 className="display text-3xl sm:text-4xl">{entry.title}</h1>
-        <p className="mt-3 font-mono text-xs tracking-wide text-[var(--fg-muted)]">
+        <h1 className="display text-4xl leading-[1.05] sm:text-5xl">{entry.title}</h1>
+        <p className="mt-4 text-sm text-[var(--fg-muted)]">
           <time dateTime={entry.date}>{formatDate(entry.date)}</time>
           {entry.place ? ` · ${entry.place}` : ""}
           {entry.visibility === "unlisted" ? " · unlisted" : ""}
@@ -57,7 +73,7 @@ export default async function JournalEntryPage({ params }: Props) {
           {entry.tags.map((t) => (
             <li
               key={t}
-              className="rounded-full border border-[var(--line)] px-3 py-1 font-mono text-[10px] tracking-wider text-[var(--fg-muted)]"
+              className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--fg-muted)]"
             >
               {t}
             </li>
