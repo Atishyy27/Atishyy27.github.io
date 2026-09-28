@@ -21,7 +21,6 @@ import Palette from "@/components/Palette";
 import BuildLog from "@/components/BuildLog";
 import { useOverrides } from "@/lib/overrides";
 
-const Scene = dynamic(() => import("@/components/Scene"), { ssr: false });
 
 function Head({ n, title, kicker }: { n: string; title: string; kicker?: string }) {
   return (
@@ -55,7 +54,6 @@ export default function Home() {
       <Track />
       <Nav />
       <Palette />
-      <Scene />
 
       <main id="top" className="relative">
         {/* HERO */}
@@ -97,9 +95,6 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-8 mx-auto max-w-6xl px-6 sm:px-10 lg:px-16">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <span className="font-mono text-[10px] tracking-[0.3em] text-[var(--fg-muted)]">SCROLL ↓</span>
-              <span className="hidden font-mono text-[10px] tracking-[0.2em] text-[var(--fg-muted)] sm:block">
-                OPEN THIS IN TWO WINDOWS ✦
-              </span>
             </div>
           </div>
         </header>
