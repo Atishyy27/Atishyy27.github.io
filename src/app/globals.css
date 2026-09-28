@@ -8,14 +8,29 @@
 /* Dark-committed. The WebGL backdrop is the light source; a light theme
    would fight it, so this design deliberately picks one look. */
 :root {
-  --bg: #07090d;
-  --bg-raised: #0e1219cc;
-  --fg: #f2f4f7;
-  --fg-muted: #98a2b3;
+  /* Near-black, neutral. The old value was blue-tinted, which is what made large
+     areas read as murky rather than dark. */
+  --bg: #0a0a0b;
+  --bg-raised: #131315;
+  --fg: #ededee;
+  --fg-muted: #8c8c92;
   --line: #ffffff14;
-  --accent: #3fbdbd;
-  --accent-2: #ff9d5c;
-  --accent-soft: #3fbdbd1f;
+  /* One accent, used for links and focus only. The second accent is kept for the
+     rare highlight but is no longer a co-star. */
+  --accent: #5eb3b3;
+  --accent-2: #c98a5e;
+  --accent-soft: #5eb3b31f;
+
+  /* Type scale. Two jumps only: display, then body. Complexity in the scale is what
+     makes a page look busy. */
+  --step-display: clamp(2.75rem, 7vw, 5rem);
+  --step-h2: 1.125rem;
+  --step-body: 1rem;
+  --step-small: 0.8125rem;
+
+  /* One spacing rhythm, so sections cannot drift out of alignment. */
+  --gutter: 1.5rem;
+  --measure: 46rem;
 }
 
 * { box-sizing: border-box; }
@@ -36,17 +51,6 @@ body {
 
 /* Static gradient behind everything — this IS the design on mobile and
    under reduced-motion, where the canvas never mounts. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -20;
-  background:
-    radial-gradient(120% 80% at 78% 12%, #0f4f52 0%, transparent 55%),
-    radial-gradient(100% 70% at 8% 88%, #3a1f14 0%, transparent 50%),
-    #07090d;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   body::after { animation: none; }
@@ -150,9 +154,35 @@ body::before {
 /* Big display numerals / headings */
 .display {
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.95;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
 }
+
+/* One row height, one hairline. This grid is what stops rows floating. */
+.row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 640px) {
+  .row { grid-template-columns: 1fr; gap: 0.35rem; }
+}
+.row-kind {
+  font-size: var(--step-small);
+  color: var(--fg-muted);
+}
+.row-name { font-size: 1.0625rem; font-weight: 500; letter-spacing: -0.01em; }
+.row-line { font-size: var(--step-small); color: var(--fg-muted); margin-top: 0.25rem; }
+.row a:hover .row-name { color: var(--accent); }
+
+.journal-body { font-size: 1.0625rem; line-height: 1.75; }
+.journal-body p { margin: 1.15em 0; }
+.journal-body h2 { font-size: 1.25rem; margin: 2em 0 0.6em; letter-spacing: -0.01em; }
+.journal-body a { color: var(--accent); }
 
 /* konami party mode */
 .party {
