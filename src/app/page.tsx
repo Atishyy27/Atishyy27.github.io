@@ -7,7 +7,7 @@ import {
   publications, education, skills, about as aboutDefault,
 } from "@/content/site";
 import {
-  Marquee, Preloader, Reveal, ScrollProgress, SmoothScroll, SplitHeading, Tilt,
+  Marquee, Reveal, ScrollProgress, SmoothScroll, SplitHeading, Tilt,
 } from "@/components/Chrome";
 import { CpSection, WorkGrid, WorkExplorer, ResumeEmbed } from "@/components/Panels";
 import GitHubActivity from "@/components/GitHubActivity";
@@ -49,7 +49,6 @@ export default function Home() {
 
   return (
     <>
-      <Preloader />
       <SmoothScroll />
       <ScrollProgress />
       <Eggs />

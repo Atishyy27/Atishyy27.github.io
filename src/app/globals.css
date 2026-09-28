@@ -81,38 +81,6 @@ body::after {
 
 /* real system cursor restored (custom cursor removed) */
 
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 999px;
-  will-change: transform;
-}
-
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  background: var(--accent);
-}
-
-.cursor-ring {
-  width: 34px;
-  height: 34px;
-  margin: -17px 0 0 -17px;
-  border: 1px solid #ffffff40;
-  transition: width 0.25s, height 0.25s, margin 0.25s, background 0.25s, border-color 0.25s;
-}
-
-.cursor-ring.is-active {
-  width: 62px;
-  height: 62px;
-  margin: -31px 0 0 -31px;
-  background: var(--accent-soft);
-  border-color: var(--accent);
-}
-
 /* ---------- surfaces ---------- */
 
 .glass {

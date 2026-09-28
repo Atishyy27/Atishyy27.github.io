@@ -44,56 +44,6 @@ export function ScrollProgress() {
   );
 }
 
-/* ---------------- custom cursor ---------------- */
-
-export function Cursor() {
-  const dot = useRef<HTMLDivElement>(null);
-  const ring = useRef<HTMLDivElement>(null);
-  const [on, setOn] = useState(false);
-
-  useEffect(() => {
-    // pointer:fine keeps this off touch devices, where it's meaningless
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    setOn(true);
-
-    const pos = { x: innerWidth / 2, y: innerHeight / 2 };
-    const ringPos = { ...pos };
-    let raf = 0;
-
-    const move = (e: PointerEvent) => {
-      pos.x = e.clientX;
-      pos.y = e.clientY;
-      const t = e.target as HTMLElement;
-      const interactive = !!t.closest("a, button, [data-cursor]");
-      ring.current?.classList.toggle("is-active", interactive);
-    };
-
-    const loop = () => {
-      ringPos.x += (pos.x - ringPos.x) * 0.14;
-      ringPos.y += (pos.y - ringPos.y) * 0.14;
-      if (dot.current) dot.current.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0)`;
-      if (ring.current)
-        ring.current.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0)`;
-      raf = requestAnimationFrame(loop);
-    };
-
-    window.addEventListener("pointermove", move, { passive: true });
-    raf = requestAnimationFrame(loop);
-    return () => {
-      window.removeEventListener("pointermove", move);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  if (!on) return null;
-  return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-[60] hidden md:block">
-      <div ref={dot} className="cursor-dot" />
-      <div ref={ring} className="cursor-ring" />
-    </div>
-  );
-}
-
 /* ---------------- scroll reveal ---------------- */
 
 export function Reveal({
@@ -194,46 +144,5 @@ export function Tilt({
     <div ref={ref} onPointerMove={onMove} className={`tilt ${className ?? ""}`}>
       {children}
     </div>
-  );
-}
-
-/* ---------------- preloader ---------------- */
-
-export function Preloader() {
-  const [pct, setPct] = useState(0);
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDone(true);
-      return;
-    }
-    let v = 0;
-    const id = setInterval(() => {
-      v = Math.min(100, v + Math.random() * 18);
-      setPct(Math.floor(v));
-      if (v >= 100) {
-        clearInterval(id);
-        setTimeout(() => setDone(true), 380);
-      }
-    }, 90);
-    return () => clearInterval(id);
-  }, []);
-
-  if (done) return null;
-  return (
-    <motion.div
-      className="fixed inset-0 z-[80] flex items-end justify-between bg-[#07090d] px-6 pb-6 sm:px-10 sm:pb-10"
-      exit={{ opacity: 0 }}
-      animate={{ opacity: pct >= 100 ? 0 : 1 }}
-      transition={{ duration: 0.35 }}
-    >
-      <span className="font-mono text-xs tracking-[0.3em] text-[var(--fg-muted)]">
-        ATISHAY JAIN
-      </span>
-      <span className="font-mono text-[12vw] leading-none text-[var(--fg)] sm:text-[7vw]">
-        {String(pct).padStart(3, "0")}
-      </span>
-    </motion.div>
   );
 }

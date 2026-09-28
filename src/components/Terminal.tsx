@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { proof } from "@/content/site";
 import {
   person, about, experience, govtWork, clientWork, orgWork,
   extensions, hackathons, cpProfiles,
@@ -102,7 +103,7 @@ export default function Terminal() {
         break;
       }
       case "oss":
-        push({ t: "out", text: "74 PRs across open-source infra. Merged fixes in rust-lightning, OPA, Meshery, zowe-cli, braidpool." }, { t: "link", text: "see the live list", href: "#opensource" });
+        push({ t: "out", text: `${proof.find((x) => x.label.includes("open-source"))?.stat ?? ""} across open-source infra. Merged fixes in rust-lightning, OPA, Meshery, zowe-cli, braidpool.` }, { t: "link", text: "see the live list", href: "#opensource" });
         break;
       case "stats":
         cpProfiles.forEach((p) => push({ t: "out", text: `${p.site.padEnd(11)} ${p.rank} · ${p.detail}` }));
