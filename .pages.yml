@@ -1,0 +1,42 @@
+# Pages CMS config. Lets Atishay write journal entries in a web form and have them
+# committed as ordinary markdown to content/journal/, with no server and no cost.
+# The build, the draft filtering and the output checks are untouched: the CMS is just
+# another way of writing the same file.
+#
+# UNVERIFIED at time of writing: the exact `select`/`default`/`rich-text` field syntax,
+# and whether the date picker writes YYYY-MM-DD. journal.ts throws on any other date
+# format, which fails the build loudly rather than silently, so a first test post will
+# prove it either way.
+
+media:
+  input: public/journal
+  output: /journal
+  rename: safe
+
+content:
+  - name: journal
+    label: Journal
+    type: collection
+    path: content/journal
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - { name: title, type: string, required: true }
+      - { name: date, type: date, required: true }
+      - { name: place, type: string }
+      - { name: tags, type: string, list: true }
+      - { name: cover, type: image }
+      - name: status
+        type: select
+        default: draft
+        options: { values: [draft, published] }
+      - name: visibility
+        type: select
+        default: public
+        options: { values: [public, unlisted] }
+      - { name: project, type: string }
+      - { name: body, type: rich-text }

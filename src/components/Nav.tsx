@@ -12,6 +12,13 @@ const LINKS = [
   ["About", "about"],
 ];
 
+// Real routes, not anchors on this page. Kept separate so the scroll-spy above
+// never tries to observe an element that does not exist on the current page.
+const ROUTES: [string, string][] = [
+  ["Projects", "/projects/"],
+  ["Journal", "/journal/"],
+];
+
 export default function Nav() {
   const [active, setActive] = useState("");
   const [solid, setSolid] = useState(false);
@@ -61,6 +68,16 @@ export default function Nav() {
               className={`text-xs transition-colors ${
                 active === id ? "text-[var(--accent)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
               }`}
+            >
+              {label}
+            </a>
+          ))}
+          <span className="h-3 w-px bg-[var(--line)]" aria-hidden="true" />
+          {ROUTES.map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              className="text-xs text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
             >
               {label}
             </a>
