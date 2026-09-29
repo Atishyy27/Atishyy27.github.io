@@ -5,16 +5,6 @@ const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
   trailingSlash: true,
-  webpack: (config) => {
-    // transformers.js pulls in node-only deps it never uses in the browser;
-    // stub them so the static build doesn't try to bundle them.
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      sharp$: false,
-      "onnxruntime-node$": false,
-    };
-    return config;
-  },
 };
 
 export default nextConfig;

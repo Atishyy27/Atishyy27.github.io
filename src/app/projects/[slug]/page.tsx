@@ -45,6 +45,14 @@ export default async function ProjectPage({ params }: Props) {
       <section className="mt-12">
         <h2 className="text-sm font-medium text-[var(--fg-muted)]">What it is</h2>
         <p className="mt-4 leading-relaxed">{p.blurb}</p>
+        {/* A counted claim that cannot be fetched live carries the date it was
+            last checked, so a stale number is visibly stale instead of quietly
+            wrong. */}
+        {p.countsAsOf ? (
+          <p className="mt-3 font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
+            counts checked {formatDate(p.countsAsOf)}
+          </p>
+        ) : null}
       </section>
 
       <section className="mt-12">

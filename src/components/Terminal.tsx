@@ -9,15 +9,17 @@ import {
 import { answer as ragAnswer } from "@/lib/rag";
 
 /* ==================================================================
-   The terminal. Commands run instantly; `ask <question>` boots the
-   in-browser SLM (see lib/rag.ts) and answers from real content.
+   The terminal. Commands run instantly; `ask <question>` searches my
+   real content with BM25 (see lib/rag.ts) and returns the matching
+   passage with its source. Nothing is downloaded and nothing is
+   generated, so it cannot answer with something I never wrote.
 ================================================================== */
 
 type Line = { t: "in" | "out" | "sys" | "link" | "think"; text: string; href?: string };
 
 const BANNER = [
   "atishay.tech, interactive shell",
-  "type `help`, or `ask <anything about my work>` to boot the on-device model",
+  "type `help`, or `ask <anything about my work>` to search my work",
 ];
 
 // one click each, so nobody has to guess what this thing knows

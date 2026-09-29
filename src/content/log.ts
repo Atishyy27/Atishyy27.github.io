@@ -24,6 +24,21 @@ export type Entry = {
 
 export const log: Entry[] = [
   {
+    date: "2026-09-30",
+    title: "I deleted the language model from my own site",
+    tags: ["BM25", "retrieval", "performance"],
+    body: [
+      "The ask box used to load two models before it would answer anything: MiniLM to embed, and a 77M-parameter Flan-T5 to phrase the result. Together that is 118 to 174MB, downloaded on a page whose whole pitch is that it is quick to look at. On mobile data it is not a feature, it is a toll.",
+      "The corpus is 38 short chunks. At that size a lexical ranker is not a downgrade, it is the right tool: BM25 over 38 documents is exact, runs in well under a millisecond, and ships zero bytes. Writing it took less code than the model loader it replaced.",
+      "Removing the generator turned out to matter more than the size. A small model's job was to rephrase retrieved text, and rephrasing is exactly where it could quietly invent an internship I never did. Now the answer is the sentence I actually wrote, with the link attached. Less fluent, and it cannot lie.",
+      "I wrote tests first this time, and they caught four bugs I would have shipped. Hyphenated phrases were indexed whole, so \"anti-money-laundering\" could not be found by searching \"money\". Stripping \"ing\" off \"programming\" left \"programm\", which never matched \"program\". \"where did you study\" matched nothing because the education chunk contained the institute's name but not one word a person would type. And \"do you keep bees in antarctica\" confidently returned my About section, because it matched the single word \"keep\".",
+      "That last one is the one worth keeping in mind. A retrieval system with no confidence floor always has an answer, and an answer that is always available is not evidence of anything. It now requires the top chunk to cover at least half the terms you asked about, or it says it has nothing.",
+    ],
+    embed: { kind: "repo", id: "Atishyy27/Atishyy27.github.io" },
+  },
+  {
+    // Superseded by the 2026-09-30 entry above. Left as written: this is a log,
+    // and what I believed in July is part of the record.
     date: "2026-07-23",
     title: "A language model that answers from my work, with no API behind it",
     tags: ["transformers.js", "RAG", "WASM"],

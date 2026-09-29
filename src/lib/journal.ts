@@ -105,8 +105,7 @@ export function renderMarkdown(md: string): string {
   return marked.parse(md, { async: false }) as string;
 }
 
-export function formatDate(iso: string): string {
-  const [y, m, d] = iso.split("-").map(Number);
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return `${d} ${months[m - 1]} ${y}`;
-}
+// Re-exported so the pages already importing it from here keep working. The
+// implementation moved to lib/date.ts, which client components can import
+// without pulling node:fs into the bundle.
+export { formatDate } from "./date";

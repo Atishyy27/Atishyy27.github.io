@@ -121,6 +121,17 @@ export type Work = {
   links: { label: string; href: string }[];
   privateNote?: string;
   featured?: boolean;
+  /**
+   * Date a counted claim in `blurb` was last checked against its source, as
+   * YYYY-MM-DD. Any blurb stating a number the Chrome Web Store or a platform
+   * owns must carry this, because a bare "265 users" is a number that was true
+   * once and silently rots afterwards. Rendered next to the claim.
+   *
+   * These cannot be fetched in the browser the way the GitHub and Codeforces
+   * counts are: the Chrome Web Store serves no CORS-open API, so the number is
+   * copied by hand and the date is what keeps it honest.
+   */
+  countsAsOf?: string;
 };
 
 export const govtWork: Work[] = [
@@ -183,7 +194,10 @@ export const orgWork: Work[] = [
     org: "SGSITS",
     domain: "sgsits.ac.in",
     blurb: "Provident-fund system for the institute finance department. ₹1Cr+ in monthly funds, automated reconciliation, bulk imports of 10K+ records, RBAC and persistent audit logging.",
-    stack: ["Spring Boot", "Angular", "MySQL"],
+    // Listed as Angular until 2026-09-29. The repo has no angular.json and no
+    // app.module.ts: Frontend/ and pwa/ are both React 18 on Vite, and the
+    // default datasource in application.properties is MySQL.
+    stack: ["Spring Boot", "React", "TypeScript", "MySQL", "Flyway"],
     links: [{ label: "Code", href: "https://github.com/Atishyy27/PFMS" }],
   },
   { name: "DAVV Incubation Centre", domain: "davvincubationcentre.com", blurb: "CMS platform for the university incubation centre.", stack: ["WordPress"], links: [{ label: "Live", href: "https://davvincubationcentre.com/" }] },
@@ -193,13 +207,15 @@ export const orgWork: Work[] = [
 export const extensions: Work[] = [
   {
     name: "PRD Verification Tool",
-    blurb: "PDF compression, conversion and renaming with auto-filled Google Forms. 150 users.",
+    blurb: "PDF compression, conversion and renaming with auto-filled Google Forms. 127 users.",
+    countsAsOf: "2026-09-29",
     stack: ["Chrome APIs", "JavaScript"],
     links: [{ label: "Chrome Web Store", href: "https://chromewebstore.google.com/detail/prd-verification-tool/lhebknliliiigghklkdkljobkkmbhaoj" }],
   },
   {
     name: "LeetCode Analytics",
-    blurb: "CP-focused metrics injected directly into LeetCode profiles: difficulty spread, topic breakdown, trends, over their GraphQL API with no data collection. 130 users.",
+    blurb: "CP-focused metrics injected directly into LeetCode profiles: difficulty spread, topic breakdown, trends, over their GraphQL API with no data collection. 265 users.",
+    countsAsOf: "2026-09-29",
     stack: ["Chrome APIs", "GraphQL"],
     links: [
       { label: "Chrome Web Store", href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba" },
