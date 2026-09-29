@@ -79,6 +79,48 @@ for (const route of ["/projects/", "/work/", "/oss/", "/stats/", "/log/", "/jour
   check("home links " + route, home.includes('href="' + route + '"') || home.includes('href=\\"' + route + '\\"'));
 }
 
+// 4. Every built page must be in the sitemap, or search engines never see it.
+//    The sitemap listed 21 urls while the site built 88, so /work, /oss,
+//    /stats, /log, /about and all 58 repository pages were invisible.
+//    Deliberate omissions are listed here and nowhere else.
+const SITEMAP_EXCLUDE = [
+  "/admin/",            // local-only editor, nothing to index
+  "/journal/none/",     // placeholder page for the empty journal
+  "/404.html",
+  "/404/",              // Next emits this; a 404 page has no business in a sitemap
+];
+
+const sitemapPath = path.join(OUT, "sitemap.xml");
+if (!fs.existsSync(sitemapPath)) {
+  check("sitemap.xml exists", false, "not built");
+} else {
+  const xml = fs.readFileSync(sitemapPath, "utf8");
+  const listed = new Set(
+    [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname)
+  );
+
+  const builtRoutes = pages
+    .map((p) => "/" + path.relative(OUT, p).replace(/index\.html$/, "").replace(/\\/g, "/"))
+    .filter((r) => !r.endsWith(".html"))
+    .filter((r) => !SITEMAP_EXCLUDE.includes(r));
+
+  // Unlisted journal entries are supposed to be absent, and check-journal
+  // already asserts that, so they are not counted as a miss here.
+  const unlisted = new Set(
+    [...fs.readdirSync(path.join(OUT, "journal"), { withFileTypes: true })]
+      .filter((e) => e.isDirectory() && e.name.includes("unlisted"))
+      .map((e) => `/journal/${e.name}/`)
+  );
+
+  const absent = builtRoutes.filter((r) => !listed.has(r) && !unlisted.has(r));
+  check(
+    "every built page is in the sitemap",
+    absent.length === 0,
+    `${absent.length} missing: ` + absent.slice(0, 8).join(", ")
+  );
+  console.log(`      sitemap lists ${listed.size}, site builds ${builtRoutes.length}`);
+}
+
 console.log("\nscanned " + pages.length + " pages, " + internalCount + " internal links");
 console.log(failures === 0 ? "ALL PASS" : failures + " FAILURE(S)");
 process.exit(failures === 0 ? 0 : 1);
