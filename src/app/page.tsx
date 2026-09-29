@@ -43,14 +43,18 @@ export default function Home() {
         </ul>
 
         {/* Counted facts where a hero image would go, since there is no imagery. */}
-        <dl className="mt-16 grid grid-cols-1 gap-px sm:grid-cols-3">
+        <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-px sm:grid-cols-4">
           {proof.map((p) => (
-            <div key={p.stat} className="border-t border-[var(--line)] pt-4">
+            <Link
+              key={p.stat}
+              href={p.href}
+              className="group border-t border-[var(--line)] pt-4 transition-colors hover:border-[var(--accent)]"
+            >
               <dt className="text-2xl font-medium tracking-tight">{p.stat}</dt>
-              <dd className="mt-1 text-[length:var(--step-small)] text-[var(--fg-muted)]">
+              <dd className="mt-1 text-[length:var(--step-small)] text-[var(--fg-muted)] group-hover:text-[var(--fg)]">
                 {p.label}
               </dd>
-            </div>
+            </Link>
           ))}
         </dl>
       </div>

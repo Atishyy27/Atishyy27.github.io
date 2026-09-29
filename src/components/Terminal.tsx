@@ -7,6 +7,7 @@ import {
   extensions, hackathons, cpProfiles,
 } from "@/content/site";
 import { answer as ragAnswer } from "@/lib/rag";
+import { oss } from "@/content/oss";
 
 /* ==================================================================
    The terminal. Commands run instantly; `ask <question>` searches my
@@ -105,7 +106,13 @@ export default function Terminal() {
         break;
       }
       case "oss":
-        push({ t: "out", text: `${proof.find((x) => x.label.includes("open-source"))?.stat ?? ""} across open-source infra. Merged fixes in rust-lightning, OPA, Meshery, zowe-cli, braidpool.` }, { t: "link", text: "see the live list", href: "#opensource" });
+        // Was reading proof.find(label includes "open-source"), which silently
+        // became undefined when that label changed, and linked to "#opensource",
+        // an anchor that stopped existing when the page became eight routes.
+        push(
+          { t: "out", text: `${oss.totals.merged} merged into ${oss.repos.filter((r) => r.merged > 0).length} repos I do not own, out of ${oss.totals.prs} opened across ${oss.repoCount}. ${oss.totals.open} still open.` },
+          { t: "link", text: "see every one", href: "/oss/" }
+        );
         break;
       case "stats":
         cpProfiles.forEach((p) => push({ t: "out", text: `${p.site.padEnd(11)} ${p.rank} · ${p.detail}` }));

@@ -25,10 +25,17 @@ export const person = {
   ],
 };
 
+// The hrefs were "#cp", "#opensource" and "#work", anchors that stopped
+// resolving the moment the single page became eight routes. They are routes now.
+//
+// "74 PRs" was here too. It matched no query: on 2026-09-30 the real figures
+// were 172 opened upstream, 55 merged, 82 still open. Replaced with the merged
+// count, which is smaller, true, and the one people actually weigh.
 export const proof = [
-  { stat: "Rank 12", label: "ICPC Mysuru on-site regionals 2025", href: "#cp" },
-  { stat: "74 PRs", label: "opened across open-source infrastructure", href: "#opensource" },
-  { stat: "2 apps", label: "live on the Play Store for the MP government", href: "#work" },
+  { stat: "Rank 12", label: "ICPC Mysuru on-site regionals 2025", href: "/stats/" },
+  { stat: "55 merged", label: "pull requests into repos I do not own, across 58 projects", href: "/oss/" },
+  { stat: "392 users", label: "on my two Chrome extensions, Web Store, 30 Sep 2026", href: "/projects/" },
+  { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/work/" },
 ];
 
 export const cpProfiles = [

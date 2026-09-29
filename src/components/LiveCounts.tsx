@@ -51,10 +51,30 @@ async function ghCount(q: string): Promise<number> {
 }
 
 export default function LiveCounts() {
+  // Each tile links to the GitHub search that produced its number, not to the
+  // bare profile. A count you cannot click through to is a claim, not evidence.
+  const search = (q: string) =>
+    `https://github.com/search?q=${encodeURIComponent(q)}&type=pullrequests`;
+
   const [tiles, setTiles] = useState<Tile[]>([
-    { key: "merged", label: "Pull requests merged", href: `https://github.com/${USER}`, value: null },
-    { key: "issues", label: "Issues filed", href: `https://github.com/${USER}`, value: null },
-    { key: "repos", label: "Public repositories", href: `https://github.com/${USER}?tab=repositories`, value: null },
+    {
+      key: "merged",
+      label: "Merged upstream",
+      href: search(`author:${USER} type:pr is:merged -user:${USER}`),
+      value: null,
+    },
+    {
+      key: "open",
+      label: "Open upstream",
+      href: search(`author:${USER} type:pr is:open -user:${USER}`),
+      value: null,
+    },
+    {
+      key: "issues",
+      label: "Issues filed",
+      href: `https://github.com/search?q=${encodeURIComponent(`author:${USER} type:issue`)}&type=issues`,
+      value: null,
+    },
     { key: "cf", label: "Codeforces rating", href: PROFILE_URL.codeforces, value: null },
   ]);
   const [at, setAt] = useState<string>("");
@@ -67,17 +87,20 @@ export default function LiveCounts() {
 
     // Each source settles on its own. One failing platform must not blank the
     // other three, which is why these are not a single Promise.all.
-    ghCount(`author:${USER} type:pr is:merged`)
+    // "-user:USER" excludes his own repositories. Merging your own pull request
+    // is not an open-source contribution, and counting it as one is the single
+    // easiest way to inflate this number.
+    ghCount(`author:${USER} type:pr is:merged -user:${USER}`)
       .then((n) => set("merged", { value: n }))
       .catch(() => set("merged", { value: false }));
+
+    ghCount(`author:${USER} type:pr is:open -user:${USER}`)
+      .then((n) => set("open", { value: n }))
+      .catch(() => set("open", { value: false }));
 
     ghCount(`author:${USER} type:issue`)
       .then((n) => set("issues", { value: n }))
       .catch(() => set("issues", { value: false }));
-
-    json(`https://api.github.com/users/${USER}`)
-      .then((j) => set("repos", { value: Number(j.public_repos ?? 0) }))
-      .catch(() => set("repos", { value: false }));
 
     json(`https://codeforces.com/api/user.info?handles=${HANDLES.codeforces}`)
       .then((j) => {

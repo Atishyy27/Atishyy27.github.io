@@ -1,0 +1,2028 @@
+{
+  "user": "Atishyy27",
+  "fetchedAt": "2026-09-29",
+  "note": "Upstream only: repositories Atishyy27 does not own. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
+  "totals": {
+    "merged": 55,
+    "open": 82,
+    "closed": 35,
+    "prs": 172
+  },
+  "repoCount": 58,
+  "repos": [
+    {
+      "full": "saloni0903/yoga-app",
+      "owner": "saloni0903",
+      "name": "yoga-app",
+      "slug": "saloni0903-yoga-app",
+      "merged": 16,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 29,
+          "title": "feat(groups): implement v2 features and bugfixes",
+          "url": "https://github.com/saloni0903/yoga-app/pull/29",
+          "state": "merged",
+          "created": "2025-10-31",
+          "closedAt": "2025-10-31"
+        },
+        {
+          "number": 25,
+          "title": "Fix/firebase config update",
+          "url": "https://github.com/saloni0903/yoga-app/pull/25",
+          "state": "merged",
+          "created": "2025-10-30",
+          "closedAt": "2025-10-30"
+        },
+        {
+          "number": 26,
+          "title": "fix(auth): Harden tryAutoLogin and Refactor Environment Config",
+          "url": "https://github.com/saloni0903/yoga-app/pull/26",
+          "state": "merged",
+          "created": "2025-10-30",
+          "closedAt": "2025-10-30"
+        },
+        {
+          "number": 27,
+          "title": "fix(data): Correctly query and display online groups",
+          "url": "https://github.com/saloni0903/yoga-app/pull/27",
+          "state": "merged",
+          "created": "2025-10-30",
+          "closedAt": "2025-10-30"
+        },
+        {
+          "number": 28,
+          "title": "fix(state): Resolve stale data and upgrade Group UI screens",
+          "url": "https://github.com/saloni0903/yoga-app/pull/28",
+          "state": "merged",
+          "created": "2025-10-30",
+          "closedAt": "2025-10-30"
+        },
+        {
+          "number": 19,
+          "title": "feat(admin): Implement new dashboard and instructor filtering",
+          "url": "https://github.com/saloni0903/yoga-app/pull/19",
+          "state": "merged",
+          "created": "2025-10-24",
+          "closedAt": "2025-10-24"
+        },
+        {
+          "number": 20,
+          "title": "feat(security/api): Secure Mobile Auth, Group Creation Fix, and Code Cleanup (Closes #10)",
+          "url": "https://github.com/saloni0903/yoga-app/pull/20",
+          "state": "merged",
+          "created": "2025-10-24",
+          "closedAt": "2025-10-24"
+        },
+        {
+          "number": 14,
+          "title": "refactor(db): remove obsolete Session.js model",
+          "url": "https://github.com/saloni0903/yoga-app/pull/14",
+          "state": "merged",
+          "created": "2025-10-23",
+          "closedAt": "2025-10-23"
+        },
+        {
+          "number": 15,
+          "title": "fix(auth): Resolve post-login 401 redirect loop and API crashes",
+          "url": "https://github.com/saloni0903/yoga-app/pull/15",
+          "state": "merged",
+          "created": "2025-10-23",
+          "closedAt": "2025-10-23"
+        },
+        {
+          "number": 17,
+          "title": "feat(arch): Complete dismantling of God Component and modularize app",
+          "url": "https://github.com/saloni0903/yoga-app/pull/17",
+          "state": "merged",
+          "created": "2025-10-23",
+          "closedAt": "2025-10-23"
+        },
+        {
+          "number": 2,
+          "title": "Arch: Rearchitect Session Management to be Stateless",
+          "url": "https://github.com/saloni0903/yoga-app/pull/2",
+          "state": "merged",
+          "created": "2025-10-19",
+          "closedAt": "2025-10-19"
+        },
+        {
+          "number": 4,
+          "title": "Security/cookie based auth",
+          "url": "https://github.com/saloni0903/yoga-app/pull/4",
+          "state": "merged",
+          "created": "2025-10-19",
+          "closedAt": "2025-10-19"
+        },
+        {
+          "number": 6,
+          "title": "Refactor: Migrate All Model Keys to ObjectId",
+          "url": "https://github.com/saloni0903/yoga-app/pull/6",
+          "state": "merged",
+          "created": "2025-10-19",
+          "closedAt": "2025-10-19"
+        },
+        {
+          "number": 7,
+          "title": "Fix/cors flutter integration",
+          "url": "https://github.com/saloni0903/yoga-app/pull/7",
+          "state": "merged",
+          "created": "2025-10-19",
+          "closedAt": "2025-10-19"
+        },
+        {
+          "number": 8,
+          "title": "Fix/cors flutter integration",
+          "url": "https://github.com/saloni0903/yoga-app/pull/8",
+          "state": "merged",
+          "created": "2025-10-19",
+          "closedAt": "2025-10-19"
+        },
+        {
+          "number": 9,
+          "title": "fix: Update CORS to always allow localhost",
+          "url": "https://github.com/saloni0903/yoga-app/pull/9",
+          "state": "merged",
+          "created": "2025-10-19",
+          "closedAt": "2025-10-19"
+        }
+      ]
+    },
+    {
+      "full": "podman-container-tools/podman",
+      "owner": "podman-container-tools",
+      "name": "podman",
+      "slug": "podman-container-tools-podman",
+      "merged": 4,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 29653,
+          "title": "fix(remote): keep '=' in a prune filter value",
+          "url": "https://github.com/podman-container-tools/podman/pull/29653",
+          "state": "merged",
+          "created": "2026-08-26",
+          "closedAt": "2026-09-10"
+        },
+        {
+          "number": 29654,
+          "title": "fix(libpod): keep '=' in a volume subpath",
+          "url": "https://github.com/podman-container-tools/podman/pull/29654",
+          "state": "merged",
+          "created": "2026-08-26",
+          "closedAt": "2026-09-01"
+        },
+        {
+          "number": 29598,
+          "title": "test/system: fail loudly when _prefetch cannot fetch or load an image",
+          "url": "https://github.com/podman-container-tools/podman/pull/29598",
+          "state": "closed",
+          "created": "2026-08-20",
+          "closedAt": "2026-08-21"
+        },
+        {
+          "number": 29534,
+          "title": "Fix ErrorToStringArray empty output handling",
+          "url": "https://github.com/podman-container-tools/podman/pull/29534",
+          "state": "merged",
+          "created": "2026-08-15",
+          "closedAt": "2026-08-20"
+        },
+        {
+          "number": 29446,
+          "title": "test/utils: handle empty image output",
+          "url": "https://github.com/podman-container-tools/podman/pull/29446",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "full": "braidpool/braidpool",
+      "owner": "braidpool",
+      "name": "braidpool",
+      "slug": "braidpool-braidpool",
+      "merged": 3,
+      "open": 6,
+      "closed": 4,
+      "prs": [
+        {
+          "number": 570,
+          "title": "behaviour: disconnect the peer when a bead sync response channel is closed",
+          "url": "https://github.com/braidpool/braidpool/pull/570",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        },
+        {
+          "number": 551,
+          "title": "fuzz: add cargo-fuzz targets for the bead sync decoders",
+          "url": "https://github.com/braidpool/braidpool/pull/551",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null
+        },
+        {
+          "number": 552,
+          "title": "bead: cap peer-supplied length before preallocating in vec decoders",
+          "url": "https://github.com/braidpool/braidpool/pull/552",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null
+        },
+        {
+          "number": 554,
+          "title": "bead: cap bytes read from a peer before decoding sync messages",
+          "url": "https://github.com/braidpool/braidpool/pull/554",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null
+        },
+        {
+          "number": 548,
+          "title": "bead: return decode error for out-of-range parent timestamps instead of panicking",
+          "url": "https://github.com/braidpool/braidpool/pull/548",
+          "state": "open",
+          "created": "2026-09-14",
+          "closedAt": null
+        },
+        {
+          "number": 547,
+          "title": "fuzz: add cargo-fuzz harness with a merkle path proof target",
+          "url": "https://github.com/braidpool/braidpool/pull/547",
+          "state": "closed",
+          "created": "2026-09-12",
+          "closedAt": "2026-09-14"
+        },
+        {
+          "number": 524,
+          "title": "fix(node): return decode errors instead of panicking on malformed peer metadata",
+          "url": "https://github.com/braidpool/braidpool/pull/524",
+          "state": "merged",
+          "created": "2026-08-06",
+          "closedAt": "2026-08-09"
+        },
+        {
+          "number": 522,
+          "title": "fix(node): drop peer connection instead of panicking on a malformed message",
+          "url": "https://github.com/braidpool/braidpool/pull/522",
+          "state": "closed",
+          "created": "2026-08-05",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "number": 517,
+          "title": "db: read parent timestamp as u32 in fetch_bead_by_bead_hash",
+          "url": "https://github.com/braidpool/braidpool/pull/517",
+          "state": "merged",
+          "created": "2026-07-27",
+          "closedAt": "2026-07-28"
+        },
+        {
+          "number": 495,
+          "title": "db: validate persisted bead metadata on read to prevent crash-on-restart",
+          "url": "https://github.com/braidpool/braidpool/pull/495",
+          "state": "closed",
+          "created": "2026-07-08",
+          "closedAt": "2026-07-12"
+        },
+        {
+          "number": 496,
+          "title": "rpc: restrict bitcoinproxy to a read-only method allowlist",
+          "url": "https://github.com/braidpool/braidpool/pull/496",
+          "state": "closed",
+          "created": "2026-07-08",
+          "closedAt": "2026-07-12"
+        },
+        {
+          "number": 493,
+          "title": "tests: fix mutable default argument in all_ancestors",
+          "url": "https://github.com/braidpool/braidpool/pull/493",
+          "state": "open",
+          "created": "2026-07-06",
+          "closedAt": null
+        },
+        {
+          "number": 490,
+          "title": "db: read parent_timestamp as u32 to avoid 2038 overflow",
+          "url": "https://github.com/braidpool/braidpool/pull/490",
+          "state": "merged",
+          "created": "2026-07-04",
+          "closedAt": "2026-07-05"
+        }
+      ]
+    },
+    {
+      "full": "fedimint/fedimint",
+      "owner": "fedimint",
+      "name": "fedimint",
+      "slug": "fedimint-fedimint",
+      "merged": 3,
+      "open": 5,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 9216,
+          "title": "fix(wallet-client): stop an interrupted recovery from bricking every later open",
+          "url": "https://github.com/fedimint/fedimint/pull/9216",
+          "state": "open",
+          "created": "2026-09-28",
+          "closedAt": null
+        },
+        {
+          "number": 9202,
+          "title": "fix(wallet-client): retry a deposit the Bitcoin backend cannot prove",
+          "url": "https://github.com/fedimint/fedimint/pull/9202",
+          "state": "open",
+          "created": "2026-09-25",
+          "closedAt": null
+        },
+        {
+          "number": 9203,
+          "title": "fix(bitcoin-rpc): bound the hybrid startup chain identity probes",
+          "url": "https://github.com/fedimint/fedimint/pull/9203",
+          "state": "open",
+          "created": "2026-09-25",
+          "closedAt": null
+        },
+        {
+          "number": 9198,
+          "title": "fix(server): stop the p2p receive half between frames instead of dropping it",
+          "url": "https://github.com/fedimint/fedimint/pull/9198",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        },
+        {
+          "number": 9182,
+          "title": "fix(lnurl): validate both address halves against the LUD-16 charset",
+          "url": "https://github.com/fedimint/fedimint/pull/9182",
+          "state": "open",
+          "created": "2026-09-20",
+          "closedAt": null
+        },
+        {
+          "number": 9143,
+          "title": "fix(gateway): select mintv2 module by asset unit, not first instance",
+          "url": "https://github.com/fedimint/fedimint/pull/9143",
+          "state": "merged",
+          "created": "2026-09-13",
+          "closedAt": "2026-09-16"
+        },
+        {
+          "number": 8921,
+          "title": "fix(lnv2): check both PaymentFee components against the fee limits",
+          "url": "https://github.com/fedimint/fedimint/pull/8921",
+          "state": "merged",
+          "created": "2026-07-30",
+          "closedAt": "2026-07-30"
+        },
+        {
+          "number": 8907,
+          "title": "fix(lnv2): saturate PaymentFee addition instead of overflowing",
+          "url": "https://github.com/fedimint/fedimint/pull/8907",
+          "state": "closed",
+          "created": "2026-07-29",
+          "closedAt": "2026-08-04"
+        },
+        {
+          "number": 8854,
+          "title": "core: fix panics decoding untrusted Duration and SystemTime",
+          "url": "https://github.com/fedimint/fedimint/pull/8854",
+          "state": "merged",
+          "created": "2026-07-22",
+          "closedAt": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "full": "pyannote/pyannote-metrics",
+      "owner": "pyannote",
+      "name": "pyannote-metrics",
+      "slug": "pyannote-pyannote-metrics",
+      "merged": 3,
+      "open": 2,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 99,
+          "title": "feat: add metrics together to evaluate files in parallel",
+          "url": "https://github.com/pyannote/pyannote-metrics/pull/99",
+          "state": "open",
+          "created": "2026-09-11",
+          "closedAt": null
+        },
+        {
+          "number": 96,
+          "title": "fix: match segmentation boundaries optimally instead of greedily",
+          "url": "https://github.com/pyannote/pyannote-metrics/pull/96",
+          "state": "open",
+          "created": "2026-07-30",
+          "closedAt": null
+        },
+        {
+          "number": 92,
+          "title": "fix: guard JaccardErrorRate against an empty reference",
+          "url": "https://github.com/pyannote/pyannote-metrics/pull/92",
+          "state": "merged",
+          "created": "2026-07-29",
+          "closedAt": "2026-07-29"
+        },
+        {
+          "number": 94,
+          "title": "fix: clamp SegmentationPrecision boundary counts for empty timelines",
+          "url": "https://github.com/pyannote/pyannote-metrics/pull/94",
+          "state": "merged",
+          "created": "2026-07-29",
+          "closedAt": "2026-07-29"
+        },
+        {
+          "number": 90,
+          "title": "fix: handle empty annotations in segmentation metrics",
+          "url": "https://github.com/pyannote/pyannote-metrics/pull/90",
+          "state": "merged",
+          "created": "2026-07-28",
+          "closedAt": "2026-07-29"
+        }
+      ]
+    },
+    {
+      "full": "open-telemetry/opentelemetry-python-contrib",
+      "owner": "open-telemetry",
+      "name": "opentelemetry-python-contrib",
+      "slug": "open-telemetry-opentelemetry-python-contrib",
+      "merged": 3,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 4942,
+          "title": "fix(psycopg2): avoid IndexError in get_operation_name for comment/whitespace-only statements",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4942",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "number": 4943,
+          "title": "fix(sqlalchemy): avoid IndexError in _operation_name for comment/whitespace-only statements",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4943",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "number": 4936,
+          "title": "fix(psycopg): avoid IndexError in get_operation_name for comment/whitespace-only statements",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4936",
+          "state": "merged",
+          "created": "2026-08-08",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "number": 4934,
+          "title": "fix(dbapi): avoid IndexError in get_operation_name for comment/whites…",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4934",
+          "state": "open",
+          "created": "2026-08-06",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "iamrahulmahato/master-web-development",
+      "owner": "iamrahulmahato",
+      "name": "master-web-development",
+      "slug": "iamrahulmahato-master-web-development",
+      "merged": 3,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2387,
+          "title": "Bug fix: Inconsistent Dark Mode ",
+          "url": "https://github.com/iamrahulmahato/master-web-development/pull/2387",
+          "state": "merged",
+          "created": "2024-11-10",
+          "closedAt": "2024-11-10"
+        },
+        {
+          "number": 2410,
+          "title": "Added chess card in home page",
+          "url": "https://github.com/iamrahulmahato/master-web-development/pull/2410",
+          "state": "merged",
+          "created": "2024-11-10",
+          "closedAt": "2024-11-10"
+        },
+        {
+          "number": 2242,
+          "title": "issue #73 resolved: Added Chess Game Project",
+          "url": "https://github.com/iamrahulmahato/master-web-development/pull/2242",
+          "state": "merged",
+          "created": "2024-11-07",
+          "closedAt": "2024-11-08"
+        }
+      ]
+    },
+    {
+      "full": "meshery/meshery",
+      "owner": "meshery",
+      "name": "meshery",
+      "slug": "meshery-meshery",
+      "merged": 2,
+      "open": 5,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 21441,
+          "title": "[mesheryctl] Fix system logs --follow spinning forever after the log stream ends",
+          "url": "https://github.com/meshery/meshery/pull/21441",
+          "state": "open",
+          "created": "2026-08-17",
+          "closedAt": null
+        },
+        {
+          "number": 21319,
+          "title": "[mesheryctl] Guard type assertions in GetID and GetName",
+          "url": "https://github.com/meshery/meshery/pull/21319",
+          "state": "open",
+          "created": "2026-08-10",
+          "closedAt": null
+        },
+        {
+          "number": 21208,
+          "title": "Create introductory file",
+          "url": "https://github.com/meshery/meshery/pull/21208",
+          "state": "merged",
+          "created": "2026-08-07",
+          "closedAt": "2026-08-07"
+        },
+        {
+          "number": 21115,
+          "title": "[mesheryctl] Close the response body in dashboard keepConnectionAlive",
+          "url": "https://github.com/meshery/meshery/pull/21115",
+          "state": "open",
+          "created": "2026-08-04",
+          "closedAt": null
+        },
+        {
+          "number": 21051,
+          "title": "[mesheryctl] Guard type assertions in model import error output",
+          "url": "https://github.com/meshery/meshery/pull/21051",
+          "state": "open",
+          "created": "2026-08-01",
+          "closedAt": null
+        },
+        {
+          "number": 20989,
+          "title": "[Server] Guard nil filter and nil filter.Type in getAvailableAddons",
+          "url": "https://github.com/meshery/meshery/pull/20989",
+          "state": "open",
+          "created": "2026-07-28",
+          "closedAt": null
+        },
+        {
+          "number": 20733,
+          "title": "[Server] Fix nil pointer crash in MeshSync auto-registration",
+          "url": "https://github.com/meshery/meshery/pull/20733",
+          "state": "merged",
+          "created": "2026-07-17",
+          "closedAt": "2026-07-20"
+        }
+      ]
+    },
+    {
+      "full": "kmesh-net/kmesh",
+      "owner": "kmesh-net",
+      "name": "kmesh",
+      "slug": "kmesh-net-kmesh",
+      "merged": 2,
+      "open": 2,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1905,
+          "title": "fix(utils): make HashName ring probe reach the final slot",
+          "url": "https://github.com/kmesh-net/kmesh/pull/1905",
+          "state": "merged",
+          "created": "2026-08-08",
+          "closedAt": "2026-08-20"
+        },
+        {
+          "number": 1907,
+          "title": "fix(waypoint): treat an empty-valued namespace label as present",
+          "url": "https://github.com/kmesh-net/kmesh/pull/1907",
+          "state": "open",
+          "created": "2026-08-08",
+          "closedAt": null
+        },
+        {
+          "number": 1889,
+          "title": "fix(dns): re-queue domain for retry after a failed resolve",
+          "url": "https://github.com/kmesh-net/kmesh/pull/1889",
+          "state": "open",
+          "created": "2026-08-07",
+          "closedAt": null
+        },
+        {
+          "number": 1887,
+          "title": "fix(consistenthash): honor requested tableSize in maglev getLookupTable",
+          "url": "https://github.com/kmesh-net/kmesh/pull/1887",
+          "state": "merged",
+          "created": "2026-08-06",
+          "closedAt": "2026-08-07"
+        }
+      ]
+    },
+    {
+      "full": "michaeldcanady/servicenow-sdk-go",
+      "owner": "michaeldcanady",
+      "name": "servicenow-sdk-go",
+      "slug": "michaeldcanady-servicenow-sdk-go",
+      "merged": 2,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 644,
+          "title": "fix: restore and extend nil-receiver guard on error Error() methods",
+          "url": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/644",
+          "state": "merged",
+          "created": "2026-08-20",
+          "closedAt": "2026-08-21"
+        },
+        {
+          "number": 591,
+          "title": "fix: guard nil receiver in NilPointerError.Error()",
+          "url": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/591",
+          "state": "merged",
+          "created": "2026-08-05",
+          "closedAt": "2026-08-09"
+        }
+      ]
+    },
+    {
+      "full": "open-policy-agent/opa",
+      "owner": "open-policy-agent",
+      "name": "opa",
+      "slug": "open-policy-agent-opa",
+      "merged": 2,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 8887,
+          "title": "topdown: fix precision loss for integers larger than 64 bits in arithmetic and aggregates",
+          "url": "https://github.com/open-policy-agent/opa/pull/8887",
+          "state": "merged",
+          "created": "2026-07-13",
+          "closedAt": "2026-07-17"
+        },
+        {
+          "number": 8885,
+          "title": "ast: restore location on unsafe var errors for rewritten head vars",
+          "url": "https://github.com/open-policy-agent/opa/pull/8885",
+          "state": "merged",
+          "created": "2026-07-12",
+          "closedAt": "2026-07-13"
+        }
+      ]
+    },
+    {
+      "full": "citadel-foss/openswap",
+      "owner": "citadel-foss",
+      "name": "openswap",
+      "slug": "citadel-foss-openswap",
+      "merged": 1,
+      "open": 1,
+      "closed": 4,
+      "prs": [
+        {
+          "number": 1035,
+          "title": "protocol: reject multisig redeemscripts too short to hold both pubkeys",
+          "url": "https://github.com/citadel-foss/openswap/pull/1035",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null
+        },
+        {
+          "number": 1036,
+          "title": "wallet: reject coin selection amounts above the 21M cap",
+          "url": "https://github.com/citadel-foss/openswap/pull/1036",
+          "state": "merged",
+          "created": "2026-09-21",
+          "closedAt": "2026-09-26"
+        },
+        {
+          "number": 1031,
+          "title": "fix(taker): reject forwarded sender signature lists of the wrong length",
+          "url": "https://github.com/citadel-foss/openswap/pull/1031",
+          "state": "closed",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "number": 1032,
+          "title": "chore: remove the unused fee estimation module",
+          "url": "https://github.com/citadel-foss/openswap/pull/1032",
+          "state": "closed",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "number": 968,
+          "title": "test(utill): add unit test for parse_field",
+          "url": "https://github.com/citadel-foss/openswap/pull/968",
+          "state": "closed",
+          "created": "2026-08-03",
+          "closedAt": "2026-08-25"
+        },
+        {
+          "number": 964,
+          "title": "test(utill): add unit test for parse_proxy_auth",
+          "url": "https://github.com/citadel-foss/openswap/pull/964",
+          "state": "closed",
+          "created": "2026-08-01",
+          "closedAt": "2026-08-25"
+        }
+      ]
+    },
+    {
+      "full": "kubernetes/website",
+      "owner": "kubernetes",
+      "name": "website",
+      "slug": "kubernetes-website",
+      "merged": 1,
+      "open": 5,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 56378,
+          "title": "Add Hindi localization for Cluster Components page",
+          "url": "https://github.com/kubernetes/website/pull/56378",
+          "state": "open",
+          "created": "2026-07-04",
+          "closedAt": null
+        },
+        {
+          "number": 56379,
+          "title": "Add Hindi localization for Self-Healing page",
+          "url": "https://github.com/kubernetes/website/pull/56379",
+          "state": "open",
+          "created": "2026-07-04",
+          "closedAt": null
+        },
+        {
+          "number": 56380,
+          "title": "[hi] Add Hindi localization for kube-state-metrics page.",
+          "url": "https://github.com/kubernetes/website/pull/56380",
+          "state": "merged",
+          "created": "2026-07-04",
+          "closedAt": "2026-09-16"
+        },
+        {
+          "number": 56381,
+          "title": "Add Hindi localization for Gang Scheduling page",
+          "url": "https://github.com/kubernetes/website/pull/56381",
+          "state": "open",
+          "created": "2026-07-04",
+          "closedAt": null
+        },
+        {
+          "number": 56382,
+          "title": "Add Hindi localization for Node Declared Features",
+          "url": "https://github.com/kubernetes/website/pull/56382",
+          "state": "open",
+          "created": "2026-07-04",
+          "closedAt": null
+        },
+        {
+          "number": 56383,
+          "title": "Add Hindi localization for API Aggregation Layer",
+          "url": "https://github.com/kubernetes/website/pull/56383",
+          "state": "open",
+          "created": "2026-07-04",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "zowe/zowe-cli",
+      "owner": "zowe",
+      "name": "zowe-cli",
+      "slug": "zowe-zowe-cli",
+      "merged": 1,
+      "open": 3,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 2794,
+          "title": "Normalize the Windows project directory to its real path",
+          "url": "https://github.com/zowe/zowe-cli/pull/2794",
+          "state": "open",
+          "created": "2026-07-13",
+          "closedAt": null
+        },
+        {
+          "number": 2795,
+          "title": "Strip color escape sequences from the JSON response",
+          "url": "https://github.com/zowe/zowe-cli/pull/2795",
+          "state": "closed",
+          "created": "2026-07-13",
+          "closedAt": "2026-07-13"
+        },
+        {
+          "number": 2793,
+          "title": "Always allocate cross-LPAR copy targets in tracks",
+          "url": "https://github.com/zowe/zowe-cli/pull/2793",
+          "state": "open",
+          "created": "2026-07-12",
+          "closedAt": null
+        },
+        {
+          "number": 2789,
+          "title": "Render falsy table values such as 0 and false",
+          "url": "https://github.com/zowe/zowe-cli/pull/2789",
+          "state": "merged",
+          "created": "2026-07-10",
+          "closedAt": "2026-07-20"
+        },
+        {
+          "number": 2792,
+          "title": "Require type in config schema conditionals for typeless profiles",
+          "url": "https://github.com/zowe/zowe-cli/pull/2792",
+          "state": "open",
+          "created": "2026-07-10",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "cilium/cilium",
+      "owner": "cilium",
+      "name": "cilium",
+      "slug": "cilium-cilium",
+      "merged": 1,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 47561,
+          "title": "cilium-cli/utils/features: use netip.ParseAddr in GetIPFamily",
+          "url": "https://github.com/cilium/cilium/pull/47561",
+          "state": "closed",
+          "created": "2026-07-28",
+          "closedAt": "2026-09-08"
+        },
+        {
+          "number": 47546,
+          "title": "cilium-cli/connectivity: use netip.ParseAddr for the dstIP check",
+          "url": "https://github.com/cilium/cilium/pull/47546",
+          "state": "closed",
+          "created": "2026-07-27",
+          "closedAt": "2026-09-12"
+        },
+        {
+          "number": 47516,
+          "title": "envoy/xds: use netip.ParseAddr to validate the node IP",
+          "url": "https://github.com/cilium/cilium/pull/47516",
+          "state": "merged",
+          "created": "2026-07-26",
+          "closedAt": "2026-07-27"
+        }
+      ]
+    },
+    {
+      "full": "lightningdevkit/rust-lightning",
+      "owner": "lightningdevkit",
+      "name": "rust-lightning",
+      "slug": "lightningdevkit-rust-lightning",
+      "merged": 1,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 4622,
+          "title": "fuzz: Add cross-version ChannelMonitor roundtrip coverage",
+          "url": "https://github.com/lightningdevkit/rust-lightning/pull/4622",
+          "state": "closed",
+          "created": "2026-05-19",
+          "closedAt": "2026-07-03"
+        },
+        {
+          "number": 4499,
+          "title": "fuzz: Add upgrade/downgrade simulation to chanmon_consistency and fix chacha20 build",
+          "url": "https://github.com/lightningdevkit/rust-lightning/pull/4499",
+          "state": "closed",
+          "created": "2026-03-19",
+          "closedAt": "2026-05-21"
+        },
+        {
+          "number": 4478,
+          "title": "This PR addresses the out-of-memory (OOM) errors during the artifact upload stage in the CI pipeline.",
+          "url": "https://github.com/lightningdevkit/rust-lightning/pull/4478",
+          "state": "merged",
+          "created": "2026-03-11",
+          "closedAt": "2026-03-19"
+        }
+      ]
+    },
+    {
+      "full": "openeverest/openeverest",
+      "owner": "openeverest",
+      "name": "openeverest",
+      "slug": "openeverest-openeverest",
+      "merged": 1,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 2851,
+          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid",
+          "url": "https://github.com/openeverest/openeverest/pull/2851",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-10"
+        },
+        {
+          "number": 2862,
+          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid (release-2.0)",
+          "url": "https://github.com/openeverest/openeverest/pull/2862",
+          "state": "closed",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "full": "comet-ml/opik",
+      "owner": "comet-ml",
+      "name": "opik",
+      "slug": "comet-ml-opik",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 8536,
+          "title": "[NA] [SDK] fix: validate placeholders inside chat prompt video_url parts",
+          "url": "https://github.com/comet-ml/opik/pull/8536",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "full": "shap/shap",
+      "owner": "shap",
+      "name": "shap",
+      "slug": "shap-shap",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 5164,
+          "title": "FIX: match KernelExplainer DataFrame columns to the background by name",
+          "url": "https://github.com/shap/shap/pull/5164",
+          "state": "merged",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-25"
+        }
+      ]
+    },
+    {
+      "full": "goyek/goyek",
+      "owner": "goyek",
+      "name": "goyek",
+      "slug": "goyek-goyek",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 674,
+          "title": "fix: avoid panic in middleware.ReportLongRun for non-positive duration",
+          "url": "https://github.com/goyek/goyek/pull/674",
+          "state": "merged",
+          "created": "2026-08-05",
+          "closedAt": "2026-08-19"
+        }
+      ]
+    },
+    {
+      "full": "open-telemetry/opentelemetry-collector-contrib",
+      "owner": "open-telemetry",
+      "name": "opentelemetry-collector-contrib",
+      "slug": "open-telemetry-opentelemetry-collector-contrib",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 49857,
+          "title": "[processor/tailsampling] Give composite sub-policies omitted from rat…",
+          "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/49857",
+          "state": "merged",
+          "created": "2026-07-23",
+          "closedAt": "2026-08-14"
+        }
+      ]
+    },
+    {
+      "full": "hyperledger/fabric",
+      "owner": "hyperledger",
+      "name": "fabric",
+      "slug": "hyperledger-fabric",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 5529,
+          "title": "Fix statedb errors silently swallowed in multi-key queries",
+          "url": "https://github.com/hyperledger/fabric/pull/5529",
+          "state": "merged",
+          "created": "2026-07-22",
+          "closedAt": "2026-07-28"
+        }
+      ]
+    },
+    {
+      "full": "google-deepmind/open_spiel",
+      "owner": "google-deepmind",
+      "name": "open_spiel",
+      "slug": "google-deepmind-open-spiel",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1570,
+          "title": "Fix duplicate table row and typo in games.md",
+          "url": "https://github.com/google-deepmind/open_spiel/pull/1570",
+          "state": "merged",
+          "created": "2026-07-17",
+          "closedAt": "2026-08-11"
+        }
+      ]
+    },
+    {
+      "full": "flwrlabs/flower",
+      "owner": "flwrlabs",
+      "name": "flower",
+      "slug": "flwrlabs-flower",
+      "merged": 0,
+      "open": 9,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 7765,
+          "title": "fix(framework): Raise when aggregate_qffl() receives a zero total h value",
+          "url": "https://github.com/flwrlabs/flower/pull/7765",
+          "state": "open",
+          "created": "2026-08-05",
+          "closedAt": null
+        },
+        {
+          "number": 7709,
+          "title": "fix(framework): Raise when Message-API aggregators get zero total weight",
+          "url": "https://github.com/flwrlabs/flower/pull/7709",
+          "state": "open",
+          "created": "2026-07-29",
+          "closedAt": null
+        },
+        {
+          "number": 7694,
+          "title": "fix(framework): Raise when weighted_loss_avg() receives zero total examples",
+          "url": "https://github.com/flwrlabs/flower/pull/7694",
+          "state": "open",
+          "created": "2026-07-27",
+          "closedAt": null
+        },
+        {
+          "number": 7652,
+          "title": "fix(framework): Do not crash push_messages() on an empty messages_list",
+          "url": "https://github.com/flwrlabs/flower/pull/7652",
+          "state": "open",
+          "created": "2026-07-20",
+          "closedAt": null
+        },
+        {
+          "number": 7646,
+          "title": "fix(framework): Raise when aggregate() and aggregate_inplace() receive zero total examples",
+          "url": "https://github.com/flwrlabs/flower/pull/7646",
+          "state": "open",
+          "created": "2026-07-19",
+          "closedAt": null
+        },
+        {
+          "number": 7631,
+          "title": "fix(framework): Guard DP clipping against zero-norm updates",
+          "url": "https://github.com/flwrlabs/flower/pull/7631",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        },
+        {
+          "number": 7633,
+          "title": "fix(framework): Validate clipping_range in SecAggPlusWorkflow",
+          "url": "https://github.com/flwrlabs/flower/pull/7633",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        },
+        {
+          "number": 7636,
+          "title": "fix(framework): Handle malformed auth metadata in NodeAuthServerInterceptor",
+          "url": "https://github.com/flwrlabs/flower/pull/7636",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        },
+        {
+          "number": 7637,
+          "title": "fix(datasets): Add missing py.typed marker to flwr-datasets",
+          "url": "https://github.com/flwrlabs/flower/pull/7637",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "meshery/meshkit",
+      "owner": "meshery",
+      "name": "meshkit",
+      "slug": "meshery-meshkit",
+      "merged": 0,
+      "open": 5,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1093,
+          "title": "[registration] Close SVG files after writing to prevent fd leak",
+          "url": "https://github.com/meshery/meshkit/pull/1093",
+          "state": "open",
+          "created": "2026-08-15",
+          "closedAt": null
+        },
+        {
+          "number": 1094,
+          "title": "[broadcast] Use non-blocking send in broadcast() so one stalled subscriber cannot freeze the bus",
+          "url": "https://github.com/meshery/meshkit/pull/1094",
+          "state": "open",
+          "created": "2026-08-15",
+          "closedAt": null
+        },
+        {
+          "number": 1076,
+          "title": "Propagate DB errors in CategoryFilter.Get",
+          "url": "https://github.com/meshery/meshkit/pull/1076",
+          "state": "open",
+          "created": "2026-07-28",
+          "closedAt": null
+        },
+        {
+          "number": 1078,
+          "title": "Skip component definitions with no status during registration",
+          "url": "https://github.com/meshery/meshkit/pull/1078",
+          "state": "open",
+          "created": "2026-07-28",
+          "closedAt": null
+        },
+        {
+          "number": 1065,
+          "title": "[logger] Implement Database.Trace so SQL trace logging is not swallowed",
+          "url": "https://github.com/meshery/meshkit/pull/1065",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "conda-forge/conda-smithy",
+      "owner": "conda-forge",
+      "name": "conda-smithy",
+      "slug": "conda-forge-conda-smithy",
+      "merged": 0,
+      "open": 3,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 2708,
+          "title": "do not raise on a malformed v1 recipe",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2708",
+          "state": "open",
+          "created": "2026-09-28",
+          "closedAt": null
+        },
+        {
+          "number": 2709,
+          "title": "do not raise on an empty or mistyped v0 field",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2709",
+          "state": "open",
+          "created": "2026-09-28",
+          "closedAt": null
+        },
+        {
+          "number": 2706,
+          "title": "allow conda_build_config.yaml keys in v1 noarch conditionals",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2706",
+          "state": "open",
+          "created": "2026-09-27",
+          "closedAt": null
+        },
+        {
+          "number": 2707,
+          "title": "retry recipe parsing with selectors resolved",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2707",
+          "state": "closed",
+          "created": "2026-09-27",
+          "closedAt": "2026-09-27"
+        }
+      ]
+    },
+    {
+      "full": "prefix-dev/pixi",
+      "owner": "prefix-dev",
+      "name": "pixi",
+      "slug": "prefix-dev-pixi",
+      "merged": 0,
+      "open": 4,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 7106,
+          "title": "fix: bound the connect timeout so it does not vary by platform",
+          "url": "https://github.com/prefix-dev/pixi/pull/7106",
+          "state": "open",
+          "created": "2026-09-27",
+          "closedAt": null
+        },
+        {
+          "number": 7107,
+          "title": "fix: raise the open file limit before solving, not only before installing",
+          "url": "https://github.com/prefix-dev/pixi/pull/7107",
+          "state": "open",
+          "created": "2026-09-27",
+          "closedAt": null
+        },
+        {
+          "number": 7095,
+          "title": "fix: don't suggest a one-character alias for an unrelated subcommand",
+          "url": "https://github.com/prefix-dev/pixi/pull/7095",
+          "state": "open",
+          "created": "2026-09-25",
+          "closedAt": null
+        },
+        {
+          "number": 7089,
+          "title": "fix: suspend the progress bars while the task environment prompt is shown",
+          "url": "https://github.com/prefix-dev/pixi/pull/7089",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "urunc-dev/urunc",
+      "owner": "urunc-dev",
+      "name": "urunc",
+      "slug": "urunc-dev-urunc",
+      "merged": 0,
+      "open": 0,
+      "closed": 4,
+      "prs": [
+        {
+          "number": 812,
+          "title": "fix(hypervisors): treat zombie VMM as dead in killProcess to avoid 2s deadlock",
+          "url": "https://github.com/urunc-dev/urunc/pull/812",
+          "state": "closed",
+          "created": "2026-07-08",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "number": 813,
+          "title": "fix(hooks): bound OCI hook stdout/stderr capture to avoid OOM",
+          "url": "https://github.com/urunc-dev/urunc/pull/813",
+          "state": "closed",
+          "created": "2026-07-08",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "number": 681,
+          "title": "fix: close namespace fd after Setns in joinSandboxNetNs",
+          "url": "https://github.com/urunc-dev/urunc/pull/681",
+          "state": "closed",
+          "created": "2026-05-14",
+          "closedAt": "2026-05-14"
+        },
+        {
+          "number": 682,
+          "title": "docs: update footer trademark link to LF Projects Series LLC",
+          "url": "https://github.com/urunc-dev/urunc/pull/682",
+          "state": "closed",
+          "created": "2026-05-14",
+          "closedAt": "2026-07-09"
+        }
+      ]
+    },
+    {
+      "full": "conda/rattler",
+      "owner": "conda",
+      "name": "rattler",
+      "slug": "conda-rattler",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2842,
+          "title": "fix: skip repodata revisions that cannot be read",
+          "url": "https://github.com/conda/rattler/pull/2842",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        },
+        {
+          "number": 2818,
+          "title": "fix: report a clear error for non-trailing version globs",
+          "url": "https://github.com/conda/rattler/pull/2818",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null
+        },
+        {
+          "number": 2819,
+          "title": "fix: accept a wildcard followed by a local version",
+          "url": "https://github.com/conda/rattler/pull/2819",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "sktime/sktime",
+      "owner": "sktime",
+      "name": "sktime",
+      "slug": "sktime-sktime",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 11238,
+          "title": "[BUG] use the offset alias of a PeriodIndex frequency in the hypertrees forecasters",
+          "url": "https://github.com/sktime/sktime/pull/11238",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null
+        },
+        {
+          "number": 11240,
+          "title": "[BUG] normalise the frequency alias in the neuralforecast adapter",
+          "url": "https://github.com/sktime/sktime/pull/11240",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null
+        },
+        {
+          "number": 11219,
+          "title": "[BUG] slice X by the steps pmdarima predicts in the pmdarima adapter",
+          "url": "https://github.com/sktime/sktime/pull/11219",
+          "state": "open",
+          "created": "2026-09-20",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "sktime/pytorch-forecasting",
+      "owner": "sktime",
+      "name": "pytorch-forecasting",
+      "slug": "sktime-pytorch-forecasting",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2432,
+          "title": "[BUG] do not duplicate sequence_id in the predict mode index",
+          "url": "https://github.com/sktime/pytorch-forecasting/pull/2432",
+          "state": "open",
+          "created": "2026-09-19",
+          "closedAt": null
+        },
+        {
+          "number": 2433,
+          "title": "[BUG] scale lagged covariates with the scaler of their original column",
+          "url": "https://github.com/sktime/pytorch-forecasting/pull/2433",
+          "state": "open",
+          "created": "2026-09-19",
+          "closedAt": null
+        },
+        {
+          "number": 2431,
+          "title": "[BUG] group values by key in groupby_apply",
+          "url": "https://github.com/sktime/pytorch-forecasting/pull/2431",
+          "state": "open",
+          "created": "2026-09-17",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "spdx/tools-python",
+      "owner": "spdx",
+      "name": "tools-python",
+      "slug": "spdx-tools-python",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 904,
+          "title": "fix: reject an uppercase checksum value instead of silently dropping it",
+          "url": "https://github.com/spdx/tools-python/pull/904",
+          "state": "open",
+          "created": "2026-07-29",
+          "closedAt": null
+        },
+        {
+          "number": 902,
+          "title": "fix: raise a clear error for an spdx_id with multiple colons",
+          "url": "https://github.com/spdx/tools-python/pull/902",
+          "state": "open",
+          "created": "2026-07-27",
+          "closedAt": null
+        },
+        {
+          "number": 900,
+          "title": "Fix ExternalDocumentRef checksum parsing to accept all algorithms",
+          "url": "https://github.com/spdx/tools-python/pull/900",
+          "state": "open",
+          "created": "2026-07-09",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "anthropics/claude-code",
+      "owner": "anthropics",
+      "name": "claude-code",
+      "slug": "anthropics-claude-code",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 78441,
+          "title": "fix(devcontainer script): detect native command failures via $LASTEXITCODE",
+          "url": "https://github.com/anthropics/claude-code/pull/78441",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        },
+        {
+          "number": 78445,
+          "title": "docs: correct plugin descriptions and version that contradict the plugins",
+          "url": "https://github.com/anthropics/claude-code/pull/78445",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        },
+        {
+          "number": 78446,
+          "title": "fix(plugin-dev): add the missing .claude-plugin/plugin.json manifest",
+          "url": "https://github.com/anthropics/claude-code/pull/78446",
+          "state": "open",
+          "created": "2026-07-17",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "kubeflow/pipelines",
+      "owner": "kubeflow",
+      "name": "pipelines",
+      "slug": "kubeflow-pipelines",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 14038,
+          "title": "fix(backend): guard toModelRun against a malformed PipelineInfo in the pipeline spec",
+          "url": "https://github.com/kubeflow/pipelines/pull/14038",
+          "state": "closed",
+          "created": "2026-08-14",
+          "closedAt": "2026-09-23"
+        },
+        {
+          "number": 13877,
+          "title": "fix(cache): avoid admission-webhook panic on malformed ARGO_TEMPLATE",
+          "url": "https://github.com/kubeflow/pipelines/pull/13877",
+          "state": "closed",
+          "created": "2026-07-26",
+          "closedAt": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "full": "intuit/infigraph",
+      "owner": "intuit",
+      "name": "infigraph",
+      "slug": "intuit-infigraph",
+      "merged": 0,
+      "open": 1,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 60,
+          "title": "fix: guard release tag against workspace version mismatch",
+          "url": "https://github.com/intuit/infigraph/pull/60",
+          "state": "open",
+          "created": "2026-08-13",
+          "closedAt": null
+        },
+        {
+          "number": 61,
+          "title": "fix: guard release tag against workspace version mismatch",
+          "url": "https://github.com/intuit/infigraph/pull/61",
+          "state": "closed",
+          "created": "2026-08-13",
+          "closedAt": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "full": "kubeflow/sdk",
+      "owner": "kubeflow",
+      "name": "sdk",
+      "slug": "kubeflow-sdk",
+      "merged": 0,
+      "open": 2,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 717,
+          "title": "fix(trainer): merge custom env with parent environment in LocalJob",
+          "url": "https://github.com/kubeflow/sdk/pull/717",
+          "state": "open",
+          "created": "2026-08-03",
+          "closedAt": null
+        },
+        {
+          "number": 707,
+          "title": "fix: classify HuggingFace dataset dir with a dotted parent as data_dir, not data_files",
+          "url": "https://github.com/kubeflow/sdk/pull/707",
+          "state": "open",
+          "created": "2026-08-01",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "AI-Hypercomputer/maxtext",
+      "owner": "AI-Hypercomputer",
+      "name": "maxtext",
+      "slug": "ai-hypercomputer-maxtext",
+      "merged": 0,
+      "open": 1,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 4691,
+          "title": "Validate rampup batch size settings in the Pydantic config",
+          "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4691",
+          "state": "open",
+          "created": "2026-07-31",
+          "closedAt": null
+        },
+        {
+          "number": 4528,
+          "title": "Fix broken documentation links flagged by weekly link checker",
+          "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4528",
+          "state": "closed",
+          "created": "2026-07-17",
+          "closedAt": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "full": "youki-dev/youki",
+      "owner": "youki-dev",
+      "name": "youki",
+      "slug": "youki-dev-youki",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 3637,
+          "title": "test(contest): extract detached console-socket run into a shared helper",
+          "url": "https://github.com/youki-dev/youki/pull/3637",
+          "state": "closed",
+          "created": "2026-07-04",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "number": 3638,
+          "title": "ci: introduce shellcheck for shell scripts",
+          "url": "https://github.com/youki-dev/youki/pull/3638",
+          "state": "closed",
+          "created": "2026-07-04",
+          "closedAt": "2026-07-09"
+        }
+      ]
+    },
+    {
+      "full": "getsentry/responses",
+      "owner": "getsentry",
+      "name": "responses",
+      "slug": "getsentry-responses",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 828,
+          "title": "Reject repeated keys in strict urlencoded_params_matcher",
+          "url": "https://github.com/getsentry/responses/pull/828",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "py-pdf/pypdf",
+      "owner": "py-pdf",
+      "name": "pypdf",
+      "slug": "py-pdf-pypdf",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 4129,
+          "title": "BUG: FloatObject.hash_bin hashes the as_numeric method, not the value",
+          "url": "https://github.com/py-pdf/pypdf/pull/4129",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "kellyjonbrazil/jc",
+      "owner": "kellyjonbrazil",
+      "name": "jc",
+      "slug": "kellyjonbrazil-jc",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 776,
+          "title": "Fix cksum/sum IndexError on stdin output without a filename",
+          "url": "https://github.com/kellyjonbrazil/jc/pull/776",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "openatx/uiautomator2",
+      "owner": "openatx",
+      "name": "uiautomator2",
+      "slug": "openatx-uiautomator2",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1195,
+          "title": "fix: correct ends-with match on @content-desc in strict_xpath",
+          "url": "https://github.com/openatx/uiautomator2/pull/1195",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "e2b-dev/E2B",
+      "owner": "e2b-dev",
+      "name": "E2B",
+      "slug": "e2b-dev-e2b",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 1891,
+          "title": "feat(python-sdk): mirror async result accessors on the sync CommandHandle",
+          "url": "https://github.com/e2b-dev/E2B/pull/1891",
+          "state": "closed",
+          "created": "2026-09-22",
+          "closedAt": "2026-09-25"
+        }
+      ]
+    },
+    {
+      "full": "sktime/skpro",
+      "owner": "sktime",
+      "name": "skpro",
+      "slug": "sktime-skpro",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1150,
+          "title": "[ENH] add Categorical distribution",
+          "url": "https://github.com/sktime/skpro/pull/1150",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "google/artemis",
+      "owner": "google",
+      "name": "artemis",
+      "slug": "google-artemis",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 82,
+          "title": "fix(coordinates): honor an explicit zero swipe/scroll duration",
+          "url": "https://github.com/google/artemis/pull/82",
+          "state": "closed",
+          "created": "2026-09-13",
+          "closedAt": "2026-09-14"
+        }
+      ]
+    },
+    {
+      "full": "pluja/awesome-privacy",
+      "owner": "pluja",
+      "name": "awesome-privacy",
+      "slug": "pluja-awesome-privacy",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1092,
+          "title": "Add tripkit to Maps and Navigation",
+          "url": "https://github.com/pluja/awesome-privacy/pull/1092",
+          "state": "open",
+          "created": "2026-09-08",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "osmlab/awesome-openstreetmap",
+      "owner": "osmlab",
+      "name": "awesome-openstreetmap",
+      "slug": "osmlab-awesome-openstreetmap",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 224,
+          "title": "Add tripkit to Web Maps",
+          "url": "https://github.com/osmlab/awesome-openstreetmap/pull/224",
+          "state": "open",
+          "created": "2026-09-08",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "sarvamai/skills",
+      "owner": "sarvamai",
+      "name": "skills",
+      "slug": "sarvamai-skills",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 18,
+          "title": "sarvam-mcp: stt_transcribe defaults to saaras:v4, not v3",
+          "url": "https://github.com/sarvamai/skills/pull/18",
+          "state": "open",
+          "created": "2026-08-28",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "patternfly/react-log-viewer",
+      "owner": "patternfly",
+      "name": "react-log-viewer",
+      "slug": "patternfly-react-log-viewer",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 110,
+          "title": "fix(docs): make complex toolbar demo mobile-friendly",
+          "url": "https://github.com/patternfly/react-log-viewer/pull/110",
+          "state": "open",
+          "created": "2026-08-19",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "hibiken/asynq",
+      "owner": "hibiken",
+      "name": "asynq",
+      "slug": "hibiken-asynq",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1174,
+          "title": "feat(scheduler): elect a leader so replicas don't duplicate enqueues (#1013)",
+          "url": "https://github.com/hibiken/asynq/pull/1174",
+          "state": "open",
+          "created": "2026-08-07",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "mlflow/mlflow",
+      "owner": "mlflow",
+      "name": "mlflow",
+      "slug": "mlflow-mlflow",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 24888,
+          "title": "Fix Vertex AI gateway `eu`/`us` multi-region endpoint routing",
+          "url": "https://github.com/mlflow/mlflow/pull/24888",
+          "state": "closed",
+          "created": "2026-08-04",
+          "closedAt": "2026-08-04"
+        }
+      ]
+    },
+    {
+      "full": "pyannote/pyannote-audio",
+      "owner": "pyannote",
+      "name": "pyannote-audio",
+      "slug": "pyannote-pyannote-audio",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2043,
+          "title": "fix: stop DER frame counts from saturating float16",
+          "url": "https://github.com/pyannote/pyannote-audio/pull/2043",
+          "state": "open",
+          "created": "2026-07-30",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "meshery/schemas",
+      "owner": "meshery",
+      "name": "schemas",
+      "slug": "meshery-schemas",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1096,
+          "title": "fix(validation): validate every non-deprecated construct version",
+          "url": "https://github.com/meshery/schemas/pull/1096",
+          "state": "open",
+          "created": "2026-07-26",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "google-deepmind/mujoco",
+      "owner": "google-deepmind",
+      "name": "mujoco",
+      "slug": "google-deepmind-mujoco",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 3415,
+          "title": "Fix duplicated word in simulation.rst",
+          "url": "https://github.com/google-deepmind/mujoco/pull/3415",
+          "state": "closed",
+          "created": "2026-07-20",
+          "closedAt": "2026-08-14"
+        }
+      ]
+    },
+    {
+      "full": "cbomkit/sonar-cryptography",
+      "owner": "cbomkit",
+      "name": "sonar-cryptography",
+      "slug": "cbomkit-sonar-cryptography",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 412,
+          "title": "Memory monitoring for large project analysis",
+          "url": "https://github.com/cbomkit/sonar-cryptography/pull/412",
+          "state": "closed",
+          "created": "2026-05-14",
+          "closedAt": "2026-05-14"
+        }
+      ]
+    },
+    {
+      "full": "fedimint/ecash-app",
+      "owner": "fedimint",
+      "name": "ecash-app",
+      "slug": "fedimint-ecash-app",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 413,
+          "title": "fix: Restart client connections when client comes into foreground",
+          "url": "https://github.com/fedimint/ecash-app/pull/413",
+          "state": "closed",
+          "created": "2026-03-21",
+          "closedAt": "2026-03-24"
+        }
+      ]
+    },
+    {
+      "full": "ayush-that/FinVeda",
+      "owner": "ayush-that",
+      "name": "FinVeda",
+      "slug": "ayush-that-finveda",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 3194,
+          "title": "BIG Fixed: inconsistent dark mode",
+          "url": "https://github.com/ayush-that/FinVeda/pull/3194",
+          "state": "closed",
+          "created": "2024-11-10",
+          "closedAt": "2024-11-10"
+        }
+      ]
+    },
+    {
+      "full": "gauravsingh1281/Rentalog.in--Frontend",
+      "owner": "gauravsingh1281",
+      "name": "Rentalog.in--Frontend",
+      "slug": "gauravsingh1281-rentalog-in-frontend",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 636,
+          "title": "Nav Fix: styled Login-Register",
+          "url": "https://github.com/gauravsingh1281/Rentalog.in--Frontend/pull/636",
+          "state": "closed",
+          "created": "2024-11-10",
+          "closedAt": "2025-01-02"
+        }
+      ]
+    }
+  ]
+}
