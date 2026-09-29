@@ -3,7 +3,12 @@
 // against the source. Source-level checks are worthless here: the site is a static
 // export, so whatever reached out/ is public the moment it deploys.
 //
-// Run after a build:  node scripts/check-journal.mjs
+// Run after a FIXTURE build:  JOURNAL_FIXTURES=1 npm run build && node scripts/check-journal.mjs
+// (or just `npm run verify`, which does both builds in the right order.)
+//
+// The fixtures are the only entries whose draft/unlisted/public status is known
+// in advance, so they are what the privacy guarantees are proved against. A plain
+// build filters them out by design, and this script then has nothing to test.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -19,6 +24,16 @@ function check(name, cond, detail) {
 if (!fs.existsSync(OUT)) {
   console.log("FAIL: out/ does not exist. Run npm run build first.");
   process.exit(1);
+}
+
+// Guard against the easy mistake of pointing this at a plain build. Without the
+// fixtures there is nothing to prove, and half these assertions would report a
+// failure that is really just a missing test input.
+if (!fs.existsSync(path.join(OUT, "journal", "0002-public-fixture"))) {
+  console.log("SKIP: out/ was built without fixtures, so there is nothing to check.");
+  console.log("      Run:  JOURNAL_FIXTURES=1 npm run build && node scripts/check-journal.mjs");
+  console.log("      Or:   npm run verify");
+  process.exit(2);
 }
 
 // Collect every text file in out/ once.

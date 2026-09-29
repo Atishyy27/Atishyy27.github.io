@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify": "JOURNAL_FIXTURES=1 next build && node scripts/check-journal.mjs && next build && node scripts/check-projects.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

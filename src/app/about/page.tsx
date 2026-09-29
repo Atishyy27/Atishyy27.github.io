@@ -1,26 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import {
-  person, proof, experience, govtWork, clientWork, orgWork, extensions,
-  hackathons, otherHackathons, currentWork, ossPrograms,
-  publications, education, skills, about as aboutDefault,
+  experience, publications, education, skills, about as aboutDefault,
 } from "@/content/site";
-import { Marquee, Reveal, SplitHeading, Tilt } from "@/components/Chrome";
-import { CpSection, WorkGrid, WorkExplorer, ResumeEmbed } from "@/components/Panels";
-import GitHubActivity from "@/components/GitHubActivity";
+import { Reveal, Tilt } from "@/components/Chrome";
+import { ResumeEmbed } from "@/components/Panels";
 import { Logo } from "@/components/Logo";
 import Contact from "@/components/Contact";
-import Terminal from "@/components/Terminal";
-import BuildLog from "@/components/BuildLog";
 import { useOverrides } from "@/lib/overrides";
 import { Head, Wrap } from "@/components/Section";
 
 export default function About() {
   const ov = useOverrides();
-  const blurb = ov.blurb ?? person.blurb;
   const about = ov.about ?? aboutDefault;
-  void blurb; void about;
 
   return (
     <main className="relative pt-24">
@@ -103,9 +95,15 @@ export default function About() {
           </div>
         </Wrap>
 
-        {/* CONTACT */}
         {/* RESUME */}
         <Wrap id="resume"><ResumeEmbed /></Wrap>
+
+        {/* CONTACT — the form was built and then never mounted anywhere, so the
+            site had no way to reach him except the socials in the header. */}
+        <Wrap id="contact">
+          <Head n="11" title="Get in touch" kicker="Goes straight to my inbox." />
+          <Contact />
+        </Wrap>
 
     </main>
   );
