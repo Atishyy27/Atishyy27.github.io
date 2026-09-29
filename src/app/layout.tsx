@@ -5,6 +5,7 @@ import Colophon from "@/components/Colophon";
 import Nav from "@/components/Nav";
 import Palette from "@/components/Palette";
 import Track from "@/components/Track";
+import { SmoothScroll, ScrollProgress } from "@/components/Chrome";
 
 const SITE = "https://atishay.tech";
 const CLARITY = process.env.NEXT_PUBLIC_CLARITY_ID;
@@ -68,6 +69,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+        {/* Both of these were written and then mounted on no page, which is why
+            the site scrolled like a plain document. SmoothScroll bails out under
+            prefers-reduced-motion and lazy-loads Lenis, so it costs nothing to
+            a visitor who does not get it. */}
+        <SmoothScroll />
+        <ScrollProgress />
         <Nav />
         <Palette />
         <Track />
