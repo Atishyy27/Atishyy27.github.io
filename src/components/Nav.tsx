@@ -2,29 +2,25 @@
 
 import { useEffect, useState } from "react";
 
-const LINKS = [
-  ["Open source", "opensource"],
-  ["Shipped", "work"],
-  ["Products", "products"],
-  ["Hackathons", "hackathons"],
-  ["Build log", "log"],
-  ["Stats", "cp"],
-  ["About", "about"],
+const LINKS: [string, string][] = [
+  ["Projects", "/projects/"],
+  ["Work", "/work/"],
+  ["Open source", "/oss/"],
+  ["Stats", "/stats/"],
+  ["Build log", "/log/"],
+  ["Journal", "/journal/"],
+  ["About", "/about/"],
 ];
 
 // Real routes, not anchors on this page. Kept separate so the scroll-spy above
 // never tries to observe an element that does not exist on the current page.
-const ROUTES: [string, string][] = [
-  ["Projects", "/projects/"],
-  ["Journal", "/journal/"],
-];
 
 export default function Nav() {
   const [active, setActive] = useState("");
   const [solid, setSolid] = useState(false);
 
   useEffect(() => {
-    const ids = LINKS.map(([, id]) => id).concat("resume");
+    const ids: string[] = [];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -54,7 +50,7 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-10 lg:px-16">
         <a
-          href="#top"
+          href="/"
           onClick={() => window.dispatchEvent(new CustomEvent("aj-logo-poke"))}
           className="font-mono text-sm font-medium tracking-tight"
         >
@@ -64,7 +60,7 @@ export default function Nav() {
           {LINKS.map(([label, id]) => (
             <a
               key={id}
-              href={`#${id}`}
+              href={id}
               className={`text-xs transition-colors ${
                 active === id ? "text-[var(--accent)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
               }`}
@@ -72,19 +68,9 @@ export default function Nav() {
               {label}
             </a>
           ))}
-          <span className="h-3 w-px bg-[var(--line)]" aria-hidden="true" />
-          {ROUTES.map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="text-xs text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
+                            </div>
         <a
-          href="#contact"
+          href="/about/#contact"
           className="rounded-full border border-[var(--line)] px-4 py-1.5 text-xs transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
         >
           Contact

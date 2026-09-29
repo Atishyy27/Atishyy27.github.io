@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { person } from "@/content/site";
 import "./globals.css";
 import Colophon from "@/components/Colophon";
+import Nav from "@/components/Nav";
+import Palette from "@/components/Palette";
+import Track from "@/components/Track";
 
 const SITE = "https://atishay.tech";
 const CLARITY = process.env.NEXT_PUBLIC_CLARITY_ID;
@@ -65,6 +68,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+        <Nav />
+        <Palette />
+        <Track />
         {children}
         <Colophon />
       </body>
