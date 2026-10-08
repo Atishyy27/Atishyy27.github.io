@@ -199,23 +199,23 @@ export default function CoreScene() {
         </Canvas>
       </div>
 
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-        <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">
-          {hover ? (
-            <span className="text-[var(--fg)]">
-              {hover.full} — {hover.merged} merged of {hover.total}. Click to open.
-            </span>
-          ) : (
-            <>
-              {oss.repoCount} repositories I do not own, {oss.totals.prs} pull requests.
-              Drag to turn it, click a node to open that project.
-            </>
-          )}
-        </p>
-        <p className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
-          teal = something merged · grey = still open
-        </p>
-      </div>
+      {/* Only the hover readout lives here. The standing caption is rendered by
+          the page, because this component is client-only: its text would never
+          reach the HTML and the facts in it would be invisible without WebGL. */}
+      <p
+        aria-live="polite"
+        className="min-h-[1.25rem] text-[length:var(--step-small)]"
+      >
+        {hover ? (
+          <span className="text-[var(--fg)]">
+            {hover.full} — {hover.merged} merged of {hover.total}. Click to open.
+          </span>
+        ) : (
+          <span className="text-[var(--fg-muted)]">
+            Drag to turn it, click a node to open that project.
+          </span>
+        )}
+      </p>
     </div>
   );
 }

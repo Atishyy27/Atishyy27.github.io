@@ -4,6 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { person, proof } from "@/content/site";
+import { oss } from "@/content/oss";
 import { featuredProjects, allProjects } from "@/content/projects";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
@@ -60,8 +61,23 @@ export default function Home() {
 
       </div>
 
-      {/* Wider than the reading measure: the scene needs the room. */}
+      {/* Wider than the reading measure: the scene needs the room.
+          The caption is static on purpose. The canvas is client-only, so
+          anything rendered inside it is absent from the HTML; these are the
+          numbers the element exists to show, and they must survive without
+          WebGL and be readable by a crawler. */}
       <div className="mx-auto mt-16 w-full max-w-5xl px-6 sm:px-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-[var(--line)] pt-4">
+          <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">
+            <Link href="/oss/" className="link">
+              {oss.repoCount} repositories I do not own, {oss.totals.prs} pull requests,{" "}
+              {oss.totals.merged} merged
+            </Link>
+          </p>
+          <p className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
+            teal = something merged · grey = still open
+          </p>
+        </div>
         <Core />
       </div>
 
