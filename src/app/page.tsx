@@ -1,10 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { person, proof } from "@/content/site";
 import { featuredProjects, allProjects } from "@/content/projects";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
+
+// The one 3D element on the site. Loaded only in the browser and only when the
+// visitor has not asked for reduced motion, so three.js is never fetched by
+// someone who will not see it.
+const CoreScene = dynamic(() => import("@/components/CoreScene"), { ssr: false });
+
+function Core() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setShow(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+  if (!show) return null;
+  return <CoreScene />;
+}
 
 // The home page is an index, not the whole site. Everything used to live on one
 // scroll, which is why changes elsewhere were invisible from here.
@@ -42,7 +58,15 @@ export default function Home() {
           ))}
         </ul>
 
-        {/* Counted facts where a hero image would go, since there is no imagery. */}
+      </div>
+
+      {/* Wider than the reading measure: the scene needs the room. */}
+      <div className="mx-auto mt-16 w-full max-w-5xl px-6 sm:px-8">
+        <Core />
+      </div>
+
+      <div className="mx-auto w-full max-w-[var(--measure)] px-6 sm:px-8">
+        {/* Counted facts, under the core element. */}
         <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-px sm:grid-cols-4">
           {proof.map((p) => (
             <Link
