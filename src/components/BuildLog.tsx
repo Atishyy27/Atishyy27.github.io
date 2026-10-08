@@ -89,7 +89,12 @@ function Row({ e, i }: { e: Entry; i: number }) {
           <span className={`shrink-0 text-[var(--accent)] transition-transform ${open ? "rotate-45" : ""}`}>+</span>
         </button>
 
-        {open && (
+        {/* Rendered whether or not it is open, and hidden with the `hidden`
+            attribute rather than by being absent from the tree. With `open &&`
+            only the single entry that starts expanded reached the HTML, so nine
+            of ten entries were invisible to search engines and to anyone who
+            did not click. The body of a build log IS the build log. */}
+        <div hidden={!open}>
           <div className="grid gap-6 pb-9 md:grid-cols-[6rem_1fr] md:gap-5">
             <div className="flex flex-wrap gap-1.5 md:flex-col md:items-start">
               {e.tags.map((t) => (
@@ -114,7 +119,7 @@ function Row({ e, i }: { e: Entry; i: number }) {
               )}
             </div>
           </div>
-        )}
+        </div>
       </li>
     </Reveal>
   );
