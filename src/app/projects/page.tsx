@@ -46,7 +46,14 @@ export default function ProjectsIndex() {
           const body = (
             <>
               <span className="row-kind flex items-center gap-2.5">
-                <Logo name={p.name} domain={p.domain} size={26} />
+                {p.image ? (
+                  <span className="grid h-[26px] w-[26px] shrink-0 place-items-center overflow-hidden rounded-md border border-[var(--line)] bg-[var(--bg-raised)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.image} alt="" width={26} height={26} loading="lazy" className="h-full w-full object-cover" />
+                  </span>
+                ) : (
+                  <Logo name={p.name} domain={p.domain} size={26} />
+                )}
                 {CATEGORY_LABEL[p.category]}
               </span>
               <span>

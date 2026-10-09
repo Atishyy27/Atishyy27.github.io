@@ -50,7 +50,24 @@ export default async function ProjectPage({ params }: Props) {
 
       <header className="mt-10">
         <div className="flex items-center gap-3">
-          <Logo name={p.name} domain={p.domain} size={40} />
+          {/* A real app icon where the store serves one, otherwise the favicon
+              or monogram chip. The icon is the better mark when it exists
+              because it is the artwork the project actually ships under. */}
+          {p.image ? (
+            <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--bg-raised)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={p.image}
+                alt=""
+                width={48}
+                height={48}
+                loading="eager"
+                className="h-full w-full object-cover"
+              />
+            </span>
+          ) : (
+            <Logo name={p.name} domain={p.domain} size={40} />
+          )}
           <p className="text-sm text-[var(--fg-muted)]">
             {CATEGORY_LABEL[p.category]}
             {p.org ? ` · ${p.org}` : ""}
