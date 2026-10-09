@@ -44,7 +44,21 @@ function parseEntry(file: string): JournalEntry | null {
   if (!data.title || !data.date) {
     throw new Error(`journal/${file}: front matter needs both title and date`);
   }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))) {
+
+  // YAML parses an unquoted 2026-10-09 into a Date, so String() on it gives
+  // "Thu Oct 09 2026 05:30:00 GMT+0530" and the format check below rejects it.
+  // That is a trap rather than an error: the date is correct and the author did
+  // nothing wrong, and a CMS writing this file will not quote it either. So a
+  // real Date is normalised here, in UTC, because toISOString on a local
+  // midnight east of Greenwich would otherwise roll back to the previous day.
+  const rawDate =
+    data.date instanceof Date
+      ? new Date(Date.UTC(data.date.getFullYear(), data.date.getMonth(), data.date.getDate()))
+          .toISOString()
+          .slice(0, 10)
+      : String(data.date);
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
     throw new Error(`journal/${file}: date must be YYYY-MM-DD, got "${data.date}"`);
   }
 
@@ -54,7 +68,7 @@ function parseEntry(file: string): JournalEntry | null {
   return {
     slug,
     title: String(data.title),
-    date: String(data.date),
+    date: rawDate,
     place: data.place ? String(data.place) : undefined,
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     cover: data.cover ? String(data.cover) : undefined,

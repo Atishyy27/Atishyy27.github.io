@@ -103,6 +103,30 @@ if (fs.existsSync(sitemap)) {
   console.log("SKIP: no sitemap.xml yet, nothing to check");
 }
 
+// An unquoted YAML date parses to a Date, not a string. That broke the build
+// once, and normalising it in local time would silently roll 2026-03-04 back to
+// 2026-03-03 anywhere east of Greenwich. The fixture carries an unquoted date;
+// this asserts it renders as the day that was written.
+const unquotedDir = path.join(OUT, "journal", "9999-unquoted-date-fixture");
+if (fs.existsSync(unquotedDir)) {
+  const html = fs.readFileSync(path.join(unquotedDir, "index.html"), "utf8");
+  check(
+    "an unquoted front-matter date renders as the day written, not the day before",
+    html.includes("4 Mar 2026"),
+    html.includes("3 Mar 2026") ? "rendered 3 Mar 2026: normalised in local time" : "date not found"
+  );
+  // Matched case-insensitively: React emits dateTime="..." here rather than the
+  // lowercase form. HTML attribute names are case-insensitive, so browsers and
+  // crawlers read it correctly; only a case-sensitive string check minds.
+  check(
+    "an unquoted date carries a machine-readable datetime attribute",
+    /datetime="2026-03-04"/i.test(html),
+    "datetime attribute missing or wrong"
+  );
+} else {
+  check("unquoted-date fixture was built", false, "missing; run with JOURNAL_FIXTURES=1");
+}
+
 console.log("\nscanned " + files.length + " built files");
 console.log(failures === 0 ? "ALL PASS" : failures + " FAILURE(S)");
 process.exit(failures === 0 ? 0 : 1);
