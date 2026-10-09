@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 const ProjectGraph = dynamic(() => import("./ProjectGraph"), { ssr: false });
 const CoreScene = dynamic(() => import("./CoreScene"), { ssr: false });
 const Keyboard3D = dynamic(() => import("./Keyboard3D"), { ssr: false });
+const Avatar3D = dynamic(() => import("./Avatar3D"), { ssr: false });
 
 function useAllowed() {
   const [state, setState] = useState<"unknown" | "yes" | "reduced">("unknown");
@@ -46,4 +47,16 @@ export function Keyboard3DMount() {
   const allowed = useAllowed();
   if (allowed === "unknown") return <div className="h-[320px] sm:h-[400px]" aria-hidden />;
   return <Keyboard3D reducedMotion={allowed === "reduced"} />;
+}
+
+/**
+ * The avatar. Takes `present` from the page, which checks on disk at build
+ * time whether public/avatar.glb exists, because a client component cannot
+ * know that and a 404 inside a Canvas renders as a silent empty box.
+ */
+export function Avatar3DMount({ present }: { present: boolean }) {
+  const allowed = useAllowed();
+  if (!present) return null;
+  if (allowed === "unknown") return <div className="h-[420px] sm:h-[520px]" aria-hidden />;
+  return <Avatar3D reducedMotion={allowed === "reduced"} />;
 }

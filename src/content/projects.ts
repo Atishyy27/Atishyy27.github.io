@@ -14,8 +14,11 @@ export type Project = Work & {
   category: ProjectCategory;
   /** Short, always present. The gallery shows this, not the long blurb. */
   story: string;
-  /** Slug of a journal entry that tells the long version. Optional by design. */
-  journalSlug?: string;
+  // There was a `journalSlug` here, plus a JOURNAL_LINKS map to populate it.
+  // Both were assigned and never read: the real link runs the other way, from
+  // a journal entry's `project:` front matter, which lib/journal.ts resolves
+  // with entriesForProject(). Two mechanisms for one relationship is how they
+  // drift, so the unused direction is gone.
 };
 
 export function toSlug(name: string): string {
@@ -56,9 +59,6 @@ const STORIES: Record<string, string> = {
   "adobe-india-hackathon-2025": "Document intelligence, scoped to what could actually be finished in the window.",
 };
 
-// Journal entries that tell the long version. Populated as entries get written.
-const JOURNAL_LINKS: Record<string, string> = {};
-
 function build(list: Work[], category: ProjectCategory): Project[] {
   return list.map((w) => {
     const slug = toSlug(w.name);
@@ -67,7 +67,6 @@ function build(list: Work[], category: ProjectCategory): Project[] {
       slug,
       category,
       story: STORIES[slug] ?? "",
-      journalSlug: JOURNAL_LINKS[slug],
     };
   });
 }

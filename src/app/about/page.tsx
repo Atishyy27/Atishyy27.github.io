@@ -8,6 +8,8 @@ import { ResumeEmbed } from "@/components/Panels";
 import { Logo } from "@/components/Logo";
 import Contact from "@/components/Contact";
 import { useOverrides } from "@/lib/overrides";
+import { Avatar3DMount } from "@/components/SceneMount";
+import { hasAvatar } from "@/content/assets";
 import { Head, Wrap } from "@/components/Section";
 
 export default function About() {
@@ -94,6 +96,17 @@ export default function About() {
             ))}
           </div>
         </Wrap>
+
+        {/* AVATAR. Rendered only when public/avatar.glb genuinely exists, which
+            scripts/gen-assets.mjs checks on disk before every build. There is
+            no stand-in figure on purpose: a generic humanoid with his name
+            under it would break the one claim this site makes. */}
+        {hasAvatar ? (
+          <Wrap id="avatar">
+            <Head n="11" title="Me, roughly" kicker="A GLB file, turned in your browser. Not a render." />
+            <Avatar3DMount present />
+          </Wrap>
+        ) : null}
 
         {/* RESUME */}
         <Wrap id="resume"><ResumeEmbed /></Wrap>

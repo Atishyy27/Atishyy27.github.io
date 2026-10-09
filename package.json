@@ -7,12 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "verify": "npm run check:rag && npm run check:orphans && JOURNAL_FIXTURES=1 next build && node scripts/check-journal.mjs && next build && node scripts/check-projects.mjs && node scripts/check-links.mjs && node scripts/check-mobile.mjs",
+    "verify": "npm run check:rag && npm run check:orphans && npm run check:content && JOURNAL_FIXTURES=1 next build && node scripts/check-journal.mjs && next build && node scripts/check-projects.mjs && node scripts/check-links.mjs && node scripts/check-mobile.mjs",
     "check:rag": "node --experimental-strip-types --import ./scripts/alias-hook-register.mjs scripts/check-rag.mjs",
     "fetch:oss": "node scripts/fetch-oss.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:mobile": "node scripts/check-mobile.mjs",
-    "check:orphans": "node scripts/check-orphans.mjs"
+    "check:orphans": "node scripts/check-orphans.mjs",
+    "gen:assets": "node scripts/gen-assets.mjs",
+    "prebuild": "node scripts/gen-assets.mjs",
+    "check:content": "node --experimental-strip-types --import ./scripts/alias-hook-register.mjs scripts/check-content-links.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
