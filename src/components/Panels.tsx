@@ -103,20 +103,20 @@ export function WorkExplorer({ groups }: { groups: { kind: string; items: Work[]
               <div className="mb-3 flex items-center gap-3">
                 <Logo name={w.name} domain={w.domain} size={34} />
                 <div>
-                  <span className="font-mono text-[9px] tracking-[0.15em] text-[var(--accent)]">{w.kind.toUpperCase()}</span>
-                  {w.org && <span className="block font-mono text-[9px] text-[var(--fg-muted)]">{w.org}</span>}
+                  <span className="font-mono text-[10px] tracking-[0.15em] text-[var(--accent)]">{w.kind.toUpperCase()}</span>
+                  {w.org && <span className="block font-mono text-[10px] text-[var(--fg-muted)]">{w.org}</span>}
                 </div>
               </div>
               <h3 className="text-lg font-medium tracking-tight">{w.name}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--fg-muted)]">{w.blurb}</p>
               {w.countsAsOf ? (
-                <p className="mt-1.5 font-mono text-[9px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
+                <p className="mt-1.5 font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
                   counts checked {formatDate(w.countsAsOf)}
                 </p>
               ) : null}
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {w.stack.slice(0, 4).map((s) => (
-                  <span key={s} className="rounded-full border border-[var(--line)] px-2.5 py-0.5 font-mono text-[9px] text-[var(--fg-muted)]">{s}</span>
+                  <span key={s} className="rounded-full border border-[var(--line)] px-2.5 py-0.5 font-mono text-[10px] text-[var(--fg-muted)]">{s}</span>
                 ))}
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm">

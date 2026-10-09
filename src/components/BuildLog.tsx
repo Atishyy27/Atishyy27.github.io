@@ -98,7 +98,7 @@ function Row({ e, i }: { e: Entry; i: number }) {
           <div className="grid gap-6 pb-9 md:grid-cols-[6rem_1fr] md:gap-5">
             <div className="flex flex-wrap gap-1.5 md:flex-col md:items-start">
               {e.tags.map((t) => (
-                <span key={t} className="rounded-full border border-[var(--line)] px-2.5 py-0.5 font-mono text-[9px] text-[var(--fg-muted)]">
+                <span key={t} className="rounded-full border border-[var(--line)] px-2.5 py-0.5 font-mono text-[10px] text-[var(--fg-muted)]">
                   {t}
                 </span>
               ))}

@@ -190,7 +190,7 @@ export default function Palette() {
                     i === sel ? "bg-[var(--accent-soft)] text-[var(--accent)]" : "text-[var(--fg)]"
                   }`}
                 >
-                  <span className="w-20 shrink-0 font-mono text-[9px] tracking-[0.15em] text-[var(--fg-muted)] uppercase">
+                  <span className="w-20 shrink-0 font-mono text-[10px] tracking-[0.15em] text-[var(--fg-muted)] uppercase">
                     {it.group}
                   </span>
                   <span className="flex-1 truncate">{it.label}</span>

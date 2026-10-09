@@ -88,7 +88,7 @@ export default function UnifiedHeatmap() {
         ) : (
           <div className="mt-5 overflow-x-auto pb-2">
             <div className="relative inline-block min-w-full">
-              <div className="mb-1 flex gap-[3px] pl-1 font-mono text-[9px] text-[var(--fg-muted)]">
+              <div className="mb-1 flex gap-[3px] pl-1 font-mono text-[10px] text-[var(--fg-muted)]">
                 {weeks.map((_, ci) => {
                   const lab = monthLabels.find((m) => m.col === ci);
                   return <span key={ci} className="w-[11px]">{lab ? lab.label : ""}</span>;
@@ -158,7 +158,7 @@ export default function UnifiedHeatmap() {
             ))}
           </div>
           {view === "grid" && (
-            <div className="flex items-center gap-1 font-mono text-[9px] text-[var(--fg-muted)]">
+            <div className="flex items-center gap-1 font-mono text-[10px] text-[var(--fg-muted)]">
               less
               {COLORS.map((c, i) => (
                 <span key={i} className="h-[10px] w-[10px] rounded-[2px]" style={{ background: c }} />

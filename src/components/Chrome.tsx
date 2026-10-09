@@ -72,53 +72,6 @@ export function Reveal({
   );
 }
 
-/* ---------------- word-by-word headline ---------------- */
-
-export function SplitHeading({ text, className }: { text: string; className?: string }) {
-  const words = text.split(" ");
-  return (
-    <h1 className={className}>
-      {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom">
-          <motion.span
-            className="inline-block"
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {w}&nbsp;
-          </motion.span>
-        </span>
-      ))}
-    </h1>
-  );
-}
-
-/* ---------------- marquee ---------------- */
-
-export function Marquee({ items, speed = 28 }: { items: string[]; speed?: number }) {
-  const row = [...items, ...items];
-  return (
-    <div className="marquee-mask relative flex overflow-hidden py-5">
-      <motion.div
-        className="flex shrink-0 gap-8 pr-8"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: speed, ease: "linear", repeat: Infinity }}
-      >
-        {row.concat(row).map((t, i) => (
-          <span
-            key={i}
-            className="whitespace-nowrap font-mono text-sm tracking-wide text-[var(--fg-muted)]"
-          >
-            {t}
-            <span className="ml-8 text-[var(--accent)]">✦</span>
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
 /* ---------------- tilt card ---------------- */
 
 // No 3D snap-back (that read as gimmicky). Just a cursor-following sheen and

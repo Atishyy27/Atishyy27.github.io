@@ -118,16 +118,13 @@ body {
 }
 .graph-label span {
   color: var(--fg-muted);
-  font-size: 9px;
+  /* 10px, not 9. This is the sub-line of the 3D graph's hover label, and on a
+     phone there is no hover: it appears on tap, which is exactly when it needs
+     to be readable. 9px uppercase mono is not. */
+  font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
-
-.marquee-mask {
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-
 /* Animated underline for text links */
 .link {
   position: relative;
