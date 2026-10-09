@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getRepo, repoSlugs, REPO_NOTES, type PrState } from "@/content/oss";
 import { formatDate } from "@/lib/date";
+import RepoLogo from "@/components/RepoLogo";
 
 export const dynamicParams = false;
 
@@ -42,8 +43,11 @@ export default async function RepoPage({ params }: Props) {
       <Link href="/oss/" className="link text-sm">Open source</Link>
 
       <header className="mt-10">
-        <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">{r.owner}</p>
-        <h1 className="display mt-2 text-4xl leading-[1.05] sm:text-5xl">{r.name}</h1>
+        <div className="flex items-center gap-3">
+          <RepoLogo owner={r.owner} size={40} />
+          <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">{r.owner}</p>
+        </div>
+        <h1 className="display mt-3 text-4xl leading-[1.05] sm:text-5xl">{r.name}</h1>
         <p className="mt-5 text-lg text-[var(--fg-muted)]">
           {r.prs.length} pull request{r.prs.length === 1 ? "" : "s"}, {r.merged} merged.
           {first && latest && first.created !== latest.created

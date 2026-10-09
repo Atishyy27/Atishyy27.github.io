@@ -121,6 +121,50 @@ if (!fs.existsSync(sitemapPath)) {
   console.log(`      sitemap lists ${listed.size}, site builds ${builtRoutes.length}`);
 }
 
+// 5. Two repositories are permanently excluded from the open-source record.
+//    They are not open-source contributions. They reached the live site once,
+//    as 19 of a stated 55 merged pull requests, because the rule lived only in
+//    prose. It lives here now.
+const EXCLUDED_REPOS = ["saloni0903/yoga-app", "iamrahulmahato/master-web-development"];
+const leaked = [];
+// Every shipped text file, not just the HTML. The first version of this check
+// looked at pages only and passed while both names sat in a JS chunk, because
+// the snapshot carried them in an "excluded" field meant as an audit trail.
+(function scanAll(dir) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const q = path.join(dir, e.name);
+    if (e.isDirectory()) scanAll(q);
+    else if (/\.(html|js|json|txt|xml|css)$/.test(e.name)) {
+      const text = fs.readFileSync(q, "utf8");
+      for (const repo of EXCLUDED_REPOS) {
+        if (text.includes(repo)) leaked.push(`${rel(q)} mentions ${repo}`);
+      }
+    }
+  }
+})(OUT);
+check(
+  "no excluded repository appears anywhere in the shipped output",
+  leaked.length === 0,
+  leaked.slice(0, 5).join("; ")
+);
+
+// And the same for the committed snapshot the pages are built from.
+const snapshotPath = path.join(process.cwd(), "src", "content", "oss-data.json");
+if (fs.existsSync(snapshotPath)) {
+  const snap = JSON.parse(fs.readFileSync(snapshotPath, "utf8"));
+  const inSnap = snap.repos.filter((r) => EXCLUDED_REPOS.includes(r.full)).map((r) => r.full);
+  check("no excluded repository is in oss-data.json", inSnap.length === 0, inSnap.join(", "));
+
+  // The snapshot's own totals must equal the sum of its rows, or a stale total
+  // survives a regeneration and the headline number lies.
+  const sum = snap.repos.reduce((t, r) => t + r.merged, 0);
+  check(
+    "snapshot merged total matches the sum of its rows",
+    sum === snap.totals.merged,
+    `rows sum to ${sum}, totals say ${snap.totals.merged}`
+  );
+}
+
 console.log("\nscanned " + pages.length + " pages, " + internalCount + " internal links");
 console.log(failures === 0 ? "ALL PASS" : failures + " FAILURE(S)");
 process.exit(failures === 0 ? 0 : 1);

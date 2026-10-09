@@ -1,151 +1,96 @@
 {
   "user": "Atishyy27",
-  "fetchedAt": "2026-09-29",
-  "note": "Upstream only: repositories Atishyy27 does not own. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
+  "fetchedAt": "2026-10-09",
+  "excludedCount": 2,
+  "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   "totals": {
-    "merged": 55,
-    "open": 82,
-    "closed": 35,
-    "prs": 172
+    "merged": 41,
+    "open": 76,
+    "closed": 36,
+    "prs": 153
   },
-  "repoCount": 58,
+  "repoCount": 56,
   "repos": [
     {
-      "full": "saloni0903/yoga-app",
-      "owner": "saloni0903",
-      "name": "yoga-app",
-      "slug": "saloni0903-yoga-app",
-      "merged": 16,
-      "open": 0,
-      "closed": 0,
+      "full": "fedimint/fedimint",
+      "owner": "fedimint",
+      "name": "fedimint",
+      "slug": "fedimint-fedimint",
+      "merged": 4,
+      "open": 4,
+      "closed": 1,
       "prs": [
         {
-          "number": 29,
-          "title": "feat(groups): implement v2 features and bugfixes",
-          "url": "https://github.com/saloni0903/yoga-app/pull/29",
-          "state": "merged",
-          "created": "2025-10-31",
-          "closedAt": "2025-10-31"
+          "number": 9216,
+          "title": "fix(wallet-client): stop an interrupted recovery from bricking every later open",
+          "url": "https://github.com/fedimint/fedimint/pull/9216",
+          "state": "open",
+          "created": "2026-09-28",
+          "closedAt": null
         },
         {
-          "number": 25,
-          "title": "Fix/firebase config update",
-          "url": "https://github.com/saloni0903/yoga-app/pull/25",
-          "state": "merged",
-          "created": "2025-10-30",
-          "closedAt": "2025-10-30"
+          "number": 9202,
+          "title": "fix(wallet-client): retry a deposit the Bitcoin backend cannot prove",
+          "url": "https://github.com/fedimint/fedimint/pull/9202",
+          "state": "open",
+          "created": "2026-09-25",
+          "closedAt": null
         },
         {
-          "number": 26,
-          "title": "fix(auth): Harden tryAutoLogin and Refactor Environment Config",
-          "url": "https://github.com/saloni0903/yoga-app/pull/26",
-          "state": "merged",
-          "created": "2025-10-30",
-          "closedAt": "2025-10-30"
+          "number": 9203,
+          "title": "fix(bitcoin-rpc): bound the hybrid startup chain identity probes",
+          "url": "https://github.com/fedimint/fedimint/pull/9203",
+          "state": "open",
+          "created": "2026-09-25",
+          "closedAt": null
         },
         {
-          "number": 27,
-          "title": "fix(data): Correctly query and display online groups",
-          "url": "https://github.com/saloni0903/yoga-app/pull/27",
+          "number": 9198,
+          "title": "fix(server): stop the p2p receive half between frames instead of dropping it",
+          "url": "https://github.com/fedimint/fedimint/pull/9198",
           "state": "merged",
-          "created": "2025-10-30",
-          "closedAt": "2025-10-30"
+          "created": "2026-09-24",
+          "closedAt": "2026-10-08"
         },
         {
-          "number": 28,
-          "title": "fix(state): Resolve stale data and upgrade Group UI screens",
-          "url": "https://github.com/saloni0903/yoga-app/pull/28",
-          "state": "merged",
-          "created": "2025-10-30",
-          "closedAt": "2025-10-30"
+          "number": 9182,
+          "title": "fix(lnurl): validate both address halves against the LUD-16 charset",
+          "url": "https://github.com/fedimint/fedimint/pull/9182",
+          "state": "open",
+          "created": "2026-09-20",
+          "closedAt": null
         },
         {
-          "number": 19,
-          "title": "feat(admin): Implement new dashboard and instructor filtering",
-          "url": "https://github.com/saloni0903/yoga-app/pull/19",
+          "number": 9143,
+          "title": "fix(gateway): select mintv2 module by asset unit, not first instance",
+          "url": "https://github.com/fedimint/fedimint/pull/9143",
           "state": "merged",
-          "created": "2025-10-24",
-          "closedAt": "2025-10-24"
+          "created": "2026-09-13",
+          "closedAt": "2026-09-16"
         },
         {
-          "number": 20,
-          "title": "feat(security/api): Secure Mobile Auth, Group Creation Fix, and Code Cleanup (Closes #10)",
-          "url": "https://github.com/saloni0903/yoga-app/pull/20",
+          "number": 8921,
+          "title": "fix(lnv2): check both PaymentFee components against the fee limits",
+          "url": "https://github.com/fedimint/fedimint/pull/8921",
           "state": "merged",
-          "created": "2025-10-24",
-          "closedAt": "2025-10-24"
+          "created": "2026-07-30",
+          "closedAt": "2026-07-30"
         },
         {
-          "number": 14,
-          "title": "refactor(db): remove obsolete Session.js model",
-          "url": "https://github.com/saloni0903/yoga-app/pull/14",
-          "state": "merged",
-          "created": "2025-10-23",
-          "closedAt": "2025-10-23"
+          "number": 8907,
+          "title": "fix(lnv2): saturate PaymentFee addition instead of overflowing",
+          "url": "https://github.com/fedimint/fedimint/pull/8907",
+          "state": "closed",
+          "created": "2026-07-29",
+          "closedAt": "2026-08-04"
         },
         {
-          "number": 15,
-          "title": "fix(auth): Resolve post-login 401 redirect loop and API crashes",
-          "url": "https://github.com/saloni0903/yoga-app/pull/15",
+          "number": 8854,
+          "title": "core: fix panics decoding untrusted Duration and SystemTime",
+          "url": "https://github.com/fedimint/fedimint/pull/8854",
           "state": "merged",
-          "created": "2025-10-23",
-          "closedAt": "2025-10-23"
-        },
-        {
-          "number": 17,
-          "title": "feat(arch): Complete dismantling of God Component and modularize app",
-          "url": "https://github.com/saloni0903/yoga-app/pull/17",
-          "state": "merged",
-          "created": "2025-10-23",
-          "closedAt": "2025-10-23"
-        },
-        {
-          "number": 2,
-          "title": "Arch: Rearchitect Session Management to be Stateless",
-          "url": "https://github.com/saloni0903/yoga-app/pull/2",
-          "state": "merged",
-          "created": "2025-10-19",
-          "closedAt": "2025-10-19"
-        },
-        {
-          "number": 4,
-          "title": "Security/cookie based auth",
-          "url": "https://github.com/saloni0903/yoga-app/pull/4",
-          "state": "merged",
-          "created": "2025-10-19",
-          "closedAt": "2025-10-19"
-        },
-        {
-          "number": 6,
-          "title": "Refactor: Migrate All Model Keys to ObjectId",
-          "url": "https://github.com/saloni0903/yoga-app/pull/6",
-          "state": "merged",
-          "created": "2025-10-19",
-          "closedAt": "2025-10-19"
-        },
-        {
-          "number": 7,
-          "title": "Fix/cors flutter integration",
-          "url": "https://github.com/saloni0903/yoga-app/pull/7",
-          "state": "merged",
-          "created": "2025-10-19",
-          "closedAt": "2025-10-19"
-        },
-        {
-          "number": 8,
-          "title": "Fix/cors flutter integration",
-          "url": "https://github.com/saloni0903/yoga-app/pull/8",
-          "state": "merged",
-          "created": "2025-10-19",
-          "closedAt": "2025-10-19"
-        },
-        {
-          "number": 9,
-          "title": "fix: Update CORS to always allow localhost",
-          "url": "https://github.com/saloni0903/yoga-app/pull/9",
-          "state": "merged",
-          "created": "2025-10-19",
-          "closedAt": "2025-10-19"
+          "created": "2026-07-22",
+          "closedAt": "2026-09-13"
         }
       ]
     },
@@ -316,89 +261,6 @@
       ]
     },
     {
-      "full": "fedimint/fedimint",
-      "owner": "fedimint",
-      "name": "fedimint",
-      "slug": "fedimint-fedimint",
-      "merged": 3,
-      "open": 5,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 9216,
-          "title": "fix(wallet-client): stop an interrupted recovery from bricking every later open",
-          "url": "https://github.com/fedimint/fedimint/pull/9216",
-          "state": "open",
-          "created": "2026-09-28",
-          "closedAt": null
-        },
-        {
-          "number": 9202,
-          "title": "fix(wallet-client): retry a deposit the Bitcoin backend cannot prove",
-          "url": "https://github.com/fedimint/fedimint/pull/9202",
-          "state": "open",
-          "created": "2026-09-25",
-          "closedAt": null
-        },
-        {
-          "number": 9203,
-          "title": "fix(bitcoin-rpc): bound the hybrid startup chain identity probes",
-          "url": "https://github.com/fedimint/fedimint/pull/9203",
-          "state": "open",
-          "created": "2026-09-25",
-          "closedAt": null
-        },
-        {
-          "number": 9198,
-          "title": "fix(server): stop the p2p receive half between frames instead of dropping it",
-          "url": "https://github.com/fedimint/fedimint/pull/9198",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null
-        },
-        {
-          "number": 9182,
-          "title": "fix(lnurl): validate both address halves against the LUD-16 charset",
-          "url": "https://github.com/fedimint/fedimint/pull/9182",
-          "state": "open",
-          "created": "2026-09-20",
-          "closedAt": null
-        },
-        {
-          "number": 9143,
-          "title": "fix(gateway): select mintv2 module by asset unit, not first instance",
-          "url": "https://github.com/fedimint/fedimint/pull/9143",
-          "state": "merged",
-          "created": "2026-09-13",
-          "closedAt": "2026-09-16"
-        },
-        {
-          "number": 8921,
-          "title": "fix(lnv2): check both PaymentFee components against the fee limits",
-          "url": "https://github.com/fedimint/fedimint/pull/8921",
-          "state": "merged",
-          "created": "2026-07-30",
-          "closedAt": "2026-07-30"
-        },
-        {
-          "number": 8907,
-          "title": "fix(lnv2): saturate PaymentFee addition instead of overflowing",
-          "url": "https://github.com/fedimint/fedimint/pull/8907",
-          "state": "closed",
-          "created": "2026-07-29",
-          "closedAt": "2026-08-04"
-        },
-        {
-          "number": 8854,
-          "title": "core: fix panics decoding untrusted Duration and SystemTime",
-          "url": "https://github.com/fedimint/fedimint/pull/8854",
-          "state": "merged",
-          "created": "2026-07-22",
-          "closedAt": "2026-09-13"
-        }
-      ]
-    },
-    {
       "full": "pyannote/pyannote-metrics",
       "owner": "pyannote",
       "name": "pyannote-metrics",
@@ -493,41 +355,6 @@
       ]
     },
     {
-      "full": "iamrahulmahato/master-web-development",
-      "owner": "iamrahulmahato",
-      "name": "master-web-development",
-      "slug": "iamrahulmahato-master-web-development",
-      "merged": 3,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 2387,
-          "title": "Bug fix: Inconsistent Dark Mode ",
-          "url": "https://github.com/iamrahulmahato/master-web-development/pull/2387",
-          "state": "merged",
-          "created": "2024-11-10",
-          "closedAt": "2024-11-10"
-        },
-        {
-          "number": 2410,
-          "title": "Added chess card in home page",
-          "url": "https://github.com/iamrahulmahato/master-web-development/pull/2410",
-          "state": "merged",
-          "created": "2024-11-10",
-          "closedAt": "2024-11-10"
-        },
-        {
-          "number": 2242,
-          "title": "issue #73 resolved: Added Chess Game Project",
-          "url": "https://github.com/iamrahulmahato/master-web-development/pull/2242",
-          "state": "merged",
-          "created": "2024-11-07",
-          "closedAt": "2024-11-08"
-        }
-      ]
-    },
-    {
       "full": "meshery/meshery",
       "owner": "meshery",
       "name": "meshery",
@@ -591,6 +418,65 @@
           "state": "merged",
           "created": "2026-07-17",
           "closedAt": "2026-07-20"
+        }
+      ]
+    },
+    {
+      "full": "citadel-foss/openswap",
+      "owner": "citadel-foss",
+      "name": "openswap",
+      "slug": "citadel-foss-openswap",
+      "merged": 2,
+      "open": 0,
+      "closed": 4,
+      "prs": [
+        {
+          "number": 1035,
+          "title": "protocol: reject multisig redeemscripts too short to hold both pubkeys",
+          "url": "https://github.com/citadel-foss/openswap/pull/1035",
+          "state": "merged",
+          "created": "2026-09-21",
+          "closedAt": "2026-09-30"
+        },
+        {
+          "number": 1036,
+          "title": "wallet: reject coin selection amounts above the 21M cap",
+          "url": "https://github.com/citadel-foss/openswap/pull/1036",
+          "state": "merged",
+          "created": "2026-09-21",
+          "closedAt": "2026-09-26"
+        },
+        {
+          "number": 1031,
+          "title": "fix(taker): reject forwarded sender signature lists of the wrong length",
+          "url": "https://github.com/citadel-foss/openswap/pull/1031",
+          "state": "closed",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "number": 1032,
+          "title": "chore: remove the unused fee estimation module",
+          "url": "https://github.com/citadel-foss/openswap/pull/1032",
+          "state": "closed",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "number": 968,
+          "title": "test(utill): add unit test for parse_field",
+          "url": "https://github.com/citadel-foss/openswap/pull/968",
+          "state": "closed",
+          "created": "2026-08-03",
+          "closedAt": "2026-08-25"
+        },
+        {
+          "number": 964,
+          "title": "test(utill): add unit test for parse_proxy_auth",
+          "url": "https://github.com/citadel-foss/openswap/pull/964",
+          "state": "closed",
+          "created": "2026-08-01",
+          "closedAt": "2026-08-25"
         }
       ]
     },
@@ -688,65 +574,6 @@
           "state": "merged",
           "created": "2026-07-12",
           "closedAt": "2026-07-13"
-        }
-      ]
-    },
-    {
-      "full": "citadel-foss/openswap",
-      "owner": "citadel-foss",
-      "name": "openswap",
-      "slug": "citadel-foss-openswap",
-      "merged": 1,
-      "open": 1,
-      "closed": 4,
-      "prs": [
-        {
-          "number": 1035,
-          "title": "protocol: reject multisig redeemscripts too short to hold both pubkeys",
-          "url": "https://github.com/citadel-foss/openswap/pull/1035",
-          "state": "open",
-          "created": "2026-09-21",
-          "closedAt": null
-        },
-        {
-          "number": 1036,
-          "title": "wallet: reject coin selection amounts above the 21M cap",
-          "url": "https://github.com/citadel-foss/openswap/pull/1036",
-          "state": "merged",
-          "created": "2026-09-21",
-          "closedAt": "2026-09-26"
-        },
-        {
-          "number": 1031,
-          "title": "fix(taker): reject forwarded sender signature lists of the wrong length",
-          "url": "https://github.com/citadel-foss/openswap/pull/1031",
-          "state": "closed",
-          "created": "2026-09-17",
-          "closedAt": "2026-09-21"
-        },
-        {
-          "number": 1032,
-          "title": "chore: remove the unused fee estimation module",
-          "url": "https://github.com/citadel-foss/openswap/pull/1032",
-          "state": "closed",
-          "created": "2026-09-17",
-          "closedAt": "2026-09-21"
-        },
-        {
-          "number": 968,
-          "title": "test(utill): add unit test for parse_field",
-          "url": "https://github.com/citadel-foss/openswap/pull/968",
-          "state": "closed",
-          "created": "2026-08-03",
-          "closedAt": "2026-08-25"
-        },
-        {
-          "number": 964,
-          "title": "test(utill): add unit test for parse_proxy_auth",
-          "url": "https://github.com/citadel-foss/openswap/pull/964",
-          "state": "closed",
-          "created": "2026-08-01",
-          "closedAt": "2026-08-25"
         }
       ]
     },
@@ -861,6 +688,49 @@
       ]
     },
     {
+      "full": "prefix-dev/pixi",
+      "owner": "prefix-dev",
+      "name": "pixi",
+      "slug": "prefix-dev-pixi",
+      "merged": 1,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 7106,
+          "title": "fix: bound the connect timeout so it does not vary by platform",
+          "url": "https://github.com/prefix-dev/pixi/pull/7106",
+          "state": "open",
+          "created": "2026-09-27",
+          "closedAt": null
+        },
+        {
+          "number": 7107,
+          "title": "fix: raise the open file limit before solving, not only before installing",
+          "url": "https://github.com/prefix-dev/pixi/pull/7107",
+          "state": "open",
+          "created": "2026-09-27",
+          "closedAt": null
+        },
+        {
+          "number": 7095,
+          "title": "fix(cli): don't suggest a one-character alias for an unrelated subcommand",
+          "url": "https://github.com/prefix-dev/pixi/pull/7095",
+          "state": "merged",
+          "created": "2026-09-25",
+          "closedAt": "2026-10-05"
+        },
+        {
+          "number": 7089,
+          "title": "fix: suspend the progress bars while the task environment prompt is shown",
+          "url": "https://github.com/prefix-dev/pixi/pull/7089",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null
+        }
+      ]
+    },
+    {
       "full": "cilium/cilium",
       "owner": "cilium",
       "name": "cilium",
@@ -958,6 +828,25 @@
       ]
     },
     {
+      "full": "py-pdf/pypdf",
+      "owner": "py-pdf",
+      "name": "pypdf",
+      "slug": "py-pdf-pypdf",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 4129,
+          "title": "BUG: FloatObject.hash_bin hashes the as_numeric method, not the value",
+          "url": "https://github.com/py-pdf/pypdf/pull/4129",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-09-30"
+        }
+      ]
+    },
+    {
       "full": "comet-ml/opik",
       "owner": "comet-ml",
       "name": "opik",
@@ -973,6 +862,25 @@
           "state": "merged",
           "created": "2026-09-24",
           "closedAt": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "full": "openatx/uiautomator2",
+      "owner": "openatx",
+      "name": "uiautomator2",
+      "slug": "openatx-uiautomator2",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1195,
+          "title": "fix: correct ends-with match on @content-desc in strict_xpath",
+          "url": "https://github.com/openatx/uiautomator2/pull/1195",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-10-04"
         }
       ]
     },
@@ -1249,49 +1157,6 @@
       ]
     },
     {
-      "full": "prefix-dev/pixi",
-      "owner": "prefix-dev",
-      "name": "pixi",
-      "slug": "prefix-dev-pixi",
-      "merged": 0,
-      "open": 4,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 7106,
-          "title": "fix: bound the connect timeout so it does not vary by platform",
-          "url": "https://github.com/prefix-dev/pixi/pull/7106",
-          "state": "open",
-          "created": "2026-09-27",
-          "closedAt": null
-        },
-        {
-          "number": 7107,
-          "title": "fix: raise the open file limit before solving, not only before installing",
-          "url": "https://github.com/prefix-dev/pixi/pull/7107",
-          "state": "open",
-          "created": "2026-09-27",
-          "closedAt": null
-        },
-        {
-          "number": 7095,
-          "title": "fix: don't suggest a one-character alias for an unrelated subcommand",
-          "url": "https://github.com/prefix-dev/pixi/pull/7095",
-          "state": "open",
-          "created": "2026-09-25",
-          "closedAt": null
-        },
-        {
-          "number": 7089,
-          "title": "fix: suspend the progress bars while the task environment prompt is shown",
-          "url": "https://github.com/prefix-dev/pixi/pull/7089",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null
-        }
-      ]
-    },
-    {
       "full": "urunc-dev/urunc",
       "owner": "urunc-dev",
       "name": "urunc",
@@ -1542,16 +1407,16 @@
       "name": "infigraph",
       "slug": "intuit-infigraph",
       "merged": 0,
-      "open": 1,
-      "closed": 1,
+      "open": 0,
+      "closed": 2,
       "prs": [
         {
           "number": 60,
           "title": "fix: guard release tag against workspace version mismatch",
           "url": "https://github.com/intuit/infigraph/pull/60",
-          "state": "open",
+          "state": "closed",
           "created": "2026-08-13",
-          "closedAt": null
+          "closedAt": "2026-10-02"
         },
         {
           "number": 61,
@@ -1664,25 +1529,6 @@
       ]
     },
     {
-      "full": "py-pdf/pypdf",
-      "owner": "py-pdf",
-      "name": "pypdf",
-      "slug": "py-pdf-pypdf",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 4129,
-          "title": "BUG: FloatObject.hash_bin hashes the as_numeric method, not the value",
-          "url": "https://github.com/py-pdf/pypdf/pull/4129",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null
-        }
-      ]
-    },
-    {
       "full": "kellyjonbrazil/jc",
       "owner": "kellyjonbrazil",
       "name": "jc",
@@ -1695,25 +1541,6 @@
           "number": 776,
           "title": "Fix cksum/sum IndexError on stdin output without a filename",
           "url": "https://github.com/kellyjonbrazil/jc/pull/776",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null
-        }
-      ]
-    },
-    {
-      "full": "openatx/uiautomator2",
-      "owner": "openatx",
-      "name": "uiautomator2",
-      "slug": "openatx-uiautomator2",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 1195,
-          "title": "fix: correct ends-with match on @content-desc in strict_xpath",
-          "url": "https://github.com/openatx/uiautomator2/pull/1195",
           "state": "open",
           "created": "2026-09-24",
           "closedAt": null

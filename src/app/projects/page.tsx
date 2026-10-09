@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { allProjects, pagedProjects, CATEGORY_LABEL } from "@/content/projects";
+import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Projects · Atishay Jain",
@@ -44,7 +45,10 @@ export default function ProjectsIndex() {
           const hasPage = paged.has(p.slug);
           const body = (
             <>
-              <span className="row-kind">{CATEGORY_LABEL[p.category]}</span>
+              <span className="row-kind flex items-center gap-2.5">
+                <Logo name={p.name} domain={p.domain} size={26} />
+                {CATEGORY_LABEL[p.category]}
+              </span>
               <span>
                 <span className="row-name">{p.name}</span>
                 {p.org ? (

@@ -33,7 +33,10 @@ export const person = {
 // count, which is smaller, true, and the one people actually weigh.
 export const proof = [
   { stat: "Rank 12", label: "ICPC Mysuru on-site regionals 2025", href: "/stats/" },
-  { stat: "55 merged", label: "pull requests into repos I do not own, across 58 projects", href: "/oss/" },
+  // 41, not 55. The 55 counted two repositories that are not open-source
+  // contributions and are permanently excluded; they were 19 of that number.
+  // scripts/fetch-oss.mjs now drops them in the query and again in a filter.
+  { stat: "41 merged", label: "pull requests into repos I do not own, across 24 projects", href: "/oss/" },
   { stat: "392 users", label: "on my two Chrome extensions, Web Store, 30 Sep 2026", href: "/projects/" },
   { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/work/" },
 ];
@@ -57,6 +60,23 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    // Added 2026-10-09. The role TITLE is the one field here I did not have a
+    // source for and should be corrected if it is wrong. Everything else is
+    // deliberately pitched at the level of method rather than product: no
+    // client names, no model names, no internal numbers, nothing unreleased.
+    org: "NeoSapien",
+    role: "AI Engineer Intern",
+    dates: "Jun 2026 – present",
+    place: "Remote / Bengaluru",
+    domain: "neosapien.ai",
+    points: [
+      "Speech-to-text evaluation for a shipping consumer wearable: harnesses that score transcription on hard, accented, code-switched Indian audio using word error rate, character error rate and entity recall together, because a single aggregate score hides exactly the failures that matter.",
+      "Characterised failures by acoustic condition rather than ranking vendors, so a result answers what to change rather than only which option scored best.",
+      "Wake-word evaluation across candidate trigger phrases, measuring detection rate and false-fire rate per phrase against a fixed recording set rather than on ad-hoc clips.",
+      "Firmware-side test tooling for the device, including a USB command channel for microphone, tap and radio control so hardware behaviour can be exercised without a phone in the loop.",
+    ],
+  },
+  {
     org: "Dept. of Labour, Govt. of Madhya Pradesh",
     role: "System Analyst Intern",
     dates: "Nov 2025 – Feb 2026",
@@ -74,9 +94,13 @@ export const experience: Experience[] = [
     role: "Data Infrastructure Intern",
     dates: "Sept – Nov 2025",
     place: "Remote / Chennai",
+    // Expanded 2026-10-09 by explaining the facts that were already here, not
+    // by adding achievements. No new claim, no new number.
     points: [
-      "Built the preprocessing and quality-control pipeline over BraTS 2023 MRI data, 1,250+ patients, benchmarked against SOTA.",
-      "Wrote nibabel loaders and visualisation tooling, normalised voxel intensity, and cut training latency.",
+      "Owned the preprocessing and quality-control pipeline for BraTS 2023 brain-MRI data across 1,250+ patients, the stage that decides whether anything downstream is trustworthy.",
+      "Voxel intensity normalisation across scans, because MRI values are not absolute: the same tissue reads differently between scanners and sessions, so a model trained on raw intensities learns the scanner rather than the pathology.",
+      "nibabel-based loaders and visualisation tooling so a bad volume could be seen rather than inferred from a loss curve, which is the difference between finding a data fault in minutes and finding it after a training run.",
+      "Benchmarked the resulting pipeline against published state-of-the-art results, and cut training latency.",
     ],
   },
   {
@@ -86,9 +110,12 @@ export const experience: Experience[] = [
     place: "Remote",
     note: "Titan Capital-backed",
     domain: "heizen.work",
+    // Expanded 2026-10-09 from the facts already recorded. The three clients
+    // and the 90% figure are unchanged; nothing was added to them.
     points: [
-      "Turned product requirements into technical workflows and execution plans for 3 enterprise clients, building 0-to-1 prototypes under heavy ambiguity.",
-      "Coordinated sprints and releases at 90%+ on-time delivery.",
+      "Translated product requirements into technical workflows and execution plans for 3 enterprise clients, working from briefs that were still changing while the work was being scoped.",
+      "Built 0-to-1 prototypes to settle open questions early, so a disagreement about what the product should do was resolved against something runnable rather than against a document.",
+      "Ran sprint and release coordination across those engagements at 90%+ on-time delivery.",
     ],
   },
   {
@@ -97,9 +124,13 @@ export const experience: Experience[] = [
     dates: "May – Aug 2025",
     place: "Gwalior, onsite",
     domain: "iiitm.ac.in",
+    // Expanded 2026-10-09 from the facts already recorded, plus the research
+    // write-up this produced, which is listed under Research.
     points: [
-      "Modular federated-learning pipeline with DenseNet and EfficientNet for pneumonia detection across chest X-rays and EHR data.",
-      "Blockchain audit layer on Hyperledger Fabric for tamper-proof model-update logging. 94.2% AUC on non-IID data.",
+      "Modular federated-learning pipeline over chest X-rays and electronic health records for pneumonia detection, with DenseNet and EfficientNet backbones swappable without touching the federation logic.",
+      "The point of federating it is that patient data never leaves the institution that holds it: only model updates move, so the privacy constraint is structural rather than a policy someone has to honour.",
+      "Hyperledger Fabric audit layer recording every model update, so a federation round cannot be altered after the fact without the record disagreeing.",
+      "94.2% AUC on non-IID data, which is the hard case: each site's data is distributed differently, so a result on evenly split data would not have told us anything about deployment.",
     ],
   },
   {
@@ -115,7 +146,7 @@ export const experience: Experience[] = [
   },
   { org: "BuilderY", role: "Engineering Intern", dates: "2025" },
   { org: "CyberShield", role: "Digital Forensics Intern", dates: "2025", note: "offer via CIIS hackathon" },
-  { org: "Roomzy", role: "Developer Intern", dates: "2024" },
+  { org: "Roomzy", role: "Developer Intern", dates: "2024", domain: "roomzy.in" },
   { org: "E-Notebook", role: "Developer Intern", dates: "2024", note: "SGSITS", domain: "sgsits.ac.in" },
 ];
 

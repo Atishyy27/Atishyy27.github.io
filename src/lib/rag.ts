@@ -33,14 +33,16 @@ export function buildCorpus(): Chunk[] {
   const c: Chunk[] = [];
   c.push({ label: "About", text: `${person.name}. ${about.join(" ")}` });
 
-  // Counted claim, verified against the GitHub search API on 2026-09-30:
-  //   author:Atishyy27 type:pr is:merged -user:Atishyy27  ->  55, across 23 repos.
-  // It previously read "74 pull requests", which matched no query: the real
-  // figures that day were 180 opened, 63 merged, 55 merged upstream.
+  // Counted claim, verified against the GitHub search API on 2026-10-09:
+  //   author:Atishyy27 type:pr is:merged -user:Atishyy27  ->  60
+  //   minus repo:saloni0903/yoga-app (16) and
+  //         repo:iamrahulmahato/master-web-development (3)  ->  41
+  // Those two are permanently excluded: they are not open-source contributions.
+  // Earlier versions of this chunk said 74, then 55. Both were wrong.
   c.push({
     label: "Open source",
     href: "/oss/",
-    text: `Open source contributions. Contributed upstream as an outside contributor. ${currentWork.title}. ${currentWork.detail}. ${currentWork.badge}. 55 pull requests merged into repositories he does not own, across 23 projects, including cilium, kubernetes/website, open-policy-agent/opa, meshery, kmesh, opentelemetry, hyperledger/fabric, podman, fedimint, lightningdevkit/rust-lightning, braidpool, openswap and zowe-cli. 180 pull requests opened and 99 issues filed in total. Counted 30 September 2026; the live figure is on the home page.`,
+    text: `Open source contributions. Contributed upstream as an outside contributor. ${currentWork.title}. ${currentWork.detail}. ${currentWork.badge}. 41 pull requests merged into repositories he does not own, across 24 projects, including cilium, kubernetes/website, open-policy-agent/opa, meshery, kmesh, opentelemetry, hyperledger/fabric, podman, fedimint, lightningdevkit/rust-lightning, braidpool, openswap and zowe-cli. 153 pull requests opened upstream and 76 still open. Counted 9 October 2026; the live figure is on the open source page.`,
   });
 
   // Asked often enough to deserve its own chunk: "have you worked in Java".
@@ -61,13 +63,26 @@ export function buildCorpus(): Chunk[] {
   experience.forEach((e) =>
     c.push({ label: e.org, href: "/about/", text: `At ${e.org}, ${e.role} (${e.dates}). ${(e.points ?? []).join(" ")}` })
   );
-  [...govtWork, ...clientWork, ...orgWork, ...extensions, ...hackathons].forEach((w) =>
-    c.push({
-      label: w.name,
-      href: w.links[0]?.href,
-      text: `${w.name}${w.org ? ` for ${w.org}` : ""}. ${w.blurb} Built with ${w.stack.join(", ")}.`,
-    })
-  );
+  // The category goes into the text on purpose. "what chrome extensions have you
+  // built" used to rank the About paragraph above both extensions, because the
+  // word "extension" appeared in neither chunk: it was only ever the category,
+  // which was not indexed. A chunk has to contain the word a person would type.
+  const withKind: [typeof govtWork, string][] = [
+    [govtWork, "Government platform"],
+    [clientWork, "Client project"],
+    [orgWork, "Institution project"],
+    [extensions, "Chrome extension, browser extension"],
+    [hackathons, "Hackathon project"],
+  ];
+  for (const [list, kind] of withKind) {
+    for (const w of list) {
+      c.push({
+        label: w.name,
+        href: w.links[0]?.href,
+        text: `${w.name}${w.org ? ` for ${w.org}` : ""}. ${kind}. ${w.blurb} Built with ${w.stack.join(", ")}.`,
+      });
+    }
+  }
   c.push({
     label: "Competitive programming",
     href: "/stats/",

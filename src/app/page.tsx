@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { person, proof } from "@/content/site";
 import { featuredProjects, allProjects } from "@/content/projects";
+import { Logo } from "@/components/Logo";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
 import { ProjectGraphMount } from "@/components/SceneMount";
@@ -97,7 +98,10 @@ export default function Home() {
           <div className="mt-6">
             {featuredProjects.map((p) => (
               <Link key={p.slug} href={`/projects/${p.slug}/`} className="row group">
-                <span className="row-kind">{p.org ?? "Project"}</span>
+                <span className="row-kind flex items-center gap-2.5">
+                  <Logo name={p.name} domain={p.domain} size={26} />
+                  {p.org ?? "Project"}
+                </span>
                 <span>
                   <span className="row-name">{p.name}</span>
                   <span className="row-line block">{p.story || p.blurb}</span>

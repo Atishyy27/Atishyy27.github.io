@@ -5,6 +5,7 @@ import { pagedProjects, getProject, CATEGORY_LABEL } from "@/content/projects";
 import { entriesForProject, formatDate } from "@/lib/journal";
 import LiveEmbed from "@/components/LiveEmbed";
 import { canEmbed } from "@/lib/embeddable";
+import { Logo } from "@/components/Logo";
 
 export const dynamicParams = false;
 
@@ -36,10 +37,13 @@ export default async function ProjectPage({ params }: Props) {
       <Link href="/projects/" className="link text-sm">Projects</Link>
 
       <header className="mt-10">
-        <p className="text-sm text-[var(--fg-muted)]">
-          {CATEGORY_LABEL[p.category]}
-          {p.org ? ` · ${p.org}` : ""}
-        </p>
+        <div className="flex items-center gap-3">
+          <Logo name={p.name} domain={p.domain} size={40} />
+          <p className="text-sm text-[var(--fg-muted)]">
+            {CATEGORY_LABEL[p.category]}
+            {p.org ? ` · ${p.org}` : ""}
+          </p>
+        </div>
         <h1 className="display mt-4 text-4xl leading-[1.05] sm:text-5xl">{p.name}</h1>
         {p.story ? <p className="mt-5 text-lg text-[var(--fg-muted)]">{p.story}</p> : null}
       </header>

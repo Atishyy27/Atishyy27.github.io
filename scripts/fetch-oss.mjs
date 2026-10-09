@@ -16,6 +16,20 @@ import fs from "node:fs";
 const USER = "Atishyy27";
 const OUT = "src/content/oss-data.json";
 
+/**
+ * Permanently excluded from the open-source record. These are not open-source
+ * contributions and must never be counted, cited or shown.
+ *
+ * Excluded BOTH in the search query and again as a filter on the results. The
+ * query alone is not enough: a typo in the query string fails silently and
+ * quietly re-adds them, which is exactly how 19 of a stated 55 "merged"
+ * pull requests came from these two repos and reached the live site.
+ */
+const EXCLUDED = new Set([
+  "saloni0903/yoga-app",
+  "iamrahulmahato/master-web-development",
+]);
+
 // GitHub's search API caps at 1000 results and 100 per page.
 async function searchAll(q) {
   const items = [];
@@ -41,8 +55,21 @@ function slugify(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
-const all = await searchAll(`author:${USER} type:pr -user:${USER}`);
+const exclusionTerms = [...EXCLUDED].map((r) => `-repo:${r}`).join(" ");
+const fetched = await searchAll(`author:${USER} type:pr -user:${USER} ${exclusionTerms}`);
+
+// Belt and braces: the query should already have removed these, so anything
+// caught here means the query silently stopped working.
+const all = fetched.filter((it) => {
+  const full = it.repository_url.split("/repos/")[1];
+  if (EXCLUDED.has(full)) {
+    console.warn(`WARNING: query did not exclude ${full}; filtered in post`);
+    return false;
+  }
+  return true;
+});
 console.log(`fetched ${all.length} pull requests to repositories he does not own`);
+console.log(`excluded: ${[...EXCLUDED].join(", ")}`);
 
 const byRepo = new Map();
 for (const it of all) {
@@ -84,7 +111,8 @@ const totals = repos.reduce(
 const payload = {
   user: USER,
   fetchedAt: new Date().toISOString().slice(0, 10),
-  note: "Upstream only: repositories Atishyy27 does not own. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
+  excludedCount: EXCLUDED.size,
+  note: "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   totals,
   repoCount: repos.length,
   repos,

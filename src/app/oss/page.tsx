@@ -5,6 +5,7 @@ import { currentWork, ossPrograms } from "@/content/site";
 import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
 import { OssSceneMount } from "@/components/SceneMount";
+import RepoLogo from "@/components/RepoLogo";
 
 export const metadata: Metadata = {
   title: "Open source · Atishay Jain",
@@ -84,7 +85,8 @@ export default function Oss() {
         <div className="mt-6">
           {mergedRepos.map((r) => (
             <Link key={r.slug} href={`/oss/${r.slug}/`} className="row group">
-              <span className="row-kind tabular-nums">
+              <span className="row-kind flex items-center gap-2.5 tabular-nums">
+                <RepoLogo owner={r.owner} />
                 {r.merged} merged
               </span>
               <span>
@@ -113,7 +115,8 @@ export default function Oss() {
           <div className="mt-6">
             {pendingRepos.map((r) => (
               <Link key={r.slug} href={`/oss/${r.slug}/`} className="row group">
-                <span className="row-kind tabular-nums">
+                <span className="row-kind flex items-center gap-2.5 tabular-nums">
+                  <RepoLogo owner={r.owner} />
                   {r.open > 0 ? `${r.open} open` : `${r.closed} closed`}
                 </span>
                 <span>
