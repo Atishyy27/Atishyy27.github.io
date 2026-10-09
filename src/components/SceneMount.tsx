@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
  */
 const ProjectGraph = dynamic(() => import("./ProjectGraph"), { ssr: false });
 const CoreScene = dynamic(() => import("./CoreScene"), { ssr: false });
+const Keyboard3D = dynamic(() => import("./Keyboard3D"), { ssr: false });
 
 function useAllowed() {
   const [state, setState] = useState<"unknown" | "yes" | "reduced">("unknown");
@@ -37,4 +38,12 @@ export function OssSceneMount() {
   const allowed = useAllowed();
   if (allowed !== "yes") return null;
   return <CoreScene />;
+}
+
+/** The keyboard. Still renders under reduced motion: it responds to real
+ *  keypresses, which is the point, and only the idle sway is motion. */
+export function Keyboard3DMount() {
+  const allowed = useAllowed();
+  if (allowed === "unknown") return <div className="h-[320px] sm:h-[400px]" aria-hidden />;
+  return <Keyboard3D reducedMotion={allowed === "reduced"} />;
 }

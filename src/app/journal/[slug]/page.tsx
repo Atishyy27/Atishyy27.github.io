@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { entrySlugs, getEntry, renderMarkdown, formatDate, readingMinutes, neighbours, tagSlug } from "@/lib/journal";
+import JsonLd, { blogPosting } from "@/components/JsonLd";
 
 // Static export: only these slugs get a page, and nothing else is reachable.
 export const dynamicParams = false;
@@ -52,6 +53,22 @@ export default async function JournalEntryPage({ params }: Props) {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
+      {/* Only published, public entries get structured data. An unlisted entry
+          carries a noindex tag, and advertising it to a crawler here would
+          undo that. */}
+      {entry.visibility === "public" ? (
+        <JsonLd
+          data={blogPosting({
+            slug: entry.slug,
+            title: entry.title,
+            date: entry.date,
+            tags: entry.tags,
+            words: entry.body.trim().split(/\s+/).filter(Boolean).length,
+            minutes: readingMinutes(entry),
+          })}
+        />
+      ) : null}
+
       <Link href="/journal/" className="link text-sm">Journal</Link>
 
       <header className="mt-10">

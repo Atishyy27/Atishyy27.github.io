@@ -6,6 +6,7 @@ import { entriesForProject, formatDate } from "@/lib/journal";
 import LiveEmbed from "@/components/LiveEmbed";
 import { canEmbed } from "@/lib/embeddable";
 import { Logo } from "@/components/Logo";
+import JsonLd, { softwareProject } from "@/components/JsonLd";
 
 export const dynamicParams = false;
 
@@ -34,6 +35,17 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
+      <JsonLd
+        data={softwareProject({
+          slug: p.slug,
+          name: p.name,
+          blurb: p.blurb,
+          stack: p.stack,
+          links: p.links,
+          org: p.org,
+        })}
+      />
+
       <Link href="/projects/" className="link text-sm">Projects</Link>
 
       <header className="mt-10">
