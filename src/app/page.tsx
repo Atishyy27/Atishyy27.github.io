@@ -1,27 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 import { person, proof } from "@/content/site";
-import { oss } from "@/content/oss";
 import { featuredProjects, allProjects } from "@/content/projects";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
-
-// The one 3D element on the site. Loaded only in the browser and only when the
-// visitor has not asked for reduced motion, so three.js is never fetched by
-// someone who will not see it.
-const CoreScene = dynamic(() => import("@/components/CoreScene"), { ssr: false });
-
-function Core() {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    setShow(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
-  if (!show) return null;
-  return <CoreScene />;
-}
+import { ProjectGraphMount } from "@/components/SceneMount";
+import { nodes, edges, sharedTech } from "@/content/graph";
 
 // The home page is an index, not the whole site. Everything used to live on one
 // scroll, which is why changes elsewhere were invisible from here.
@@ -61,24 +46,21 @@ export default function Home() {
 
       </div>
 
-      {/* Wider than the reading measure: the scene needs the room.
-          The caption is static on purpose. The canvas is client-only, so
-          anything rendered inside it is absent from the HTML; these are the
-          numbers the element exists to show, and they must survive without
-          WebGL and be readable by a crawler. */}
+      {/* The core element. Wider than the reading measure: it needs the room.
+          The sentence under it is static on purpose. The canvas is client-only,
+          so anything rendered inside it is absent from the HTML, and these are
+          the facts the element exists to show. */}
       <div className="mx-auto mt-16 w-full max-w-5xl px-6 sm:px-8">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-[var(--line)] pt-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <h2 className="text-[length:var(--step-h2)] font-medium">How the work connects</h2>
           <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">
-            <Link href="/oss/" className="link">
-              {oss.repoCount} repositories I do not own, {oss.totals.prs} pull requests,{" "}
-              {oss.totals.merged} merged
+            <Link href="/projects/" className="link">
+              {nodes.length} projects, {edges.length} shared-technology links,{" "}
+              {sharedTech.length} technologies used more than once
             </Link>
           </p>
-          <p className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
-            teal = something merged · grey = still open
-          </p>
         </div>
-        <Core />
+        <ProjectGraphMount />
       </div>
 
       <div className="mx-auto w-full max-w-[var(--measure)] px-6 sm:px-8">

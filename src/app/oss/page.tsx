@@ -4,6 +4,7 @@ import { oss, mergedRepos, pendingRepos } from "@/content/oss";
 import { currentWork, ossPrograms } from "@/content/site";
 import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
+import { OssSceneMount } from "@/components/SceneMount";
 
 export const metadata: Metadata = {
   title: "Open source · Atishay Jain",
@@ -51,6 +52,11 @@ export default function Oss() {
       </p>
 
       <LiveOssCounts snapshotMerged={totals.merged} snapshotAt={fetchedAt} />
+
+      {/* The repository sphere. It lived on the home page, which is the wrong
+          place for it: the home page's subject is the projects, and this is
+          every repo I have pushed at. It belongs next to the table it plots. */}
+      <OssSceneMount />
 
       {/* The one that is current work rather than record. Kept above the table
           because it is the answer to "what are you doing now", which the table

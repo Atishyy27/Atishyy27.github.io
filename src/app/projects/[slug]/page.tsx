@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { pagedProjects, getProject, CATEGORY_LABEL } from "@/content/projects";
 import { entriesForProject, formatDate } from "@/lib/journal";
+import LiveEmbed from "@/components/LiveEmbed";
+import { canEmbed } from "@/lib/embeddable";
 
 export const dynamicParams = false;
 
@@ -82,6 +84,14 @@ export default async function ProjectPage({ params }: Props) {
           {p.privateNote ? (
             <p className="mt-4 text-sm text-[var(--fg-muted)]">{p.privateNote}</p>
           ) : null}
+
+          {/* If the thing is live and its host permits framing, run it here
+              rather than only describing it. Only the first embeddable link is
+              offered: two frames of the same project is noise. */}
+          {(() => {
+            const live = p.links.find((l) => canEmbed(l.href));
+            return live ? <LiveEmbed href={live.href} name={p.name} /> : null;
+          })()}
         </section>
       ) : null}
 
