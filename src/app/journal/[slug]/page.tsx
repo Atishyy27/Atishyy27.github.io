@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { entrySlugs, getEntry, renderMarkdown, formatDate } from "@/lib/journal";
+import { entrySlugs, getEntry, renderMarkdown, formatDate, readingMinutes, neighbours, tagSlug } from "@/lib/journal";
 
 // Static export: only these slugs get a page, and nothing else is reachable.
 export const dynamicParams = false;
@@ -58,6 +58,7 @@ export default async function JournalEntryPage({ params }: Props) {
         <h1 className="display text-4xl leading-[1.05] sm:text-5xl">{entry.title}</h1>
         <p className="mt-4 text-sm text-[var(--fg-muted)]">
           <time dateTime={entry.date}>{formatDate(entry.date)}</time>
+          {` · ${readingMinutes(entry)} min read`}
           {entry.place ? ` · ${entry.place}` : ""}
           {entry.visibility === "unlisted" ? " · unlisted" : ""}
         </p>
@@ -71,15 +72,48 @@ export default async function JournalEntryPage({ params }: Props) {
       {entry.tags.length > 0 ? (
         <ul className="mt-16 flex flex-wrap gap-2 border-t border-[var(--line)] pt-6">
           {entry.tags.map((t) => (
-            <li
-              key={t}
-              className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--fg-muted)]"
-            >
-              {t}
+            <li key={t}>
+              <Link
+                href={`/journal/tag/${tagSlug(t)}/`}
+                className="block rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--fg-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--fg)]"
+              >
+                {t}
+              </Link>
             </li>
           ))}
         </ul>
       ) : null}
+
+      {/* Prev/next across LISTED entries only, so an unlisted entry never
+          becomes reachable by walking from a public one. */}
+      {(() => {
+        const { newer, older } = neighbours(entry.slug);
+        if (!newer && !older) return null;
+        return (
+          <nav className="mt-16 grid gap-6 border-t border-[var(--line)] pt-6 sm:grid-cols-2">
+            {older ? (
+              <Link href={`/journal/${older.slug}/`} className="group">
+                <span className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
+                  earlier
+                </span>
+                <span className="mt-1 block text-[length:var(--step-small)] group-hover:text-[var(--accent)]">
+                  {older.title}
+                </span>
+              </Link>
+            ) : <span />}
+            {newer ? (
+              <Link href={`/journal/${newer.slug}/`} className="group sm:text-right">
+                <span className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
+                  later
+                </span>
+                <span className="mt-1 block text-[length:var(--step-small)] group-hover:text-[var(--accent)]">
+                  {newer.title}
+                </span>
+              </Link>
+            ) : null}
+          </nav>
+        );
+      })()}
     </main>
   );
 }

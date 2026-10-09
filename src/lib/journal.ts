@@ -123,3 +123,48 @@ export function renderMarkdown(md: string): string {
 // implementation moved to lib/date.ts, which client components can import
 // without pulling node:fs into the bundle.
 export { formatDate } from "./date";
+
+/* ------------------------- derived, for the pages ------------------------- */
+
+/**
+ * Reading time at 220 words a minute, rounded up, minimum 1.
+ *
+ * 220 rather than the commonly cited 200: these entries are prose with no code
+ * blocks, which reads faster than mixed technical text. The number is a courtesy
+ * to the reader, so rounding up is the right direction to be wrong in.
+ */
+export function readingMinutes(entry: JournalEntry): number {
+  const words = entry.body.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 220));
+}
+
+/** Newer and older neighbours, for prev/next links. Listed entries only, so an
+ *  unlisted entry never becomes a path someone can walk to from a public one. */
+export function neighbours(slug: string): { newer?: JournalEntry; older?: JournalEntry } {
+  const list = listedEntries(); // already sorted newest first
+  const i = list.findIndex((e) => e.slug === slug);
+  if (i === -1) return {};
+  return { newer: list[i - 1], older: list[i + 1] };
+}
+
+/** Every tag across listed entries, with counts, most used first. */
+export function allTags(): { tag: string; count: number }[] {
+  const c = new Map<string, number>();
+  for (const e of listedEntries()) for (const t of e.tags) c.set(t, (c.get(t) ?? 0) + 1);
+  return [...c.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([tag, count]) => ({ tag, count }));
+}
+
+export function tagSlug(tag: string): string {
+  return tag.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+export function entriesByTag(slug: string): JournalEntry[] {
+  return listedEntries().filter((e) => e.tags.some((t) => tagSlug(t) === slug));
+}
+
+/** Tag slugs that get a page. Excludes the test fixtures' own tag when absent. */
+export function tagSlugs(): string[] {
+  return [...new Set(allTags().map((t) => tagSlug(t.tag)))];
+}

@@ -3,16 +3,24 @@
 /**
  * ⌘K / Ctrl+K command palette.
  *
- * Everything on this site reachable from one keystroke: sections, every
- * shipped project and its real link, socials, the resume, and a jump into
- * the shell. Subsequence matching (not substring), so "gsc" finds
- * "Government Skyline Chart" the way an editor would.
+ * Everything on this site reachable from one keystroke. Subsequence matching
+ * rather than substring, so "gsc" finds "Government Skyline Chart" the way an
+ * editor would.
+ *
+ * It used to navigate by calling scrollIntoView on element ids, which was
+ * correct when the whole site was one scrolling page. After the split into
+ * routes those ids are not on the current page, so every "Go to" entry
+ * silently did nothing. It routes now, and indexes the pages that did not
+ * exist before: every journal entry, every repository, every tag, the archive.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   person, govtWork, clientWork, orgWork, extensions, hackathons,
 } from "@/content/site";
+import { allProjects, pagedProjects } from "@/content/projects";
+import { oss } from "@/content/oss";
 
 type Item = {
   id: string;
@@ -44,38 +52,94 @@ function score(needle: string, hay: string) {
   return s - h.length * 0.03;
 }
 
-const go = (id: string) => () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 const open = (href: string) => () => window.open(href, href.startsWith("http") ? "_blank" : "_self", "noopener");
 
-export default function Palette() {
+/** Top-level routes, in the order the home page lists them. */
+const ROUTES: [string, string, string][] = [
+  ["Home", "/", "the index"],
+  ["Projects", "/projects/", "everything built"],
+  ["Open source", "/oss/", "every upstream pull request"],
+  ["Work", "/work/", "shipped platforms and products"],
+  ["Stats", "/stats/", "competitive programming, a year of days"],
+  ["Build log", "/log/", "notes, and the ask box"],
+  ["Journal", "/journal/", "dated, first person"],
+  ["Archive", "/archive/", "everything dated, by month"],
+  ["About", "/about/", "experience, research, resume, contact"],
+];
+
+/**
+ * Journal and tag data arrive as props rather than being imported.
+ * lib/journal.ts reads the filesystem at module scope, so importing it here
+ * would pull node:fs into the browser bundle. The layout is a Server
+ * Component and already has the data, so it hands over just the fields the
+ * palette needs.
+ */
+export type PaletteEntry = { slug: string; title: string; date: string };
+export type PaletteTag = { tag: string; slug: string; count: number };
+
+export default function Palette({
+  journalIndex = [],
+  tagIndex = [],
+}: {
+  journalIndex?: PaletteEntry[];
+  tagIndex?: PaletteTag[];
+}) {
   const [show, setShow] = useState(false);
   const [q, setQ] = useState("");
   const [sel, setSel] = useState(0);
   const [copied, setCopied] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const items = useMemo<Item[]>(() => {
-    const sections: [string, string][] = [
-      ["The numbers", "cp"], ["Open source", "opensource"], ["Shipped", "work"],
-      ["Products", "products"], ["Hackathons", "hackathons"], ["Experience", "experience"],
-      ["Research", "publications"], ["Build log", "log"], ["Ask the model", "terminal"],
-      ["Résumé", "resume"], ["About", "about"], ["Contact", "contact"],
-    ];
+  const router = useRouter();
+  // Routing is a stable callback, so the item list can still be memoised once.
+  const route = useCallback((href: string) => () => router.push(href), [router]);
 
-    const out: Item[] = sections.map(([label, id]) => ({
-      id: `s:${id}`, label, hint: `#${id}`, group: "Go to", run: go(id),
+  const items = useMemo<Item[]>(() => {
+    const out: Item[] = ROUTES.map(([label, href, hint]) => ({
+      id: `r:${href}`, label, hint, group: "Go to", run: route(href),
     }));
 
-    [...govtWork, ...clientWork, ...orgWork, ...extensions, ...hackathons].forEach((w) => {
-      const href = w.links[0]?.href;
-      out.push({
-        id: `w:${w.name}`,
-        label: w.name,
-        hint: href ? "open ↗" : w.stack.slice(0, 3).join(" · "),
-        group: "Work",
-        run: href ? open(href) : go("work"),
-      });
+    out.push({
+      id: "r:tags", label: "Journal tags", hint: "browse by topic",
+      group: "Go to", run: route("/journal/"),
     });
+
+    // Projects: the page where one exists, otherwise its outbound artifact.
+    const paged = new Set(pagedProjects.map((p) => p.slug));
+    for (const p of allProjects) {
+      const href = p.links[0]?.href;
+      out.push({
+        id: `w:${p.slug}`,
+        label: p.name,
+        hint: paged.has(p.slug) ? p.org ?? "project page" : href ? "open ↗" : p.stack.slice(0, 3).join(" · "),
+        group: "Projects",
+        run: paged.has(p.slug) ? route(`/projects/${p.slug}/`) : href ? open(href) : route("/projects/"),
+      });
+    }
+
+    for (const e of journalIndex) {
+      out.push({
+        id: `j:${e.slug}`, label: e.title, hint: e.date,
+        group: "Journal", run: route(`/journal/${e.slug}/`),
+      });
+    }
+
+    for (const t of tagIndex) {
+      out.push({
+        id: `t:${t.slug}`, label: t.tag, hint: `${t.count} ${t.count === 1 ? "entry" : "entries"}`,
+        group: "Tags", run: route(`/journal/tag/${t.slug}/`),
+      });
+    }
+
+    for (const r of oss.repos) {
+      out.push({
+        id: `o:${r.slug}`,
+        label: r.full,
+        hint: r.merged > 0 ? `${r.merged} merged` : `${r.prs.length} open or closed`,
+        group: "Open source",
+        run: route(`/oss/${r.slug}/`),
+      });
+    }
 
     person.socials.forEach((s) =>
       out.push({ id: `l:${s.label}`, label: s.label, hint: "open ↗", group: "Elsewhere", run: open(s.href) })
@@ -88,15 +152,13 @@ export default function Palette() {
         run: () => { navigator.clipboard?.writeText(person.email); setCopied(true); setTimeout(() => setCopied(false), 1600); },
       },
       { id: "a:pdf", label: "Download résumé PDF", hint: person.resumeHref, group: "Actions", run: open(person.resumeHref) },
-      {
-        id: "a:ask", label: "Ask the on-device model a question", hint: "runs in your browser", group: "Actions",
-        run: () => { go("terminal")(); setTimeout(() => window.dispatchEvent(new CustomEvent("aj-focus-terminal")), 700); },
-      },
+      { id: "a:feed", label: "Subscribe to the journal (RSS)", hint: "/feed.xml", group: "Actions", run: open("/feed.xml") },
+      { id: "a:ask", label: "Ask a question about my work", hint: "searches this site", group: "Actions", run: route("/log/") },
       { id: "a:src", label: "View the source of this site", hint: "github ↗", group: "Actions", run: open("https://github.com/Atishyy27/Atishyy27.github.io") },
     );
 
     return out;
-  }, []);
+  }, [route, journalIndex, tagIndex]);
 
   const results = useMemo(() => {
     if (!q.trim()) return items.slice(0, 9);

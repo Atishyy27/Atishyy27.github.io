@@ -160,6 +160,13 @@ export type Work = {
   privateNote?: string;
   featured?: boolean;
   /**
+   * A real image for this project, where one exists and is served by whoever
+   * owns it. Play Store app icons were read off the listings on 2026-10-09.
+   * Deliberately NOT a screenshot: there is no browser on the build machine,
+   * so any screenshot here would be stale the moment the project changed.
+   */
+  image?: string;
+  /**
    * Date a counted claim in `blurb` was last checked against its source, as
    * YYYY-MM-DD. Any blurb stating a number the Chrome Web Store or a platform
    * owns must carry this, because a bare "265 users" is a number that was true
@@ -180,6 +187,7 @@ export const govtWork: Work[] = [
     blurb:
       "State-wide wellness platform, launched by the Chief Minister of MP. I built the backend for ~5k concurrent users and killed a booking race condition with PostgreSQL row-level locking that was double-allocating slots under peak load. K6 stress testing to a sub-100ms P95.",
     stack: ["Flutter", "MERN", "C#", "AWS", "PostgreSQL"],
+    image: "https://play-lh.googleusercontent.com/qU73J5mfE9i7YDE25ebbrJ3vYo0U1ZM9mKHbznvqOfivDmKwSRvPy7XUKCg1bvpKnxCxt27eCve3czT-PmLJ=s256",
     links: [{ label: "Play Store", href: "https://play.google.com/store/apps/details?id=in.gov.mp.shree.yes" }],
     featured: true,
   },
@@ -189,6 +197,7 @@ export const govtWork: Work[] = [
     domain: "mp.gov.in",
     blurb: "Labour-department platform, shipped to the Play Store.",
     stack: ["React Native", "Django", "C#", "AWS"],
+    image: "https://play-lh.googleusercontent.com/iJ2IoreKe1ayubz0bEoUURpFtwzKsxtieStg544447vodhF2VK5TIpq4RRPYe59bno_G_W1ir91jVY1_jfwOJg=s256",
     links: [{ label: "Play Store", href: "https://play.google.com/store/apps/details?id=in.gov.mp.shree.sram" }],
   },
 ];

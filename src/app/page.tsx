@@ -22,6 +22,7 @@ const INDEX: [string, string, string][] = [
   ["Stats", "/stats/", "Competitive programming and a year of contributions"],
   ["Build log", "/log/", "Notes on what was built, and a question box over the site"],
   ["Journal", "/journal/", "Dated, first person, nothing invented"],
+  ["Archive", "/archive/", "Everything dated, by year and month, pull requests included"],
   ["About", "/about/", "Experience, research, education, résumé"],
 ];
 

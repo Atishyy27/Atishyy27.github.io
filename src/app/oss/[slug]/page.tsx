@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getRepo, repoSlugs, REPO_NOTES, type PrState } from "@/content/oss";
 import { formatDate } from "@/lib/date";
 import RepoLogo from "@/components/RepoLogo";
+import RepoCard from "@/components/RepoCard";
 
 export const dynamicParams = false;
 
@@ -67,6 +68,12 @@ export default async function RepoPage({ params }: Props) {
           </a>
         </p>
       </header>
+
+      {/* GitHub's own social card for the project. The only honest image
+          available for a repository I do not own. */}
+      <div className="mt-10">
+        <RepoCard full={r.full} priority />
+      </div>
 
       {/* Written context only where it exists. A repo with no note shows the
           verified list alone rather than a paragraph invented about it. */}

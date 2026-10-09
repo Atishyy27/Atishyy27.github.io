@@ -4,6 +4,7 @@ import "./globals.css";
 import Colophon from "@/components/Colophon";
 import Nav from "@/components/Nav";
 import Palette from "@/components/Palette";
+import { listedEntries, allTags, tagSlug } from "@/lib/journal";
 import Track from "@/components/Track";
 import { SmoothScroll, ScrollProgress } from "@/components/Chrome";
 
@@ -57,6 +58,20 @@ const personSchema = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Computed here because this is a Server Component and the palette is not.
+  // Only the fields the palette searches are passed, so the client bundle does
+  // not carry every entry's body.
+  const journalIndex = listedEntries().map((e) => ({
+    slug: e.slug,
+    title: e.title,
+    date: e.date,
+  }));
+  const tagIndex = allTags().map((t) => ({
+    tag: t.tag,
+    slug: tagSlug(t.tag),
+    count: t.count,
+  }));
+
   return (
     <html lang="en">
       <body>
@@ -76,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <ScrollProgress />
         <Nav />
-        <Palette />
+        <Palette journalIndex={journalIndex} tagIndex={tagIndex} />
         <Track />
         {children}
         <Colophon />

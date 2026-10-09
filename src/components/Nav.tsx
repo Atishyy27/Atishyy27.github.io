@@ -9,6 +9,7 @@ const LINKS: [string, string][] = [
   ["Stats", "/stats/"],
   ["Build log", "/log/"],
   ["Journal", "/journal/"],
+  ["Archive", "/archive/"],
   ["About", "/about/"],
 ];
 

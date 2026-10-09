@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { pagedProjects } from "@/content/projects";
-import { listedEntries } from "@/lib/journal";
+import { listedEntries, tagSlugs } from "@/lib/journal";
 import { oss } from "@/content/oss";
 
 const SITE = "https://atishay.tech";
@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, priority: 1 },
 
     // Top-level sections.
-    ...["/projects/", "/oss/", "/work/", "/stats/", "/journal/", "/log/", "/about/"].map((path) => ({
+    ...["/projects/", "/oss/", "/work/", "/stats/", "/journal/", "/log/", "/about/", "/archive/"].map((path) => ({
       url: `${SITE}${path}`,
       lastModified: now,
       priority: 0.8,
@@ -46,6 +46,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(oss.fetchedAt),
       // Repos where something landed are the ones worth surfacing.
       priority: r.merged > 0 ? 0.6 : 0.4,
+    })),
+
+    // One per tag, so a reader arriving on a topic has somewhere to land.
+    ...tagSlugs().map((tag) => ({
+      url: `${SITE}/journal/tag/${tag}/`,
+      lastModified: now,
+      priority: 0.4,
     })),
 
     ...listedEntries().map((e) => ({

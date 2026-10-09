@@ -14,13 +14,17 @@ import path from "node:path";
 
 const SRC = path.join(process.cwd(), "src");
 
-// Mounted by the framework rather than by JSX, so absence of a <Tag> is normal.
-const FRAMEWORK_ENTRYPOINTS = new Set([
-  "RootLayout", "Home", "Oss", "Work", "Log", "About", "Stats",
-  "JournalIndex", "JournalEntryPage", "ProjectsIndex", "ProjectPage",
-  "RepoPage", "NotFound", "Admin", "sitemap", "generateMetadata",
-  "generateStaticParams",
-]);
+// Anything under src/app/ that is a DEFAULT export is mounted by the framework
+// (a page, layout, route handler, sitemap, robots, manifest), so the absence of
+// a <Tag> for it is normal. Deciding this structurally beats keeping a list of
+// names: the first version was a hand-maintained allowlist and it flagged the
+// next two routes that were added.
+const FRAMEWORK_NAMED = new Set(["generateMetadata", "generateStaticParams"]);
+
+function isFrameworkEntrypoint(file, name, isDefault) {
+  const inApp = path.relative(process.cwd(), file).startsWith(path.join("src", "app"));
+  return (inApp && isDefault) || FRAMEWORK_NAMED.has(name);
+}
 
 const files = [];
 (function walk(dir) {
@@ -37,13 +41,17 @@ const all = [...text.values()].join("\n");
 // Exported components: capitalised, so a plain helper function is not counted.
 const defined = [];
 for (const [p, body] of text) {
-  for (const m of body.matchAll(/export\s+(?:default\s+)?function\s+([A-Z]\w*)/g)) {
-    defined.push({ name: m[1], file: path.relative(process.cwd(), p) });
+  for (const m of body.matchAll(/export\s+(default\s+)?function\s+(\w+)/g)) {
+    const isDefault = Boolean(m[1]);
+    const name = m[2];
+    // Only capitalised names are components; a lowercase export is a helper.
+    if (!/^[A-Z]/.test(name) && !isDefault) continue;
+    if (isFrameworkEntrypoint(p, name, isDefault)) continue;
+    defined.push({ name, file: path.relative(process.cwd(), p), isDefault });
   }
 }
 
 const orphans = defined.filter(({ name }) => {
-  if (FRAMEWORK_ENTRYPOINTS.has(name)) return false;
   // Rendered as JSX anywhere, or lazily imported by name.
   const rendered = new RegExp(`<${name}[\\s/>]`).test(all);
   const lazy = new RegExp(`import\\([^)]*/${name}["']`).test(all);
