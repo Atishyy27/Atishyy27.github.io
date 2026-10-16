@@ -46,6 +46,8 @@ const STORIES: Record<string, string> = {
     "Built with one other developer against a public launch date that could not move, in two languages, with real launch-day traffic.",
   "pf-management-system":
     "A trust running crores through paper forms. The hard part is not the CRUD, it is proving the ledger cannot silently drift.",
+  gs27:
+    "Started in first year as a page of notes and past papers. The rebuild keeps the same idea, students helping the batch after them, and adds a library shared across colleges because syllabi mostly overlap.",
   "davv-incubation-centre": "A CMS platform for a university incubation centre.",
   "sgsits-incubation-forum": "Started on WordPress, later moved to Wix when maintenance mattered more than flexibility.",
   "prd-verification-tool":
