@@ -23,7 +23,7 @@ const Skyline = dynamic(() => import("./Skyline"), { ssr: false });
 const COLORS = ["#121821", "#0e4f52", "#12797d", "#2ba3a3", "#4fd0d0"];
 
 export default function UnifiedHeatmap() {
-  const { merged, perDay, sources, loading } = useActivity();
+  const { merged, perDay, sources, loading, generated } = useActivity();
   const [view, setView] = useState<"grid" | "skyline">("grid");
   const [hover, setHover] = useState<{ date: string; x: number; y: number } | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -47,6 +47,9 @@ export default function UnifiedHeatmap() {
             <h3 className="text-lg font-medium">One year, every platform</h3>
             <p className="mt-1 text-sm text-[var(--fg-muted)]">
               GitHub commits, Codeforces submissions and LeetCode solves, summed into a single day.
+            </p>
+            <p className="mt-1 font-mono text-[10px] tracking-[0.1em] text-[var(--fg-muted)] uppercase">
+              counted over the last 53 weeks · snapshot {generated.slice(0, 10)}
             </p>
           </div>
           <div className="text-right">
@@ -154,6 +157,12 @@ export default function UnifiedHeatmap() {
                   {s.label}
                   {s.ok ? ` ${s.total.toLocaleString()}` : " unavailable"}
                 </span>
+                {/* Which rows are current and which came from the last build.
+                    LeetCode can only ever be the snapshot: its API sends no
+                    CORS header, so no browser on this domain can call it. */}
+                {s.ok && !s.live ? (
+                  <span className="font-mono text-[10px] tracking-[0.1em] text-[#5a6472] uppercase">snapshot</span>
+                ) : null}
               </a>
             ))}
           </div>
