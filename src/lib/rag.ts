@@ -26,6 +26,7 @@ import {
   about, currentWork, experience, govtWork, clientWork, orgWork,
   extensions, hackathons, cpProfiles, skills, education, person,
 } from "@/content/site";
+import { OSS_STATS } from "@/content/oss-stats";
 
 export type Chunk = { label: string; href?: string; text: string };
 
@@ -42,7 +43,7 @@ export function buildCorpus(): Chunk[] {
   c.push({
     label: "Open source",
     href: "/oss/",
-    text: `Open source contributions. Contributed upstream as an outside contributor. ${currentWork.title}. ${currentWork.detail}. ${currentWork.badge}. 41 pull requests merged into repositories he does not own, across 24 projects, including cilium, kubernetes/website, open-policy-agent/opa, meshery, kmesh, opentelemetry, hyperledger/fabric, podman, fedimint, lightningdevkit/rust-lightning, braidpool, openswap and zowe-cli. 153 pull requests opened upstream and 76 still open. Counted 9 October 2026; the live figure is on the open source page.`,
+    text: `Open source contributions. Contributed upstream as an outside contributor. ${currentWork.title}. ${currentWork.detail}. ${currentWork.badge}. ${OSS_STATS.merged} pull requests merged into repositories he does not own, across ${OSS_STATS.mergedRepos} projects, including cilium, kubernetes/website, open-policy-agent/opa, meshery, kmesh, opentelemetry, hyperledger/fabric, podman, fedimint, lightningdevkit/rust-lightning, braidpool, openswap and zowe-cli. ${OSS_STATS.prs} pull requests opened upstream and ${OSS_STATS.open} still open. Counted ${OSS_STATS.fetchedAt}.`,
   });
 
   // Asked often enough to deserve its own chunk: "have you worked in Java".

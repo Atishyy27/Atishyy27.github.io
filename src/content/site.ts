@@ -3,6 +3,9 @@
  * No em dashes in prose (they read as machine-written). Every claim links, or says private.
  */
 
+import { CP_PROFILES, CP_GENERATED } from "./cp";
+import { OSS_STATS } from "./oss-stats";
+
 export const person = {
   name: "Atishay Jain",
   tagline: "Systems & full-stack engineer",
@@ -33,20 +36,33 @@ export const person = {
 // count, which is smaller, true, and the one people actually weigh.
 export const proof = [
   { stat: "Rank 12", label: "ICPC Mysuru on-site regionals 2025", href: "/stats/" },
-  // 41, not 55. The 55 counted two repositories that are not open-source
-  // contributions and are permanently excluded; they were 19 of that number.
-  // scripts/fetch-oss.mjs now drops them in the query and again in a filter.
-  { stat: "41 merged", label: "pull requests into repos I do not own, across 24 projects", href: "/oss/" },
+  // Counted, not typed. It was "41 merged across 24 projects" by hand and the
+  // real figures had already moved past it. Before that it said 55, which
+  // counted two repositories that are not open-source contributions and are
+  // permanently excluded; scripts/fetch-oss.mjs drops them in the query and
+  // again in a filter, so this number cannot quietly pick them back up.
+  {
+    stat: `${OSS_STATS.merged} merged`,
+    label: `pull requests into repos I do not own, across ${OSS_STATS.mergedRepos} projects`,
+    href: "/oss/",
+  },
   { stat: "392 users", label: "on my two Chrome extensions, Web Store, 30 Sep 2026", href: "/projects/" },
   { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/work/" },
 ];
 
-export const cpProfiles = [
-  { site: "LeetCode", handle: "atishayjain78001", rank: "Knight", detail: "947 solved, peak 1860", href: "https://leetcode.com/u/atishayjain78001/" },
-  { site: "Codeforces", handle: "sethatishayjain", rank: "Specialist", detail: "max 1524", href: "https://codeforces.com/profile/sethatishayjain" },
-  { site: "CodeChef", handle: "fever_tub_71", rank: "4 star", detail: "max 1805", href: "https://www.codechef.com/users/fever_tub_71" },
-  { site: "AtCoder", handle: "fever_tub_71", rank: "Kyu 7", detail: "max 546", href: "https://atcoder.jp/users/fever_tub_71" },
-];
+// These four lines used to be typed here by hand and all four had drifted: the
+// LeetCode count was 61 solves behind, both max ratings were understated and the
+// AtCoder kyu was a band low. They are fetched in prebuild now, by
+// scripts/gen-cp.mjs, so the page cannot be more stale than the last deploy.
+export const cpProfiles: readonly {
+  site: string;
+  handle: string;
+  rank: string;
+  detail: string;
+  href: string;
+}[] = CP_PROFILES;
+
+export const cpGenerated = CP_GENERATED;
 
 export type Experience = {
   org: string;

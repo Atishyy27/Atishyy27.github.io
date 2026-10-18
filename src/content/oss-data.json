@@ -1,13 +1,13 @@
 {
   "user": "Atishyy27",
-  "fetchedAt": "2026-10-09",
+  "fetchedAt": "2026-10-18",
   "excludedCount": 2,
   "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   "totals": {
-    "merged": 41,
+    "merged": 45,
     "open": 76,
-    "closed": 36,
-    "prs": 153
+    "closed": 37,
+    "prs": 158
   },
   "repoCount": 56,
   "repos": [
@@ -17,9 +17,17 @@
       "name": "fedimint",
       "slug": "fedimint-fedimint",
       "merged": 4,
-      "open": 4,
+      "open": 5,
       "closed": 1,
       "prs": [
+        {
+          "number": 9329,
+          "title": "fix(server): say which peer the DKG is waiting for",
+          "url": "https://github.com/fedimint/fedimint/pull/9329",
+          "state": "open",
+          "created": "2026-10-09",
+          "closedAt": null
+        },
         {
           "number": 9216,
           "title": "fix(wallet-client): stop an interrupted recovery from bricking every later open",
@@ -95,6 +103,81 @@
       ]
     },
     {
+      "full": "citadel-foss/openswap",
+      "owner": "citadel-foss",
+      "name": "openswap",
+      "slug": "citadel-foss-openswap",
+      "merged": 4,
+      "open": 0,
+      "closed": 4,
+      "prs": [
+        {
+          "number": 1131,
+          "title": "fidelity: refuse a seconds-based locktime when valuing a bond",
+          "url": "https://github.com/citadel-foss/openswap/pull/1131",
+          "state": "merged",
+          "created": "2026-10-10",
+          "closedAt": "2026-10-18"
+        },
+        {
+          "number": 1132,
+          "title": "fix(persistence): fsync the directory after the atomic rename",
+          "url": "https://github.com/citadel-foss/openswap/pull/1132",
+          "state": "merged",
+          "created": "2026-10-10",
+          "closedAt": "2026-10-18"
+        },
+        {
+          "number": 1035,
+          "title": "protocol: reject multisig redeemscripts too short to hold both pubkeys",
+          "url": "https://github.com/citadel-foss/openswap/pull/1035",
+          "state": "merged",
+          "created": "2026-09-21",
+          "closedAt": "2026-09-30"
+        },
+        {
+          "number": 1036,
+          "title": "wallet: reject coin selection amounts above the 21M cap",
+          "url": "https://github.com/citadel-foss/openswap/pull/1036",
+          "state": "merged",
+          "created": "2026-09-21",
+          "closedAt": "2026-09-26"
+        },
+        {
+          "number": 1031,
+          "title": "fix(taker): reject forwarded sender signature lists of the wrong length",
+          "url": "https://github.com/citadel-foss/openswap/pull/1031",
+          "state": "closed",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "number": 1032,
+          "title": "chore: remove the unused fee estimation module",
+          "url": "https://github.com/citadel-foss/openswap/pull/1032",
+          "state": "closed",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "number": 968,
+          "title": "test(utill): add unit test for parse_field",
+          "url": "https://github.com/citadel-foss/openswap/pull/968",
+          "state": "closed",
+          "created": "2026-08-03",
+          "closedAt": "2026-08-25"
+        },
+        {
+          "number": 964,
+          "title": "test(utill): add unit test for parse_proxy_auth",
+          "url": "https://github.com/citadel-foss/openswap/pull/964",
+          "state": "closed",
+          "created": "2026-08-01",
+          "closedAt": "2026-08-25"
+        }
+      ]
+    },
+    {
       "full": "podman-container-tools/podman",
       "owner": "podman-container-tools",
       "name": "podman",
@@ -146,14 +229,73 @@
       ]
     },
     {
+      "full": "open-telemetry/opentelemetry-python-contrib",
+      "owner": "open-telemetry",
+      "name": "opentelemetry-python-contrib",
+      "slug": "open-telemetry-opentelemetry-python-contrib",
+      "merged": 4,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 4942,
+          "title": "fix(psycopg2): avoid IndexError in get_operation_name for comment/whitespace-only statements",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4942",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "number": 4943,
+          "title": "fix(sqlalchemy): avoid IndexError in _operation_name for comment/whitespace-only statements",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4943",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "number": 4936,
+          "title": "fix(psycopg): avoid IndexError in get_operation_name for comment/whitespace-only statements",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4936",
+          "state": "merged",
+          "created": "2026-08-08",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "number": 4934,
+          "title": "fix(dbapi): avoid IndexError in get_operation_name for comment/whites…",
+          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4934",
+          "state": "merged",
+          "created": "2026-08-06",
+          "closedAt": "2026-10-16"
+        }
+      ]
+    },
+    {
       "full": "braidpool/braidpool",
       "owner": "braidpool",
       "name": "braidpool",
       "slug": "braidpool-braidpool",
       "merged": 3,
-      "open": 6,
-      "closed": 4,
+      "open": 7,
+      "closed": 5,
       "prs": [
+        {
+          "number": 583,
+          "title": "bead: require a timestamp for every parent on the wire",
+          "url": "https://github.com/braidpool/braidpool/pull/583",
+          "state": "open",
+          "created": "2026-10-09",
+          "closedAt": null
+        },
+        {
+          "number": 584,
+          "title": "bead: bound the two peer-supplied strings in committed metadata",
+          "url": "https://github.com/braidpool/braidpool/pull/584",
+          "state": "open",
+          "created": "2026-10-09",
+          "closedAt": null
+        },
         {
           "number": 570,
           "title": "behaviour: disconnect the peer when a bead sync response channel is closed",
@@ -166,9 +308,9 @@
           "number": 551,
           "title": "fuzz: add cargo-fuzz targets for the bead sync decoders",
           "url": "https://github.com/braidpool/braidpool/pull/551",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-16",
-          "closedAt": null
+          "closedAt": "2026-10-13"
         },
         {
           "number": 552,
@@ -312,49 +454,6 @@
       ]
     },
     {
-      "full": "open-telemetry/opentelemetry-python-contrib",
-      "owner": "open-telemetry",
-      "name": "opentelemetry-python-contrib",
-      "slug": "open-telemetry-opentelemetry-python-contrib",
-      "merged": 3,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 4942,
-          "title": "fix(psycopg2): avoid IndexError in get_operation_name for comment/whitespace-only statements",
-          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4942",
-          "state": "merged",
-          "created": "2026-08-10",
-          "closedAt": "2026-09-11"
-        },
-        {
-          "number": 4943,
-          "title": "fix(sqlalchemy): avoid IndexError in _operation_name for comment/whitespace-only statements",
-          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4943",
-          "state": "merged",
-          "created": "2026-08-10",
-          "closedAt": "2026-09-11"
-        },
-        {
-          "number": 4936,
-          "title": "fix(psycopg): avoid IndexError in get_operation_name for comment/whitespace-only statements",
-          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4936",
-          "state": "merged",
-          "created": "2026-08-08",
-          "closedAt": "2026-09-11"
-        },
-        {
-          "number": 4934,
-          "title": "fix(dbapi): avoid IndexError in get_operation_name for comment/whites…",
-          "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4934",
-          "state": "open",
-          "created": "2026-08-06",
-          "closedAt": null
-        }
-      ]
-    },
-    {
       "full": "meshery/meshery",
       "owner": "meshery",
       "name": "meshery",
@@ -418,65 +517,6 @@
           "state": "merged",
           "created": "2026-07-17",
           "closedAt": "2026-07-20"
-        }
-      ]
-    },
-    {
-      "full": "citadel-foss/openswap",
-      "owner": "citadel-foss",
-      "name": "openswap",
-      "slug": "citadel-foss-openswap",
-      "merged": 2,
-      "open": 0,
-      "closed": 4,
-      "prs": [
-        {
-          "number": 1035,
-          "title": "protocol: reject multisig redeemscripts too short to hold both pubkeys",
-          "url": "https://github.com/citadel-foss/openswap/pull/1035",
-          "state": "merged",
-          "created": "2026-09-21",
-          "closedAt": "2026-09-30"
-        },
-        {
-          "number": 1036,
-          "title": "wallet: reject coin selection amounts above the 21M cap",
-          "url": "https://github.com/citadel-foss/openswap/pull/1036",
-          "state": "merged",
-          "created": "2026-09-21",
-          "closedAt": "2026-09-26"
-        },
-        {
-          "number": 1031,
-          "title": "fix(taker): reject forwarded sender signature lists of the wrong length",
-          "url": "https://github.com/citadel-foss/openswap/pull/1031",
-          "state": "closed",
-          "created": "2026-09-17",
-          "closedAt": "2026-09-21"
-        },
-        {
-          "number": 1032,
-          "title": "chore: remove the unused fee estimation module",
-          "url": "https://github.com/citadel-foss/openswap/pull/1032",
-          "state": "closed",
-          "created": "2026-09-17",
-          "closedAt": "2026-09-21"
-        },
-        {
-          "number": 968,
-          "title": "test(utill): add unit test for parse_field",
-          "url": "https://github.com/citadel-foss/openswap/pull/968",
-          "state": "closed",
-          "created": "2026-08-03",
-          "closedAt": "2026-08-25"
-        },
-        {
-          "number": 964,
-          "title": "test(utill): add unit test for parse_proxy_auth",
-          "url": "https://github.com/citadel-foss/openswap/pull/964",
-          "state": "closed",
-          "created": "2026-08-01",
-          "closedAt": "2026-08-25"
         }
       ]
     },
@@ -843,6 +883,25 @@
           "state": "merged",
           "created": "2026-09-24",
           "closedAt": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "full": "kellyjonbrazil/jc",
+      "owner": "kellyjonbrazil",
+      "name": "jc",
+      "slug": "kellyjonbrazil-jc",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 776,
+          "title": "Fix cksum/sum IndexError on stdin output without a filename",
+          "url": "https://github.com/kellyjonbrazil/jc/pull/776",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-10-17"
         }
       ]
     },
@@ -1522,25 +1581,6 @@
           "number": 828,
           "title": "Reject repeated keys in strict urlencoded_params_matcher",
           "url": "https://github.com/getsentry/responses/pull/828",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null
-        }
-      ]
-    },
-    {
-      "full": "kellyjonbrazil/jc",
-      "owner": "kellyjonbrazil",
-      "name": "jc",
-      "slug": "kellyjonbrazil-jc",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 776,
-          "title": "Fix cksum/sum IndexError on stdin output without a filename",
-          "url": "https://github.com/kellyjonbrazil/jc/pull/776",
           "state": "open",
           "created": "2026-09-24",
           "closedAt": null
