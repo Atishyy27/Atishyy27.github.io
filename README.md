@@ -47,6 +47,18 @@ the job titles that differ across variants.
 - **P1 — 3D avatar** in the hero. Space is already reserved so dropping the canvas in won't shift
   layout. Contract: ≤1.5 MB, static poster fallback, static on mobile, off under
   `prefers-reduced-motion`, Lighthouse mobile ≥90 or it ships static.
+  **How to add it** (written down here so it is not buried in a chat):
+  1. Open readyplayer.me. It is free, no card, no account needed to make one.
+  2. Create Avatar, pick a body type, upload any clear front-facing photo. An
+     Instagram screenshot is fine if the face is not cropped.
+  3. Copy the `.glb` link it gives you. It looks like
+     `https://models.readyplayer.me/<id>.glb`.
+  4. Run, with your id in place of YOUR-ID:
+     `curl -L -o public/avatar.glb "https://models.readyplayer.me/YOUR-ID.glb?quality=medium&textureSizeLimit=512&morphTargets=none"`
+  5. `npm run build`. That is all. `scripts/gen-assets.mjs` sees the file and
+     `src/app/about/page.tsx` starts rendering the section.
+  Scale, height and facing do not matter: `src/components/Avatar3D.tsx` measures
+  the model, fits it to 1.75 units and sits it on the floor.
 - **P2 — JD-targeted variants.** `/for/infra`, `/for/fullstack`, `/for/ml` — reorder sections and
   swap the headline off one param. Cheap, because content is already typed data. His idea, and a
   good one.
