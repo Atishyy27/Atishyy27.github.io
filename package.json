@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "verify": "npm run check:rag && npm run check:activity && npm run check:cp && npm run check:orphans && npm run check:content && JOURNAL_FIXTURES=1 next build && node scripts/check-journal.mjs && next build && node scripts/fix-og.mjs && node scripts/check-projects.mjs && node scripts/check-links.mjs && node scripts/check-mobile.mjs",
+    "verify": "npm run check:rag && npm run check:activity && npm run check:cp && npm run check:resume && npm run check:orphans && npm run check:content && JOURNAL_FIXTURES=1 next build && node scripts/check-journal.mjs && next build && node scripts/fix-og.mjs && node scripts/check-projects.mjs && node scripts/check-links.mjs && node scripts/check-mobile.mjs",
     "check:rag": "node --experimental-strip-types --import ./scripts/alias-hook-register.mjs scripts/check-rag.mjs",
     "fetch:oss": "node scripts/fetch-oss.mjs",
     "check:links": "node scripts/check-links.mjs",
@@ -20,7 +20,8 @@
     "check:activity": "node scripts/check-activity.mjs",
     "gen:cp": "node scripts/gen-cp.mjs",
     "check:cp": "node scripts/check-cp.mjs",
-    "postbuild": "node scripts/fix-og.mjs"
+    "postbuild": "node scripts/fix-og.mjs",
+    "check:resume": "node scripts/check-resume.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
