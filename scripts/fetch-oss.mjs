@@ -27,9 +27,25 @@ const STATS_OUT = "src/content/oss-stats.ts";
  * pull requests came from these two repos and reached the live site.
  */
 const EXCLUDED = new Set([
+  // Friend and client apps. Closed team projects, not open source.
   "saloni0903/yoga-app",
+  // Event-farm repos. Their own topics are gssoc, gssoc-ext, hacktoberfest, swoc.
   "iamrahulmahato/master-web-development",
+  "ayush-that/FinVeda",
+  "gauravsingh1281/Rentalog.in--Frontend",
+  // Awesome-list entries. tripkit listings, not code.
+  "pluja/awesome-privacy",
+  "osmlab/awesome-openstreetmap",
+  // Public, but not open-source licensed: its LICENSE reads
+  // "(c) Anthropic PBC. All rights reserved".
+  "anthropics/claude-code",
 ]);
+
+// The list above is the exclusion rule in cnc/OSS/PORTFOLIO.md section 3, which is
+// the written source of truth for what counts as his open source. Until 22 Oct 2026
+// this file named only the first two, so the site's PR total counted five repos the
+// record itself says are not open source. None of them has a merged PR, so the
+// merged figure never moved; the opened and open totals did, by 6 and 5.
 
 // GitHub's search API caps at 1000 results and 100 per page.
 async function searchAll(q) {
@@ -57,14 +73,44 @@ function slugify(s) {
 }
 
 const exclusionTerms = [...EXCLUDED].map((r) => `-repo:${r}`).join(" ");
-const fetched = await searchAll(`author:${USER} type:pr -user:${USER} ${exclusionTerms}`);
+
+// is:public is load-bearing, not decoration. Run with a GITHUB_TOKEN in the
+// environment and the search API also returns pull requests to PRIVATE repos he
+// has access to. On 22 Oct 2026 an authenticated refresh pulled in 7 merged PRs
+// across two private repos and the merged count jumped 45 -> 54 overnight,
+// which would have put a number on the landing page that nobody outside his
+// account could check. Open source means a stranger can open the link.
+const fetched = await searchAll(`author:${USER} type:pr -user:${USER} is:public ${exclusionTerms}`);
 
 // Belt and braces: the query should already have removed these, so anything
 // caught here means the query silently stopped working.
-const all = fetched.filter((it) => {
+const named = fetched.filter((it) => {
   const full = it.repository_url.split("/repos/")[1];
   if (EXCLUDED.has(full)) {
     console.warn(`WARNING: query did not exclude ${full}; filtered in post`);
+    return false;
+  }
+  return true;
+});
+
+// Second guard on is:public, because a qualifier that stops working is silent.
+// Only runs when authenticated: without a token a private repo cannot appear in
+// the results at all, and 60 unauthenticated repo lookups would spend the hour's
+// whole rate limit proving something that cannot happen.
+const privacy = new Map();
+if (process.env.GITHUB_TOKEN) {
+  for (const full of new Set(named.map((it) => it.repository_url.split("/repos/")[1]))) {
+    const res = await fetch(`https://api.github.com/repos/${full}`, {
+      headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${process.env.GITHUB_TOKEN}` },
+    });
+    if (!res.ok) throw new Error(`${res.status} checking whether ${full} is public`);
+    privacy.set(full, (await res.json()).private === true);
+  }
+}
+const all = named.filter((it) => {
+  const full = it.repository_url.split("/repos/")[1];
+  if (privacy.get(full)) {
+    console.warn(`WARNING: is:public did not exclude the private repo ${full}; filtered in post`);
     return false;
   }
   return true;

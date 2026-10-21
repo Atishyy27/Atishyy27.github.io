@@ -1,32 +1,32 @@
 {
   "user": "Atishyy27",
-  "fetchedAt": "2026-10-18",
-  "excludedCount": 2,
+  "fetchedAt": "2026-10-21",
+  "excludedCount": 7,
   "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   "totals": {
-    "merged": 45,
-    "open": 76,
-    "closed": 37,
-    "prs": 158
+    "merged": 47,
+    "open": 68,
+    "closed": 36,
+    "prs": 151
   },
-  "repoCount": 56,
+  "repoCount": 51,
   "repos": [
     {
       "full": "fedimint/fedimint",
       "owner": "fedimint",
       "name": "fedimint",
       "slug": "fedimint-fedimint",
-      "merged": 4,
-      "open": 5,
-      "closed": 1,
+      "merged": 6,
+      "open": 2,
+      "closed": 2,
       "prs": [
         {
           "number": 9329,
           "title": "fix(server): say which peer the DKG is waiting for",
           "url": "https://github.com/fedimint/fedimint/pull/9329",
-          "state": "open",
+          "state": "merged",
           "created": "2026-10-09",
-          "closedAt": null
+          "closedAt": "2026-10-20"
         },
         {
           "number": 9216,
@@ -48,9 +48,9 @@
           "number": 9203,
           "title": "fix(bitcoin-rpc): bound the hybrid startup chain identity probes",
           "url": "https://github.com/fedimint/fedimint/pull/9203",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-25",
-          "closedAt": null
+          "closedAt": "2026-10-19"
         },
         {
           "number": 9198,
@@ -64,9 +64,9 @@
           "number": 9182,
           "title": "fix(lnurl): validate both address halves against the LUD-16 charset",
           "url": "https://github.com/fedimint/fedimint/pull/9182",
-          "state": "open",
+          "state": "merged",
           "created": "2026-09-20",
-          "closedAt": null
+          "closedAt": "2026-10-19"
         },
         {
           "number": 9143,
@@ -1399,41 +1399,6 @@
       ]
     },
     {
-      "full": "anthropics/claude-code",
-      "owner": "anthropics",
-      "name": "claude-code",
-      "slug": "anthropics-claude-code",
-      "merged": 0,
-      "open": 3,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 78441,
-          "title": "fix(devcontainer script): detect native command failures via $LASTEXITCODE",
-          "url": "https://github.com/anthropics/claude-code/pull/78441",
-          "state": "open",
-          "created": "2026-07-17",
-          "closedAt": null
-        },
-        {
-          "number": 78445,
-          "title": "docs: correct plugin descriptions and version that contradict the plugins",
-          "url": "https://github.com/anthropics/claude-code/pull/78445",
-          "state": "open",
-          "created": "2026-07-17",
-          "closedAt": null
-        },
-        {
-          "number": 78446,
-          "title": "fix(plugin-dev): add the missing .claude-plugin/plugin.json manifest",
-          "url": "https://github.com/anthropics/claude-code/pull/78446",
-          "state": "open",
-          "created": "2026-07-17",
-          "closedAt": null
-        }
-      ]
-    },
-    {
       "full": "kubeflow/pipelines",
       "owner": "kubeflow",
       "name": "pipelines",
@@ -1645,44 +1610,6 @@
       ]
     },
     {
-      "full": "pluja/awesome-privacy",
-      "owner": "pluja",
-      "name": "awesome-privacy",
-      "slug": "pluja-awesome-privacy",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 1092,
-          "title": "Add tripkit to Maps and Navigation",
-          "url": "https://github.com/pluja/awesome-privacy/pull/1092",
-          "state": "open",
-          "created": "2026-09-08",
-          "closedAt": null
-        }
-      ]
-    },
-    {
-      "full": "osmlab/awesome-openstreetmap",
-      "owner": "osmlab",
-      "name": "awesome-openstreetmap",
-      "slug": "osmlab-awesome-openstreetmap",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 224,
-          "title": "Add tripkit to Web Maps",
-          "url": "https://github.com/osmlab/awesome-openstreetmap/pull/224",
-          "state": "open",
-          "created": "2026-09-08",
-          "closedAt": null
-        }
-      ]
-    },
-    {
       "full": "sarvamai/skills",
       "owner": "sarvamai",
       "name": "skills",
@@ -1850,44 +1777,6 @@
           "state": "closed",
           "created": "2026-03-21",
           "closedAt": "2026-03-24"
-        }
-      ]
-    },
-    {
-      "full": "ayush-that/FinVeda",
-      "owner": "ayush-that",
-      "name": "FinVeda",
-      "slug": "ayush-that-finveda",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 3194,
-          "title": "BIG Fixed: inconsistent dark mode",
-          "url": "https://github.com/ayush-that/FinVeda/pull/3194",
-          "state": "closed",
-          "created": "2024-11-10",
-          "closedAt": "2024-11-10"
-        }
-      ]
-    },
-    {
-      "full": "gauravsingh1281/Rentalog.in--Frontend",
-      "owner": "gauravsingh1281",
-      "name": "Rentalog.in--Frontend",
-      "slug": "gauravsingh1281-rentalog-in-frontend",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 636,
-          "title": "Nav Fix: styled Login-Register",
-          "url": "https://github.com/gauravsingh1281/Rentalog.in--Frontend/pull/636",
-          "state": "closed",
-          "created": "2024-11-10",
-          "closedAt": "2025-01-02"
         }
       ]
     }
