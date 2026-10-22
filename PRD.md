@@ -277,3 +277,16 @@ Last on purpose: polish applied to a wrong structure has to be redone.
 - A light theme. Declined, and `globals.css:8` documents dark as deliberate.
 - Any third-party screenshot service. It would mean sending his project URLs off the machine on
   every build.
+
+## 14. Progress
+
+**P1 done, 22 Oct 2026, commit `4c7af91`.** One change to the plan as written, stated here because
+the plan said `/work` absorbs `/projects` and the opposite happened: the detail pages already live at
+`/projects/<slug>` and are what `sitemap.ts` and `JsonLd.tsx` publish, so making `/work` the index
+would have moved nineteen live URLs to save a word. `/projects` is the one index; `/work` is a static
+redirect stub in `public/work/index.html`, excluded from the sitemap. Nav, command palette, home
+index and the "2 apps" stat all point at `/projects/`. The filter, the stack-derived domain tags and
+the other-hackathons line came across from the old route; nothing on it was dropped. `WorkExplorer`
+and `WorkGrid` are deleted rather than left unmounted, so the orphan check stays meaningful.
+Verified: `npm run verify` green, 111 pages, 1300 internal links, 0 FAIL, and no `href="/work/"`
+anywhere in `out/`.
