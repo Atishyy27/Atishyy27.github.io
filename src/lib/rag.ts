@@ -59,7 +59,7 @@ export function buildCorpus(): Chunk[] {
   c.push({
     label: "Education",
     href: "/about/",
-    text: `Education. He studies at ${education.school}, where he is doing a ${education.degree}. College, university, institute, degree, studied, student. ${education.cgpa}. ${education.note}.`,
+    text: `Education. He studies at ${education.school}, where he is doing a ${education.degree}. College, university, institute, degree, studied, student. ${education.note}.`,
   });
   experience.forEach((e) =>
     c.push({ label: e.org, href: "/about/", text: `At ${e.org}, ${e.role} (${e.dates}). ${(e.points ?? []).join(" ")}` })

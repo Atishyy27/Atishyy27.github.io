@@ -129,7 +129,7 @@ export const experience: Experience[] = [
     // Expanded 2026-10-09 from the facts already recorded. The three clients
     // and the 90% figure are unchanged; nothing was added to them.
     points: [
-      "Translated product requirements into technical workflows and execution plans for 3 enterprise clients, working from briefs that were still changing while the work was being scoped.",
+      "Translated product requirements into technical workflows and execution plans for two enterprise clients, working from briefs that were still changing while the work was being scoped.",
       "Built 0-to-1 prototypes to settle open questions early, so a disagreement about what the product should do was resolved against something runnable rather than against a document.",
       "Ran sprint and release coordination across those engagements at 90%+ on-time delivery.",
     ],
@@ -344,7 +344,6 @@ export const education = {
   school: "Shri G. S. Institute of Technology & Science, Indore",
   note: "One of India's top GFTIs",
   degree: "B.Tech Mechanical Engineering, Minor in Machine Learning",
-  cgpa: "CGPA 7.75, Minor 8.00",
   dates: "Sept 2023 – July 2027",
   domain: "sgsits.ac.in",
 };
