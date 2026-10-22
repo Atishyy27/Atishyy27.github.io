@@ -64,11 +64,15 @@ check(
 const unlistedDir = path.join(OUT, "journal", "0001-unlisted-fixture");
 check("unlisted entry still builds a page", fs.existsSync(unlistedDir), "missing " + unlistedDir);
 
-const indexPath = path.join(OUT, "journal", "index.html");
+// The index that lists entries is /writing since the journal, the build log and
+// the archive merged on 22 Oct 2026. out/journal/index.html is now a redirect
+// stub, so checking it would pass for the wrong reason: a stub links nothing,
+// which satisfies "does not link the unlisted entry" while proving nothing.
+const indexPath = path.join(OUT, "writing", "index.html");
 const indexHtml = fs.existsSync(indexPath) ? fs.readFileSync(indexPath, "utf8") : "";
-check("journal index exists", indexHtml.length > 0, "missing " + indexPath);
+check("the writing feed exists", indexHtml.length > 0, "missing " + indexPath);
 check(
-  "unlisted entry is NOT linked from the journal index",
+  "unlisted entry is NOT linked from the feed",
   !indexHtml.includes("0001-unlisted-fixture"),
   "the index links the unlisted slug"
 );
@@ -89,7 +93,7 @@ check(
   "missing the public fixture page"
 );
 check(
-  "public entry IS linked from the journal index",
+  "public entry IS linked from the feed",
   indexHtml.includes("0002-public-fixture"),
   "the index does not link the public slug"
 );

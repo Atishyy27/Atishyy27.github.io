@@ -13,7 +13,7 @@ export default function NotFound() {
       <div className="mt-10 flex gap-6">
         <Link href="/" className="link text-sm">Home</Link>
         <Link href="/projects/" className="link text-sm">Projects</Link>
-        <Link href="/journal/" className="link text-sm">Journal</Link>
+        <Link href="/writing/" className="link text-sm">Writing</Link>
       </div>
     </main>
   );

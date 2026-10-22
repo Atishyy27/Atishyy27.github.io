@@ -21,7 +21,7 @@ export const dynamic = "force-static";
 // invisible to search engines.
 // /work is a static redirect stub kept so old links and the old sitemap entry
 // still land somewhere. A redirect has no business being indexed.
-export const SITEMAP_EXCLUDE = ["/admin/", "/work/"];
+export const SITEMAP_EXCLUDE = ["/admin/", "/work/", "/log/", "/archive/", "/journal/"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, priority: 1 },
 
     // Top-level sections.
-    ...["/projects/", "/oss/", "/stats/", "/journal/", "/log/", "/about/", "/archive/"].map((path) => ({
+    ...["/projects/", "/oss/", "/stats/", "/writing/", "/about/"].map((path) => ({
       url: `${SITE}${path}`,
       lastModified: now,
       priority: 0.8,

@@ -290,3 +290,20 @@ the other-hackathons line came across from the old route; nothing on it was drop
 and `WorkGrid` are deleted rather than left unmounted, so the orphan check stays meaningful.
 Verified: `npm run verify` green, 111 pages, 1300 internal links, 0 FAIL, and no `href="/work/"`
 anywhere in `out/`.
+
+**P3 done, 22 Oct 2026.** `/journal`, `/log` and `/archive` are one route, `/writing`. The three were
+not three things: `/archive` already merged all three sources, which made it a superset of the other
+two rather than a different view, and the nav sold all three as separate destinations. One feed,
+newest first, grouped by month, with five filters: Writing (26, the default), Journal (11), Build log
+(15), Pull requests (151), Everything (177). Pull requests are off by default because 151 of them
+bury 26 pieces of writing; they are in the same feed because they are the densest dated record he
+has and a calendar of only the writing shows a dozen dots in a year where hundreds of things
+happened. Journal entries keep `/journal/<slug>/` and the tag pages keep theirs, so no entry URL
+moved. The ask terminal and the keyboard came across from `/log` and now sit under the feed as 02
+and 03, which also fixes the duplicate "02" that page had been shipping. `/journal/`, `/log/` and
+`/archive/` are redirect stubs. `BuildLog.tsx` is deleted, its entry rendering moved into
+`WritingFeed.tsx`. Verified: `npm run verify` green, 112 pages, 1041 internal links, 0 FAIL, no
+`href="/log/"`, `href="/archive/"` or `href="/journal/"` left in `out/`; the feed's HTML carries all
+11 journal links and all 15 log bodies.
+
+Nav is now five items: Projects, Open source, Stats, Writing, About. It was ten on 21 Oct.

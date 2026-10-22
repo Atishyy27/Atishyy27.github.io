@@ -44,7 +44,12 @@ console.log(`PASS  wrote out/${DEST_NAME}, ${png.length} bytes`);
 // Redirect stubs are skipped. They are three lines of meta that send a browser
 // somewhere else, so they carry no social card by design, and counting them as
 // pages that lost their card would fail this check for the wrong reason.
-const REDIRECT_STUBS = new Set(["work/index.html"]);
+const REDIRECT_STUBS = new Set([
+  "work/index.html",
+  "log/index.html",
+  "archive/index.html",
+  "journal/index.html",
+]);
 const pages = [];
 (function walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {

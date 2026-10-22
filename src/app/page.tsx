@@ -19,9 +19,7 @@ const INDEX: [string, string, string][] = [
   ["Projects", "/projects/", "Every build, filterable, with a link to the artifact where one is public"],
   ["Open source", "/oss/", "Live pull request activity, pulled from GitHub"],
   ["Stats", "/stats/", "Competitive programming and a year of contributions"],
-  ["Build log", "/log/", "Notes on what was built, and a question box over the site"],
-  ["Journal", "/journal/", "Dated, first person, nothing invented"],
-  ["Archive", "/archive/", "Everything dated, by year and month, pull requests included"],
+  ["Writing", "/writing/", "Journal, build log and every pull request, one dated feed"],
   ["About", "/about/", "Experience, research, education, résumé"],
 ];
 

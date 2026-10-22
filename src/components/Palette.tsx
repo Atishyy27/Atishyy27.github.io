@@ -60,9 +60,7 @@ const ROUTES: [string, string, string][] = [
   ["Projects", "/projects/", "everything built, work included"],
   ["Open source", "/oss/", "every upstream pull request"],
   ["Stats", "/stats/", "competitive programming, a year of days"],
-  ["Build log", "/log/", "notes, and the ask box"],
-  ["Journal", "/journal/", "dated, first person"],
-  ["Archive", "/archive/", "everything dated, by month"],
+  ["Writing", "/writing/", "journal, build log and every pull request, one feed"],
   ["About", "/about/", "experience, research, resume, contact"],
 ];
 
@@ -100,7 +98,7 @@ export default function Palette({
 
     out.push({
       id: "r:tags", label: "Journal tags", hint: "browse by topic",
-      group: "Go to", run: route("/journal/"),
+      group: "Go to", run: route("/writing/"),
     });
 
     // Projects: the page where one exists, otherwise its outbound artifact.
@@ -152,7 +150,7 @@ export default function Palette({
       },
       { id: "a:pdf", label: "Download résumé PDF", hint: person.resumeHref, group: "Actions", run: open(person.resumeHref) },
       { id: "a:feed", label: "Subscribe to the journal (RSS)", hint: "/feed.xml", group: "Actions", run: open("/feed.xml") },
-      { id: "a:ask", label: "Ask a question about my work", hint: "searches this site", group: "Actions", run: route("/log/") },
+      { id: "a:ask", label: "Ask a question about my work", hint: "searches this site", group: "Actions", run: route("/writing/") },
       { id: "a:src", label: "View the source of this site", hint: "github ↗", group: "Actions", run: open("https://github.com/Atishyy27/Atishyy27.github.io") },
     );
 

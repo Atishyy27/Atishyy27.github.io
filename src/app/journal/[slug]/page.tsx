@@ -40,7 +40,7 @@ export default async function JournalEntryPage({ params }: Props) {
     if (slug === EMPTY_SLUG) {
       return (
         <main className="mx-auto w-full max-w-2xl px-6 py-20 sm:px-8">
-          <Link href="/journal/" className="link text-sm">Journal</Link>
+          <Link href="/writing/" className="link text-sm">Writing</Link>
           <h1 className="display mt-10 text-4xl leading-[1.05]">No entries yet</h1>
           <p className="mt-6 text-lg text-[var(--fg-muted)]">The first one is being written.</p>
         </main>
@@ -69,7 +69,7 @@ export default async function JournalEntryPage({ params }: Props) {
         />
       ) : null}
 
-      <Link href="/journal/" className="link text-sm">Journal</Link>
+      <Link href="/writing/" className="link text-sm">Writing</Link>
 
       <header className="mt-10">
         <h1 className="display text-4xl leading-[1.05] sm:text-5xl">{entry.title}</h1>

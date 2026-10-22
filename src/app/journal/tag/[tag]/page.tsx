@@ -35,7 +35,7 @@ export default async function TagPage({ params }: Props) {
     if (tag === EMPTY) {
       return (
         <main className="mx-auto w-full max-w-[var(--measure)] px-6 py-24 sm:px-8">
-          <Link href="/journal/" className="link text-sm">Journal</Link>
+          <Link href="/writing/" className="link text-sm">Writing</Link>
           <h1 className="display mt-10 text-4xl">No tags yet</h1>
         </main>
       );
@@ -45,7 +45,7 @@ export default async function TagPage({ params }: Props) {
 
   return (
     <main className="mx-auto w-full max-w-[var(--measure)] px-6 py-24 sm:px-8">
-      <Link href="/journal/" className="link text-sm">Journal</Link>
+      <Link href="/writing/" className="link text-sm">Writing</Link>
       <h1 className="display mt-10 text-[length:var(--step-display)]">{label}</h1>
       <p className="mt-6 text-[var(--fg-muted)]">
         {entries.length} {entries.length === 1 ? "entry" : "entries"}.
