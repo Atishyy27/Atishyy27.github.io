@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { pagedProjects, getProject, CATEGORY_LABEL } from "@/content/projects";
 import { entriesForProject, formatDate } from "@/lib/journal";
 import LiveEmbed from "@/components/LiveEmbed";
+import Shots from "@/components/Shots";
+import { SHOTS } from "@/content/shots";
 import { canEmbed } from "@/lib/embeddable";
 import { Logo } from "@/components/Logo";
 import JsonLd, { softwareProject } from "@/components/JsonLd";
@@ -125,6 +127,9 @@ export default async function ProjectPage({ params }: Props) {
             const live = p.links.find((l) => canEmbed(l.href));
             return live ? <LiveEmbed href={live.href} name={p.name} /> : null;
           })()}
+
+          {/* Apps that can never be framed get their screens instead. */}
+          <Shots shots={SHOTS[p.slug] ?? []} name={p.name} />
         </section>
       ) : null}
 

@@ -9,14 +9,19 @@
 // Every host here was checked by reading its real response headers on
 // 2026-10-09, not assumed:
 //
+// Re-checked 2026-10-22, every host below, by reading live response headers:
+//
 //   allows framing (no X-Frame-Options, no CSP frame-ancestors):
 //     ciis-demo.vercel.app            geoyield.vercel.app
 //     sgsits-techfest-2025.vercel.app davvincubationcentre.com
-//     www.sgsitsincubationforum.com
+//     www.sgsitsincubationforum.com   gs27.vercel.app
 //
 //   refuses:
 //     geniussolarservices.com   X-Frame-Options: SAMEORIGIN
 //     play.google.com, chromewebstore.google.com, github.com
+//
+// The store fronts are the reason components/Shots.tsx exists: the two Play
+// Store apps can never be framed, so they are shown as screenshots instead.
 //
 // A blocked iframe renders as a blank rectangle with the reason only in the
 // console, which looks identical to a broken project. So the list is an
@@ -27,6 +32,7 @@ export const EMBEDDABLE_HOSTS = new Set([
   "sgsits-techfest-2025.vercel.app",
   "davvincubationcentre.com",
   "www.sgsitsincubationforum.com",
+  "gs27.vercel.app",
 ]);
 
 export function canEmbed(href: string): boolean {

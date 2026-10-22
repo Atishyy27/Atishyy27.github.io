@@ -21,7 +21,8 @@
     "gen:cp": "node scripts/gen-cp.mjs",
     "check:cp": "node scripts/check-cp.mjs",
     "postbuild": "node scripts/fix-og.mjs",
-    "check:resume": "node scripts/check-resume.mjs"
+    "check:resume": "node scripts/check-resume.mjs",
+    "fetch:shots": "node scripts/fetch-shots.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

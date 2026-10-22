@@ -269,7 +269,10 @@ export const orgWork: Work[] = [
     domain: "sgsits.ac.in",
     blurb: "My first project (2023), first-year notes and past papers for SGSITS. Now being rebuilt as a student platform: a shared library across colleges, anonymous feed and groups, a Hall of Fame of student projects, and a placement-cell console.",
     stack: ["Next.js", "Supabase", "Tailwind", "MapLibre"],
-    links: [{ label: "Code", href: "https://github.com/Atishyy27/GS27" }],
+    links: [
+      { label: "Live", href: "https://gs27.vercel.app/" },
+      { label: "Code", href: "https://github.com/Atishyy27/GS27" },
+    ],
   },
   { name: "DAVV Incubation Centre", domain: "davvincubationcentre.com", blurb: "CMS platform for the university incubation centre.", stack: ["WordPress"], links: [{ label: "Live", href: "https://davvincubationcentre.com/" }] },
   { name: "SGSITS Incubation Forum", domain: "sgsitsincubationforum.com", blurb: "Built on WordPress, later migrated to Wix.", stack: ["WordPress", "Wix"], links: [{ label: "Live", href: "https://www.sgsitsincubationforum.com/" }] },
