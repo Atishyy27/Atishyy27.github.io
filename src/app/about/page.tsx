@@ -11,6 +11,7 @@ import { useOverrides } from "@/lib/overrides";
 import { Avatar3DMount } from "@/components/SceneMount";
 import { hasAvatar } from "@/content/assets";
 import { Head, Wrap } from "@/components/Section";
+import Achievements from "@/components/Achievements";
 
 export default function About() {
   const ov = useOverrides();
@@ -50,8 +51,17 @@ export default function About() {
         </Wrap>
 
         {/* EXPERIENCE */}
+        <Wrap id="achievements">
+          <Head
+            n="02"
+            title="Achievements"
+            kicker="Contests and programmes, each with the denominator it was measured against."
+          />
+          <Achievements />
+        </Wrap>
+
         <Wrap id="experience">
-          <Head n="02" title="Experience" kicker="Internships and paid engineering work." />
+          <Head n="03" title="Experience" kicker="Internships and paid engineering work." />
           <ol className="divide-y divide-[var(--line)] border-t border-[var(--line)]">
             {experience.map((e, i) => (
               <Reveal key={e.org} delay={Math.min(i, 4) * 0.04}>
@@ -81,7 +91,7 @@ export default function About() {
 
         {/* RESEARCH */}
         <Wrap id="publications">
-          <Head n="03" title="Research" />
+          <Head n="04" title="Research" />
           <ol className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
             {publications.map((p, i) => (
               <Reveal key={i} delay={i * 0.05}>
@@ -102,7 +112,7 @@ export default function About() {
             under it would break the one claim this site makes. */}
         {hasAvatar ? (
           <Wrap id="avatar">
-            <Head n="04" title="Me, roughly" kicker="A GLB file, turned in your browser. Not a render." />
+            <Head n="05" title="Me, roughly" kicker="A GLB file, turned in your browser. Not a render." />
             <Avatar3DMount present />
           </Wrap>
         ) : null}
@@ -113,7 +123,7 @@ export default function About() {
         {/* CONTACT — the form was built and then never mounted anywhere, so the
             site had no way to reach him except the socials in the header. */}
         <Wrap id="contact">
-          <Head n="05" title="Get in touch" kicker="Goes straight to my inbox." />
+          <Head n="06" title="Get in touch" kicker="Goes straight to my inbox." />
           <Contact />
         </Wrap>
 

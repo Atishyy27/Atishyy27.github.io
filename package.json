@@ -23,7 +23,8 @@
     "postbuild": "node scripts/fix-og.mjs",
     "check:resume": "node scripts/check-resume.mjs",
     "fetch:shots": "node scripts/fetch-shots.mjs",
-    "check:claims": "node scripts/check-site-claims.mjs"
+    "check:claims": "node scripts/check-site-claims.mjs",
+    "import:photos": "node scripts/import-photos.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
