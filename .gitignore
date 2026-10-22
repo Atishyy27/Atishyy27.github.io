@@ -7,3 +7,7 @@ next-env.d.ts
 .DS_Store
 
 public/CNAME.pending
+
+# Headless Chrome, downloaded by @puppeteer/browsers for project screenshots.
+# 216 MB, and reinstallable in one command, so it never goes in git.
+chrome-headless-shell/

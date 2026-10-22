@@ -164,3 +164,116 @@ cards.
 - Someone lands, and within 30 seconds can name his strongest credential without scrolling.
 - He replies to a job post with **one link** instead of a PDF and a paragraph.
 - Every claim on the page still holds after being clicked. Nothing needs walking back.
+
+---
+
+# v2 — the re-plan, 22 Oct 2026
+
+Written after he called the built site "barely 6/10" and asked for a product plan instead of more
+patches. Everything above is the July pre-build PRD and still reads correctly. This section is about
+the gap between it and what actually got built.
+
+## 8. What was specified versus what exists
+
+The July PRD specified **three routes**: one page with eight anchors, plus `/resume` and `/contact`.
+
+What exists is **ten routes**: `/`, `/projects`, `/work`, `/oss`, `/stats`, `/log`, `/journal`,
+`/archive`, `/about`, `/admin`, plus 19 project pages and the journal entries. The nav carries eight
+items for one person's portfolio.
+
+Nobody decided that. It accumulated.
+
+## 9. The actual defect: four routes are views over the same rows
+
+This is not an opinion about taste. It is in the imports.
+
+| Route | What it imports | Overlap |
+|---|---|---|
+| `/archive` | `listedEntries` (journal) + `log` + `oss` | **Superset of three other routes** |
+| `/journal` | `listedEntries` | Strict subset of `/archive` |
+| `/log` | `content/log` + Terminal | Log half is a subset of `/archive` |
+| `/oss` | `content/oss` | Subset of `/archive` |
+| `/projects` | `allProjects` | |
+| `/work` | `govtWork, clientWork, orgWork, extensions, hackathons` | **`allProjects` is built from exactly these five arrays** (`content/projects.ts:77-81`) |
+
+So `/projects` and `/work` render the same data twice under two names, and `/archive` is a merged
+feed of `/journal`, `/log` and `/oss`. Of nine public routes, **six are duplicates or supersets of
+each other.** A visitor who clicks Work after Projects sees the same nineteen things and concludes
+the site is padded. That is the 6/10.
+
+Two more, smaller:
+
+- `/stats` is a 22-line file that mounts one component. It is a section wearing a route.
+- The home page carries a WebGL project graph that renders nothing into the HTML, so to a link
+  preview, a scraper or a visitor with JS off, the centrepiece does not exist.
+
+## 10. What the references support, and what they do not
+
+Searched 22 Oct for engineer-portfolio evidence. **The search was thin**: most results were
+architecture-portfolio and UX-designer advice, and nothing gave a measured number for nav items or
+case-study length. Taking only what transfers and marking it as borrowed:
+
+- Keep navigation flat, around five top-level items. (From architecture-portfolio guidance, not
+  engineering. Directionally useful, not measured.)
+- Problem → Process → Outcome case studies outperform galleries of finished screens, and quantified
+  impact beats description. This is the one point every source agreed on.
+- Layer the depth: a scanner should understand the work in about three minutes, a hiring manager
+  should be able to drill into specific decisions, and the detail lives below that.
+- A portfolio is a **risk-reduction tool** for the person deciding whether to spend an hour
+  interviewing you. Tutorial-clone projects now carry negative signal.
+
+The July PRD's own principle already says this better and is grounded in his real audit: every claim
+links to proof. Nothing in the references overturns it. **The IA is what failed, not the principle.**
+
+## 11. Target structure
+
+Five nav items. Nothing is deleted; four surfaces merge into one each.
+
+```
+/            Who, one line. Three proof stats. Three featured projects with covers. One CTA.
+/work        THE merged surface. 19 projects as cards, filterable by kind and stack.
+             /projects and /work become one route; the other redirects.
+/oss         Merged pull requests, live counts, per-repo detail. Unchanged, it is the strongest page.
+/writing     /journal + /log + /archive become one dated feed with a type filter
+             (journal entry · build note · shipped PR). /archive's merge logic already does this;
+             it just needs to stop being a fourth copy.
+/about       Experience, research, education, resume, contact. Already fixed today.
+```
+
+`/stats` folds into `/about` or `/oss` as a section. `/admin` stays unlinked.
+
+## 12. The pieces, in order, each reviewed before the next is built
+
+Agile in the only sense that matters here: each piece ships on its own, the site is never broken
+between them, and he sees each one before the next starts.
+
+**P1 — Merge `/projects` and `/work`.** One route, cards, filter by kind and stack. The loser
+redirects so no link dies. *Done when:* nineteen projects appear exactly once on the site, the nav
+has one entry for them, and `check-links` passes.
+
+**P2 — Real cover images.** Headless Chrome is now installed
+(`chrome-headless-shell`, 156.0.8078.47) but crashes with "GPU process isn't usable" on this Mac and
+is not yet working. Six hosts permit framing and can be captured; the two Play Store apps already
+have real screens. *Done when:* every card with a live URL shows that URL, captured, not generated.
+
+**P3 — Merge the three timelines into `/writing`.** One feed, one filter, three sources.
+*Done when:* `/journal`, `/log` and `/archive` resolve to one route and nothing is listed twice.
+
+**P4 — Case studies on the top five projects.** Problem, what was tried, what shipped, what it cost.
+This is the single highest-value piece and the one the references agree on; it is fourth only because
+the first three stop the site contradicting itself. *Done when:* five project pages answer "what
+decision did he make and why" without the reader needing to ask.
+
+**P5 — Home page.** Replace the invisible WebGL graph with three featured project cards that exist in
+the HTML, and keep the graph as a section further down or on `/work`. *Done when:* a link preview and
+a JS-disabled load both show real content above the fold.
+
+**P6 — Visual system.** Type scale, accent used with intent, consistent card and section rhythm.
+Last on purpose: polish applied to a wrong structure has to be redone.
+
+## 13. Not doing
+
+- Flattening the project graph to 2D. He rejected it on 22 Oct; it stays 3D or moves.
+- A light theme. Declined, and `globals.css:8` documents dark as deliberate.
+- Any third-party screenshot service. It would mean sending his project URLs off the machine on
+  every build.
