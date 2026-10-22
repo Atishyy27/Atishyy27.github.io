@@ -57,9 +57,8 @@ const open = (href: string) => () => window.open(href, href.startsWith("http") ?
 /** Top-level routes, in the order the home page lists them. */
 const ROUTES: [string, string, string][] = [
   ["Home", "/", "the index"],
-  ["Projects", "/projects/", "everything built"],
+  ["Projects", "/projects/", "everything built, work included"],
   ["Open source", "/oss/", "every upstream pull request"],
-  ["Work", "/work/", "shipped platforms and products"],
   ["Stats", "/stats/", "competitive programming, a year of days"],
   ["Build log", "/log/", "notes, and the ask box"],
   ["Journal", "/journal/", "dated, first person"],

@@ -16,8 +16,7 @@ import { nodes, edges, sharedTech } from "@/content/graph";
 // fetched from the platform that owns it at page load, so there is no number
 // here that can quietly go stale, and nothing to keep in sync by hand.
 const INDEX: [string, string, string][] = [
-  ["Projects", "/projects/", "Everything built, with a link to the artifact on every row"],
-  ["Work", "/work/", "Shipped platforms, products and hackathon systems"],
+  ["Projects", "/projects/", "Every build, filterable, with a link to the artifact where one is public"],
   ["Open source", "/oss/", "Live pull request activity, pulled from GitHub"],
   ["Stats", "/stats/", "Competitive programming and a year of contributions"],
   ["Build log", "/log/", "Notes on what was built, and a question box over the site"],

@@ -40,12 +40,18 @@ fs.writeFileSync(DEST, png);
 console.log(`PASS  wrote out/${DEST_NAME}, ${png.length} bytes`);
 
 // Walk every built page and repoint the two tags.
+//
+// Redirect stubs are skipped. They are three lines of meta that send a browser
+// somewhere else, so they carry no social card by design, and counting them as
+// pages that lost their card would fail this check for the wrong reason.
+const REDIRECT_STUBS = new Set(["work/index.html"]);
 const pages = [];
 (function walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) walk(p);
-    else if (e.name.endsWith(".html")) pages.push(p);
+    else if (e.name.endsWith(".html") && !REDIRECT_STUBS.has(path.relative(OUT, p).split(path.sep).join("/")))
+      pages.push(p);
   }
 })(OUT);
 

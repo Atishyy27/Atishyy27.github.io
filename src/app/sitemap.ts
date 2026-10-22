@@ -19,7 +19,9 @@ export const dynamic = "force-static";
 // /projects and /journal and their children: 21 urls, while the site built 88
 // pages. /work, /oss, /stats, /log, /about and all 58 repository pages were
 // invisible to search engines.
-export const SITEMAP_EXCLUDE = ["/admin/"];
+// /work is a static redirect stub kept so old links and the old sitemap entry
+// still land somewhere. A redirect has no business being indexed.
+export const SITEMAP_EXCLUDE = ["/admin/", "/work/"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -28,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, priority: 1 },
 
     // Top-level sections.
-    ...["/projects/", "/oss/", "/work/", "/stats/", "/journal/", "/log/", "/about/", "/archive/"].map((path) => ({
+    ...["/projects/", "/oss/", "/stats/", "/journal/", "/log/", "/about/", "/archive/"].map((path) => ({
       url: `${SITE}${path}`,
       lastModified: now,
       priority: 0.8,

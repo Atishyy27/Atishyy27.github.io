@@ -47,7 +47,7 @@ export const proof = [
     href: "/oss/",
   },
   { stat: "392 users", label: "on my two Chrome extensions, Web Store, 30 Sep 2026", href: "/projects/" },
-  { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/work/" },
+  { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/projects/" },
 ];
 
 // These four lines used to be typed here by hand and all four had drifted: the

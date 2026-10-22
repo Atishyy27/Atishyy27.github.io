@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 const LINKS: [string, string][] = [
   ["Projects", "/projects/"],
-  ["Work", "/work/"],
   ["Open source", "/oss/"],
   ["Stats", "/stats/"],
   ["Build log", "/log/"],

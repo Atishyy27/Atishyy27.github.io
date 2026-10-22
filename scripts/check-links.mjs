@@ -75,7 +75,7 @@ check(
 // 3. The nav and the home index must reach every route. A break here is a
 //    break on every page at once.
 const home = fs.readFileSync(path.join(OUT, "index.html"), "utf8");
-for (const route of ["/projects/", "/work/", "/oss/", "/stats/", "/log/", "/journal/", "/about/"]) {
+for (const route of ["/projects/", "/oss/", "/stats/", "/log/", "/journal/", "/about/"]) {
   check("home links " + route, home.includes('href="' + route + '"') || home.includes('href=\\"' + route + '\\"'));
 }
 
@@ -88,6 +88,7 @@ const SITEMAP_EXCLUDE = [
   "/journal/none/",     // placeholder page for the empty journal
   "/404.html",
   "/404/",              // Next emits this; a 404 page has no business in a sitemap
+  "/work/",             // redirect stub to /projects/ since the two merged, 22 Oct 2026
 ];
 
 const sitemapPath = path.join(OUT, "sitemap.xml");

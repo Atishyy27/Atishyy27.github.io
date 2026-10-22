@@ -14,6 +14,13 @@ export type Project = Work & {
   category: ProjectCategory;
   /** Short, always present. The gallery shows this, not the long blurb. */
   story: string;
+  /**
+   * Broad technical domains, derived from `stack`. These drive the second
+   * filter on the index. Derived rather than hand-tagged for the same reason
+   * the list itself is derived: a hand-kept tag on nineteen projects goes stale
+   * the first time a stack line is edited and nobody updates the tag.
+   */
+  domains: string[];
   // There was a `journalSlug` here, plus a JOURNAL_LINKS map to populate it.
   // Both were assigned and never read: the real link runs the other way, from
   // a journal entry's `project:` front matter, which lib/journal.ts resolves
@@ -61,6 +68,28 @@ const STORIES: Record<string, string> = {
   "adobe-india-hackathon-2025": "Document intelligence, scoped to what could actually be finished in the window.",
 };
 
+// Which stack entries count as which domain. Substring match, so "Next.js 15"
+// and "Next.js" both land under Frontend. Moved here from the old /work page's
+// explorer when the two routes merged, so there is one copy of this mapping.
+const DOMAIN: Record<string, string[]> = {
+  Backend: ["Node", "Express", "Spring Boot", "Django", "FastAPI", "Laravel", "MongoDB", "PostgreSQL", "MySQL", "Supabase", "MERN"],
+  Frontend: ["React", "Next.js", "Vite", "three.js", "WordPress", "Wix", "React Native"],
+  Mobile: ["Flutter", "React Native"],
+  "ML / AI": ["PyTorch", "PyTorch Geometric", "Neo4j", "Agentic AI", "Federated ML", "Python", "SHAP", "Geospatial"],
+  Systems: ["Rust", "Docker", "AWS", "C#", "Linux"],
+  Blockchain: ["Blockchain", "Hyperledger", "Solidity"],
+};
+
+export const DOMAIN_ORDER: string[] = Object.keys(DOMAIN);
+
+function domainsFor(w: Work): string[] {
+  const out: string[] = [];
+  for (const [domain, keys] of Object.entries(DOMAIN)) {
+    if (w.stack.some((s) => keys.some((k) => s.toLowerCase().includes(k.toLowerCase())))) out.push(domain);
+  }
+  return out;
+}
+
 function build(list: Work[], category: ProjectCategory): Project[] {
   return list.map((w) => {
     const slug = toSlug(w.name);
@@ -69,6 +98,7 @@ function build(list: Work[], category: ProjectCategory): Project[] {
       slug,
       category,
       story: STORIES[slug] ?? "",
+      domains: domainsFor(w),
     };
   });
 }
