@@ -37,7 +37,16 @@ export const achievements: Achievement[] = [
     year: "2025",
     title: "Cyber Shield hackathon, Indore region",
     result: "5th place, top 10 of roughly 1,200 teams",
+    note: "Three centres across the region, around 3,000 teams registered nationally.",
     photos: "cyber-shield-2025",
+  },
+  {
+    year: "2025",
+    title: "CIIS national hackathon",
+    result: "Finalist, top 5 of more than 500 teams",
+    note: "Graph neural network finding anomalous transaction clusters across a million-plus records, with a SHAP layer giving an analyst feature-level reasons for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
+    photos: "ciis-2025",
+    links: [{ label: "The project", href: "/projects/ciis-anti-money-laundering-detection/" }],
   },
   {
     year: "2025",
@@ -50,7 +59,7 @@ export const achievements: Achievement[] = [
     year: "2025",
     title: "TruthTell Hackathon",
     result: "25 of more than 4,000, top 0.60%",
-    note: "Real-time misinformation detection under a hackathon clock.",
+    note: "Real-time misinformation detection under a hackathon clock. Run under the Ministry of Information and Broadcasting.",
     photos: "truthtell-2025",
   },
   {
@@ -73,6 +82,12 @@ export const achievements: Achievement[] = [
   },
   {
     year: "2026",
+    title: "HackerRank Orchestrate",
+    result: "Rank about 90 of several thousand",
+    photos: "hackerrank-orchestrate-2026",
+  },
+  {
+    year: "2026",
     title: "Summer of Bitcoin",
     result: "Qualifier",
     note: "Qualified, not selected. The work that came out of it is in the open-source record.",
@@ -82,7 +97,7 @@ export const achievements: Achievement[] = [
   {
     year: "2024",
     title: "GirlScript Summer of Code, extended edition",
-    result: "Rank 312, top 3.8%",
+    result: "Rank 312 of more than 8,000, top 3.8%",
     photos: "gssoc-2024",
   },
 ];
