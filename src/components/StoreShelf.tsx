@@ -16,7 +16,7 @@
  */
 
 import { listings, type Listing } from "@/content/store";
-import { allProjects } from "@/content/projects";
+import { allProjects, pagedProjects } from "@/content/projects";
 import { Reveal, Tilt } from "./Chrome";
 import { capture } from "@/lib/posthog";
 
@@ -44,6 +44,10 @@ function Card({ listing }: { listing: Listing }) {
   // Blurb and stack are read from the project record rather than restated, so
   // editing one description cannot leave the other one stale.
   const project = allProjects.find((p) => p.name === listing.name);
+  // Only a project with a story gets a detail page, so the link is offered
+  // only when one exists. Linking every listing unconditionally shipped a
+  // href to a page that was never generated, which check-projects.mjs caught.
+  const hasPage = project ? pagedProjects.some((p) => p.slug === project.slug) : false;
 
   return (
     <Tilt className="flex h-full flex-col rounded-2xl border border-[var(--line)] bg-[var(--bg-raised)] p-5">
@@ -103,7 +107,7 @@ function Card({ listing }: { listing: Listing }) {
         >
           {listing.cta}
         </a>
-        {project ? (
+        {project && hasPage ? (
           <a
             href={`/projects/${project.slug}/`}
             className="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
@@ -123,7 +127,7 @@ export default function StoreShelf() {
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
           <h2 className="text-[length:var(--step-h2)] font-medium">Installable right now</h2>
           <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">
-            Two Chrome extensions and two Play Store apps. The buttons go to the store.
+            Three Chrome extensions and two Play Store apps. The buttons go to the store.
           </p>
         </div>
 

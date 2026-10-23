@@ -29,6 +29,7 @@ const PLAY = {
 // here and falls back to a monogram tile in the component.
 const REPO_ICONS = {
   "leetcode-analytics": "https://raw.githubusercontent.com/Atishyy27/leetcode-analytics/main/icons/icon128.png",
+  "sync-lis": "https://raw.githubusercontent.com/Atishyy27/sync-lis/master/extension/icons/icon128.png",
 };
 
 const OUT = path.join(process.cwd(), "public", "ext");

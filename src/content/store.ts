@@ -44,6 +44,16 @@ export const listings: Listing[] = [
     icon: "/ext/leetcode-analytics.webp",
   },
   {
+    slug: "sync-lis-and-the-mehfil-jukebox",
+    name: "sync-lis, and the mehfil jukebox",
+    store: "Chrome Web Store",
+    cta: "Add to Chrome",
+    href: "https://chromewebstore.google.com/detail/sync-lis/hcpjipoofgpnenpfjddkkodbobehonlb",
+    users: "13 users",
+    countedOn: "2026-10-24",
+    icon: "/ext/sync-lis.webp",
+  },
+  {
     // No icon: the source is private, so there is no shipped icon128.png to
     // read, and the Web Store does not serve one to a scraper. Monogram tile.
     slug: "prd-verification-tool",
