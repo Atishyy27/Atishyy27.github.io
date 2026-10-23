@@ -15,5 +15,12 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#0a0a0b",
     theme_color: "#0a0a0b",
+    // Named here as well as living at src/app/icon.svg, because an installed
+    // Android app reads its launcher icon from the manifest and ignores the
+    // <link rel="icon"> that Next generates from that file.
+    icons: [
+      { src: "/icon.svg", type: "image/svg+xml", sizes: "any", purpose: "any" },
+      { src: "/apple-icon.png", type: "image/png", sizes: "180x180" },
+    ],
   };
 }
