@@ -273,10 +273,12 @@ export const orgWork: Work[] = [
     domain: "sgsits.ac.in",
     blurb: "The college techfest site, built with another developer against a hard public deadline. Hindi and English localisation, 3D hero, real launch-day traffic.",
     stack: ["React", "Supabase", "three.js"],
-    links: [
-      { label: "Live", href: "https://sgsits-techfest-2025.vercel.app/" },
-      { label: "Code", href: "https://github.com/Atishyy27/SGSITS-techfest-2025" },
-    ],
+    // Checked authenticated on 2026-10-24: Atishyy27/SGSITS-techfest-2025 is
+    // private, last pushed 2025-09-28. It is not deleted; GitHub returns 404
+    // rather than 403 to anyone who cannot see a private repo, so the "Code"
+    // badge was sending every visitor to a 404 page.
+    links: [{ label: "Live", href: "https://sgsits-techfest-2025.vercel.app/" }],
+    privateNote: "Repository is private. The live site is the artifact.",
   },
   {
     name: "PF Management System",
@@ -293,8 +295,13 @@ export const orgWork: Work[] = [
     name: "GS27",
     org: "SGSITS",
     domain: "sgsits.ac.in",
-    blurb: "My first project (2023), first-year notes and past papers for SGSITS. Now being rebuilt as a student platform: a shared library across colleges, anonymous feed and groups, a Hall of Fame of student projects, and a placement-cell console.",
-    stack: ["Next.js", "Supabase", "Tailwind", "MapLibre"],
+    blurb:
+      "My first project (2023), first-year notes and past papers for SGSITS, and still the version serving today. The rebuild into a student platform (shared library across colleges, anonymous feed and groups, a Hall of Fame of student projects, a placement-cell console) is on a branch in Next.js, Supabase, Tailwind and MapLibre, and is not live yet.",
+    // The shipped stack, not the rebuild's. GitHub reports the default branch
+    // as 70,623 bytes of HTML, 23,070 of CSS and 105 of JavaScript, checked
+    // 2026-10-24. Tagging it Next.js and Supabase described a branch the Code
+    // link does not open, which is the one thing a visitor can check in a click.
+    stack: ["HTML", "CSS", "JavaScript"],
     links: [
       { label: "Live", href: "https://gs27.vercel.app/" },
       { label: "Code", href: "https://github.com/Atishyy27/GS27" },
@@ -307,15 +314,15 @@ export const orgWork: Work[] = [
 export const extensions: Work[] = [
   {
     name: "PRD Verification Tool",
-    blurb: "PDF compression, conversion and renaming with auto-filled Google Forms. 127 users.",
-    countsAsOf: "2026-09-29",
+    blurb: "PDF compression, conversion and renaming with auto-filled Google Forms. 121 users.",
+    countsAsOf: "2026-10-24",
     stack: ["Chrome APIs", "JavaScript"],
     links: [{ label: "Chrome Web Store", href: "https://chromewebstore.google.com/detail/prd-verification-tool/lhebknliliiigghklkdkljobkkmbhaoj" }],
   },
   {
     name: "LeetCode Analytics",
-    blurb: "CP-focused metrics injected directly into LeetCode profiles: difficulty spread, topic breakdown, trends, over their GraphQL API with no data collection. 265 users.",
-    countsAsOf: "2026-09-29",
+    blurb: "CP-focused metrics injected directly into LeetCode profiles: difficulty spread, topic breakdown, trends, over their GraphQL API with no data collection. 260 users.",
+    countsAsOf: "2026-10-24",
     stack: ["Chrome APIs", "GraphQL"],
     links: [
       { label: "Chrome Web Store", href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba" },
@@ -337,8 +344,19 @@ export const hackathons: Work[] = [
     featured: true,
   },
   { name: "SIH 2025, GeoYield", blurb: "Farm-yield optimisation from ISRO geospatial data.", stack: ["Python", "Geospatial", "React"], links: [{ label: "Live", href: "https://geoyield.vercel.app/" }] },
-  { name: "TruthTell, TruthTrack", blurb: "Real-time misinformation detection. Top 0.60%, 25 of 4,000+.", stack: ["Python", "React"], links: [{ label: "Code", href: "https://github.com/Atishyy27/TruthTrack" }] },
-  { name: "Adobe India Hackathon 2025", blurb: "Document intelligence. Top 0.66%, 550 of 90,000+.", stack: ["Python"], links: [{ label: "Code", href: "https://github.com/Atishyy27/Adobe-1A" }] },
+  {
+    // The repo is private, not deleted: GitHub answers 404 rather than 403 to
+    // anyone who cannot see it, so that a response never confirms a private
+    // repo exists. That is correct of GitHub and useless for a visitor, who
+    // clicks "Code" and gets a 404 page. Checked authenticated on 2026-10-24:
+    // Atishyy27/TruthTrack, private, last pushed 2025-02-03.
+    name: "TruthTell, TruthTrack",
+    blurb: "Real-time misinformation detection. Top 0.60%, 25 of 4,000+.",
+    stack: ["Python", "React"],
+    links: [],
+    privateNote: "Repository is private. Happy to walk through it.",
+  },
+  { name: "Adobe India Hackathon 2025", blurb: "Document intelligence. Top 0.61%, 550 of 90,000+.", stack: ["Python"], links: [{ label: "Code", href: "https://github.com/Atishyy27/Adobe-1A" }] },
 ];
 
 export const otherHackathons = [

@@ -48,7 +48,7 @@ export const achievements: Achievement[] = [
   {
     year: "2025",
     title: "Adobe India Hackathon",
-    result: "550 of more than 90,000, top 0.66%",
+    result: "550 of more than 90,000, top 0.61%",
     note: "Document intelligence, scoped to what could actually be finished inside the window.",
     photos: "adobe-2025",
   },
