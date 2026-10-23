@@ -334,6 +334,18 @@ export const orgWork: Work[] = [
 
 export const extensions: Work[] = [
   {
+    // Added 24 Oct 2026. Not on the Chrome Web Store yet, so it is NOT in the
+    // store shelf on /projects: that shelf is for things a visitor can install
+    // in one click, and putting an unpublished extension on it would be the
+    // one dishonest card in the row. It says plainly that it is unpublished.
+    name: "mehfil, and the synclist extension",
+    blurb:
+      "A self-hosted LAN jukebox and the browser extension that drives it. Paste a YouTube, Spotify or SoundCloud link and it plays for everyone on the network, clock-aligned, with one shared queue and no accounts. Nobody shares a screen and nobody captures audio: the server fetches the track itself and every browser streams it from the server. Spotify audio is DRM'd and cannot be fetched, so a Spotify link is resolved through oEmbed metadata and matched on YouTube instead. Tested with four protocol suites, a chaos harness of random actions from many fake users, and a real two-browser end-to-end run with the extension loaded.",
+    stack: ["Node", "WebSocket", "Chrome MV3", "yt-dlp", "ffmpeg"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/sync-lis" }],
+    privateNote: "Not published to the Chrome Web Store yet; the relay Worker is written but not deployed, so today it runs on your own machine.",
+  },
+  {
     name: "PRD Verification Tool",
     blurb: "PDF compression, conversion and renaming with auto-filled Google Forms. 121 users.",
     countsAsOf: "2026-10-24",

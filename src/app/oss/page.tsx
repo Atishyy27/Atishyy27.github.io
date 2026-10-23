@@ -6,6 +6,7 @@ import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
 import { OssSceneMount } from "@/components/SceneMount";
 import RepoLogo from "@/components/RepoLogo";
+import PinnedRepos from "@/components/PinnedRepos";
 
 export const metadata: Metadata = {
   title: "Open source · Atishay Jain",
@@ -53,6 +54,10 @@ export default function Oss() {
       </p>
 
       <LiveOssCounts snapshotMerged={totals.merged} snapshotAt={fetchedAt} />
+
+      {/* Above the sphere and the table. The page led with counts and then 58
+          rows, which is the record but not an answer; these six are. */}
+      <PinnedRepos />
 
       {/* The repository sphere. It lived on the home page, which is the wrong
           place for it: the home page's subject is the projects, and this is

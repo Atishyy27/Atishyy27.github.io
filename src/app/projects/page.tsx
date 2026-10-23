@@ -28,7 +28,7 @@ export default function ProjectsIndex() {
       <h1 className="display text-[length:var(--step-display)]">Projects</h1>
       <p className="mt-6 max-w-prose text-[var(--fg-muted)]">
         {allProjects.length} of them: government platforms, client products,
-        institute systems, two extensions and the hackathon builds.{" "}
+        institute systems, three extensions and the hackathon builds.{" "}
         {withProof} link to something you can open and check yourself. The rest are
         private client work and say so.
       </p>

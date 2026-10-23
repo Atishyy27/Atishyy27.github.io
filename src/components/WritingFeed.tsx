@@ -191,38 +191,34 @@ function LinkRow({ it }: { it: FeedItem }) {
 
 /* ---------------- the feed ---------------- */
 
+// Pull requests came out on 24 Oct 2026. 151 of them against 26 pieces of
+// writing was not a feed, it was a changelog with essays hidden in it, and
+// nobody reads someone else's changelog. Every one of them is still on /oss,
+// which is the page whose subject they actually are.
 const FILTERS = [
-  ["writing", "Writing"],
-  ["journal", "Journal"],
+  ["writing", "Everything"],
+  ["journal", "Essays"],
   ["log", "Build log"],
-  ["pr", "Pull requests"],
-  ["all", "Everything"],
 ] as const;
 
 type Filter = (typeof FILTERS)[number][0];
 
-export default function WritingFeed({ journal, prs }: { journal: FeedItem[]; prs: FeedItem[] }) {
+export default function WritingFeed({ journal }: { journal: FeedItem[] }) {
   const [filter, setFilter] = useState<Filter>("writing");
 
   const rows: Row[] = useMemo(() => {
     const logRows: Row[] = log.map((e) => ({ kind: "log" as const, date: e.date, title: e.title, entry: e }));
-    const all: Row[] = [...journal, ...logRows, ...prs];
+    const all: Row[] = [...journal, ...logRows];
     return all.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
-  }, [journal, prs]);
+  }, [journal]);
 
   const counts = {
     writing: journal.length + log.length,
     journal: journal.length,
     log: log.length,
-    pr: prs.length,
-    all: rows.length,
   };
 
-  const shown = rows.filter((r) => {
-    if (filter === "all") return true;
-    if (filter === "writing") return r.kind !== "pr";
-    return r.kind === filter;
-  });
+  const shown = rows.filter((r) => (filter === "writing" ? true : r.kind === filter));
 
   // Group by year, then month. The rows are already newest first and a Map keeps
   // insertion order, so the groups come out in the right order for free. A month
