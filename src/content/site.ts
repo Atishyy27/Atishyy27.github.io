@@ -164,6 +164,24 @@ export const experience: Experience[] = [
   { org: "CyberShield", role: "Digital Forensics Intern", dates: "2025", note: "offer via CIIS hackathon" },
   { org: "Roomzy", role: "Developer Intern", dates: "2024", domain: "roomzy.in" },
   { org: "E-Notebook", role: "Developer Intern", dates: "2024", note: "SGSITS", domain: "sgsits.ac.in" },
+  {
+    // Added 2026-10-24. Deliberately carries no placement statistics, no
+    // company outcomes and no student names or counts: the cell's sheets hold
+    // other students' personal data and none of it belongs on a public page.
+    // What is here is his own role and the things he built for it.
+    org: "SGSITS Training & Placement Cell",
+    role: "Placement Manager",
+    dates: "Jun 2024 – present",
+    place: "Indore",
+    note: "Coordinator from 2024, Manager for the 2026-27 season",
+    domain: "sgsits.ac.in",
+    points: [
+      "Point of contact for a recruiting drive on the day it runs, including the visiting HR, under the cell's one-manager-per-drive rule.",
+      "Ran recruitment and mid-session reviews for the two junior batches: review panels, scheduling, and the trackers the panels actually filled in.",
+      "Built the PRD Verification Tool, a Chrome extension that does the placement-registration document checks the cell was doing by hand. The TPO asked for a test run in January 2026 and it has been in use since; it is on the Chrome Web Store and in the shelf above.",
+      "Built and ran the off-campus session site for the 2028 and 2029 batches, from the cell's own numbers rather than from general advice.",
+    ],
+  },
 ];
 
 export type Work = {
@@ -242,6 +260,14 @@ export const clientWork: Work[] = [
 ];
 
 export const orgWork: Work[] = [
+  {
+    name: "PlaceComm off-campus session",
+    org: "SGSITS Training & Placement Cell",
+    blurb:
+      "Session site for the 2028 and 2029 batches on finding work off campus, built from the cell's own data rather than from general advice. Carries no student names, contacts or placement statistics.",
+    stack: ["Static site", "Python"],
+    links: [{ label: "Live", href: "https://placecom-session.vercel.app/" }],
+  },
   {
     name: "SGSITS Techfest 2025",
     domain: "sgsits.ac.in",

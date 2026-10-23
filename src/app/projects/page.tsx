@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { allProjects, pagedProjects } from "@/content/projects";
 import { otherHackathons } from "@/content/site";
 import ProjectExplorer from "@/components/ProjectExplorer";
+import StoreShelf from "@/components/StoreShelf";
 
 export const metadata: Metadata = {
   title: "Projects · Atishay Jain",
@@ -31,6 +32,12 @@ export default function ProjectsIndex() {
         {withProof} link to something you can open and check yourself. The rest are
         private client work and say so.
       </p>
+
+      {/* Above the grid, not inside it. Four of these nineteen are published
+          in a store and can be installed in one click, and burying that in a
+          filterable list of nineteen made the only directly actionable thing
+          on the page the hardest to find. */}
+      <StoreShelf />
 
       <ProjectExplorer
         projects={allProjects}

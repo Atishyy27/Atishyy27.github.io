@@ -8,6 +8,7 @@ import { listedEntries, allTags, tagSlug } from "@/lib/journal";
 import Track from "@/components/Track";
 import { SmoothScroll, ScrollProgress } from "@/components/Chrome";
 import { LIGHTS_BOOT } from "@/lib/lights";
+import Posthog from "@/components/Posthog";
 
 const SITE = "https://atishay.tech";
 const CLARITY = process.env.NEXT_PUBLIC_CLARITY_ID;
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <Palette journalIndex={journalIndex} tagIndex={tagIndex} />
         <Track />
+        <Posthog />
         {children}
         <Colophon />
       </body>

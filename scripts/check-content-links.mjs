@@ -36,7 +36,12 @@ check("every linked project has a page to show the entry on", unpaged.length ===
 
 // 3. Dates must not be in the future. A future-dated entry sorts to the top
 //    and stays there, which silently buries whatever is actually newest.
-const today = new Date().toISOString().slice(0, 10);
+//
+//    "Today" is today in Asia/Kolkata, not in UTC. Entries are written here and
+//    dated here, and for the five and a half hours after midnight IST a UTC
+//    comparison calls the current date the future and fails a correct entry.
+//    This check exists to catch a typo in a year, not to enforce a timezone.
+const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(new Date());
 const future = entries.filter((e) => e.date > today).map((e) => `${e.slug} (${e.date})`);
 check("no entry is dated in the future", future.length === 0, future.join("; "));
 
