@@ -41,6 +41,13 @@ if (!fs.existsSync(INBOX)) {
 const keys = fs
   .readdirSync(INBOX, { withFileTypes: true })
   .filter((e) => e.isDirectory())
+  // Underscore-prefixed folders are scratch, not achievement keys.
+  // stage-photos.sh unpacks a download into photos-inbox/_staging/ for sorting,
+  // and without this line that staging folder is read as an achievement: it
+  // imported 63 unsorted files under the key "_staging" on 24 Oct 2026, which
+  // would have published every image in the drop, in arrival order, attached
+  // to nothing.
+  .filter((e) => !e.name.startsWith("_"))
   .map((e) => e.name)
   .sort();
 

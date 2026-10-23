@@ -14,3 +14,12 @@ chrome-headless-shell/
 
 # Photo originals. Only the resized, metadata-stripped webp in public/photos/ ships.
 photos-inbox/
+
+# Local secrets. These were NOT ignored until 2026-10-24, which means a
+# .env.local written here would have been committed by the next `git add -A`.
+# The analytics keys this project reads are NEXT_PUBLIC_, so they end up in the
+# bundle anyway, but the file can also hold a PostHog personal API key or a
+# Supabase service key, and neither of those may ever reach the repository.
+.env
+.env.local
+.env.*.local

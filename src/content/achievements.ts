@@ -34,12 +34,12 @@ export const achievements: Achievement[] = [
     links: [{ label: "Stats", href: "/stats/" }],
   },
   {
-    // One event, two rounds. This was two separate entries until 23 Oct 2026,
+    // Name read off the event banner in the photographs below, not from a CV:\n    // "CIIS 2025, Advancing Investigation in the Digital Age" on the left, and\n    // "National CyberShield Hackathon 2025" across the backdrop. The team\n    // certificates say the same. Partners visible: SBI and ClearTrail.\n    // One event, two rounds. This was two separate entries until 23 Oct 2026,
     // which read as two hackathons and inflated the list by one. He corrected
     // it; projects/cv/data/facts.json and me/apps/MASTER-CV.md still carry the
     // old split, so the resume and this page disagree until those are fixed.
     year: "2025",
-    title: "CIIS Cyber Shield hackathon",
+    title: "National CyberShield Hackathon 2025, at CIIS 2025",
     result: "National finalist, top 5 of more than 500 teams",
     note: "Regional round at Indore: 5th, top 10 of roughly 1,200 teams across three centres, from around 3,000 registered nationally. The build was a graph neural network finding anomalous transaction clusters across a million-plus records, with a SHAP layer giving an analyst feature-level reason for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
     photos: "ciis-2025",

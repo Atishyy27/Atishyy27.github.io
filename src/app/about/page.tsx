@@ -29,6 +29,18 @@ export default function About() {
               ))}
             </div>
             <Reveal delay={0.1}>
+              {/* A face, finally. The site ran for months with no photograph of
+                  him anywhere: public/ held a resume and a CNAME. The 3D avatar
+                  below is still the showpiece and still needs a .glb that does
+                  not exist yet, which meant that until this landed, a visitor
+                  could read every page and never see the person. */}
+              <img
+                src="/me/atishay.webp"
+                alt="Atishay Jain"
+                width={480}
+                height={480}
+                className="mb-6 h-32 w-32 rounded-2xl border border-[var(--line)] object-cover"
+              />
               <Tilt className="glass rounded-2xl p-7">
                 <div className="font-mono text-[10px] tracking-[0.2em] text-[var(--accent)]">EDUCATION</div>
                 <h3 className="mt-3 font-medium leading-snug">{education.school}</h3>
