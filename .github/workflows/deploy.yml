@@ -31,6 +31,13 @@ jobs:
           NEXT_PUBLIC_CLARITY_ID: ${{ vars.NEXT_PUBLIC_CLARITY_ID }}
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          # A repository variable, not a secret, and deliberately so: a PostHog
+          # PROJECT key is compiled into the browser bundle by design and can
+          # only write events into this one project. The key that must never
+          # appear here is a PERSONAL key (phx_), which grants account-wide
+          # access; one was nearly pasted in as this value on 24 Oct 2026.
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
