@@ -34,17 +34,14 @@ export const achievements: Achievement[] = [
     links: [{ label: "Stats", href: "/stats/" }],
   },
   {
+    // One event, two rounds. This was two separate entries until 23 Oct 2026,
+    // which read as two hackathons and inflated the list by one. He corrected
+    // it; projects/cv/data/facts.json and me/apps/MASTER-CV.md still carry the
+    // old split, so the resume and this page disagree until those are fixed.
     year: "2025",
-    title: "Cyber Shield hackathon, Indore region",
-    result: "5th place, top 10 of roughly 1,200 teams",
-    note: "Three centres across the region, around 3,000 teams registered nationally.",
-    photos: "cyber-shield-2025",
-  },
-  {
-    year: "2025",
-    title: "CIIS national hackathon",
-    result: "Finalist, top 5 of more than 500 teams",
-    note: "Graph neural network finding anomalous transaction clusters across a million-plus records, with a SHAP layer giving an analyst feature-level reasons for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
+    title: "CIIS Cyber Shield hackathon",
+    result: "National finalist, top 5 of more than 500 teams",
+    note: "Regional round at Indore: 5th, top 10 of roughly 1,200 teams across three centres, from around 3,000 registered nationally. The build was a graph neural network finding anomalous transaction clusters across a million-plus records, with a SHAP layer giving an analyst feature-level reason for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
     photos: "ciis-2025",
     links: [{ label: "The project", href: "/projects/ciis-anti-money-laundering-detection/" }],
   },
@@ -61,6 +58,7 @@ export const achievements: Achievement[] = [
     result: "25 of more than 4,000, top 0.60%",
     note: "Real-time misinformation detection under a hackathon clock. Run under the Ministry of Information and Broadcasting.",
     photos: "truthtell-2025",
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/TruthTrack" }],
   },
   {
     year: "2025",
