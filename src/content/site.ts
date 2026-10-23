@@ -414,10 +414,35 @@ export const currentWork = {
 
 export const ossPrograms = ["GSSoC 2024 Extd, rank 312, top 3.8%", "CCE"];
 
+/**
+ * Research and published data.
+ *
+ * This section was three rows on 24 Oct 2026 and two of them were placeholders:
+ * "Research paper, second work / In progress" and "Kaggle dataset / Published
+ * dataset", neither with a title or a link. A section that announces it has
+ * nothing is worse than no section, and it is a large part of why the page
+ * read as empty while the work behind it was real: one dataset with 30
+ * downloads was on Kaggle the whole time under a profile the site never named.
+ *
+ * Rule for this list, same as everywhere else here: a row states what the
+ * thing is, where it is, and a number someone can check. Nothing that is "in
+ * progress" goes on a public page until it exists.
+ */
 export const publications = [
-  { title: "Blockchain-Secured Federated Learning for Multi-Modal Healthcare", detail: "Privacy-preserving pneumonia detection. Presented at the IIITM Gwalior research symposium.", href: "" },
-  { title: "Research paper, second work", detail: "In progress.", href: "" },
-  { title: "Kaggle dataset", detail: "Published dataset.", href: "" },
+  {
+    title: "Blockchain-Secured Federated Learning for Multi-Modal Healthcare",
+    detail:
+      "Privacy-preserving pneumonia detection over chest X-rays and electronic health records, with a Hyperledger Fabric audit layer so a federation round cannot be altered after the fact. 94.2% AUC on non-IID data. Presented at the IIITM Gwalior research symposium.",
+    href: "",
+  },
+  {
+    // Everything here was read off the Kaggle API on 2026-10-24, not from
+    // memory: ref atzjit/synthetic-sign-classifier-dataset.
+    title: "Synthetic Sign Classifier Dataset",
+    detail:
+      "A synthetic, augmented image dataset for multi-class sign classification, 258.7 MB, published under CC BY 4.0 on 17 June 2025. 30 downloads and 5 votes as of 24 October 2026. Generated rather than collected, which is the point: the classes that matter are the rare ones, and a scraped set never has enough of them.",
+    href: "https://www.kaggle.com/datasets/atzjit/synthetic-sign-classifier-dataset",
+  },
 ];
 
 export const education = {
