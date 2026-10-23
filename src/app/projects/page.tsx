@@ -7,7 +7,7 @@ import StoreShelf from "@/components/StoreShelf";
 export const metadata: Metadata = {
   title: "Projects · Atishay Jain",
   description:
-    "Nineteen built things: government platforms, client products, institute systems, extensions and hackathon builds. Filter by type or domain.",
+    "Every built thing: government platforms, client products, institute systems, Chrome extensions, developer tools, hackathon builds and personal projects. Filter by type or domain.",
 };
 
 // This was a flat table of text rows. The research that produced that shape was
@@ -27,8 +27,9 @@ export default function ProjectsIndex() {
     <main className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-8">
       <h1 className="display text-[length:var(--step-display)]">Projects</h1>
       <p className="mt-6 max-w-prose text-[var(--fg-muted)]">
-        {allProjects.length} of them: government platforms, client products,
-        institute systems, three extensions and the hackathon builds.{" "}
+        {allProjects.length} of them: government platforms, client products, institute
+        systems, three Chrome extensions, developer tools, hackathon builds and my
+        own.{" "}
         {withProof} link to something you can open and check yourself. The rest are
         private client work and say so.
       </p>

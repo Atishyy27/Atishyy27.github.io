@@ -24,7 +24,7 @@
 
 import {
   about, currentWork, experience, govtWork, clientWork, orgWork,
-  extensions, hackathons, cpProfiles, skills, education, person,
+  extensions, hackathons, ownWork, devTools, cpProfiles, skills, education, person,
 } from "@/content/site";
 import { OSS_STATS } from "@/content/oss-stats";
 
@@ -74,6 +74,8 @@ export function buildCorpus(): Chunk[] {
     [orgWork, "Institution project"],
     [extensions, "Chrome extension, browser extension"],
     [hackathons, "Hackathon project"],
+    [ownWork, "Own build, personal project, side project"],
+    [devTools, "Developer tool, CLI, plugin, open source tooling"],
   ];
   for (const [list, kind] of withKind) {
     for (const w of list) {

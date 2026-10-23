@@ -5,9 +5,9 @@
 // two sources of truth drift apart and the site starts contradicting itself. site.ts
 // stays the place you edit a blurb. This file only adds routing and story metadata.
 
-import { govtWork, clientWork, orgWork, extensions, hackathons, type Work } from "./site";
+import { govtWork, clientWork, orgWork, extensions, hackathons, ownWork, devTools, type Work } from "./site";
 
-export type ProjectCategory = "government" | "client" | "institution" | "extension" | "hackathon";
+export type ProjectCategory = "government" | "client" | "institution" | "extension" | "hackathon" | "own" | "tool";
 
 export type Project = Work & {
   slug: string;
@@ -108,6 +108,8 @@ export const allProjects: Project[] = [
   ...build(clientWork, "client"),
   ...build(orgWork, "institution"),
   ...build(extensions, "extension"),
+  ...build(ownWork, "own"),
+  ...build(devTools, "tool"),
   ...build(hackathons, "hackathon"),
 ];
 
@@ -121,6 +123,8 @@ export function getProject(slug: string): Project | undefined {
 export const featuredProjects: Project[] = allProjects.filter((p) => p.featured);
 
 export const CATEGORY_LABEL: Record<ProjectCategory, string> = {
+  own: "Own builds",
+  tool: "Developer tools",
   government: "Government",
   client: "Client",
   institution: "Institution",

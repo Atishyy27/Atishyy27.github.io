@@ -65,6 +65,8 @@ export const CATEGORY_COLOR: Record<Project["category"], string> = {
   institution: "#7c9cff",
   extension: "#8fcf6b",
   hackathon: "#d98ab8",
+  own: "#e0c878",
+  tool: "#9b8fd4",
 };
 
 /**

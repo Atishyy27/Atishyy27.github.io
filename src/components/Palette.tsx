@@ -17,7 +17,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-  person, govtWork, clientWork, orgWork, extensions, hackathons,
+  person, govtWork, clientWork, orgWork, extensions, hackathons, ownWork, devTools,
 } from "@/content/site";
 import { allProjects, pagedProjects } from "@/content/projects";
 import { oss } from "@/content/oss";

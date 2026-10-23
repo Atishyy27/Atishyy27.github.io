@@ -367,6 +367,120 @@ export const extensions: Work[] = [
   },
 ];
 
+/**
+ * His own builds and tools, added 2026-10-24.
+ *
+ * These fourteen were in `cnc/Projects/PROJECTS.md` and on GitHub the whole
+ * time and on this site nowhere. A diff of the ledger against the site on
+ * 24 Oct 2026 found it was showing 19 of roughly 33 real builds, and the 14
+ * missing public ones included the LFX work, the developer tooling and the
+ * code behind the one research paper the site already cites.
+ *
+ * Every line below was read from the repository's own description or README
+ * and each repo's visibility, language and last push were checked through the
+ * GitHub API that day, not taken from the ledger: the ledger has its own
+ * "CLAIMED but NOT git-verified" section and is not evidence by itself.
+ */
+export const ownWork: Work[] = [
+  {
+    name: "tripkit",
+    blurb:
+      "A travel guide that reads the clock. Type a town and see what is open right now, built from OpenStreetMap and Wikivoyage. No install, no account, no model: opening hours are a solved data problem and the hard part is the timezone arithmetic, not the inference.",
+    stack: ["Python", "OpenStreetMap", "Overpass API", "PWA", "Static site"],
+    links: [
+      { label: "Live", href: "https://atishyy27.github.io/tripkit/" },
+      { label: "Code", href: "https://github.com/Atishyy27/tripkit" },
+    ],
+  },
+  {
+    name: "med-flops",
+    blurb:
+      "The federated-learning pneumonia detector behind the research paper on this page. A modular system over chest X-rays where the data never leaves the institution holding it and only model updates move, with the model, the federation strategy and the data pipeline swappable through YAML rather than code edits.",
+    stack: ["Python", "Federated learning", "PyTorch"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/med-flops" }],
+  },
+  {
+    name: "flight-telemetry",
+    blurb:
+      "An offline, GPS-free flight timeline. Accelerometer and barometer fusion works out altitude and which phase of the flight you are in, which matters because GPS is the one sensor you are asked to switch off and pressure is the one that still tells you where you are vertically.",
+    stack: ["Kotlin", "Android", "Sensor fusion"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/flight-telemetry" }],
+  },
+  {
+    name: "contrails-ai",
+    blurb: "Deepfake analyser that builds its evaluation set by scraping subreddits rather than using a curated benchmark, so it is scored against what people actually post.",
+    stack: ["Python", "ML"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/contrails-ai" }],
+  },
+  {
+    name: "breatheESG",
+    blurb: "ESG platform that centralises emissions data and generates the sustainability reporting a business is obliged to file, with an assistant over the ledger.",
+    stack: ["Python", "SaaS"],
+    links: [
+      { label: "Live", href: "https://breatheesg-gg71.onrender.com/" },
+      { label: "Code", href: "https://github.com/Atishyy27/breatheESG" },
+    ],
+  },
+  {
+    name: "arogya, TeleMedPilot",
+    blurb: "Telemedicine platform: video consultations, appointment booking, secure messaging and medical records in one place.",
+    stack: ["JavaScript", "WebRTC"],
+    links: [
+      { label: "Live", href: "https://tele-med-pilot.vercel.app/" },
+      { label: "Code", href: "https://github.com/Atishyy27/arogya" },
+    ],
+  },
+  {
+    name: "lastprep",
+    blurb: "Parses a CV and turns it into last-minute interview prep: what is on the page, and what someone will ask about it.",
+    stack: ["JavaScript"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/lastprep" }],
+  },
+];
+
+/**
+ * Tools built for other developers, rather than products for an end user.
+ * Kept apart from ownWork because the audience is different and so is the
+ * proof: nobody installs a CI triage script because it looks nice.
+ */
+export const devTools: Work[] = [
+  {
+    name: "claude-code-identity",
+    blurb:
+      "Run several Claude Code accounts on one machine with shared history, skills and agents but separate logins, plus a guard against the .claude.json corruption bug. macOS, Linux and Windows.",
+    stack: ["Shell", "CLI"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/claude-code-identity" }],
+  },
+  {
+    name: "usage-cost-plugin",
+    blurb: "Claude Code plugin: a /cost command and a live status line estimating the day's token spend per model, read from local session transcripts rather than from an API.",
+    stack: ["JavaScript", "Claude Code"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/usage-cost-plugin" }],
+  },
+  {
+    name: "podman-flake-triage",
+    blurb:
+      "Classifies real Podman CI failures by mechanism rather than by test name. Ingests runs through the GitHub Actions API, anchors on terminal markers in the logs, and reports what recurs, because a flake that happens 40 times is one bug and a list of 40 red tests is not a finding.",
+    stack: ["Python", "GitHub Actions API"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/podman-flake-triage" }],
+  },
+  {
+    name: "kmesh-mcp-prototype",
+    blurb: "MCP server prototype for Kmesh, written for LFX Term 3 against kmesh-net/kmesh#1800: four read-only tools over the status-server API, stdio transport.",
+    stack: ["Go", "MCP", "CNCF"],
+    links: [
+      { label: "Code", href: "https://github.com/Atishyy27/kmesh-mcp-prototype" },
+      { label: "The issue", href: "https://github.com/kmesh-net/kmesh/issues/1800" },
+    ],
+  },
+  {
+    name: "swiggy-mcp-toy",
+    blurb: "Client for Swiggy's official MCP servers with OAuth 2.1 and PKCE, and a live tool-catalog dumper. A toy by its own label, kept because the auth flow is the real part.",
+    stack: ["JavaScript", "MCP", "OAuth"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/swiggy-mcp-toy" }],
+  },
+];
+
 export const hackathons: Work[] = [
   {
     name: "CIIS, Anti-money-laundering detection",
@@ -391,6 +505,22 @@ export const hackathons: Work[] = [
     stack: ["Python", "React"],
     links: [],
     privateNote: "Repository is private. Happy to walk through it.",
+  },
+  {
+    name: "Razorpay AI Buildathon, fraud rings",
+    blurb: "Bust-out fraud-ring detector for track 02, the AI Risk Manager track. A bust-out ring looks like good customers right up until it does not, so the signal is in the group over time, not in any single account.",
+    stack: ["Python", "Graph analysis"],
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/razorpay-buildathon-fraud-rings" }],
+  },
+  {
+    name: "Hacker House Goa 2026, frame generator",
+    blurb:
+      "Task one of Hacker House Goa 2026: upload a photo, get a branded graphic in three formats. Background removal runs entirely in the browser through MediaPipe, so no photo is uploaded anywhere, and the Builder ID carries a working QR back to the tool.",
+    stack: ["JavaScript", "MediaPipe", "Canvas"],
+    links: [
+      { label: "Live", href: "https://atishyy27.github.io/hhgoa-frame-generator/" },
+      { label: "Code", href: "https://github.com/Atishyy27/hhgoa-frame-generator" },
+    ],
   },
   { name: "Adobe India Hackathon 2025", blurb: "Document intelligence. Top 0.61%, 550 of 90,000+.", stack: ["Python"], links: [{ label: "Code", href: "https://github.com/Atishyy27/Adobe-1A" }] },
 ];

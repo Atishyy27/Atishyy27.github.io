@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { proof } from "@/content/site";
 import {
   person, about, experience, govtWork, clientWork, orgWork,
-  extensions, hackathons, cpProfiles,
+  extensions, hackathons, ownWork, devTools, cpProfiles,
 } from "@/content/site";
 import { answer as ragAnswer } from "@/lib/rag";
 import { oss } from "@/content/oss";
@@ -97,10 +97,10 @@ export default function Terminal() {
         break;
       case "ls":
       case "projects":
-        push({ t: "out", text: [...govtWork, ...clientWork, ...orgWork, ...extensions, ...hackathons].map((w) => w.name).join("   ") });
+        push({ t: "out", text: [...govtWork, ...clientWork, ...orgWork, ...extensions, ...hackathons, ...ownWork, ...devTools].map((w) => w.name).join("   ") });
         break;
       case "open": {
-        const hit = [...govtWork, ...clientWork, ...orgWork, ...extensions, ...hackathons].find((w) => w.name.toLowerCase().includes(arg.toLowerCase()));
+        const hit = [...govtWork, ...clientWork, ...orgWork, ...extensions, ...hackathons, ...ownWork, ...devTools].find((w) => w.name.toLowerCase().includes(arg.toLowerCase()));
         if (hit?.links[0]) push({ t: "link", text: `opening ${hit.name}`, href: hit.links[0].href });
         else push({ t: "out", text: arg ? `no public link for "${arg}"` : "usage: open <name>" });
         break;
