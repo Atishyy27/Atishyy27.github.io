@@ -11,4 +11,13 @@ export const PHOTOS: Record<string, Photo[]> = {
     { src: "/photos/ciis-2025-03.webp", w: 1280, h: 960 },
     { src: "/photos/ciis-2025-04.webp", w: 1280, h: 960 },
   ],
+  "icpc-2025": [
+    { src: "/photos/icpc-2025-01.webp", w: 960, h: 1280 },
+    { src: "/photos/icpc-2025-02.webp", w: 1280, h: 960 },
+    { src: "/photos/icpc-2025-03.webp", w: 1280, h: 960 },
+    { src: "/photos/icpc-2025-04.webp", w: 720, h: 762 },
+  ],
+  "placecomm-2026": [
+    { src: "/photos/placecomm-2026-01.webp", w: 1280, h: 960 },
+  ],
 };

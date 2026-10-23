@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { track, analyticsEnabled } from "@/lib/analytics";
+import { capture, posthogEnabled } from "@/lib/posthog";
 
 /**
  * Mounts once. Measures how long each <section id> is on screen (dwell),
@@ -9,7 +10,10 @@ import { track, analyticsEnabled } from "@/lib/analytics";
  */
 export default function Track() {
   useEffect(() => {
-    if (!analyticsEnabled) return;
+    // Was gated entirely on the Supabase keys, which have never been set, so
+    // this whole component did nothing. PostHog is the thing that is actually
+    // running, so each sink is now checked on its own.
+    if (!analyticsEnabled && !posthogEnabled) return;
 
     track({ type: "view", target: location.pathname });
 
@@ -42,7 +46,10 @@ export default function Track() {
         enter.set(id, now);
       }
       for (const [id, ms] of dwell) {
-        if (ms > 800) track({ type: "dwell", target: id, ms: Math.round(ms) });
+        if (ms > 800) {
+          track({ type: "dwell", target: id, ms: Math.round(ms) });
+          capture("section_dwell", { section: id, ms: Math.round(ms), page: location.pathname });
+        }
       }
       dwell.clear();
     };
@@ -53,6 +60,14 @@ export default function Track() {
       if (!el) return;
       const target = el.getAttribute("href") || el.getAttribute("data-track") || el.textContent?.slice(0, 40) || "?";
       track({ type: "click", target });
+      // Mirrored into PostHog as a named event as well as autocapture, because
+      // an autocaptured click is identified by a CSS selector and this one is
+      // identified by where it goes, which is the question worth asking.
+      capture("link_click", {
+        target,
+        outbound: target.startsWith("http"),
+        page: location.pathname,
+      });
     };
     document.addEventListener("click", onClick, { capture: true });
 

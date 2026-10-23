@@ -15,7 +15,11 @@ export type Achievement = {
   /** Sorts the list. Year only where only the year is known: no invented dates. */
   year: string;
   title: string;
-  /** The result, with the denominator. */ 
+  /**
+   * The result, with the denominator. A role has no denominator to state, so
+   * a role entry names the role instead; that is the only exception, and it
+   * exists because the photographs live on this list and a role can have one.
+   */
   result: string;
   /** Why it is here, in one line. Omitted where the result speaks for itself. */
   note?: string;
@@ -26,9 +30,26 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
+    // A role, not a ranking. Carries no placement statistics, no company
+    // outcomes and no student names: the cell's sheets hold other students'
+    // personal data and none of it belongs on a public page. He cleared the
+    // photograph for publication on 24 Oct 2026.
+    year: "2024 – present",
+    title: "SGSITS Training & Placement Cell",
+    result: "Placement Manager, 2026-27 season",
+    note: "Coordinator from 2024. Point of contact for a drive on the day it runs, including the visiting HR. Ran recruitment and mid-session reviews for the two junior batches, and built the PRD document-check extension the cell uses.",
+    photos: "placecomm-2026",
+    links: [{ label: "The session site", href: "https://placecom-session.vercel.app/" }],
+  },
+  {
     year: "2025",
-    title: "ACM ICPC, Mysuru on-site regionals",
+    title: "ICPC Asia Amritapuri Multisite Regional, Mysuru site",
     result: "Rank 12, four problems solved",
+    // "Amritapuri" and "Mysuru" looked like a contradiction between the
+    // photographs and the entry on 24 Oct 2026. They are not: the Amritapuri
+    // regional is a MULTISITE contest, run at several venues at once, and his
+    // was Mysuru. The jacket in the photographs reads "The 2025 ICPC Asia
+    // Amritapuri Multisite Regional Contest". Both facts were true.
     note: "The one on this list with no partial credit: the scoreboard is public and the problems are either accepted or they are not.",
     photos: "icpc-2025",
     links: [{ label: "Stats", href: "/stats/" }],
@@ -41,7 +62,7 @@ export const achievements: Achievement[] = [
     year: "2025",
     title: "National CyberShield Hackathon 2025, at CIIS 2025",
     result: "National finalist, top 5 of more than 500 teams",
-    note: "Regional round at Indore: 5th, top 10 of roughly 1,200 teams across three centres, from around 3,000 registered nationally. The build was a graph neural network finding anomalous transaction clusters across a million-plus records, with a SHAP layer giving an analyst feature-level reason for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
+    note: "Regional round at Indore: 5th, top 10 of roughly 1,200 teams across three centres, from around 3,000 registered nationally. Team of five. The build was a graph neural network finding anomalous transaction clusters across a million-plus synthetic transactions, with a SHAP layer giving an analyst feature-level reason for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
     photos: "ciis-2025",
     links: [{ label: "The project", href: "/projects/ciis-anti-money-laundering-detection/" }],
   },

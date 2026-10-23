@@ -50,10 +50,18 @@ export function startPosthog(): Promise<Client | null> {
         // history hook is the thing that sees navigation, not React.
         capture_pageview: true,
         capture_pageleave: true,
-        // Autocapture would record every click on every element including the
-        // command palette's rows, which is noise on a site with eight pages.
-        // The handful of things worth counting call capture() by name.
-        autocapture: false,
+        // Autocapture ON, at his explicit ask on 24 Oct 2026: he wants every
+        // click, not a shortlist someone chose in advance. The cost is noise;
+        // the benefit is that a question nobody thought to instrument can
+        // still be answered later from data already collected.
+        autocapture: true,
+        // Heatmaps need this as well as autocapture. They are the thing he
+        // actually described wanting: where people look on the home page.
+        enable_heatmaps: true,
+        // Input VALUES are never sent. The contact form on /about takes a
+        // name, an email and a message, and none of that is analytics data.
+        mask_all_text: false,
+        mask_personal_data_properties: true,
         persistence: "localStorage",
       });
       client = posthog as unknown as Client;

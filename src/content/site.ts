@@ -253,10 +253,19 @@ export const clientWork: Work[] = [
     stack: ["React"],
     links: [{ label: "Live", href: "https://geniussolarservices.com/" }],
   },
-  { name: "dlab", blurb: "Full-stack web and mobile build.", stack: ["Flutter", "MERN"], links: [], privateNote: "Private client repo." },
-  { name: "Livehood", blurb: "Fixed core defects and optimised an existing production site.", stack: ["PHP", "Laravel"], links: [], privateNote: "Private client work." },
+  {
+    // dlab, Livehood and Logistik were three separate cards, each one line
+    // long, each with no link, which read as three attempts to make the list
+    // look longer. One honest line beats three thin ones. 4Moral is NOT in
+    // here on purpose: it is the only private client project with a real
+    // story and real numbers on it, and folding it in would delete them.
+    name: "Other client work",
+    blurb: "Three further client engagements under NDA: a Flutter and MERN logistics platform with live map tracking, a Flutter and MERN web and mobile build, and defect and performance work on an existing PHP and Laravel production site.",
+    stack: ["Flutter", "MERN", "PHP", "Laravel"],
+    links: [],
+    privateNote: "Private client repositories. Happy to walk through the architecture of any of them.",
+  },
   { name: "GuardianAgent Pro", org: "Skhy", blurb: "Agentic AI system.", stack: ["Agentic AI", "Python"], links: [{ label: "Code", href: "https://github.com/Atishyy27/GuardianAgent-Pro" }] },
-  { name: "Logistik", blurb: "Logistics platform with real-time tracking over maps.", stack: ["Flutter", "MERN"], links: [], privateNote: "Private client repo." },
 ];
 
 export const orgWork: Work[] = [
@@ -308,7 +317,19 @@ export const orgWork: Work[] = [
     ],
   },
   { name: "DAVV Incubation Centre", domain: "davvincubationcentre.com", blurb: "CMS platform for the university incubation centre.", stack: ["WordPress"], links: [{ label: "Live", href: "https://davvincubationcentre.com/" }] },
-  { name: "SGSITS Incubation Forum", domain: "sgsitsincubationforum.com", blurb: "Built on WordPress, later migrated to Wix.", stack: ["WordPress", "Wix"], links: [{ label: "Live", href: "https://www.sgsitsincubationforum.com/" }] },
+  {
+    // His word, 24 Oct 2026: he created this site. Recording the discrepancy
+    // here rather than softening the claim: the live footer still reads
+    // "Design and Developed by Adymade", copyright 2020, checked that day. The
+    // page is his to claim and the footer is his to change on Wix; a visitor
+    // who clicks will see the credit, so this comment exists so nobody
+    // re-opens it as a finding without knowing it was already raised.
+    name: "SGSITS Incubation Forum",
+    domain: "sgsitsincubationforum.com",
+    blurb: "The institute's incubation site. Built on WordPress, later migrated to Wix.",
+    stack: ["WordPress", "Wix"],
+    links: [{ label: "Live", href: "https://www.sgsitsincubationforum.com/" }],
+  },
 ];
 
 export const extensions: Work[] = [
@@ -335,7 +356,7 @@ export const hackathons: Work[] = [
   {
     name: "CIIS, Anti-money-laundering detection",
     blurb:
-      "Graph neural network finding anomalous transaction clusters across 1M+ records, with a SHAP explainability layer so an analyst can see why a case was flagged. Top 5 of 500+ teams (SBI, ClearTrail, MP Police), converted into an internship offer.",
+      "Graph neural network finding anomalous transaction clusters across 1M+ synthetic transactions, with a SHAP explainability layer so an analyst can see why a case was flagged. Team of five. Top 5 of 500+ teams (SBI, ClearTrail, MP Police), converted into an internship offer.",
     stack: ["PyTorch Geometric", "Neo4j", "FastAPI", "React"],
     links: [
       { label: "Live demo", href: "https://ciis-demo.vercel.app/" },
@@ -343,7 +364,7 @@ export const hackathons: Work[] = [
     ],
     featured: true,
   },
-  { name: "SIH 2025, GeoYield", blurb: "Farm-yield optimisation from ISRO geospatial data.", stack: ["Python", "Geospatial", "React"], links: [{ label: "Live", href: "https://geoyield.vercel.app/" }] },
+  { name: "SIH 2025, GeoYield", blurb: "Farm-yield optimisation from ISRO geospatial data. First in the college at the Smart India Hackathon internal round.", stack: ["Python", "Geospatial", "React"], links: [{ label: "Live", href: "https://geoyield.vercel.app/" }] },
   {
     // The repo is private, not deleted: GitHub answers 404 rather than 403 to
     // anyone who cannot see it, so that a response never confirms a private
