@@ -21,6 +21,7 @@ import {
 } from "@/content/site";
 import { allProjects, pagedProjects } from "@/content/projects";
 import { oss } from "@/content/oss";
+import { setLights } from "@/lib/lights";
 
 type Item = {
   id: string;
@@ -152,6 +153,14 @@ export default function Palette({
       { id: "a:feed", label: "Subscribe to the journal (RSS)", hint: "/feed.xml", group: "Actions", run: open("/feed.xml") },
       { id: "a:ask", label: "Ask a question about my work", hint: "searches this site", group: "Actions", run: route("/writing/") },
       { id: "a:src", label: "View the source of this site", hint: "github ↗", group: "Actions", run: open("https://github.com/Atishyy27/Atishyy27.github.io") },
+      {
+        id: "a:flat", label: "Turn the lights flat", hint: "shift+L · no 3D, no motion",
+        group: "Actions", run: () => setLights("flat"),
+      },
+      {
+        id: "a:full", label: "Turn the lights on", hint: "shift+L · 3D, blur, motion",
+        group: "Actions", run: () => setLights("full"),
+      },
     );
 
     return out;

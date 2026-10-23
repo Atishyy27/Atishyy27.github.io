@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { useMemo, useRef, useState } from "react";
 import { Reveal } from "./Chrome";
 import { useActivity, buildWeeks, PROFILE_URL } from "@/lib/activity";
+import { useLights } from "@/lib/lights";
+import { SceneOff } from "./SceneMount";
 
 /* ==================================================================
    One heatmap, every platform.
@@ -25,6 +27,10 @@ const COLORS = ["#121821", "#0e4f52", "#12797d", "#2ba3a3", "#4fd0d0"];
 export default function UnifiedHeatmap() {
   const { merged, perDay, sources, loading, generated } = useActivity();
   const [view, setView] = useState<"grid" | "skyline">("grid");
+  // The skyline button stays visible in flat mode rather than disappearing.
+  // A control that vanishes looks like a bug; one that explains itself teaches
+  // the switch to the person most likely to want it back.
+  const flat = useLights() === "flat";
   const [hover, setHover] = useState<{ date: string; x: number; y: number } | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -80,7 +86,9 @@ export default function UnifiedHeatmap() {
 
         {view === "skyline" ? (
           <div className="mt-5">
-            {loading ? (
+            {flat ? (
+              <SceneOff what="the skyline" />
+            ) : loading ? (
               <div className="grid h-[380px] place-items-center rounded-xl border border-[var(--line)] font-mono text-xs text-[var(--fg-muted)]">
                 building the city…
               </div>

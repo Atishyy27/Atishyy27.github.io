@@ -7,6 +7,7 @@ import Palette from "@/components/Palette";
 import { listedEntries, allTags, tagSlug } from "@/lib/journal";
 import Track from "@/components/Track";
 import { SmoothScroll, ScrollProgress } from "@/components/Chrome";
+import { LIGHTS_BOOT } from "@/lib/lights";
 
 const SITE = "https://atishay.tech";
 const CLARITY = process.env.NEXT_PUBLIC_CLARITY_ID;
@@ -75,6 +76,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        {/* First thing in the document, before any content is parsed, so a
+            visitor who chose the flat mode never sees a frame of the full
+            site. This is a static export: every route ships identical HTML,
+            so the choice can only be re-applied client side, and doing it in
+            React would be a frame too late on every single navigation. */}
+        <script dangerouslySetInnerHTML={{ __html: LIGHTS_BOOT }} />
         {CLARITY && (
           <script
             dangerouslySetInnerHTML={{ __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY}");` }}

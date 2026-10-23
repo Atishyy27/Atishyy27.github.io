@@ -274,7 +274,8 @@ Last on purpose: polish applied to a wrong structure has to be redone.
 ## 13. Not doing
 
 - Flattening the project graph to 2D. He rejected it on 22 Oct; it stays 3D or moves.
-- A light theme. Declined, and `globals.css:8` documents dark as deliberate.
+- A light theme. Declined, and `globals.css:8` documents dark as deliberate. The lights switch
+  shipped on 23 Oct is not this: the palette does not change, the canvases do.
 - Any third-party screenshot service. It would mean sending his project URLs off the machine on
   every build.
 
@@ -307,3 +308,29 @@ and 03, which also fixes the duplicate "02" that page had been shipping. `/journ
 11 journal links and all 15 log bodies.
 
 Nav is now five items: Projects, Open source, Stats, Writing, About. It was ten on 21 Oct.
+
+**Lights switch done, 23 Oct 2026.** One control in the nav moves every page between the full WebGL
+version and a flat one. It is not the light theme that section 13 declined and the palette is
+untouched; what the switch removes is the four canvases, the skyline, the backdrop blur, the hover
+sheen, the scroll reveal, the Lenis smooth scroll and the progress spring. That set, not the colours,
+is what costs a visitor on a weak machine, and three of those canvases sit on pages a recruiter is
+likely to open first.
+
+Mechanically it is an attribute on `<html>`, written by an inline script in `layout.tsx` before
+anything paints and stored in `localStorage`. It has to work that way: this is a static export, so
+every route ships identical HTML and a React-level fix would flash the full site for one frame on
+every navigation. The toggle's own active segment is chosen by CSS from that attribute rather than
+from React state, so the pill does not snap across after hydration either. Reached three ways: the
+nav control, `Shift+L`, and two command-palette entries. A switched-off canvas leaves a `.scene-off`
+placeholder that names what is missing and offers the way back, because a section whose only content
+was a canvas otherwise reads as broken.
+
+`scripts/check-lights.mjs` is new and in `npm run verify`. It asserts the boot script, both toggle
+segments, the absence of a baked-in attribute, and five CSS rules, across all 107 non-stub pages.
+Verified: `npm run verify` green, 112 pages, 1044 internal links, 0 FAIL, plus the new check 8 of 8.
+Not verified: no browser drove the switch. There is no puppeteer or playwright in this repo and
+`chrome-headless-shell` is the same install that P2 is blocked on, so every claim above about what
+the switch does at runtime is read off the built HTML and CSS, not off a clicked page.
+
+**`SachAI` is not TruthTell** (his word, 23 Oct 2026). The repository behind the TruthTell entry in
+`src/content/achievements.ts` is still unidentified, so that entry carries no repo link.

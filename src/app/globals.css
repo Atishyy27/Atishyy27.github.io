@@ -208,3 +208,78 @@ body {
   border: 2px solid #0b0e13;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ---------- lights ---------- */
+
+/* One switch (components/LightsToggle) turns the site between the full WebGL
+   version and a flat reading version of the same pages. This is not a light
+   theme: the palette above is unchanged, and the comment at the top of this
+   file still holds. What goes away is everything that costs frames — the
+   canvases (gated in SceneMount), the backdrop blur, the hover sheen, the
+   reveal animations and the smooth scroll. On a weak machine that is the
+   difference between reading the page and watching it stutter.
+
+   The state lives on <html data-lights> and is applied by an inline script
+   before first paint, so none of this flashes. */
+
+.lights-seg { color: var(--fg-muted); }
+.lights-seg:hover { color: var(--fg); }
+.lights-seg[data-mode="full"] { background: var(--accent-soft); color: var(--accent); }
+html[data-lights="flat"] .lights-seg[data-mode="full"] { background: transparent; color: var(--fg-muted); }
+html[data-lights="flat"] .lights-seg[data-mode="full"]:hover { color: var(--fg); }
+html[data-lights="flat"] .lights-seg[data-mode="flat"] { background: var(--accent-soft); color: var(--accent); }
+
+html[data-lights="flat"] {
+  /* With no canvas behind them, raised surfaces need an edge of their own or
+     every card dissolves into the page. */
+  --bg-raised: #15151a;
+  --line: #ffffff24;
+  scroll-behavior: auto;
+}
+
+html[data-lights="flat"] .glass { backdrop-filter: none; }
+html[data-lights="flat"] .tilt:hover { transform: none; box-shadow: none; }
+html[data-lights="flat"] .tilt::after { display: none; }
+
+/* Reveal animates with inline styles from framer-motion, which beat a plain
+   rule, so this has to be !important. It also has to be CSS rather than a
+   React branch: the branch only runs after hydration, and until then the
+   content would sit at opacity 0. Chrome.tsx drops the observer separately,
+   so in flat mode nothing is animating behind this. */
+html[data-lights="flat"] [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+html[data-lights="flat"] *,
+html[data-lights="flat"] *::before,
+html[data-lights="flat"] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* The invitation back. Sits where a canvas would have been, so a section does
+   not read as broken when its one piece of content is switched off. */
+.scene-off {
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  border: 1px dashed var(--line);
+  border-radius: 0.75rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.scene-off button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.scene-off button:hover { border-color: var(--accent); }

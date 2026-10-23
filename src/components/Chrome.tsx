@@ -2,11 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useSpring } from "framer-motion";
+import { useLights } from "@/lib/lights";
 
 /* ---------------- smooth scroll ---------------- */
 
 export function SmoothScroll() {
+  const lights = useLights();
   useEffect(() => {
+    // Waits for the real answer rather than starting on "unknown" and tearing
+    // down a frame later: Lenis takes over the scroll on construction, and
+    // handing it back immediately is visible as a jolt.
+    if (lights !== "full") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let raf = 0;
     let lenis: { raf: (t: number) => void; destroy: () => void } | null = null;
@@ -24,15 +30,20 @@ export function SmoothScroll() {
       cancelAnimationFrame(raf);
       lenis?.destroy();
     };
-  }, []);
+  }, [lights]);
   return null;
 }
 
 /* ---------------- scroll progress bar ---------------- */
 
 export function ScrollProgress() {
+  const lights = useLights();
   const { scrollYProgress } = useScroll();
   const x = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 });
+  // Hooks run either way, because they cannot be called conditionally; only
+  // the bar itself goes. A spring ticking every frame is exactly the kind of
+  // thing the flat mode exists to stop.
+  if (lights === "flat") return null;
   return (
     <motion.div
       aria-hidden
@@ -59,9 +70,23 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-12% 0px -8% 0px" });
+  const lights = useLights();
+
+  // data-reveal is what the flat-mode rule in globals.css targets. It has to
+  // be CSS and not only this branch: the branch cannot run until hydration,
+  // and until then every revealed block would sit at opacity 0.
+  if (lights === "flat") {
+    return (
+      <div ref={ref} data-reveal className={className}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       ref={ref}
+      data-reveal
       className={className}
       initial={{ opacity: 0, y }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -75,7 +100,8 @@ export function Reveal({
 /* ---------------- tilt card ---------------- */
 
 // No 3D snap-back (that read as gimmicky). Just a cursor-following sheen and
-// a steady lift on hover, handled in CSS.
+// a steady lift on hover, handled in CSS. Both are switched off in flat mode
+// by globals.css, so there is nothing to branch on here.
 export function Tilt({
   children,
   className,

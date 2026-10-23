@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import LightsToggle from "./LightsToggle";
 
 const LINKS: [string, string][] = [
   ["Projects", "/projects/"],
@@ -67,12 +68,19 @@ export default function Nav() {
             </a>
           ))}
                             </div>
-        <a
-          href="/about/#contact"
-          className="rounded-full border border-[var(--line)] px-4 py-1.5 text-xs transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-        >
-          Contact
-        </a>
+        <div className="flex items-center gap-3">
+          {/* Sits next to Contact rather than with the links, because it acts
+              on the page you are already on, not on where you go next. Shown
+              at every width on purpose: the phones that need it most are the
+              ones the nav links are hidden on. */}
+          <LightsToggle />
+          <a
+            href="/about/#contact"
+            className="rounded-full border border-[var(--line)] px-4 py-1.5 text-xs transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          >
+            Contact
+          </a>
+        </div>
       </div>
     </nav>
   );
