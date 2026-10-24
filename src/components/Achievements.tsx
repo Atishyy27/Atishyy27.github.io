@@ -28,8 +28,13 @@ function Strip({ photos, title }: { photos: Photo[]; title: string }) {
           <button
             key={p.src}
             onClick={() => setOpen(i)}
-            className="group shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--bg-raised)] transition-colors hover:border-[var(--accent)]"
-            style={{ width: 200, height: Math.round((200 * p.h) / p.w) }}
+            // One height for the whole strip, width following the aspect
+            // ratio. Sizing by width instead gave every photo a different
+            // height, so a row of a portrait phone shot next to three
+            // landscape ones came out as a ragged staircase with nothing
+            // aligned. A strip reads as one object or it reads as a mess.
+            className="group h-[150px] shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--bg-raised)] transition-colors hover:border-[var(--accent)]"
+            style={{ width: Math.round((150 * p.w) / p.h) }}
             aria-label={`${title}, photo ${i + 1} of ${photos.length}`}
           >
             <img

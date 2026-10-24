@@ -179,7 +179,7 @@ export const experience: Experience[] = [
       "Point of contact for a recruiting drive on the day it runs, including the visiting HR, under the cell's one-manager-per-drive rule.",
       "Ran recruitment and mid-session reviews for the two junior batches: review panels, scheduling, and the trackers the panels actually filled in.",
       "Built the PRD Verification Tool, a Chrome extension that does the placement-registration document checks the cell was doing by hand. The TPO asked for a test run in January 2026 and it has been in use since; it is on the Chrome Web Store and in the shelf above.",
-      "Built and ran the off-campus session site for the 2028 and 2029 batches, from the cell's own numbers rather than from general advice.",
+      "Built and ran the off-campus session site for the 2028 and 2029 batches, from the cell's own numbers rather than from general advice: placecom-session.vercel.app.",
     ],
   },
 ];

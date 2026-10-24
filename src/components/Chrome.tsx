@@ -69,8 +69,31 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-12% 0px -8% 0px" });
+  // The top margin was -12%. That shrinks the observer's root by 12% of the
+  // VIEWPORT, so anything sitting in the top 12% of the window when the page
+  // loads never intersects and never becomes visible: it stays at opacity 0
+  // for as long as the page is open, because `once` means it only ever waits
+  // for a first intersection that cannot happen. On an 800px laptop that band
+  // is 96px and hides under the nav. On a tall window it swallowed the "01
+  // About" heading, which is how this was found: a 2400px headless capture of
+  // /about rendered the body text and no title.
+  //
+  // 0px at the top, so an element already at the top of the document counts as
+  // in view immediately. The bottom inset stays: that one only delays a reveal
+  // until the element is properly on screen, which is the whole effect.
+  const inView = useInView(ref, { once: true, margin: "0px 0px -8% 0px" });
   const lights = useLights();
+
+  // Belt and braces. If the observer has still not fired a second after mount,
+  // show the content anyway. An animation that does not play is a missed
+  // flourish; content stuck at opacity 0 is a blank page, and those two
+  // failures are not worth trading against each other.
+  const [failsafe, setFailsafe] = useState(false);
+  useEffect(() => {
+    const t = window.setTimeout(() => setFailsafe(true), 1000);
+    return () => window.clearTimeout(t);
+  }, []);
+  const show = inView || failsafe;
 
   // data-reveal is what the flat-mode rule in globals.css targets. It has to
   // be CSS and not only this branch: the branch cannot run until hydration,
@@ -89,7 +112,7 @@ export function Reveal({
       data-reveal
       className={className}
       initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      animate={show ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
