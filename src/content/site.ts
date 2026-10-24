@@ -311,10 +311,15 @@ export const orgWork: Work[] = [
     // 2026-10-24. Tagging it Next.js and Supabase described a branch the Code
     // link does not open, which is the one thing a visitor can check in a click.
     stack: ["HTML", "CSS", "JavaScript"],
-    links: [
-      { label: "Live", href: "https://gs27.vercel.app/" },
-      { label: "Code", href: "https://github.com/Atishyy27/GS27" },
-    ],
+    // The "Live" link to gs27.vercel.app came off on 2026-10-24. That host
+    // returns HTTP 200 with valid Next.js HTML and then throws in the browser:
+    // Next's own error boundary renders "This page couldn't load". Every check
+    // this repo runs had passed it, because every one of them reads the status
+    // code and a status code cannot see a client-side crash. A headless render
+    // caught it the first time one was taken. It goes back the moment the
+    // deploy works; shipping a badge that says Live to a page that errors is
+    // the exact failure this site exists to avoid.
+    links: [{ label: "Code", href: "https://github.com/Atishyy27/GS27" }],
   },
   { name: "DAVV Incubation Centre", domain: "davvincubationcentre.com", blurb: "CMS platform for the university incubation centre.", stack: ["WordPress"], links: [{ label: "Live", href: "https://davvincubationcentre.com/" }] },
   {

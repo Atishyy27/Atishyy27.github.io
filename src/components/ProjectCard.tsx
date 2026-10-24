@@ -3,23 +3,26 @@
 /**
  * A project card with a face.
  *
- * Every card needs an image or the grid looks broken, and only the two Play
- * Store apps have real screenshots. Live-site captures were tried and dropped:
- * headless Brave hangs on this machine, and a screenshot service would mean
- * sending his project URLs to a third party on every build.
+ * Three sources, in order of how much they prove.
  *
- * So a project without a screenshot gets a cover drawn from what is already
- * known about it: category colour, initials, and the stack. It is deterministic,
- * costs no bytes, and scales to any size. It reads as designed rather than as a
- * missing image, which a grey placeholder never does.
- *
- * Swapping in a real capture later is one key in content/shots.ts.
+ * 1. A Play Store screenshot, for the two apps that have them.
+ * 2. A real capture of the project's own live site. This was listed here as
+ *    impossible until 2026-10-24: "headless Brave hangs on this machine". What
+ *    hung was chrome-headless-shell, the stripped binary Puppeteer downloads,
+ *    which dies on this Mac with "GPU process isn't usable". The full Brave in
+ *    /Applications renders fine in --headless=new. scripts/shoot-covers.mjs
+ *    now takes eleven of them. A screenshot service is still refused: it would
+ *    mean sending his project URLs to a third party on every build.
+ * 3. A drawn cover from what is already known: category colour, initials and
+ *    the stack. Deterministic, no bytes, scales to any size, and reads as
+ *    designed rather than as a missing image.
  */
 
 import Link from "next/link";
 import { CATEGORY_COLOR } from "@/content/graph";
 import { CATEGORY_LABEL, type Project } from "@/content/projects";
 import { SHOTS } from "@/content/shots";
+import { COVERS } from "@/content/covers";
 
 /** Stable per name, so a project's cover never changes between builds. */
 function hash(s: string): number {
@@ -40,6 +43,27 @@ function initials(name: string): string {
 function Cover({ p }: { p: Project }) {
   const shot = SHOTS[p.slug]?.[0];
   const color = CATEGORY_COLOR[p.category];
+  const cover = COVERS[p.slug];
+
+  // A real capture of the live site, where one exists. Below the Play Store
+  // screenshots on purpose: a store screenshot is the developer's own chosen
+  // frame, a capture is whatever the site happened to render.
+  if (!shot && cover) {
+    return (
+      <div className="relative aspect-[4/3] overflow-hidden bg-black">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={cover.src}
+          alt={`${p.name}, its live site`}
+          width={cover.w}
+          height={cover.h}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+    );
+  }
 
   if (shot) {
     return (
