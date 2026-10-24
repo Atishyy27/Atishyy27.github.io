@@ -17,11 +17,18 @@ export default function About() {
   const ov = useOverrides();
   const about = ov.about ?? aboutDefault;
 
+  // Section numbers were hardcoded 01 to 06, and the avatar at 05 only renders
+  // when public/avatar.glb exists on disk. It does not, so the page has been
+  // shipping 01, 02, 03, 04, 06 with a hole in the middle. Counted instead of
+  // typed, so a conditional section cannot leave a gap again.
+  let n = 0;
+  const step = () => String(++n).padStart(2, "0");
+
   return (
     <main className="relative pt-24">
         {/* ABOUT */}
         <Wrap id="about">
-          <Head n="01" title="About" />
+          <Head n={step()} title="About" />
           <div className="grid gap-12 lg:grid-cols-[2fr_1fr]">
             <div className="space-y-6">
               {about.map((p, i) => (
@@ -65,7 +72,7 @@ export default function About() {
         {/* EXPERIENCE */}
         <Wrap id="achievements">
           <Head
-            n="02"
+            n={step()}
             title="Achievements"
             kicker="Contests and programmes, each with the denominator it was measured against."
           />
@@ -73,7 +80,7 @@ export default function About() {
         </Wrap>
 
         <Wrap id="experience">
-          <Head n="03" title="Experience" kicker="Internships and paid engineering work." />
+          <Head n={step()} title="Experience" kicker="Internships and paid engineering work." />
           <ol className="divide-y divide-[var(--line)] border-t border-[var(--line)]">
             {experience.map((e, i) => (
               <Reveal key={e.org} delay={Math.min(i, 4) * 0.04}>
@@ -103,7 +110,7 @@ export default function About() {
 
         {/* RESEARCH */}
         <Wrap id="publications">
-          <Head n="04" title="Research" />
+          <Head n={step()} title="Research" />
           <ol className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
             {publications.map((p, i) => (
               <Reveal key={i} delay={i * 0.05}>
@@ -124,7 +131,7 @@ export default function About() {
             under it would break the one claim this site makes. */}
         {hasAvatar ? (
           <Wrap id="avatar">
-            <Head n="05" title="Me, roughly" kicker="A GLB file, turned in your browser. Not a render." />
+            <Head n={step()} title="Me, roughly" kicker="A GLB file, turned in your browser. Not a render." />
             <Avatar3DMount present />
           </Wrap>
         ) : null}
@@ -135,7 +142,7 @@ export default function About() {
         {/* CONTACT — the form was built and then never mounted anywhere, so the
             site had no way to reach him except the socials in the header. */}
         <Wrap id="contact">
-          <Head n="06" title="Get in touch" kicker="Goes straight to my inbox." />
+          <Head n={step()} title="Get in touch" kicker="Goes straight to my inbox." />
           <Contact />
         </Wrap>
 

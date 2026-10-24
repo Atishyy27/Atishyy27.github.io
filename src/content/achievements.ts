@@ -30,18 +30,6 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    // A role, not a ranking. Carries no placement statistics, no company
-    // outcomes and no student names: the cell's sheets hold other students'
-    // personal data and none of it belongs on a public page. He cleared the
-    // photograph for publication on 24 Oct 2026.
-    year: "2024 – present",
-    title: "SGSITS Training & Placement Cell",
-    result: "Placement Manager, 2026-27 season",
-    note: "Coordinator from 2024. Point of contact for a drive on the day it runs, including the visiting HR. Ran recruitment and mid-session reviews for the two junior batches, and built the PRD document-check extension the cell uses.",
-    photos: "placecomm-2026",
-    links: [{ label: "The session site", href: "https://placecom-session.vercel.app/" }],
-  },
-  {
     year: "2025",
     title: "ICPC Asia Amritapuri Multisite Regional, Mysuru site",
     result: "Rank 12, four problems solved",
