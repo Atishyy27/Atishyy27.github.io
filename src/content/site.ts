@@ -33,17 +33,19 @@ export const person = {
 // count, which is smaller, true, and the one people actually weigh.
 export const proof = [
   { stat: "Rank 12", label: "ICPC Mysuru on-site regionals 2025", href: "/stats/" },
-  // 41, not 55. The 55 counted two repositories that are not open-source
-  // contributions and are permanently excluded; they were 19 of that number.
-  // scripts/fetch-oss.mjs now drops them in the query and again in a filter.
-  { stat: "41 merged", label: "pull requests into repos I do not own, across 24 projects", href: "/oss/" },
+  // 47, not the 66 a bare GitHub search returns. Two repositories that are not
+  // open-source contributions are permanently excluded and account for 19 of
+  // that 66; scripts/fetch-oss.mjs drops them in the query and again in a filter.
+  // Re-derived 2026-10-22 against live search (66 upstream merged, minus the 19).
+  // The previous value here, 41, was a 2026-10-09 snapshot and had gone stale.
+  { stat: "47 merged", label: "pull requests into repos I do not own, across 25 projects", href: "/oss/" },
   { stat: "392 users", label: "on my two Chrome extensions, Web Store, 30 Sep 2026", href: "/projects/" },
   { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/work/" },
 ];
 
 export const cpProfiles = [
   { site: "LeetCode", handle: "atishayjain78001", rank: "Knight", detail: "947 solved, peak 1860", href: "https://leetcode.com/u/atishayjain78001/" },
-  { site: "Codeforces", handle: "sethatishayjain", rank: "Specialist", detail: "max 1524", href: "https://codeforces.com/profile/sethatishayjain" },
+  { site: "Codeforces", handle: "sethatishayjain", rank: "Pupil", detail: "1314, max 1539", href: "https://codeforces.com/profile/sethatishayjain" },
   { site: "CodeChef", handle: "fever_tub_71", rank: "4 star", detail: "max 1805", href: "https://www.codechef.com/users/fever_tub_71" },
   { site: "AtCoder", handle: "fever_tub_71", rank: "Kyu 7", detail: "max 546", href: "https://atcoder.jp/users/fever_tub_71" },
 ];
@@ -293,7 +295,7 @@ export const hackathons: Work[] = [
   },
   { name: "SIH 2025, GeoYield", blurb: "Farm-yield optimisation from ISRO geospatial data.", stack: ["Python", "Geospatial", "React"], links: [{ label: "Live", href: "https://geoyield.vercel.app/" }] },
   { name: "TruthTell, TruthTrack", blurb: "Real-time misinformation detection. Top 0.60%, 25 of 4,000+.", stack: ["Python", "React"], links: [{ label: "Code", href: "https://github.com/Atishyy27/TruthTrack" }] },
-  { name: "Adobe India Hackathon 2025", blurb: "Document intelligence. Top 0.66%, 550 of 90,000+.", stack: ["Python"], links: [{ label: "Code", href: "https://github.com/Atishyy27/Adobe-1A" }] },
+  { name: "Adobe India Hackathon 2025", blurb: "Document intelligence. Top 0.61%, 550 of 90,000+.", stack: ["Python"], links: [{ label: "Code", href: "https://github.com/Atishyy27/Adobe-1A" }] },
 ];
 
 export const otherHackathons = [

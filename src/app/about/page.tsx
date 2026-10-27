@@ -21,8 +21,12 @@ export default function About() {
         {/* EXPERIENCE */}
         <Wrap id="experience">
           <Head n="06" title="Experience" kicker="Internships and paid engineering work." />
+          {/* Four of these roles carry no written detail. Rendered in the same
+              full-height rows as the others they read as padding: a logo, a year,
+              and an empty right-hand column. They are real roles, so they stay,
+              but they stay as one compact line at the end rather than four blanks. */}
           <ol className="divide-y divide-[var(--line)] border-t border-[var(--line)]">
-            {experience.map((e, i) => (
+            {experience.filter((e) => e.points?.length).map((e, i) => (
               <Reveal key={e.org} delay={Math.min(i, 4) * 0.04}>
                 <li className="grid gap-4 py-8 md:grid-cols-[1fr_2fr] md:gap-12">
                   <div className="flex gap-4">
@@ -46,6 +50,16 @@ export default function About() {
               </Reveal>
             ))}
           </ol>
+
+          {experience.some((e) => !e.points?.length) && (
+            <p className="mt-8 border-t border-[var(--line)] pt-6 text-sm leading-relaxed text-[var(--fg-muted)]">
+              <span className="text-[var(--fg)]">Earlier: </span>
+              {experience
+                .filter((e) => !e.points?.length)
+                .map((e) => `${e.org} (${e.role}, ${e.dates})`)
+                .join(" · ")}
+            </p>
+          )}
         </Wrap>
 
         {/* RESEARCH */}
