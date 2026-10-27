@@ -2,69 +2,105 @@
 
 import Link from "next/link";
 import { person, proof } from "@/content/site";
-import { featuredProjects, allProjects } from "@/content/projects";
-import { Logo } from "@/components/Logo";
+import { allProjects } from "@/content/projects";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
+import StoreShelf from "@/components/StoreShelf";
 import { ProjectGraphMount } from "@/components/SceneMount";
 import { nodes, edges, sharedTech } from "@/content/graph";
+import { capture } from "@/lib/posthog";
 
-// The home page is an index, not the whole site. Everything used to live on one
-// scroll, which is why changes elsewhere were invisible from here.
-//
-// It carries two live elements on purpose. Every counted claim on this page is
-// fetched from the platform that owns it at page load, so there is no number
-// here that can quietly go stale, and nothing to keep in sync by hand.
+/**
+ * Rebuilt 27 Oct 2026. What changed and why, because the old order was the
+ * problem rather than the pieces.
+ *
+ * It used to open with a WebGL graph of how the projects connect. That is the
+ * most technically interesting thing on the page and the least useful one: it
+ * is unreadable on a phone, it says nothing until you have already decided to
+ * care, and it was standing between a visitor and every clickable artifact he
+ * owns. The graph is not deleted, because the plan says it stays 3D or moves.
+ * It moved. It is now near the bottom, where someone who is already interested
+ * can play with it.
+ *
+ * In its place: the five things a stranger can install in one click. Two Play
+ * Store apps, three Chrome extensions. That is his own stated order and it is
+ * also the honest argument. "Scalable systems from scratch" is a sentence
+ * anyone can write; "here is the install button, 394 people pressed it" is not.
+ *
+ * The "Selected" block is gone. It listed three projects by a `featured` flag
+ * and duplicated what the shelf and /projects already say better.
+ *
+ * The email address is now on the page as text. It was reachable only by
+ * walking to /about and opening a form, which is a strange thing to do to the
+ * one action the whole site exists to produce.
+ */
+
 const INDEX: [string, string, string][] = [
   ["Projects", "/projects/", "Every build, filterable, with a link to the artifact where one is public"],
   ["Open source", "/oss/", "Live pull request activity, pulled from GitHub"],
   ["Stats", "/stats/", "Competitive programming and a year of contributions"],
-  ["Writing", "/writing/", "Journal, build log and every pull request, one dated feed"],
+  ["Writing", "/writing/", "Essays and build-log notes on what broke and what it cost"],
   ["About", "/about/", "Experience, research, education, résumé"],
 ];
+
+/** The handles worth a stranger's click. The rest live on /stats. */
+const PRIMARY_SOCIALS = new Set(["GitHub", "LinkedIn", "X"]);
 
 export default function Home() {
   return (
     <main className="w-full pt-32">
-      {/* Reading column: name, blurb, the fixed facts. */}
+      {/* ---------------- hero ---------------- */}
       <div className="mx-auto w-full max-w-[var(--measure)] px-6 sm:px-8">
         <h1 className="display text-[length:var(--step-display)]">{person.name}</h1>
-        <p className="mt-6 max-w-prose text-lg leading-relaxed text-[var(--fg-muted)]">
+
+        {/* One sentence, and every noun in it is checkable further down the
+            page. No adjectives: "product sense" and "scalable" are claims a
+            reader has to take on trust, and a count with a link is not. */}
+        <p className="mt-6 text-xl leading-relaxed">
+          I build things people can use without signing up for anything.
+        </p>
+        <p className="mt-4 max-w-prose leading-relaxed text-[var(--fg-muted)]">
           {person.blurb}
         </p>
 
-        <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[length:var(--step-small)]">
-          {person.socials.map((s) => (
-            <li key={s.href}>
-              <a href={s.href} target="_blank" rel="noopener noreferrer" className="link">
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[length:var(--step-small)]">
+          {/* Shown as text, not hidden behind the word "Contact". Someone who
+              wants to write to him should not have to find a form first. */}
+          <a
+            href={`mailto:${person.email}`}
+            data-track="home:email"
+            onClick={() => capture("email_click", { from: "home" })}
+            className="rounded-full bg-[var(--accent)] px-4 py-2 font-medium text-[#06181a] transition-opacity hover:opacity-90"
+          >
+            {person.email}
+          </a>
+          <a
+            href={person.resumeHref}
+            data-track="home:resume"
+            onClick={() => capture("resume_click", { from: "home" })}
+            className="link"
+          >
+            Résumé, PDF
+          </a>
+          {person.socials
+            .filter((s) => PRIMARY_SOCIALS.has(s.label))
+            .map((s) => (
+              <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="link">
                 {s.label}
               </a>
-            </li>
-          ))}
-        </ul>
-
-      </div>
-
-      {/* The core element. Wider than the reading measure: it needs the room.
-          The sentence under it is static on purpose. The canvas is client-only,
-          so anything rendered inside it is absent from the HTML, and these are
-          the facts the element exists to show. */}
-      <div className="mx-auto mt-16 w-full max-w-5xl px-6 sm:px-8">
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-          <h2 className="text-[length:var(--step-h2)] font-medium">How the work connects</h2>
-          <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">
-            <Link href="/projects/" className="link">
-              {nodes.length} projects, {edges.length} shared-technology links,{" "}
-              {sharedTech.length} technologies used more than once
-            </Link>
-          </p>
+            ))}
+          <span className="text-[var(--fg-muted)]">{person.location}</span>
         </div>
-        <ProjectGraphMount />
       </div>
 
+      {/* ---------------- the argument ---------------- */}
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
+        <StoreShelf />
+      </div>
+
+      {/* ---------------- counted facts ---------------- */}
       <div className="mx-auto w-full max-w-[var(--measure)] px-6 sm:px-8">
-        {/* Counted facts, under the core element. */}
-        <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-px sm:grid-cols-4">
+        <dl className="mt-20 grid grid-cols-2 gap-x-6 gap-y-px sm:grid-cols-4">
           {proof.map((p) => (
             <Link
               key={p.stat}
@@ -80,9 +116,7 @@ export default function Home() {
         </dl>
       </div>
 
-      {/* Wider band: the two live elements need more than the reading measure.
-          53 week-columns do not fit in 46rem, and squeezing them into a scroller
-          on a 1440px screen wastes the page. */}
+      {/* ---------------- the live record ---------------- */}
       <div className="mx-auto mt-20 w-full max-w-5xl px-6 sm:px-8">
         <LiveCounts />
         <div className="mt-6">
@@ -90,34 +124,26 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-[var(--measure)] px-6 sm:px-8">
-        <section className="mt-24">
-          <h2 className="text-[length:var(--step-h2)] font-medium">Selected</h2>
-          <div className="mt-6">
-            {featuredProjects.map((p) => (
-              <Link key={p.slug} href={`/projects/${p.slug}/`} className="row group">
-                <span className="row-kind flex items-center gap-2.5">
-                  <Logo name={p.name} domain={p.domain} size={26} />
-                  {p.org ?? "Project"}
-                </span>
-                <span>
-                  <span className="row-name">{p.name}</span>
-                  <span className="row-line block">{p.story || p.blurb}</span>
-                </span>
-                <span className="row-kind whitespace-nowrap">
-                  {p.links[0]?.label ?? (p.privateNote ? "Private" : "")}
-                </span>
-              </Link>
-            ))}
-          </div>
-          <p className="mt-6 text-[length:var(--step-small)]">
+      {/* ---------------- the graph, moved ---------------- */}
+      <div className="mx-auto mt-24 w-full max-w-5xl px-6 sm:px-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <h2 className="text-[length:var(--step-h2)] font-medium">How the work connects</h2>
+          <p className="text-[length:var(--step-small)] text-[var(--fg-muted)]">
             <Link href="/projects/" className="link">
-              See all {allProjects.length} projects
+              {nodes.length} projects, {edges.length} shared-technology links,{" "}
+              {sharedTech.length} technologies used more than once
             </Link>
           </p>
-        </section>
+        </div>
+        {/* The sentence above is static on purpose: the canvas is client-only,
+            so nothing rendered inside it exists in the HTML, and these are the
+            facts the element is here to show. */}
+        <ProjectGraphMount />
+      </div>
 
-        <section className="mt-20">
+      {/* ---------------- index ---------------- */}
+      <div className="mx-auto w-full max-w-[var(--measure)] px-6 sm:px-8">
+        <section className="mt-24">
           <h2 className="text-[length:var(--step-h2)] font-medium">Everything else</h2>
           <div className="mt-6">
             {INDEX.map(([label, href, desc]) => (
@@ -131,6 +157,11 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <p className="mt-6 text-[length:var(--step-small)]">
+            <Link href="/projects/" className="link">
+              See all {allProjects.length} projects
+            </Link>
+          </p>
         </section>
       </div>
     </main>

@@ -7,7 +7,13 @@
  * count and one button in the shape people already know, and the button goes
  * straight to the store rather than to a project page that then links to it.
  *
- * Names, blurbs and user counts are NOT restated here. They are read out of
+ * THIS FILE OWNS THE USER COUNTS. They were in two places until 27 Oct 2026:
+ * here and inside the extension blurbs in site.ts. I corrected site.ts on the
+ * 24th and missed this file, so the shelf said 265 while the same extension's
+ * card said 260 for three days. One home now, and site.ts reads the headline
+ * total off this array.
+ *
+ * Names and blurbs are NOT restated here. They are read out of
  * content/site.ts by slug, so the shelf cannot drift from the grid. Only the
  * things a store listing needs and a project card does not live in this file.
  */
@@ -39,8 +45,8 @@ export const listings: Listing[] = [
     store: "Chrome Web Store",
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba",
-    users: "265 users",
-    countedOn: "2026-09-29",
+    users: "252 users",
+    countedOn: "2026-10-27",
     icon: "/ext/leetcode-analytics.webp",
   },
   {
@@ -49,8 +55,8 @@ export const listings: Listing[] = [
     store: "Chrome Web Store",
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/sync-lis/hcpjipoofgpnenpfjddkkodbobehonlb",
-    users: "13 users",
-    countedOn: "2026-10-24",
+    users: "11 users",
+    countedOn: "2026-10-27",
     icon: "/ext/sync-lis.webp",
   },
   {
@@ -61,8 +67,8 @@ export const listings: Listing[] = [
     store: "Chrome Web Store",
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/prd-verification-tool/lhebknliliiigghklkdkljobkkmbhaoj",
-    users: "127 users",
-    countedOn: "2026-09-29",
+    users: "123 users",
+    countedOn: "2026-10-27",
   },
   {
     slug: "yes-wellness-platform",

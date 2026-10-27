@@ -5,6 +5,7 @@
 
 import { CP_PROFILES, CP_GENERATED } from "./cp";
 import { OSS_STATS } from "./oss-stats";
+import { listings } from "./store";
 
 export const person = {
   name: "Atishay Jain",
@@ -34,8 +35,22 @@ export const person = {
 // "74 PRs" was here too. It matched no query: on 2026-09-30 the real figures
 // were 172 opened upstream, 55 merged, 82 still open. Replaced with the merged
 // count, which is smaller, true, and the one people actually weigh.
+/**
+ * Store totals, computed from the listings rather than typed.
+ *
+ * `listings` is the same array the shelf on /projects renders, so the headline
+ * number on the home page and the per-card numbers can never disagree. Only
+ * the Chrome extensions are summed: the two Play Store apps publish no install
+ * count to their own listings, so adding them would mean inventing the part
+ * that is missing.
+ */
+const CHROME = listings.filter((l) => l.store === "Chrome Web Store" && l.users);
+const STORE_EXTENSIONS = CHROME.length;
+const STORE_USERS = CHROME.reduce((n, l) => n + parseInt(l.users!.replace(/\D/g, ""), 10), 0);
+const STORE_COUNTED = CHROME.map((l) => l.countedOn).sort().at(-1) ?? "";
+
 export const proof = [
-  { stat: "Rank 12", label: "ICPC Mysuru on-site regionals 2025", href: "/stats/" },
+  { stat: "Rank 12", label: "ICPC Asia Amritapuri Multisite Regional 2025, Mysuru site", href: "/stats/" },
   // Counted, not typed. It was "41 merged across 24 projects" by hand and the
   // real figures had already moved past it. Before that it said 55, which
   // counted two repositories that are not open-source contributions and are
@@ -46,7 +61,16 @@ export const proof = [
     label: `pull requests into repos I do not own, across ${OSS_STATS.mergedRepos} projects`,
     href: "/oss/",
   },
-  { stat: "392 users", label: "on my two Chrome extensions, Web Store, 30 Sep 2026", href: "/projects/" },
+  // Derived from content/store.ts, not typed. This line said "392 users on my
+  // two Chrome extensions, 30 Sep 2026" on 27 Oct, by which point there were
+  // three extensions and the per-listing counts had all moved. A hand-typed
+  // total is a number that is true on the day it is written and silently wrong
+  // afterwards, which is the one thing this site is not allowed to do.
+  {
+    stat: `${STORE_USERS} users`,
+    label: `on my ${STORE_EXTENSIONS} Chrome extensions, counted on the Web Store ${STORE_COUNTED}`,
+    href: "/projects/",
+  },
   { stat: "2 apps", label: "live on the Play Store for the MP government", href: "/projects/" },
 ];
 
@@ -337,7 +361,7 @@ export const extensions: Work[] = [
     // source said otherwise and the store listing settled it.
     name: "sync-lis, and the mehfil jukebox",
     blurb:
-      "A self-hosted LAN jukebox and the browser extension that drives it, on the Chrome Web Store with 13 users. Paste a YouTube, Spotify or SoundCloud link and it plays for everyone on the network, clock-aligned, with one shared queue and no accounts. Nobody shares a screen and nobody captures audio: the server fetches the track itself and every browser streams it from the server. Spotify audio is DRM'd and cannot be fetched, so a Spotify link is resolved through oEmbed metadata and matched on YouTube instead. Tested with four protocol suites, a chaos harness of random actions from many fake users, and a real two-browser end-to-end run with the extension loaded.",
+      "A self-hosted LAN jukebox and the browser extension that drives it, on the Chrome Web Store. Paste a YouTube, Spotify or SoundCloud link and it plays for everyone on the network, clock-aligned, with one shared queue and no accounts. Nobody shares a screen and nobody captures audio: the server fetches the track itself and every browser streams it from the server. Spotify audio is DRM'd and cannot be fetched, so a Spotify link is resolved through oEmbed metadata and matched on YouTube instead. Tested with four protocol suites, a chaos harness of random actions from many fake users, and a real two-browser end-to-end run with the extension loaded.",
     stack: ["Node", "WebSocket", "Chrome MV3", "yt-dlp", "ffmpeg"],
     countsAsOf: "2026-10-24",
     links: [
@@ -347,14 +371,14 @@ export const extensions: Work[] = [
   },
   {
     name: "PRD Verification Tool",
-    blurb: "PDF compression, conversion and renaming with auto-filled Google Forms. 121 users.",
+    blurb: "PDF compression, conversion and renaming with auto-filled Google Forms.",
     countsAsOf: "2026-10-24",
     stack: ["Chrome APIs", "JavaScript"],
     links: [{ label: "Chrome Web Store", href: "https://chromewebstore.google.com/detail/prd-verification-tool/lhebknliliiigghklkdkljobkkmbhaoj" }],
   },
   {
     name: "LeetCode Analytics",
-    blurb: "CP-focused metrics injected directly into LeetCode profiles: difficulty spread, topic breakdown, trends, over their GraphQL API with no data collection. 260 users.",
+    blurb: "CP-focused metrics injected directly into LeetCode profiles: difficulty spread, topic breakdown, trends, over their GraphQL API with no data collection.",
     countsAsOf: "2026-10-24",
     stack: ["Chrome APIs", "GraphQL"],
     links: [
