@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useSpring } from "framer-motion";
 import { useLights } from "@/lib/lights";
 
@@ -69,35 +69,42 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  // The top margin was -12%. That shrinks the observer's root by 12% of the
-  // VIEWPORT, so anything sitting in the top 12% of the window when the page
-  // loads never intersects and never becomes visible: it stays at opacity 0
-  // for as long as the page is open, because `once` means it only ever waits
-  // for a first intersection that cannot happen. On an 800px laptop that band
-  // is 96px and hides under the nav. On a tall window it swallowed the "01
-  // About" heading, which is how this was found: a 2400px headless capture of
-  // /about rendered the body text and no title.
-  //
-  // 0px at the top, so an element already at the top of the document counts as
-  // in view immediately. The bottom inset stays: that one only delays a reveal
-  // until the element is properly on screen, which is the whole effect.
   const inView = useInView(ref, { once: true, margin: "0px 0px -8% 0px" });
   const lights = useLights();
 
-  // Belt and braces. If the observer has still not fired a second after mount,
-  // show the content anyway. An animation that does not play is a missed
-  // flourish; content stuck at opacity 0 is a blank page, and those two
-  // failures are not worth trading against each other.
-  const [failsafe, setFailsafe] = useState(false);
-  useEffect(() => {
-    const t = window.setTimeout(() => setFailsafe(true), 1000);
-    return () => window.clearTimeout(t);
+  /**
+   * Content is VISIBLE in the server HTML and stays visible unless we have
+   * positively established, in a browser, that it is off screen and therefore
+   * safe to hide and animate in.
+   *
+   * It used to be the other way round: `initial={{ opacity: 0 }}` put
+   * opacity:0 into the shipped HTML and something had to arrive later to undo
+   * it. Twice now that undo did not happen. First an observer margin of -12%
+   * excluded the top of the viewport, so the "01 About" heading never
+   * appeared. Then, after that fix, the store shelf on the home page stayed at
+   * opacity 0 through a 90-second render even with a one-second failsafe, and
+   * the shelf is the entire argument of that page. Two different causes, one
+   * shared design fault: the page was one unfired callback away from being
+   * blank, and a reveal animation is not worth that.
+   *
+   * Now the failure mode is inverted. If this hook never runs, if the observer
+   * never fires, if framer-motion fails to load, the reader sees the content.
+   * They just do not see it fade in, which nobody has ever complained about.
+   *
+   * `armed` is set in a layout effect, before paint, so an element that IS
+   * below the fold still gets its animation with no flash of it sitting there
+   * already visible.
+   */
+  const [armed, setArmed] = useState(false);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const belowFold = el.getBoundingClientRect().top > window.innerHeight * 0.92;
+    if (belowFold) setArmed(true);
   }, []);
-  const show = inView || failsafe;
 
   // data-reveal is what the flat-mode rule in globals.css targets. It has to
-  // be CSS and not only this branch: the branch cannot run until hydration,
-  // and until then every revealed block would sit at opacity 0.
+  // be CSS and not only this branch: the branch cannot run until hydration.
   if (lights === "flat") {
     return (
       <div ref={ref} data-reveal className={className}>
@@ -106,13 +113,17 @@ export function Reveal({
     );
   }
 
+  const hidden = armed && !inView;
+
   return (
     <motion.div
       ref={ref}
       data-reveal
       className={className}
-      initial={{ opacity: 0, y }}
-      animate={show ? { opacity: 1, y: 0 } : {}}
+      // `false`, not an object: this is what keeps opacity:0 out of the
+      // server-rendered HTML entirely.
+      initial={false}
+      animate={hidden ? { opacity: 0, y } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
