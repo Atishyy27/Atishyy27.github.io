@@ -89,7 +89,12 @@ function Card({ listing }: { listing: Listing }) {
       </div>
 
       {project?.blurb ? (
-        <p className="mt-4 text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+        // Clamped to three lines. The blurbs are written for a project page,
+        // where length is fine, and one of them runs ten lines; in a two-column
+        // grid that stretches the whole row and leaves the card beside it with
+        // a dead gap the height of a paragraph. The full text is still on the
+        // project page, which is what "how it was built" is for.
+        <p className="mt-4 line-clamp-3 text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
           {project.blurb}
         </p>
       ) : null}
