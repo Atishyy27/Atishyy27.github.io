@@ -96,7 +96,7 @@ async function codeforces(user) {
     // The honest line is the peak title with the current rating beside it, not
     // the peak title alone, which is what the hardcoded version did.
     rank: cap(u.maxRank),
-    detail: `max ${u.maxRating}, now ${u.rating}`,
+    detail: `peak, max ${u.maxRating} · now ${cap(u.rank)} ${u.rating}`,
     href: `https://codeforces.com/profile/${user}`,
     raw: { rating: u.rating, maxRating: u.maxRating, rank: u.rank, maxRank: u.maxRank },
   };
