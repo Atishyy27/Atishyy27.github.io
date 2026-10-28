@@ -82,7 +82,7 @@ export default function About() {
         <Wrap id="experience">
           <Head n={step()} title="Experience" kicker="Internships and paid engineering work." />
           <ol className="divide-y divide-[var(--line)] border-t border-[var(--line)]">
-            {experience.map((e, i) => (
+            {experience.filter((e) => e.points?.length).map((e, i) => (
               <Reveal key={e.org} delay={Math.min(i, 4) * 0.04}>
                 <li className="grid gap-4 py-8 md:grid-cols-[1fr_2fr] md:gap-12">
                   <div className="flex gap-4">
@@ -106,6 +106,15 @@ export default function About() {
               </Reveal>
             ))}
           </ol>
+          {experience.some((e) => !e.points?.length) && (
+            <p className="mt-8 border-t border-[var(--line)] pt-6 text-sm leading-relaxed text-[var(--fg-muted)]">
+              <span className="text-[var(--fg)]">Earlier: </span>
+              {experience
+                .filter((e) => !e.points?.length)
+                .map((e) => `${e.org} (${e.role}, ${e.dates})`)
+                .join(" · ")}
+            </p>
+          )}
         </Wrap>
 
         {/* RESEARCH */}
