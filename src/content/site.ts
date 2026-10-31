@@ -567,7 +567,7 @@ export const skills = [
   { group: "Languages", items: ["Java", "Python", "TypeScript", "JavaScript", "C/C++", "Rust", "C#", "SQL", "Bash"] },
   { group: "Web & backend", items: ["React", "Next.js", "Node / Express", "Spring Boot", "Django", "FastAPI", "Laravel", "PostgreSQL", "MongoDB", "MySQL", "Supabase"] },
   { group: "Mobile", items: ["Flutter", "React Native"] },
-  { group: "ML & data", items: ["PyTorch", "PyTorch Geometric", "Flower (FL)", "SHAP", "Neo4j", "MLflow"] },
+  { group: "ML & data", items: ["PyTorch", "Flower (FL)", "SHAP", "MLflow"] },
   { group: "Infra", items: ["Docker", "GitHub Actions", "Linux", "AWS", "OCI", "Prometheus", "Grafana", "K6"] },
   { group: "Other", items: ["Blockchain / Solidity", "Hyperledger Fabric", "three.js", "Figma"] },
 ];

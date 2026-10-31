@@ -75,7 +75,7 @@ const DOMAIN: Record<string, string[]> = {
   Backend: ["Node", "Express", "Spring Boot", "Django", "FastAPI", "Laravel", "MongoDB", "PostgreSQL", "MySQL", "Supabase", "MERN"],
   Frontend: ["React", "Next.js", "Vite", "three.js", "WordPress", "Wix", "React Native"],
   Mobile: ["Flutter", "React Native"],
-  "ML / AI": ["PyTorch", "PyTorch Geometric", "Neo4j", "Agentic AI", "Federated ML", "Python", "SHAP", "Geospatial"],
+  "ML / AI": ["PyTorch", "Agentic AI", "Federated ML", "Python", "SHAP", "Geospatial"],
   Systems: ["Rust", "Docker", "AWS", "C#", "Linux"],
   Blockchain: ["Blockchain", "Hyperledger", "Solidity"],
 };
