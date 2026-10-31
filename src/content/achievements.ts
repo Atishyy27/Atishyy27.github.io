@@ -50,7 +50,7 @@ export const achievements: Achievement[] = [
     year: "2025",
     title: "National CyberShield Hackathon 2025, at CIIS 2025",
     result: "National finalist, top 5 of more than 500 teams",
-    note: "Regional round at Indore: 5th, top 10 of roughly 1,200 teams across three centres, from around 3,000 registered nationally. Team of five. The build was a graph neural network finding anomalous transaction clusters across a million-plus synthetic transactions, with a SHAP layer giving an analyst feature-level reason for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
+    note: "Regional round at Indore: 5th, top 10 of roughly 1,200 teams across three centres, from around 3,000 registered nationally. Team of five. The build was a gradient-boosted tree over graph features flagging mule, smurfing and layering accounts across ~51K synthetic transactions, with a SHAP layer giving an analyst feature-level reason for every flag. An analyst will not act on a flag they cannot explain, so the explainability was the product.",
     photos: "ciis-2025",
     links: [{ label: "The project", href: "/projects/ciis-anti-money-laundering-detection/" }],
   },
