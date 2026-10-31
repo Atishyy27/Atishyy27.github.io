@@ -482,7 +482,7 @@ export const hackathons: Work[] = [
     name: "CIIS, Anti-money-laundering detection",
     blurb:
       "Graph neural network finding anomalous transaction clusters across 1M+ synthetic transactions, with a SHAP explainability layer so an analyst can see why a case was flagged. Team of five. Top 5 of 500+ teams (SBI, ClearTrail, MP Police), converted into an internship offer.",
-    stack: ["PyTorch Geometric", "Neo4j", "FastAPI", "React"],
+    stack: ["PyTorch", "scikit-learn", "NetworkX", "SHAP", "FastAPI", "React"],
     links: [
       { label: "Live demo", href: "https://ciis-demo.vercel.app/" },
       { label: "Code", href: "https://github.com/Atishyy27/xai-aml" },
