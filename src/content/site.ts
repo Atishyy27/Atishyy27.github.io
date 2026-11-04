@@ -404,6 +404,17 @@ export const extensions: Work[] = [
  */
 export const ownWork: Work[] = [
   {
+    name: "baithak",
+    blurb:
+      "A voice-AI meeting notetaker. Record a mic, capture a meeting tab, or upload audio, and get a clean transcript, a topic-wise summary, and action items grouped by the person who owns them, ready to email. Accounts keep each person's history private, and it is pluggable at the speech-to-text layer, so a user brings their own engine, not just their own key.",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Clerk", "Neon Postgres", "Groq Whisper", "Gemini", "Vercel"],
+    links: [
+      { label: "Live", href: "https://baithak-teal.vercel.app" },
+      { label: "Code", href: "https://github.com/Atishyy27/baithak" },
+    ],
+    featured: true,
+  },
+  {
     name: "tripkit",
     blurb:
       "A travel guide that reads the clock. Type a town and see what is open right now, built from OpenStreetMap and Wikivoyage. No install, no account, no model: opening hours are a solved data problem and the hard part is the timezone arithmetic, not the inference.",

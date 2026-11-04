@@ -17,7 +17,7 @@
 
 import { useMemo, useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
-import { CATEGORY_LABEL, DOMAIN_ORDER, type Project, type ProjectCategory } from "@/content/projects";
+import { CATEGORY_LABEL, DOMAIN_ORDER, SHOWCASE_SLUGS, type Project, type ProjectCategory } from "@/content/projects";
 
 const CATEGORY_ORDER: ProjectCategory[] = [
   "government",
@@ -66,11 +66,22 @@ export default function ProjectExplorer({
   const [category, setCategory] = useState<ProjectCategory | null>(null);
   const [domain, setDomain] = useState<string | null>(null);
 
+  // The curated showcase goes up top, in its listed order. Everything else drops
+  // into the filterable grid below.
+  const showcase = useMemo(() => {
+    const rank = new Map(SHOWCASE_SLUGS.map((s, i) => [s, i]));
+    return projects
+      .filter((p) => rank.has(p.slug))
+      .sort((a, b) => rank.get(a.slug)! - rank.get(b.slug)!);
+  }, [projects]);
+
   const ordered = useMemo(
     () =>
-      [...projects].sort(
-        (a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category)
-      ),
+      projects
+        .filter((p) => !SHOWCASE_SLUGS.includes(p.slug))
+        .sort(
+          (a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category)
+        ),
     [projects]
   );
 
@@ -87,7 +98,26 @@ export default function ProjectExplorer({
 
   return (
     <div>
-      <div className="mt-10 space-y-2.5">
+      {showcase.length > 0 ? (
+        <section>
+          <h2 className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--accent)]">
+            Live, open and try
+          </h2>
+          <p className="mt-1 text-sm text-[var(--fg-muted)]">
+            Shipped products you can open right now.
+          </p>
+          <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {showcase.map((p) => (
+              <ProjectCard key={p.slug} p={p} hasPage={hasPage.has(p.slug)} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <h2 className="mt-16 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg-muted)]">
+        Code and case studies
+      </h2>
+      <div className="mt-6 space-y-2.5">
         <div className="flex flex-wrap items-center gap-2">
           <span className="mr-1 w-14 font-mono text-[10px] tracking-[0.2em] text-[var(--fg-muted)]">
             TYPE

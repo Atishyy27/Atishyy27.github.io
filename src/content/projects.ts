@@ -40,6 +40,8 @@ export function toSlug(name: string): string {
 // If a project has no story it does not get a page: a card with nothing behind it is
 // worse than no card.
 const STORIES: Record<string, string> = {
+  baithak:
+    "Most notetakers stop at a transcript. This one pulls out who owns which task and gives each person only theirs, keeps every account's history private, and is pluggable at the speech-to-text layer, so you bring your own engine, not just your own key.",
   "yes-wellness-platform":
     "A booking system was double-allocating slots under load. The fix was not more servers, it was row-level locking on the rows that actually contend.",
   sram: "A labour-department platform that had to survive being used by people on cheap phones and bad networks.",
@@ -75,7 +77,7 @@ const DOMAIN: Record<string, string[]> = {
   Backend: ["Node", "Express", "Spring Boot", "Django", "FastAPI", "Laravel", "MongoDB", "PostgreSQL", "MySQL", "Supabase", "MERN"],
   Frontend: ["React", "Next.js", "Vite", "three.js", "WordPress", "Wix", "React Native"],
   Mobile: ["Flutter", "React Native"],
-  "ML / AI": ["PyTorch", "Agentic AI", "Federated ML", "Python", "SHAP", "Geospatial"],
+  "ML / AI": ["PyTorch", "Agentic AI", "Federated ML", "Python", "SHAP", "Geospatial", "Whisper", "Gemini", "Groq"],
   Systems: ["Rust", "Docker", "AWS", "C#", "Linux"],
   Blockchain: ["Blockchain", "Hyperledger", "Solidity"],
 };
@@ -121,6 +123,20 @@ export function getProject(slug: string): Project | undefined {
 }
 
 export const featuredProjects: Project[] = allProjects.filter((p) => p.featured);
+
+// The "live, open and try" set: shipped, usable products a visitor can open right
+// now (store apps, published extensions, live web apps). This is an editorial call,
+// not derivable from the data: a store app that works and a half-finished repo both
+// "have a link", so the difference has to be stated, not inferred.
+export const SHOWCASE_SLUGS: string[] = [
+  "baithak",
+  "tripkit",
+  "yes-wellness-platform",
+  "sram",
+  "leetcode-analytics",
+  "prd-verification-tool",
+  "sync-lis-and-the-mehfil-jukebox",
+];
 
 export const CATEGORY_LABEL: Record<ProjectCategory, string> = {
   own: "Own builds",

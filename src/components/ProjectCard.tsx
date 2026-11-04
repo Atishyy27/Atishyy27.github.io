@@ -123,17 +123,44 @@ function Cover({ p }: { p: Project }) {
   );
 }
 
+// Direct action links so a visitor can open or inspect a project straight from
+// the card, not only read its story page. "Live" reads as "Open" because that is
+// the verb the visitor wants. These are real anchors kept OUT of the card's page
+// link, so there is no invalid nested-anchor.
+function Actions({ p }: { p: Project }) {
+  if (p.links.length === 0) {
+    return p.privateNote ? (
+      <div className="border-t border-[var(--line)] px-5 py-3">
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-muted)]">
+          Private
+        </span>
+      </div>
+    ) : null;
+  }
+  return (
+    <div className="flex flex-wrap gap-4 border-t border-[var(--line)] px-5 py-3">
+      {p.links.map((l) => (
+        <a
+          key={l.href}
+          href={l.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor
+          className="font-mono text-[11px] tracking-[0.06em] text-[var(--fg-muted)] transition-colors hover:text-[var(--accent)]"
+        >
+          {l.label === "Live" ? "Open" : l.label} ↗
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export default function ProjectCard({ p, hasPage }: { p: Project; hasPage: boolean }) {
   const body = (
     <>
       <Cover p={p} />
       <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-baseline justify-between gap-3">
-          <h2 className="font-medium leading-snug">{p.name}</h2>
-          <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-muted)]">
-            {p.links.length > 0 ? p.links.map((l) => l.label).join(", ") : p.privateNote ? "Private" : ""}
-          </span>
-        </div>
+        <h2 className="font-medium leading-snug">{p.name}</h2>
         {p.org ? (
           <p className="mt-1 text-[length:var(--step-small)] text-[var(--fg-muted)]">{p.org}</p>
         ) : null}
@@ -148,13 +175,18 @@ export default function ProjectCard({ p, hasPage }: { p: Project; hasPage: boole
   );
 
   const shell =
-    "group flex flex-col overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--bg-raised)] transition-colors";
+    "group flex flex-col overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--bg-raised)] transition-colors hover:border-[var(--accent)]";
 
-  return hasPage ? (
-    <Link href={`/projects/${p.slug}/`} className={`${shell} hover:border-[var(--accent)]`}>
-      {body}
-    </Link>
-  ) : (
-    <div className={shell}>{body}</div>
+  return (
+    <div className={shell}>
+      {hasPage ? (
+        <Link href={`/projects/${p.slug}/`} className="flex flex-1 flex-col">
+          {body}
+        </Link>
+      ) : (
+        <div className="flex flex-1 flex-col">{body}</div>
+      )}
+      <Actions p={p} />
+    </div>
   );
 }
