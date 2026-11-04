@@ -50,6 +50,10 @@ export function toSlug(name: string): string {
 const STORIES: Record<string, string> = {
   baithak:
     "Most notetakers stop at a transcript. This one pulls out who owns which task and gives each person only theirs, keeps every account's history private, and is pluggable at the speech-to-text layer, so you bring your own engine, not just your own key.",
+  tripkit:
+    "A travel guide that reads the clock: what is open right now in a town, from open data, where the real work is timezone arithmetic, not a model.",
+  "sync-lis-and-the-mehfil-jukebox":
+    "A LAN jukebox where everyone hears the same track clock-aligned, no screen-share and no accounts: the server fetches, every browser streams from it.",
   "yes-wellness-platform":
     "A booking system was double-allocating slots under load. The fix was not more servers, it was row-level locking on the rows that actually contend.",
   sram: "A labour-department platform that had to survive being used by people on cheap phones and bad networks.",
@@ -87,6 +91,35 @@ const POINTS: Record<string, string[]> = {
     "Accounts with per-user data isolation: every session is scoped to its owner at the query layer, so no account can read or edit another's.",
     "Pluggable speech-to-text: a provider adapter lets a user point transcription at their own OpenAI-compatible engine, not just their own key.",
     "Open public demo on server keys, with optional sign-in that saves history.",
+  ],
+  tripkit: [
+    "Travel guide that shows what is open right now in a town, built from OpenStreetMap and Wikivoyage data.",
+    "No install, no account, no model: opening hours are a data problem, so the work is the timezone arithmetic, not inference.",
+    "Ships as a static PWA.",
+  ],
+  "yes-wellness-platform": [
+    "State-wide wellness platform for the MP Ministry of Ayush, launched by the Chief Minister.",
+    "Built the backend for about 5k concurrent users.",
+    "Fixed a booking race that double-allocated slots, using PostgreSQL row-level locking.",
+    "Load-tested with k6 to a sub-100ms P95.",
+  ],
+  sram: [
+    "Labour-department platform for the MP Ministry of Labour, shipped to the Play Store.",
+    "React Native app on a Django backend.",
+  ],
+  "sync-lis-and-the-mehfil-jukebox": [
+    "Self-hosted LAN jukebox plus the Chrome extension that drives it: paste a YouTube, Spotify or SoundCloud link and it plays for everyone on the network, clock-aligned, one shared queue, no accounts.",
+    "The server fetches each track and every browser streams it from the server, so there is no screen-share and no audio capture.",
+    "Spotify audio is DRM'd, so a Spotify link is resolved through oEmbed metadata and matched on YouTube instead.",
+    "Tested with protocol suites, a chaos harness of random actions, and a real two-browser end-to-end run.",
+  ],
+  "prd-verification-tool": [
+    "Chrome extension that compresses, converts and renames PDFs, then auto-fills the matching Google Form.",
+    "Published on the Chrome Web Store.",
+  ],
+  "leetcode-analytics": [
+    "Chrome extension that injects CP-focused metrics into LeetCode profiles: difficulty spread, topic breakdown and trends.",
+    "Reads the profile over LeetCode's GraphQL API, with no data collection.",
   ],
 };
 
