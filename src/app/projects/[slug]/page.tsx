@@ -81,20 +81,24 @@ export default async function ProjectPage({ params }: Props) {
 
       <section className="mt-12">
         <h2 className="text-sm font-medium text-[var(--fg-muted)]">What it is</h2>
-        <p className="mt-4 leading-relaxed">{p.blurb}</p>
-        {/* A counted claim that cannot be fetched live carries the date it was
-            last checked, so a stale number is visibly stale instead of quietly
-            wrong. */}
+        {/* Points first, resume-grade. Prose blurb only where points aren't written yet. */}
+        {p.points.length > 0 ? (
+          <ul className="mt-4 space-y-2.5">
+            {p.points.map((pt, i) => (
+              <li key={i} className="flex gap-3 leading-relaxed">
+                <span className="mt-[0.6rem] h-1 w-1 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden="true" />
+                <span>{pt}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-4 leading-relaxed">{p.blurb}</p>
+        )}
         {p.countsAsOf ? (
           <p className="mt-3 font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
             counts checked {formatDate(p.countsAsOf)}
           </p>
         ) : null}
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-sm font-medium text-[var(--fg-muted)]">Built with</h2>
-        <p className="mt-4 text-[var(--fg-muted)]">{p.stack.join(" · ")}</p>
       </section>
 
       {p.links.length > 0 || p.privateNote ? (
@@ -133,6 +137,28 @@ export default async function ProjectPage({ params }: Props) {
         </section>
       ) : null}
 
+      {p.learnt.length > 0 ? (
+        <section className="mt-12">
+          <h2 className="text-sm font-medium text-[var(--fg-muted)]">What I learnt</h2>
+          <div className="mt-4 space-y-2">
+            {p.learnt.map((l, i) => (
+              <details
+                key={i}
+                className="group rounded-lg border border-[var(--line)] bg-[var(--bg-raised)] px-4 py-3"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+                  {l.title}
+                  <span className="shrink-0 text-lg leading-none text-[var(--fg-muted)] transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">{l.body}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {entries.length > 0 ? (
         <section className="mt-12">
           <h2 className="text-sm font-medium text-[var(--fg-muted)]">The long version</h2>
@@ -150,6 +176,11 @@ export default async function ProjectPage({ params }: Props) {
           </ul>
         </section>
       ) : null}
+
+      <section className="mt-12 border-t border-[var(--line)] pt-8">
+        <h2 className="text-sm font-medium text-[var(--fg-muted)]">Built with</h2>
+        <p className="mt-4 font-mono text-sm text-[var(--fg-muted)]">{p.stack.join("  ·  ")}</p>
+      </section>
     </main>
   );
 }

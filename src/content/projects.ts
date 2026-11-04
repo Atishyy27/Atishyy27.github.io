@@ -9,11 +9,19 @@ import { govtWork, clientWork, orgWork, extensions, hackathons, ownWork, devTool
 
 export type ProjectCategory = "government" | "client" | "institution" | "extension" | "hackathon" | "own" | "tool";
 
+export type Learning = { title: string; body: string };
+
 export type Project = Work & {
   slug: string;
   category: ProjectCategory;
   /** Short, always present. The gallery shows this, not the long blurb. */
   story: string;
+  /** Formal, resume-grade bullets: what it is and what was done. Point by point,
+   *  no prose padding. Empty falls back to the blurb. */
+  points: string[];
+  /** Informal reflections, rendered as dropdowns on the page. The honest "what I
+   *  learnt" that would otherwise sit unread in a journal. His own words only. */
+  learnt: Learning[];
   /**
    * Broad technical domains, derived from `stack`. These drive the second
    * filter on the index. Derived rather than hand-tagged for the same reason
@@ -70,6 +78,40 @@ const STORIES: Record<string, string> = {
   "adobe-india-hackathon-2025": "Document intelligence, scoped to what could actually be finished in the window.",
 };
 
+// Formal, de-larped bullets per project. Resume-grade: what it is, what was done,
+// no inflation. Only filled where the honest version exists; others fall back to
+// the blurb.
+const POINTS: Record<string, string[]> = {
+  baithak: [
+    "Voice-AI meeting notetaker: records the mic or a meeting tab, or takes an uploaded file, and returns a transcript, a topic-wise summary, and action items grouped by the person who owns them.",
+    "Accounts with per-user data isolation: every session is scoped to its owner at the query layer, so no account can read or edit another's.",
+    "Pluggable speech-to-text: a provider adapter lets a user point transcription at their own OpenAI-compatible engine, not just their own key.",
+    "Open public demo on server keys, with optional sign-in that saves history.",
+  ],
+};
+
+// Informal "what I learnt" per project, rendered as dropdowns. His own words.
+const LEARNT: Record<string, Learning[]> = {
+  baithak: [
+    {
+      title: "Serverless keeps no memory between requests",
+      body: "The first version worked locally and lost every session in production. An in-process store is per-instance and resets on cold starts, only an external database is shared across requests. History, add-task, and 'it feels like a product' turned out to be the same bug: no real persistence.",
+    },
+    {
+      title: "Auth is data scoping, not a login button",
+      body: "The login screen is the easy half. The half that matters is a filter by user id on every read and write, miss it on one query and people see each other's meetings. I tested the isolation harder than the login.",
+    },
+    {
+      title: "A demo dies the moment it asks you to sign up",
+      body: "I gated recording behind an account and it killed the demo. The fix was to make auth additive, not a gate: the public path runs and signing in only adds saved history.",
+    },
+    {
+      title: "Bring-your-own-provider is a seam, not a rewrite",
+      body: "Putting every provider call behind one module meant adding a whole new speech-to-text engine is one adapter file plus a dropdown, not a change to the routes or the UI.",
+    },
+  ],
+};
+
 // Which stack entries count as which domain. Substring match, so "Next.js 15"
 // and "Next.js" both land under Frontend. Moved here from the old /work page's
 // explorer when the two routes merged, so there is one copy of this mapping.
@@ -100,6 +142,8 @@ function build(list: Work[], category: ProjectCategory): Project[] {
       slug,
       category,
       story: STORIES[slug] ?? "",
+      points: POINTS[slug] ?? [],
+      learnt: LEARNT[slug] ?? [],
       domains: domainsFor(w),
     };
   });
