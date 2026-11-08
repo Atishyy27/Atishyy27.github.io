@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { oss, mergedRepos, pendingRepos } from "@/content/oss";
+import { oss, mergedRepos, pendingRepos, contributionTiers, contributionKinds, tierSnapshot } from "@/content/oss";
 import { currentWork, ossPrograms } from "@/content/site";
 import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
@@ -101,6 +101,44 @@ export default function Oss() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="mt-20">
+        <h2 className="text-[length:var(--step-h2)] font-medium">Contribution tiers</h2>
+        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+          The merged work by standing in each repo. Level is the merged count there and
+          nothing softer: one is drive-by, two to four recurring, five or a shipped feature
+          is trusted. Objective, not a self-rating. Snapshot {tierSnapshot}.
+        </p>
+        <div className="mt-8">
+          {contributionTiers.map((t) => (
+            <div
+              key={t.level}
+              className="flex items-baseline justify-between gap-4 border-t border-[var(--line)] py-4"
+            >
+              <div>
+                <span className="font-medium">
+                  {t.level} {t.label}
+                </span>
+                <span className="mt-1 block text-[length:var(--step-small)] text-[var(--fg-muted)]">
+                  {t.meaning}
+                  {t.examples.length > 0 && <> · {t.examples.join(", ")}</>}
+                </span>
+              </div>
+              <div className="shrink-0 text-right tabular-nums">
+                <span className="text-2xl font-medium">{t.merges}</span>
+                <span className="ml-1 text-[length:var(--step-small)] text-[var(--fg-muted)]">merged</span>
+                <span className="block text-[length:var(--step-small)] text-[var(--fg-muted)]">
+                  {t.repoCount} repo{t.repoCount === 1 ? "" : "s"}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+          By kind: {contributionKinds}. Reach is shown as a badge, not a tier: A is an
+          org-owned repo over 10k stars, down to D for an individual&apos;s project.
+        </p>
       </section>
 
       {pendingRepos.length > 0 && (

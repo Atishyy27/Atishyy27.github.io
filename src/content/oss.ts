@@ -61,3 +61,29 @@ export function repoSlugs(): string[] {
  * cilium does would be worse than none.
  */
 export const REPO_NOTES: Record<string, string> = {};
+
+/**
+ * Contribution tiers (ATZOSS v2, source cnc/OSS/TIERS.md, hand-checked 7 Nov 2026).
+ * Level is objective, computed from the merged count in a repo: one is drive-by,
+ * two to four recurring, five or a shipped feature is trusted. A point-in-time
+ * snapshot of the 47 merged third-party pull requests, not a live figure.
+ */
+export type ContributionTier = {
+  level: string;
+  label: string;
+  meaning: string;
+  merges: number;
+  repoCount: number;
+  examples: string[];
+};
+
+export const tierSnapshot = "7 Nov 2026";
+
+export const contributionTiers: ContributionTier[] = [
+  { level: "L1", label: "Drive-by", meaning: "a single fix a maintainer took", merges: 15, repoCount: 15, examples: [] },
+  { level: "L2", label: "Recurring", meaning: "work taken more than once", merges: 26, repoCount: 9, examples: ["openswap", "podman", "otel python-contrib", "braidpool", "meshery", "kmesh"] },
+  { level: "L3", label: "Trusted", meaning: "five or more merges, or a shipped feature", merges: 6, repoCount: 1, examples: ["fedimint"] },
+  { level: "L4", label: "Maintainer-track", meaning: "triage or write access inside a project", merges: 0, repoCount: 0, examples: [] },
+];
+
+export const contributionKinds = "43 fixes, 3 docs, 1 infra, no features yet";
