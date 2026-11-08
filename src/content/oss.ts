@@ -6,6 +6,7 @@
 // `fetchedAt` says when.
 
 import raw from "./oss-data.json";
+import prsRaw from "./oss-prs.json";
 
 export type PrState = "merged" | "open" | "closed";
 
@@ -63,27 +64,65 @@ export function repoSlugs(): string[] {
 export const REPO_NOTES: Record<string, string> = {};
 
 /**
- * Contribution tiers (ATZOSS v2, source cnc/OSS/TIERS.md, hand-checked 7 Nov 2026).
- * Level is objective, computed from the merged count in a repo: one is drive-by,
- * two to four recurring, five or a shipped feature is trusted. A point-in-time
- * snapshot of the 47 merged third-party pull requests, not a live figure.
+ * Contribution tiers as a visual tier list (ATZOSS v2, source cnc/OSS/TIERS.md).
+ * Level is per repo, computed from its merged count: one is drive-by, two to four
+ * recurring, five or a shipped feature is trusted. Each repo is one card placed in
+ * its tier band, with reach (repo prominence, A to D) as a badge and the kinds of
+ * work it holds. Data is the committed per-PR snapshot in oss-prs.json, not live.
  */
-export type ContributionTier = {
+export type TierPr = { number: number; title: string; url: string; kind: string };
+export type TierRepo = {
+  full: string;
+  short: string;
+  owner: string;
+  slug?: string;
+  merges: number;
+  reach: string;
+  kinds: string[];
+  prs: TierPr[];
+};
+export type Tier = {
   level: string;
   label: string;
   meaning: string;
-  merges: number;
-  repoCount: number;
-  examples: string[];
+  color: string;
+  repos: TierRepo[];
 };
 
 export const tierSnapshot = "7 Nov 2026";
 
-export const contributionTiers: ContributionTier[] = [
-  { level: "L1", label: "Drive-by", meaning: "a single fix a maintainer took", merges: 15, repoCount: 15, examples: [] },
-  { level: "L2", label: "Recurring", meaning: "work taken more than once", merges: 26, repoCount: 9, examples: ["openswap", "podman", "otel python-contrib", "braidpool", "meshery", "kmesh"] },
-  { level: "L3", label: "Trusted", meaning: "five or more merges, or a shipped feature", merges: 6, repoCount: 1, examples: ["fedimint"] },
-  { level: "L4", label: "Maintainer-track", meaning: "triage or write access inside a project", merges: 0, repoCount: 0, examples: [] },
+const TIER_DEFS: Omit<Tier, "repos">[] = [
+  { level: "L4", label: "Maintainer-track", meaning: "triage or write access inside a project", color: "#a371f7" },
+  { level: "L3", label: "Trusted", meaning: "five or more merges, or a shipped feature", color: "#d29922" },
+  { level: "L2", label: "Recurring", meaning: "a maintainer took the work more than once", color: "#3fb950" },
+  { level: "L1", label: "Drive-by", meaning: "a single fix that landed", color: "#58a6ff" },
 ];
 
-export const contributionKinds = "43 fixes, 3 docs, 1 infra, no features yet";
+function buildOssTiers(): Tier[] {
+  type RawPr = { repo: string; number: number; title: string; url: string; kind: string; level: string; reach: string };
+  const prs = (prsRaw as { prs: RawPr[] }).prs;
+  const reachRank: Record<string, number> = { A: 4, B: 3, C: 2, D: 1 };
+  const byRepo = new Map<string, TierRepo & { level: string }>();
+  for (const p of prs) {
+    let r = byRepo.get(p.repo);
+    if (!r) {
+      const [owner, short] = p.repo.split("/");
+      const slug = oss.repos.find((x) => x.full === p.repo)?.slug;
+      r = { full: p.repo, short, owner, slug, merges: 0, reach: p.reach, kinds: [], prs: [], level: p.level };
+      byRepo.set(p.repo, r);
+    }
+    r.merges += 1;
+    if ((reachRank[p.reach] ?? 0) > (reachRank[r.reach] ?? 0)) r.reach = p.reach;
+    if (!r.kinds.includes(p.kind)) r.kinds.push(p.kind);
+    r.prs.push({ number: p.number, title: p.title, url: p.url, kind: p.kind });
+  }
+  const repos = [...byRepo.values()];
+  return TIER_DEFS.map((d) => ({
+    ...d,
+    repos: repos
+      .filter((r) => r.level === d.level)
+      .sort((a, b) => b.merges - a.merges || (reachRank[b.reach] ?? 0) - (reachRank[a.reach] ?? 0)),
+  }));
+}
+
+export const ossTiers: Tier[] = buildOssTiers();
