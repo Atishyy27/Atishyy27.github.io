@@ -6,18 +6,31 @@
 
    The public site (OSS tier section, writing marked visibility: public, the
    landing) is served separately by GitHub Pages and never touches this Worker.
-   The board and private pages handlers land in the next commits; this commit is
-   the auth gate and the route skeleton, for review before anything is wired to
-   the Sheet or the private repo. */
+   The board and private-page handlers land in the next commits; this commit is
+   the hardened auth gate and the route skeleton, reviewed before anything is
+   wired to the Sheet or the private repo.
+
+   Every response here is same-origin only (no CORS headers, ever) and private,
+   no-store, because the content is per-user and must never sit in a shared or
+   browser cache. Logs carry email, route and status only, never a token or a row. */
 import { verifyAccess } from "./auth.js";
 
-// Public routes need no identity. Kept tiny on purpose: this Worker exists to
-// serve PRIVATE things, so the only public route is a health check. Real public
-// pages live on GitHub Pages.
 const PUBLIC_ROUTES = [{ method: "GET", path: "/healthz" }];
 
 function matchPublic(request, url) {
   return PUBLIC_ROUTES.some(r => r.method === request.method && r.path === url.pathname);
+}
+
+function priv(body, init = {}) {
+  const headers = new Headers(init.headers || {});
+  headers.set("cache-control", "private, no-store");
+  return new Response(body, { ...init, headers });
+}
+function privJson(obj, status = 200) {
+  return priv(JSON.stringify(obj), {
+    status,
+    headers: { "content-type": "application/json" },
+  });
 }
 
 export default {
@@ -25,29 +38,31 @@ export default {
     const url = new URL(request.url);
 
     if (matchPublic(request, url)) {
-      return new Response("ok", { headers: { "content-type": "text/plain" } });
+      return priv("ok", { headers: { "content-type": "text/plain" } });
     }
 
     // Deny by default: nothing below runs without a verified, allowed identity.
     const auth = await verifyAccess(request, env);
     if (!auth.ok) {
-      return new Response(auth.msg, {
-        status: auth.status,
-        headers: { "content-type": "text/plain" },
-      });
+      console.log(`anon ${request.method} ${url.pathname} ${auth.status}`);
+      return priv(auth.msg, { status: auth.status, headers: { "content-type": "text/plain" } });
     }
 
-    // Authenticated and allowed. Private route table. Each route is explicit;
-    // an unmatched one falls through to 404, never to data.
+    // Authenticated and allowed. Explicit route table; an unmatched route is
+    // 404, never a fall-through to data.
     const route = `${request.method} ${url.pathname}`;
+    let res;
     switch (route) {
       case "GET /api/me":
-        return Response.json({ ok: true, email: auth.email });
-      // Board + private-page routes are added next, each behind this same gate:
+        res = privJson({ ok: true, email: auth.email });
+        break;
+      // Added next, each behind this same gate:
       //   GET/POST/PATCH/DELETE /api/tasks[...]  (the Sheet, via a server-side SA)
       //   GET /p/:slug                           (private markdown from the cnc repo)
       default:
-        return new Response("not found", { status: 404 });
+        res = priv("not found", { status: 404, headers: { "content-type": "text/plain" } });
     }
+    console.log(`${auth.email} ${request.method} ${url.pathname} ${res.status}`);
+    return res;
   },
 };

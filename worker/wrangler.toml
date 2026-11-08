@@ -6,6 +6,11 @@ name = "atishay-private"
 main = "src/index.js"
 compatibility_date = "2026-11-01"
 
+# The *.workers.dev and preview hostnames are NOT behind Access. The JWT check
+# already blocks them, but do not expose them at all.
+workers_dev = false
+preview_urls = false
+
 # Non-secret config. Replace the placeholders after the Cloudflare Access app
 # exists, then deploy. ALLOWED_EMAIL is the single Google identity Access admits.
 [vars]

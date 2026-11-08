@@ -17,6 +17,7 @@ import { jwtVerify, createRemoteJWKSet } from "jose";
 
 let jwks;
 function getJwks(env) {
+  if (env.__jwks) return env.__jwks;   // test seam: a local key, never set in prod
   if (!jwks) jwks = createRemoteJWKSet(new URL(`${env.TEAM_DOMAIN}/cdn-cgi/access/certs`));
   return jwks;
 }
@@ -35,6 +36,8 @@ export async function verifyAccess(request, env) {
     const { payload } = await jwtVerify(token, getJwks(env), {
       issuer: env.TEAM_DOMAIN,
       audience: env.POLICY_AUD,
+      algorithms: ["RS256"],       // never accept alg:none or a downgraded alg
+      clockTolerance: "30s",       // a small skew allowance for exp and nbf
     });
     const email = String(payload.email || "").trim().toLowerCase();
     if (!email || email !== env.ALLOWED_EMAIL.trim().toLowerCase()) {
