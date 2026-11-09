@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { oss, mergedRepos, pendingRepos, ossTiers, tierSnapshot } from "@/content/oss";
 import OssTierList from "@/components/OssTierList";
+import OssTimeline from "@/components/OssTimeline";
 import { currentWork, ossPrograms } from "@/content/site";
 import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
@@ -122,6 +123,16 @@ export default function Oss() {
         </p>
         <div className="mt-8">
           <OssTierList tiers={ossTiers} />
+        </div>
+      </section>
+
+      <section className="mt-20">
+        <h2 className="text-[length:var(--step-h2)] font-medium">Merged over time</h2>
+        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+          Each dot is one merged pull request on the day it landed, grouped by repository.
+        </p>
+        <div className="mt-8">
+          <OssTimeline />
         </div>
       </section>
 
