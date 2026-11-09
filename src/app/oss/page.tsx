@@ -8,6 +8,7 @@ import LiveOssCounts from "@/components/LiveOssCounts";
 import { OssSceneMount } from "@/components/SceneMount";
 import RepoLogo from "@/components/RepoLogo";
 import PinnedRepos from "@/components/PinnedRepos";
+import OssScorecard from "@/components/OssScorecard";
 
 export const metadata: Metadata = {
   title: "Open source · Atishay Jain",
@@ -55,6 +56,8 @@ export default function Oss() {
       </p>
 
       <LiveOssCounts snapshotMerged={totals.merged} snapshotAt={fetchedAt} />
+
+      <OssScorecard />
 
       {/* Above the sphere and the table. The page led with counts and then 58
           rows, which is the record but not an answer; these six are. */}

@@ -1,0 +1,54 @@
+{
+ "snapshot": "2026-11-08",
+ "merged": 47,
+ "decided": 89,
+ "mergeRate": 0.528,
+ "medianDaysToMerge": 5.9,
+ "medianHoursToFirstReview": 38,
+ "maintainersWhoMerged": 30,
+ "reposWithMerge": 25,
+ "bySize": [
+  {
+   "bucket": "1-30",
+   "merged": 22,
+   "decided": 40
+  },
+  {
+   "bucket": "31-100",
+   "merged": 20,
+   "decided": 31
+  },
+  {
+   "bucket": "101-300",
+   "merged": 5,
+   "decided": 17
+  },
+  {
+   "bucket": "300+",
+   "merged": 0,
+   "decided": 1
+  }
+ ],
+ "byMonth": [
+  {
+   "month": "2026-03",
+   "merged": 1
+  },
+  {
+   "month": "2026-07",
+   "merged": 12
+  },
+  {
+   "month": "2026-08",
+   "merged": 12
+  },
+  {
+   "month": "2026-09",
+   "merged": 13
+  },
+  {
+   "month": "2026-10",
+   "merged": 9
+  }
+ ]
+}
