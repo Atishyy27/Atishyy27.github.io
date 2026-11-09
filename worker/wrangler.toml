@@ -17,6 +17,7 @@ preview_urls = false
 TEAM_DOMAIN = "https://throbbing-darkness-4cc5.cloudflareaccess.com"
 POLICY_AUD = "dc9df427e4e1265e8eebc55cdaa116ec48bb3c76a01a0eec4c320e7a3aa84003"
 ALLOWED_EMAIL = "sethatishayjain@gmail.com"
+SHEET_ID = "REPLACE-with-the-sheet-id"
 
 # Bind the private area to app.atishay.tech once DNS is on Cloudflare:
 # [[routes]]

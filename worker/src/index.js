@@ -14,6 +14,8 @@
    no-store, because the content is per-user and must never sit in a shared or
    browser cache. Logs carry email, route and status only, never a token or a row. */
 import { verifyAccess } from "./auth.js";
+import { getTasks } from "./sheets.js";
+import { BOARD_HTML } from "./board.js";
 
 const PUBLIC_ROUTES = [{ method: "GET", path: "/healthz" }];
 
@@ -56,8 +58,21 @@ export default {
       case "GET /api/me":
         res = privJson({ ok: true, email: auth.email });
         break;
+      case "GET /api/tasks":
+        try {
+          res = privJson(await getTasks(env));
+        } catch (e) {
+          console.log("tasks error: " + e.message);
+          res = privJson({ error: "tasks unavailable" }, 502);
+        }
+        break;
+      case "GET /":
+        res = priv(null, { status: 302, headers: { location: "/board" } });
+        break;
+      case "GET /board":
+        res = priv(BOARD_HTML, { headers: { "content-type": "text/html; charset=utf-8" } });
+        break;
       // Added next, each behind this same gate:
-      //   GET/POST/PATCH/DELETE /api/tasks[...]  (the Sheet, via a server-side SA)
       //   GET /p/:slug                           (private markdown from the cnc repo)
       default:
         res = priv("not found", { status: 404, headers: { "content-type": "text/plain" } });
