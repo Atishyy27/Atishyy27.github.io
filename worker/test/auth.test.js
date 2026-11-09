@@ -61,3 +61,17 @@ test("healthz is 200, no-store, and carries no data", async () => {
   assert.equal(r.headers.get("cache-control"), "private, no-store");
   assert.equal(r.headers.get("access-control-allow-origin"), null);
 });
+
+test("board sends CSP with the script hash, nosniff and frame denial; 403 body is generic", async () => {
+  const { BOARD_SCRIPT } = await import("../src/board.js");
+  const hash = Buffer.from(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(BOARD_SCRIPT))).toString("base64");
+  const ok = await worker.fetch(new Request("https://x/board", { headers: { "cf-access-jwt-assertion": await sign() } }), env);
+  assert.equal(ok.status, 200);
+  assert.ok(ok.headers.get("content-security-policy").includes(`'sha256-${hash}'`));
+  assert.equal(ok.headers.get("x-content-type-options"), "nosniff");
+  assert.match(ok.headers.get("content-security-policy"), /frame-ancestors 'none'/);
+  assert.match(await ok.text(), /<script>/);
+  const bad = await worker.fetch(new Request("https://x/board"), env);
+  assert.equal(bad.status, 403);
+  assert.equal(await bad.text(), "forbidden");
+});

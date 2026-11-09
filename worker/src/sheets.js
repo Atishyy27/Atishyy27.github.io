@@ -31,7 +31,7 @@ function pemToDer(pem) {
 
 export async function signJwt(sa, nowSec) {
   const header = { alg: "RS256", typ: "JWT" };
-  const claims = { iss: sa.client_email, scope: SCOPE, aud: TOKEN_URL, iat: nowSec, exp: nowSec + 3600 };
+  const claims = { iss: sa.client_email, scope: SCOPE, aud: TOKEN_URL, iat: nowSec - 30, exp: nowSec + 3570 };
   const signingInput = `${b64url(JSON.stringify(header))}.${b64url(JSON.stringify(claims))}`;
   const key = await crypto.subtle.importKey(
     "pkcs8",
@@ -53,7 +53,13 @@ export async function getAccessToken(env) {
   const now = Math.floor(Date.now() / 1000);
   if (cached.token && now < cached.exp - 60) return cached.token;
   if (!env.GOOGLE_SA_KEY) throw new Error("GOOGLE_SA_KEY not set");
-  const sa = JSON.parse(env.GOOGLE_SA_KEY);
+  let sa;
+  try {
+    sa = JSON.parse(env.GOOGLE_SA_KEY);
+  } catch {
+    // Constant message: V8's JSON.parse error can quote a snippet of the key.
+    throw new Error("bad GOOGLE_SA_KEY");
+  }
   const assertion = await signJwt(sa, now);
   const res = await fetch(TOKEN_URL, {
     method: "POST",
@@ -65,6 +71,7 @@ export async function getAccessToken(env) {
   });
   if (!res.ok) throw new Error(`token endpoint ${res.status}`);
   const j = await res.json();
+  if (!j.access_token) throw new Error("no access_token");
   cached = { token: j.access_token, exp: now + (j.expires_in || 3600) };
   return cached.token;
 }

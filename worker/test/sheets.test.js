@@ -75,3 +75,14 @@ test("Calendar column is dropped", () => {
 test("b64url has no padding or unsafe chars", () => {
   assert.equal(b64url(new Uint8Array([251, 255, 254])), "-__-");
 });
+
+test("bad GOOGLE_SA_KEY throws a constant message with no key material", async () => {
+  _resetTokenCache();
+  await assert.rejects(getTasks({ SHEET_ID: "x", GOOGLE_SA_KEY: "{secret-key-material" }), e => e.message === "bad GOOGLE_SA_KEY");
+});
+
+test("200 token response without access_token throws, not cached", async () => {
+  _resetTokenCache();
+  globalThis.fetch = async () => Response.json({});
+  await assert.rejects(getTasks(env), /no access_token/);
+});

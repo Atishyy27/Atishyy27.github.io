@@ -15,7 +15,7 @@
    browser cache. Logs carry email, route and status only, never a token or a row. */
 import { verifyAccess } from "./auth.js";
 import { getTasks } from "./sheets.js";
-import { BOARD_HTML } from "./board.js";
+import { BOARD_HTML, BOARD_SCRIPT } from "./board.js";
 
 const PUBLIC_ROUTES = [{ method: "GET", path: "/healthz" }];
 
@@ -28,10 +28,25 @@ function priv(body, init = {}) {
   headers.set("cache-control", "private, no-store");
   return new Response(body, { ...init, headers });
 }
+const SEC_HEADERS = {
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "referrer-policy": "no-referrer",
+};
+
+let scriptHash;
+async function boardCsp() {
+  if (!scriptHash) {
+    const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(BOARD_SCRIPT));
+    scriptHash = btoa(String.fromCharCode(...new Uint8Array(d)));
+  }
+  return `default-src 'none'; script-src 'sha256-${scriptHash}'; style-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'`;
+}
+
 function privJson(obj, status = 200) {
   return priv(JSON.stringify(obj), {
     status,
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", ...SEC_HEADERS },
   });
 }
 
@@ -46,8 +61,8 @@ export default {
     // Deny by default: nothing below runs without a verified, allowed identity.
     const auth = await verifyAccess(request, env);
     if (!auth.ok) {
-      console.log(`anon ${request.method} ${url.pathname} ${auth.status}`);
-      return priv(auth.msg, { status: auth.status, headers: { "content-type": "text/plain" } });
+      console.log(`anon ${request.method} ${url.pathname} ${auth.status} ${auth.msg}`);
+      return priv(auth.status === 403 ? "forbidden" : auth.msg, { status: auth.status, headers: { "content-type": "text/plain" } });
     }
 
     // Authenticated and allowed. Explicit route table; an unmatched route is
@@ -62,7 +77,7 @@ export default {
         try {
           res = privJson(await getTasks(env));
         } catch (e) {
-          console.log("tasks error: " + e.message);
+          console.log(`tasks error ${e.name} E_TASKS`);
           res = privJson({ error: "tasks unavailable" }, 502);
         }
         break;
@@ -70,7 +85,13 @@ export default {
         res = priv(null, { status: 302, headers: { location: "/board" } });
         break;
       case "GET /board":
-        res = priv(BOARD_HTML, { headers: { "content-type": "text/html; charset=utf-8" } });
+        res = priv(BOARD_HTML, {
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+            "content-security-policy": await boardCsp(),
+            ...SEC_HEADERS,
+          },
+        });
         break;
       // Added next, each behind this same gate:
       //   GET /p/:slug                           (private markdown from the cnc repo)
