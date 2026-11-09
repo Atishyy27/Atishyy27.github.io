@@ -5,7 +5,9 @@
    token, then call spreadsheets.values.get with Authorization: Bearer. */
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const SCOPE = "https://www.googleapis.com/auth/spreadsheets.readonly";
-const DEFAULT_RANGE = "A1:Z1000";
+const DEFAULT_RANGE = "Tasks!A1:M1000";
+// Dead as of 9 Nov; never surfaced.
+const DROP_COLUMNS = new Set(["calendar"]);
 
 const enc = new TextEncoder();
 
@@ -71,7 +73,7 @@ export async function getAccessToken(env) {
 // short rows are padded with "". Fully blank rows are skipped.
 export function rowsToObjects(values) {
   const [headerRow = [], ...body] = values || [];
-  const headers = headerRow.map(h => String(h).trim());
+  const headers = headerRow.map(h => (DROP_COLUMNS.has(String(h).trim().toLowerCase()) ? "" : String(h).trim()));
   const rows = body
     .filter(r => r.some(c => String(c).trim() !== ""))
     .map(r => {

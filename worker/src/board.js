@@ -21,12 +21,12 @@ function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className
 function pick(row,names){for(const k of Object.keys(row)){if(names.includes(k.toLowerCase())&&row[k]!=="")return row[k]}return ""}
 function card(row){
   const c=el("div","card");
-  const title=pick(row,["title","task","name"])||Object.values(row)[0]||"";
-  c.append(el("div","t",title));
-  const due=pick(row,["due","due date"]),pri=pick(row,["priority"]);
-  const meta=[due&&("due "+due),pri&&("priority "+pri)].filter(Boolean).join("  |  ");
+  const tag=pick(row,["tag"]);
+  c.append(el("div","t",(tag?tag+"  ":"")+(pick(row,["task","title","name"])||"")));
+  const f=function(k,l){const v=pick(row,[k]);return v&&(l+v)};
+  const meta=[f("owner",""),f("priority","priority "),f("date",""),f("time",""),f("minutes","")&&(pick(row,["minutes"])+" min")].filter(Boolean).join("  |  ");
   if(meta)c.append(el("div","m",meta));
-  const notes=pick(row,["notes","note"]);
+  const notes=pick(row,["note","notes"]);
   if(notes)c.append(el("div","n",notes));
   return c;
 }

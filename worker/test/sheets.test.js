@@ -56,7 +56,7 @@ test("getTasks: signs a valid RS256 assertion, calls Sheets with bearer, caches 
   );
   assert.ok(ok, "signature verifies with the public key");
 
-  assert.match(calls[1].url, /spreadsheets\/sheet123\/values\/A1%3AZ1000$/);
+  assert.match(calls[1].url, /spreadsheets\/sheet123\/values\/Tasks!A1%3AM1000$/);
   assert.equal(calls[1].init.headers.authorization, "Bearer tok");
 });
 
@@ -64,6 +64,12 @@ test("getTasks rejects placeholder SHEET_ID and missing key", async () => {
   _resetTokenCache();
   await assert.rejects(getTasks({ ...env, SHEET_ID: "REPLACE-with-the-sheet-id" }), /SHEET_ID/);
   await assert.rejects(getTasks({ SHEET_ID: "x" }), /GOOGLE_SA_KEY/);
+});
+
+test("Calendar column is dropped", () => {
+  const out = rowsToObjects([["Tag", "Calendar", "Task"], ["x", "cal", "t"]]);
+  assert.deepEqual(out.headers, ["Tag", "Task"]);
+  assert.deepEqual(out.rows, [{ Tag: "x", Task: "t" }]);
 });
 
 test("b64url has no padding or unsafe chars", () => {
