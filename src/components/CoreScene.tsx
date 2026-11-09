@@ -142,6 +142,8 @@ function Nodes({
         }}
         onClick={(e: ThreeEvent<MouseEvent>) => {
           e.stopPropagation();
+          // a drag that ends over a node is a rotate, not a click
+          if (e.delta > 6) return;
           if (e.instanceId !== undefined) onPick(nodes[e.instanceId]);
         }}
       >
@@ -186,7 +188,11 @@ export default function CoreScene() {
           <Nodes
             nodes={nodes}
             onHover={setHover}
-            onPick={(n) => router.push(`/oss/${n.slug}/`)}
+            onPick={(n) =>
+              n.slug
+                ? router.push(`/oss/${n.slug}/`)
+                : window.open(`https://github.com/${n.full}`, "_blank", "noopener")
+            }
           />
 
           <OrbitControls
