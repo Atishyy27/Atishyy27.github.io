@@ -115,6 +115,11 @@ export default function Oss() {
           The merged work as a tier list, by standing in each repo. Level is the merged
           count there and nothing softer. Objective, not a self-rating. Snapshot {tierSnapshot}.
         </p>
+        <p className="mt-3 text-[length:var(--step-small)]">
+          <Link href="/oss/tier-game/" className="text-[var(--accent)] hover:underline">
+            Play it: tier my repos yourself &rarr;
+          </Link>
+        </p>
         <div className="mt-8">
           <OssTierList tiers={ossTiers} />
         </div>

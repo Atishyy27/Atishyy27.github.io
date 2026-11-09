@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, priority: 1 },
 
     // Top-level sections.
-    ...["/projects/", "/oss/", "/stats/", "/writing/", "/about/"].map((path) => ({
+    ...["/projects/", "/oss/", "/oss/tier-game/", "/stats/", "/writing/", "/about/"].map((path) => ({
       url: `${SITE}${path}`,
       lastModified: now,
       priority: 0.8,
