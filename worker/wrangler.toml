@@ -14,9 +14,9 @@ preview_urls = false
 # Non-secret config. Replace the placeholders after the Cloudflare Access app
 # exists, then deploy. ALLOWED_EMAIL is the single Google identity Access admits.
 [vars]
-TEAM_DOMAIN = "https://REPLACE-team-name.cloudflareaccess.com"
-POLICY_AUD = "REPLACE-with-the-application-AUD-tag"
-ALLOWED_EMAIL = "REPLACE-with-his-login-email"
+TEAM_DOMAIN = "https://throbbing-darkness-4cc5.cloudflareaccess.com"
+POLICY_AUD = "dc9df427e4e1265e8eebc55cdaa116ec48bb3c76a01a0eec4c320e7a3aa84003"
+ALLOWED_EMAIL = "sethatishayjain@gmail.com"
 
 # Bind the private area to app.atishay.tech once DNS is on Cloudflare:
 # [[routes]]
