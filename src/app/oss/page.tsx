@@ -32,7 +32,7 @@ export default function Oss() {
 
       {/* The three states, as counts. Merged is the one that matters, but hiding
           the other two would make the number look better than it is. */}
-      <dl className="mt-12 grid grid-cols-3 gap-x-6">
+      <dl className="mt-12 grid grid-cols-3 gap-x-4 sm:gap-x-6">
         {[
           ["Merged", totals.merged, "#a371f7"],
           ["Still open", totals.open, "#3fb950"],
