@@ -4,7 +4,7 @@
    starts in the pool; drag a card into S/A/B/C (or tap a card, then tap a band,
    for touch). Once all are placed it scores you against the objective tiers
    from content/oss.ts. Pure client state, no backend, nothing persisted. */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import RepoLogo from "@/components/RepoLogo";
 import type { Tier, TierRepo } from "@/content/oss";
 
@@ -42,6 +42,13 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
   const [held, setHeld] = useState<string | null>(null);
   const [over, setOver] = useState<Slot | null>(null);
   const [revealed, setRevealed] = useState(false);
+  // Native drag-and-drop does not fire from a finger swipe (it needs a long
+  // press, which also opens the OS selection menu on some phones), so on touch
+  // the cards are not draggable and tap-then-tap is the interaction.
+  const [coarse, setCoarse] = useState(false);
+  useEffect(() => {
+    setCoarse(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   const put = (full: string, slot: Slot) => {
     setPlace((p) => ({ ...p, [full]: slot }));
@@ -62,7 +69,7 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
   const card = (r: TierRepo, ghost = false) => (
     <div
       key={r.full}
-      draggable
+      draggable={!coarse}
       onDragStart={(e) => {
         e.dataTransfer.setData("text/plain", r.full);
         e.dataTransfer.effectAllowed = "move";
@@ -74,6 +81,14 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
       }}
       onClick={(e) => {
         e.stopPropagation();
+        // holding a card and tapping one that already sits in a band means
+        // "put it in that band": the cards fill the band, so there is little
+        // bare band left to tap on a phone
+        const there = place[r.full];
+        if (held && held !== r.full && there !== "pool") {
+          put(held, there);
+          return;
+        }
         setHeld(held === r.full ? null : r.full);
       }}
       role="button"
@@ -86,14 +101,14 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
         }
       }}
       title={`${r.full}, ${r.merges} merged`}
-      className={`flex cursor-grab select-none items-center gap-2 rounded-lg border bg-[var(--bg-raised)] px-2.5 py-1.5 transition duration-150 active:cursor-grabbing ${
+      className={`flex min-h-[44px] max-w-full cursor-grab touch-manipulation select-none items-center gap-2 rounded-lg border bg-[var(--bg-raised)] px-2.5 py-1.5 transition duration-150 [-webkit-touch-callout:none] active:cursor-grabbing sm:min-h-0 ${
         held === r.full
           ? "border-[var(--accent)] ring-1 ring-[var(--accent)]"
           : "border-[var(--line)] hover:border-[var(--accent)]"
       } ${ghost ? "opacity-60" : ""}`}
     >
       <RepoLogo owner={r.owner} size={20} />
-      <span className="text-sm font-medium">{r.short}</span>
+      <span className="min-w-0 truncate text-sm font-medium">{r.short}</span>
       <span className="tabular-nums text-[length:var(--step-small)] text-[var(--fg-muted)]">
         {r.merges}
       </span>
@@ -142,14 +157,14 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
         {BANDS.map((b) => (
           <div key={b.id} className="flex items-stretch border-b border-[var(--line)] last:border-b-0">
             <div
-              className="flex w-16 shrink-0 items-center justify-center text-2xl font-bold text-black/85 sm:w-20"
+              className="flex w-11 shrink-0 items-center justify-center text-2xl font-bold text-black/85 sm:w-20"
               style={{ background: b.color }}
             >
               {b.id}
             </div>
             <div
               {...dropProps(b.id)}
-              className={`flex min-h-[64px] flex-1 flex-wrap content-center items-center gap-2 p-3 transition ${
+              className={`flex min-h-[64px] min-w-0 flex-1 flex-wrap content-center items-center gap-2 p-2 transition sm:p-3 ${
                 over === b.id || held ? "bg-[var(--bg-raised)]" : ""
               } ${over === b.id ? "outline outline-1 -outline-offset-4 outline-[var(--accent)]" : ""}`}
             >
@@ -166,7 +181,7 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
               ))}
               {inSlot(b.id).length === 0 ? (
                 <span className="px-2 text-[length:var(--step-small)] text-[var(--fg-muted)]">
-                  drop repos here
+                  {coarse ? "tap here to place" : "drop repos here"}
                 </span>
               ) : null}
             </div>
@@ -183,7 +198,7 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
         {inSlot("pool").map((r) => card(r))}
         {inSlot("pool").length === 0 ? (
           <span className="px-2 text-[length:var(--step-small)] text-[var(--fg-muted)]">
-            all placed. drag a card back here to take it out.
+            all placed. {coarse ? "pick a card, then tap here" : "drag a card back here"} to take it out.
           </span>
         ) : null}
       </div>
@@ -195,17 +210,52 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
           </span>
         ) : held ? (
           "Now tap a band to place it."
+        ) : coarse ? (
+          "Tap a repo, then tap a band. The number is merged PRs there."
         ) : (
           "Drag a repo into a band, or tap a repo and then a band. The number is merged PRs there."
         )}
       </p>
+
+      {/* Phone only. A held card in the pool can be a screen away from the
+          band it is meant for, so the destinations ride along at the bottom. */}
+      {held ? (
+        <div
+          role="group"
+          aria-label="place the selected repo"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[var(--bg)] px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:hidden"
+        >
+          <p className="mb-2 truncate font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-muted)]">
+            place {repos.find((r) => r.full === held)?.short}
+          </p>
+          <div className="grid grid-cols-6 gap-2">
+            {BANDS.map((b) => (
+              <button
+                key={b.id}
+                type="button"
+                onClick={() => put(held, b.id)}
+                className="min-h-[44px] rounded-lg text-lg font-bold text-black/85"
+                style={{ background: b.color }}
+              >
+                {b.id}
+              </button>
+            ))}
+            <button type="button" onClick={() => put(held, "pool")} className={`${chip(false)} min-h-[44px]`}>
+              pool
+            </button>
+            <button type="button" onClick={() => setHeld(null)} className={`${chip(false)} min-h-[44px]`}>
+              x
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       {revealed ? (
         <div className="mt-6 overflow-hidden rounded-xl border border-[var(--line)]">
           {BANDS.map((b) => (
             <div key={b.id} className="flex items-stretch border-b border-[var(--line)] last:border-b-0">
               <div
-                className="flex w-16 shrink-0 items-center justify-center text-sm font-bold text-black/85 sm:w-20"
+                className="flex w-11 shrink-0 items-center justify-center text-sm font-bold text-black/85 sm:w-20"
                 style={{ background: b.color }}
               >
                 {b.real}
