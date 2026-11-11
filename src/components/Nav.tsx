@@ -17,6 +17,14 @@ const LINKS: [string, string][] = [
 export default function Nav() {
   const [active, setActive] = useState("");
   const [solid, setSolid] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   useEffect(() => {
     const ids: string[] = [];
@@ -44,14 +52,14 @@ export default function Nav() {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
-        solid ? "border-b border-[var(--line)] bg-[#07090dcc] backdrop-blur-lg" : ""
+        solid || open ? "border-b border-[var(--line)] bg-[#07090df2] backdrop-blur-lg md:bg-[#07090dcc]" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-10 lg:px-16">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-10 sm:py-4 lg:px-16">
         <a
           href="/"
           onClick={() => window.dispatchEvent(new CustomEvent("aj-logo-poke"))}
-          className="font-mono text-sm font-medium tracking-tight"
+          className="inline-flex min-h-11 items-center font-mono text-sm font-medium tracking-tight"
         >
           AJ<span className="text-[var(--accent)]">.</span>
         </a>
@@ -76,12 +84,40 @@ export default function Nav() {
           <LightsToggle />
           <a
             href="/about/#contact"
-            className="rounded-full border border-[var(--line)] px-4 py-1.5 text-xs transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="hidden rounded-full border border-[var(--line)] px-4 py-1.5 text-xs sm:inline-block transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             Contact
           </a>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((o) => !o)}
+            className="grid h-11 w-11 place-items-center rounded-full border border-[var(--line)] md:hidden"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+              {open ? <path d="M4 4l10 10M14 4L4 14" /> : <path d="M3 5h12M3 9h12M3 13h12" />}
+            </svg>
+          </button>
         </div>
       </div>
+      {open && (
+        <div id="mobile-menu" className="border-t border-[var(--line)] px-4 pb-4 pt-2 md:hidden">
+          {[...LINKS, ["Contact", "/about/#contact"] as [string, string]].map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              className={`flex min-h-12 items-center border-b border-[var(--line)] text-base last:border-b-0 ${
+                active === href ? "text-[var(--accent)]" : "text-[var(--fg)]"
+              }`}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
