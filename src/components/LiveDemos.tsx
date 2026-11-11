@@ -21,14 +21,14 @@ export default function LiveDemos({ demos }: { demos: Demo[] }) {
         {demos.length} of these run in a frame right here. Pick one; nothing loads until
         you ask.
       </p>
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="pick a project to run">
         {demos.map((x, n) => (
           <button
             key={x.slug}
             type="button"
             onClick={() => setI(n)}
             aria-pressed={n === i}
-            className={`rounded-full border px-3 py-1 font-mono text-[10px] uppercase tracking-[0.12em] transition ${
+            className={`min-h-[40px] rounded-full border px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.12em] transition sm:min-h-0 sm:px-3 sm:py-1 ${
               n === i
                 ? "border-[var(--accent)] text-[var(--accent)]"
                 : "border-[var(--line)] text-[var(--fg-muted)] hover:text-[var(--fg)]"
@@ -39,6 +39,16 @@ export default function LiveDemos({ demos }: { demos: Demo[] }) {
         ))}
       </div>
       <LiveEmbed key={d.slug} href={d.href} name={d.name} />
+      {/* A framed site on a phone fights the page for scrolling; the plain
+          tab is always the better way to use it there. */}
+      <a
+        href={d.href}
+        target="_blank"
+        rel="noopener"
+        className="mt-3 inline-flex min-h-[40px] items-center font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-muted)] hover:text-[var(--fg)] sm:min-h-0"
+      >
+        open {d.name} in its own tab &rarr;
+      </a>
     </section>
   );
 }

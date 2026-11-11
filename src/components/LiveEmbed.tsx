@@ -36,11 +36,11 @@ export default function LiveEmbed({ href, name }: { href: string; name: string }
             // same-origin is not granted; it renders and runs, and that is all.
             sandbox="allow-scripts allow-popups allow-forms"
             referrerPolicy="no-referrer"
-            className="block h-[520px] w-full bg-white"
+            className="block h-[70svh] max-h-[640px] min-h-[420px] w-full bg-white sm:h-[520px]"
           />
           <button
             onClick={() => setOn(false)}
-            className="absolute right-3 top-3 rounded-full border border-[var(--line)] bg-[var(--bg)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--fg-muted)] hover:text-[var(--fg)]"
+            className="absolute right-3 top-3 min-h-[40px] rounded-full border border-[var(--line)] bg-[var(--bg)] px-4 py-2 font-mono sm:min-h-0 sm:px-3 sm:py-1 text-[10px] uppercase tracking-[0.1em] text-[var(--fg-muted)] hover:text-[var(--fg)]"
           >
             close
           </button>
