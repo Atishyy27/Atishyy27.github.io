@@ -62,6 +62,20 @@ export function repoSlugs(): string[] {
  * cilium does would be worse than none.
  */
 export const REPO_NOTES: Record<string, string> = {
+  "cilium-cilium":
+    "CNCF Graduated project. PR #47516 cited in the official v1.21.0-pre.0 changelog: envoy XDS node IP parsing validation.",
+  "shap-shap":
+    "Major ML interpretability library (25k+ stars). PR #5164 cited by name in v0.53.0 release notes for KernelExplainer DataFrame column matching.",
+  "prefix-dev-pixi":
+    "Fast package manager built on conda & rattler (6k+ stars). PR #7095 cited by name in the v0.82.0 release notes for CLI command suggestion hardening.",
+  "citadel-foss-openswap":
+    "Bitcoin atomic swap protocol. PR #1035 cited under Security in the v0.2.3 release notes: multisig redeemscript length validation preventing peer crash exploits.",
+  "open-telemetry-opentelemetry-python-contrib":
+    "CNCF Graduated observability framework. Three PRs (#4942, #4943, #4936) cited in v0.66b0 release notes fixing IndexError panics on comment-only statements in psycopg2, psycopg3, and SQLAlchemy.",
+  "meshery-meshery":
+    "CNCF multi-service mesh orchestrator. PR #20733 cited by name in v1.0.60 release notes: server nil pointer crash fix in MeshSync auto-registration.",
+  "openeverest-openeverest":
+    "Cloud database orchestration engine. PR #2851 cited in v2.0.0-dev.2 & v1.17.0 release notes: nil pointer panic fix during JWT PEM key parsing.",
   "fedimint-fedimint":
     "Four pull requests explicitly cited across production releases v0.13.0 and v0.12.0, covering P2P frame consensus reliability, untrusted timestamp panic prevention, Lightning address validation, and payment fee limits.",
 };
