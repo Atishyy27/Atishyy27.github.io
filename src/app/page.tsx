@@ -70,7 +70,7 @@ export default function Home() {
             href={`mailto:${person.email}`}
             data-track="home:email"
             onClick={() => capture("email_click", { from: "home" })}
-            className="rounded-full bg-[var(--accent)] px-4 py-2 font-medium text-[#06181a] transition-opacity hover:opacity-90"
+            className="inline-flex min-h-11 items-center rounded-full bg-[var(--accent)] px-4 py-2 font-medium text-[#06181a] transition-opacity hover:opacity-90"
           >
             {person.email}
           </a>

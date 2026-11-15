@@ -23,7 +23,7 @@
 
   /* Type scale. Two jumps only: display, then body. Complexity in the scale is what
      makes a page look busy. */
-  --step-display: clamp(2.75rem, 7vw, 5rem);
+  --step-display: clamp(2.25rem, 7vw, 5rem);
   --step-h2: 1.125rem;
   --step-body: 1rem;
   --step-small: 0.8125rem;
@@ -168,6 +168,11 @@ body {
 @media (max-width: 640px) {
   .row { grid-template-columns: 1fr; gap: 0.35rem; }
 }
+.row > * { min-width: 0; }
+.row-name, .row-line { overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .row-kind:empty { display: none; }
+}
 .row-kind {
   font-size: var(--step-small);
   color: var(--fg-muted);
@@ -283,3 +288,20 @@ html[data-lights="flat"] *::after {
   letter-spacing: 0.15em;
 }
 .scene-off button:hover { border-color: var(--accent); }
+
+/* ---------- phones ---------- */
+
+/* iOS Safari zooms the whole page when a field under 16px gets focus. */
+@media (max-width: 640px) {
+  input, textarea, select { font-size: 16px !important; }
+}
+
+/* Touch targets: the lights switch is the smallest control on the site. */
+@media (pointer: coarse) {
+  .lights-seg { min-height: 38px; padding-inline: 0.75rem; }
+  /* Vertical padding on an inline link grows its hit area without moving the
+     text; the underline is pushed down by the same amount to stay under it. */
+  .link { padding-block: 0.6rem; }
+  .link::after { bottom: calc(0.6rem - 2px); }
+  .scene-off button { min-height: 44px; padding-inline: 1.25rem; }
+}

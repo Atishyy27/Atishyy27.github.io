@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { oss, mergedRepos, pendingRepos, ossTiers, tierSnapshot } from "@/content/oss";
 import OssTierList from "@/components/OssTierList";
+import OssTimeline from "@/components/OssTimeline";
 import { currentWork, ossPrograms } from "@/content/site";
 import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
@@ -32,7 +33,7 @@ export default function Oss() {
 
       {/* The three states, as counts. Merged is the one that matters, but hiding
           the other two would make the number look better than it is. */}
-      <dl className="mt-12 grid grid-cols-3 gap-x-6">
+      <dl className="mt-12 grid grid-cols-3 gap-x-4 sm:gap-x-6">
         {[
           ["Merged", totals.merged, "#a371f7"],
           ["Still open", totals.open, "#3fb950"],
@@ -118,8 +119,23 @@ export default function Oss() {
           The merged work as a tier list, by standing in each repo. Level is the merged
           count there and nothing softer. Objective, not a self-rating. Snapshot {tierSnapshot}.
         </p>
+        <p className="mt-3 text-[length:var(--step-small)]">
+          <Link href="/oss/tier-game/" className="text-[var(--accent)] hover:underline">
+            Play it: tier my repos yourself &rarr;
+          </Link>
+        </p>
         <div className="mt-8">
           <OssTierList tiers={ossTiers} />
+        </div>
+      </section>
+
+      <section className="mt-20">
+        <h2 className="text-[length:var(--step-h2)] font-medium">Merged over time</h2>
+        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+          Each dot is one merged pull request on the day it landed, grouped by repository.
+        </p>
+        <div className="mt-8">
+          <OssTimeline />
         </div>
       </section>
 

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { allProjects, pagedProjects } from "@/content/projects";
+import { canEmbed } from "@/lib/embeddable";
+import LiveDemos, { type Demo } from "@/components/LiveDemos";
 import { otherHackathons } from "@/content/site";
 import ProjectExplorer from "@/components/ProjectExplorer";
 import StoreShelf from "@/components/StoreShelf";
@@ -22,6 +24,10 @@ export const metadata: Metadata = {
 
 export default function ProjectsIndex() {
   const withProof = allProjects.filter((p) => p.links.length > 0).length;
+  const demos: Demo[] = allProjects.flatMap((p) => {
+    const live = p.links.find((l) => canEmbed(l.href));
+    return live ? [{ slug: p.slug, name: p.name, href: live.href }] : [];
+  });
 
   return (
     <main className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-8">
@@ -39,6 +45,8 @@ export default function ProjectsIndex() {
           filterable list of nineteen made the only directly actionable thing
           on the page the hardest to find. */}
       <StoreShelf />
+
+      <LiveDemos demos={demos} />
 
       <ProjectExplorer
         projects={allProjects}
