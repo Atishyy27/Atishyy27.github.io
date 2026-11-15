@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import RepoLogo from "@/components/RepoLogo";
 import {
@@ -5,12 +8,28 @@ import {
   RELATED_ARCHITECTURAL_ISSUES,
 } from "@/content/citations";
 
-export default function CitationsSection() {
+interface Props {
+  initialLimit?: number;
+  showAllToggle?: boolean;
+  className?: string;
+}
+
+export default function CitationsSection({
+  initialLimit,
+  showAllToggle = true,
+  className = "mt-16 border-t border-[var(--line)] pt-10",
+}: Props) {
+  const [showAll, setShowAll] = useState(!initialLimit);
   const totalCitedPrs = RELEASE_CITATIONS.reduce((n, r) => n + r.prs.length, 0);
   const totalReleases = RELEASE_CITATIONS.length;
 
+  const visibleCitations =
+    initialLimit && !showAll
+      ? RELEASE_CITATIONS.slice(0, initialLimit)
+      : RELEASE_CITATIONS;
+
   return (
-    <section className="mt-16 border-t border-[var(--line)] pt-10">
+    <section className={className}>
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         <div>
           <div className="flex items-center gap-2">
@@ -29,7 +48,7 @@ export default function CitationsSection() {
       </div>
 
       <div className="mt-8 space-y-5">
-        {RELEASE_CITATIONS.map((rel) => {
+        {visibleCitations.map((rel) => {
           const [owner] = rel.repo.split("/");
           return (
             <div
@@ -105,7 +124,24 @@ export default function CitationsSection() {
         })}
       </div>
 
-      {RELATED_ARCHITECTURAL_ISSUES.length > 0 && (
+      {initialLimit && showAllToggle && (
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            className="rounded-full border border-[var(--line)] bg-[var(--bg-raised)] px-4 py-2 font-mono text-xs text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
+          >
+            {showAll
+              ? "Show fewer citations ↑"
+              : `View all ${totalReleases} release citations (${totalCitedPrs} PRs) ↓`}
+          </button>
+          <Link href="/oss/" className="text-xs font-mono text-[var(--fg-muted)] hover:text-[var(--fg)] hover:underline">
+            See complete open-source record &rarr;
+          </Link>
+        </div>
+      )}
+
+      {RELATED_ARCHITECTURAL_ISSUES.length > 0 && showAll && (
         <div className="mt-6 rounded-xl border border-[var(--line)]/60 bg-[var(--bg)]/50 p-4">
           <div className="flex items-center gap-2">
             <span className="font-mono text-[10px] tracking-wider text-[var(--fg-muted)] uppercase">

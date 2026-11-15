@@ -41,6 +41,13 @@ export type OssData = {
 
 export const oss = raw as OssData;
 
+/** All repos sorted by landed merges first, then open PRs, then total PRs. */
+export const allRepos: OssRepo[] = [...oss.repos].sort((a, b) => {
+  if (b.merged !== a.merged) return b.merged - a.merged;
+  if (b.open !== a.open) return b.open - a.open;
+  return b.prs.length - a.prs.length;
+});
+
 /** Repos with at least one merged PR, best first. These are the record. */
 export const mergedRepos: OssRepo[] = oss.repos.filter((r) => r.merged > 0);
 

@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/content/oss-stats.ts src/content/oss-data.json src/content/cp.ts src/content/activity.ts src/content/store.ts
+          git add src/content/oss-stats.ts src/content/oss-data.json src/content/oss-issues.json src/content/cp.ts src/content/activity.ts src/content/store.ts
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): automated dynamic stats refresh [skip ci]"
             git push

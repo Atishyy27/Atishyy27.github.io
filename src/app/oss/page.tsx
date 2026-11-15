@@ -1,16 +1,17 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { oss, mergedRepos, pendingRepos, ossTiers, tierSnapshot } from "@/content/oss";
+import { oss, allRepos, ossTiers, tierSnapshot } from "@/content/oss";
 import OssTierList from "@/components/OssTierList";
 import OssTimeline from "@/components/OssTimeline";
 import { currentWork, ossPrograms } from "@/content/site";
 import { formatDate } from "@/lib/date";
 import LiveOssCounts from "@/components/LiveOssCounts";
 import { OssSceneMount } from "@/components/SceneMount";
-import RepoLogo from "@/components/RepoLogo";
 import PinnedRepos from "@/components/PinnedRepos";
 import CitationsSection from "@/components/CitationsSection";
 import OssScorecard from "@/components/OssScorecard";
+import OssIssuesSection from "@/components/OssIssuesSection";
+import UnifiedOssRepos from "@/components/UnifiedOssRepos";
 
 export const metadata: Metadata = {
   title: "Open source · Atishay Jain",
@@ -18,9 +19,6 @@ export const metadata: Metadata = {
     "Every pull request opened against a repository I do not own, with the real link on each row.",
 };
 
-// One row per repository, sorted by what actually landed. The page used to be a
-// single live widget over an empty card, which is why it read as hollow: the
-// record is 172 pull requests across 58 projects and none of it was on screen.
 export default function Oss() {
   const { totals, repoCount, fetchedAt } = oss;
 
@@ -32,8 +30,7 @@ export default function Oss() {
         Every row links to the pull request itself.
       </p>
 
-      {/* The three states, as counts. Merged is the one that matters, but hiding
-          the other two would make the number look better than it is. */}
+      {/* The three states, as counts */}
       <dl className="mt-12 grid grid-cols-3 gap-x-4 sm:gap-x-6">
         {[
           ["Merged", totals.merged, "#a371f7"],
@@ -59,25 +56,48 @@ export default function Oss() {
 
       <LiveOssCounts snapshotMerged={totals.merged} snapshotAt={fetchedAt} />
 
+      {/* 1. Scorecard with dynamic metrics & monthly chart */}
       <OssScorecard />
 
-      {/* Above the sphere and the table. The page led with counts and then 58
-          rows, which is the record but not an answer; these six are. */}
+      {/* 2. Top Pinned Highlights */}
       <PinnedRepos />
 
-      {/* Production release notes citing specific PRs. Verifiable evidence
-          that code landed in production releases. */}
+      {/* 3. Citations in Production Releases */}
       <CitationsSection />
 
-      {/* The repository sphere. It lived on the home page, which is the wrong
-          place for it: the home page's subject is the projects, and this is
-          every repo I have pushed at. It belongs next to the table it plots. */}
-      <OssSceneMount />
+      {/* 4. Contribution Tiers (Prominent, above repo tables) */}
+      <section className="mt-20 border-t border-[var(--line)] pt-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+          <h2 className="text-[length:var(--step-h2)] font-medium">Contribution tiers</h2>
+          <Link href="/oss/tier-game/" className="text-xs font-mono text-[var(--accent)] hover:underline">
+            Play it: tier my repos yourself &rarr;
+          </Link>
+        </div>
+        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+          The merged work as a tier list, by standing in each repo. Level is the merged
+          count there and nothing softer. Objective, not a self-rating. Snapshot {tierSnapshot}.
+        </p>
+        <div className="mt-8">
+          <OssTierList tiers={ossTiers} />
+        </div>
+      </section>
 
-      {/* The one that is current work rather than record. Kept above the table
-          because it is the answer to "what are you doing now", which the table
-          cannot give. */}
-      <section className="mt-16 border-t border-[var(--line)] pt-8">
+      {/* 5. Merged Over Time Timeline */}
+      <section className="mt-20 border-t border-[var(--line)] pt-12">
+        <h2 className="text-[length:var(--step-h2)] font-medium">Merged over time</h2>
+        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
+          Each dot is one merged pull request on the day it landed, grouped by repository.
+        </p>
+        <div className="mt-8">
+          <OssTimeline />
+        </div>
+      </section>
+
+      {/* 6. Self-Sourced Upstream Issues */}
+      <OssIssuesSection />
+
+      {/* 7. Current Work / Grant */}
+      <section className="mt-20 border-t border-[var(--line)] pt-12">
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
           <h2 className="text-[length:var(--step-h2)] font-medium">{currentWork.title}</h2>
           <span className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">
@@ -93,85 +113,19 @@ export default function Oss() {
         </p>
       </section>
 
-      <section className="mt-20">
-        <h2 className="text-[length:var(--step-h2)] font-medium">
-          Landed ({mergedRepos.length} projects)
-        </h2>
+      {/* 8. Unified Repositories Table (Merged + Open together with search, filters & pagination) */}
+      <UnifiedOssRepos repos={allRepos} />
+
+      {/* 9. Repository 3D Sphere */}
+      <div className="mt-24 border-t border-[var(--line)] pt-12">
+        <h2 className="text-[length:var(--step-h2)] font-medium">Repository Sphere</h2>
+        <p className="mt-2 max-w-prose text-[length:var(--step-small)] text-[var(--fg-muted)]">
+          Interactive WebGL sphere mapping every repository with pull request activity.
+        </p>
         <div className="mt-6">
-          {mergedRepos.map((r) => (
-            <Link key={r.slug} href={`/oss/${r.slug}/`} className="row group">
-              <span className="row-kind flex items-center gap-2.5 tabular-nums">
-                <RepoLogo owner={r.owner} />
-                {r.merged} merged
-              </span>
-              <span>
-                <span className="row-name">{r.full}</span>
-                <span className="row-line block">
-                  {r.prs[0]?.title}
-                </span>
-              </span>
-              <span className="row-kind whitespace-nowrap tabular-nums">
-                {r.prs.length} total
-              </span>
-            </Link>
-          ))}
+          <OssSceneMount />
         </div>
-      </section>
-
-      <section className="mt-20">
-        <h2 className="text-[length:var(--step-h2)] font-medium">Contribution tiers</h2>
-        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
-          The merged work as a tier list, by standing in each repo. Level is the merged
-          count there and nothing softer. Objective, not a self-rating. Snapshot {tierSnapshot}.
-        </p>
-        <p className="mt-3 text-[length:var(--step-small)]">
-          <Link href="/oss/tier-game/" className="text-[var(--accent)] hover:underline">
-            Play it: tier my repos yourself &rarr;
-          </Link>
-        </p>
-        <div className="mt-8">
-          <OssTierList tiers={ossTiers} />
-        </div>
-      </section>
-
-      <section className="mt-20">
-        <h2 className="text-[length:var(--step-h2)] font-medium">Merged over time</h2>
-        <p className="mt-3 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
-          Each dot is one merged pull request on the day it landed, grouped by repository.
-        </p>
-        <div className="mt-8">
-          <OssTimeline />
-        </div>
-      </section>
-
-      {pendingRepos.length > 0 && (
-        <section className="mt-20">
-          <h2 className="text-[length:var(--step-h2)] font-medium">
-            In flight ({pendingRepos.length} projects)
-          </h2>
-          <p className="mt-3 max-w-prose text-[length:var(--step-small)] text-[var(--fg-muted)]">
-            Open or closed without merging. Listed because a contribution record that
-            only shows the wins is not a record.
-          </p>
-          <div className="mt-6">
-            {pendingRepos.map((r) => (
-              <Link key={r.slug} href={`/oss/${r.slug}/`} className="row group">
-                <span className="row-kind flex items-center gap-2.5 tabular-nums">
-                  <RepoLogo owner={r.owner} />
-                  {r.open > 0 ? `${r.open} open` : `${r.closed} closed`}
-                </span>
-                <span>
-                  <span className="row-name">{r.full}</span>
-                  <span className="row-line block">{r.prs[0]?.title}</span>
-                </span>
-                <span className="row-kind whitespace-nowrap tabular-nums">
-                  {r.prs.length} total
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+      </div>
     </main>
   );
 }

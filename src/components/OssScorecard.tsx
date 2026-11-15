@@ -46,13 +46,19 @@ export default function OssScorecard() {
         </div>
         <div>
           <h3 className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">Merged per month</h3>
-          <div className="mt-3 flex h-28 items-end gap-1.5">
-            {card.byMonth.map((m) => (
-              <div key={m.month} className="flex flex-1 flex-col items-center gap-1" title={`${m.month}: ${m.merged}`}>
-                <div className="w-full rounded-sm bg-[var(--accent)]" style={{ height: `${(100 * m.merged) / top}%` }} />
-                <span className="font-mono text-[10px] text-[var(--fg-muted)]">{m.month.slice(5)}</span>
-              </div>
-            ))}
+          <div className="mt-3 flex h-28 items-end gap-2 pt-2">
+            {card.byMonth.map((m) => {
+              const pct = top > 0 ? Math.round((100 * m.merged) / top) : 0;
+              return (
+                <div key={m.month} className="flex h-full flex-1 flex-col items-center justify-end gap-1" title={`${m.month}: ${m.merged} merged`}>
+                  <span className="font-mono text-[10px] tabular-nums text-[var(--fg-muted)]">{m.merged}</span>
+                  <div className="w-full flex-1 flex items-end">
+                    <div className="w-full rounded-sm bg-[var(--accent)] min-h-[4px]" style={{ height: `${pct}%` }} />
+                  </div>
+                  <span className="font-mono text-[10px] text-[var(--fg-muted)]">{m.month.slice(5)}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

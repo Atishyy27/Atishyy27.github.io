@@ -87,3 +87,8 @@ export const listings: Listing[] = [
     icon: "/ext/sram.webp",
   },
 ];
+
+export const STORE_USERS = listings
+  .filter((l) => l.store === "Chrome Web Store")
+  .reduce((acc, l) => acc + (parseInt(l.users ?? "0", 10) || 0), 0);
+

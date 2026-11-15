@@ -1,22 +1,22 @@
 {
- "snapshot": "2026-11-14",
- "merged": 49,
- "decided": 94,
- "mergeRate": 0.521,
+ "snapshot": "2026-11-16",
+ "merged": 51,
+ "decided": 96,
+ "mergeRate": 0.531,
  "medianDaysToMerge": 5.9,
  "medianHoursToFirstReview": 40,
- "maintainersWhoMerged": 31,
- "reposWithMerge": 26,
+ "maintainersWhoMerged": 32,
+ "reposWithMerge": 27,
  "bySize": [
   {
    "bucket": "1-30",
-   "merged": 23,
-   "decided": 44
+   "merged": 24,
+   "decided": 45
   },
   {
    "bucket": "31-100",
-   "merged": 20,
-   "decided": 31
+   "merged": 21,
+   "decided": 32
   },
   {
    "bucket": "101-300",
@@ -52,7 +52,7 @@
   },
   {
    "month": "2026-11",
-   "merged": 2
+   "merged": 4
   }
  ]
 }

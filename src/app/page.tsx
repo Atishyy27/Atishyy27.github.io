@@ -6,6 +6,7 @@ import { allProjects } from "@/content/projects";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
 import StoreShelf from "@/components/StoreShelf";
+import CitationsSection from "@/components/CitationsSection";
 import { ProjectGraphMount } from "@/components/SceneMount";
 import { nodes, edges, sharedTech } from "@/content/graph";
 import { capture } from "@/lib/posthog";
@@ -93,9 +94,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ---------------- the argument ---------------- */}
-      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
+      {/* ---------------- the argument: shipped products & systems citations ---------------- */}
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 space-y-16">
         <StoreShelf />
+        <CitationsSection initialLimit={3} />
       </div>
 
       {/* ---------------- counted facts ---------------- */}
