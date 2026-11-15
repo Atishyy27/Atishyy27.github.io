@@ -77,7 +77,7 @@ export default function OssTierList({ tiers }: { tiers: Tier[] }) {
                       <span className="tabular-nums text-[length:var(--step-small)] text-[var(--fg-muted)]">
                         {r.merges}
                       </span>
-                      <span className="rounded border border-[var(--line)] px-1 font-mono text-[9px] leading-4 text-[var(--fg-muted)]">
+                      <span className="rounded border border-[var(--line)] px-1 font-mono text-[10px] leading-4 text-[var(--fg-muted)]">
                         {r.reach}
                       </span>
                     </a>

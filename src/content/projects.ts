@@ -37,6 +37,7 @@ export type Project = Work & {
 };
 
 export function toSlug(name: string): string {
+  if (/moral/i.test(name)) return "4moral";
   return name
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")

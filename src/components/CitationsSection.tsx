@@ -45,7 +45,7 @@ export default function CitationsSection() {
                         {rel.project} · {rel.repo}
                       </span>
                       {rel.tier && (
-                        <span className="rounded-full border border-[var(--line)] bg-[var(--bg)] px-2 py-0.5 font-mono text-[9px] text-[var(--accent)]">
+                        <span className="rounded-full border border-[var(--line)] bg-[var(--bg)] px-2 py-0.5 font-mono text-[10px] text-[var(--accent)]">
                           {rel.tier}
                         </span>
                       )}

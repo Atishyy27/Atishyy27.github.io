@@ -80,7 +80,7 @@ export default function OssTimeline() {
                 {ticks.map((t) => (
                   <span
                     key={t.at}
-                    className="absolute top-0 -translate-x-1/2 font-mono text-[9px] uppercase text-[var(--fg-muted)]"
+                    className="absolute top-0 -translate-x-1/2 font-mono text-[10px] uppercase text-[var(--fg-muted)]"
                     style={{ left: `${pct(t.at)}%` }}
                   >
                     {t.label}

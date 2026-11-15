@@ -50,7 +50,7 @@ export default function OssScorecard() {
             {card.byMonth.map((m) => (
               <div key={m.month} className="flex flex-1 flex-col items-center gap-1" title={`${m.month}: ${m.merged}`}>
                 <div className="w-full rounded-sm bg-[var(--accent)]" style={{ height: `${(100 * m.merged) / top}%` }} />
-                <span className="font-mono text-[9px] text-[var(--fg-muted)]">{m.month.slice(5)}</span>
+                <span className="font-mono text-[10px] text-[var(--fg-muted)]">{m.month.slice(5)}</span>
               </div>
             ))}
           </div>

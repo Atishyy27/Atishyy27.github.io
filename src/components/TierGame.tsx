@@ -172,7 +172,7 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
                 <span key={r.full} className="inline-flex flex-col items-start gap-1">
                   {card(r)}
                   {done || revealed ? (
-                    <span className="font-mono text-[9px] text-[var(--fg-muted)]">
+                    <span className="font-mono text-[10px] text-[var(--fg-muted)]">
                       real: {real[r.full]}
                       {real[r.full] === b.id ? " (match)" : ""}
                     </span>
