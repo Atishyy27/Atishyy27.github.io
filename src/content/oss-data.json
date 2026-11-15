@@ -1,25 +1,49 @@
 {
   "user": "Atishyy27",
-  "fetchedAt": "2026-10-21",
+  "fetchedAt": "2026-11-15",
   "excludedCount": 7,
   "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   "totals": {
-    "merged": 47,
-    "open": 68,
-    "closed": 36,
-    "prs": 151
+    "merged": 51,
+    "open": 70,
+    "closed": 45,
+    "prs": 166
   },
-  "repoCount": 51,
+  "repoCount": 57,
   "repos": [
     {
       "full": "fedimint/fedimint",
       "owner": "fedimint",
       "name": "fedimint",
       "slug": "fedimint-fedimint",
-      "merged": 6,
-      "open": 2,
-      "closed": 2,
+      "merged": 7,
+      "open": 3,
+      "closed": 3,
       "prs": [
+        {
+          "number": 9503,
+          "title": "ci: measure the release closure size and fail when it cannot be read",
+          "url": "https://github.com/fedimint/fedimint/pull/9503",
+          "state": "merged",
+          "created": "2026-11-10",
+          "closedAt": "2026-11-12"
+        },
+        {
+          "number": 9482,
+          "title": "fix(connectors): show plain-text gateway error bodies",
+          "url": "https://github.com/fedimint/fedimint/pull/9482",
+          "state": "open",
+          "created": "2026-11-07",
+          "closedAt": null
+        },
+        {
+          "number": 9483,
+          "title": "fix(client): heal a cached api version set that lacks supported modules",
+          "url": "https://github.com/fedimint/fedimint/pull/9483",
+          "state": "open",
+          "created": "2026-11-07",
+          "closedAt": null
+        },
         {
           "number": 9329,
           "title": "fix(server): say which peer the DKG is waiting for",
@@ -32,9 +56,9 @@
           "number": 9216,
           "title": "fix(wallet-client): stop an interrupted recovery from bricking every later open",
           "url": "https://github.com/fedimint/fedimint/pull/9216",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-28",
-          "closedAt": null
+          "closedAt": "2026-11-01"
         },
         {
           "number": 9202,
@@ -459,8 +483,8 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "merged": 2,
-      "open": 5,
-      "closed": 0,
+      "open": 4,
+      "closed": 1,
       "prs": [
         {
           "number": 21441,
@@ -506,9 +530,9 @@
           "number": 20989,
           "title": "[Server] Guard nil filter and nil filter.Type in getAvailableAddons",
           "url": "https://github.com/meshery/meshery/pull/20989",
-          "state": "open",
+          "state": "closed",
           "created": "2026-07-28",
-          "closedAt": null
+          "closedAt": "2026-11-01"
         },
         {
           "number": 20733,
@@ -569,9 +593,17 @@
       "name": "servicenow-sdk-go",
       "slug": "michaeldcanady-servicenow-sdk-go",
       "merged": 2,
-      "open": 0,
+      "open": 1,
       "closed": 0,
       "prs": [
+        {
+          "number": 971,
+          "title": "feat(core): add ValidateBuilder nil-guard helper (ADR 022)",
+          "url": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/971",
+          "state": "open",
+          "created": "2026-11-14",
+          "closedAt": null
+        },
         {
           "number": 644,
           "title": "fix: restore and extend nil-receiver guard on error Error() methods",
@@ -587,6 +619,33 @@
           "state": "merged",
           "created": "2026-08-05",
           "closedAt": "2026-08-09"
+        }
+      ]
+    },
+    {
+      "full": "ManiMatter/decluttarr",
+      "owner": "ManiMatter",
+      "name": "decluttarr",
+      "slug": "manimatter-decluttarr",
+      "merged": 2,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 393,
+          "title": "Skip unreleased items in search_missing",
+          "url": "https://github.com/ManiMatter/decluttarr/pull/393",
+          "state": "merged",
+          "created": "2026-11-09",
+          "closedAt": "2026-11-14"
+        },
+        {
+          "number": 394,
+          "title": "Support api_key_file for arr instances",
+          "url": "https://github.com/ManiMatter/decluttarr/pull/394",
+          "state": "merged",
+          "created": "2026-11-09",
+          "closedAt": "2026-11-14"
         }
       ]
     },
@@ -728,29 +787,72 @@
       ]
     },
     {
+      "full": "openeverest/openeverest",
+      "owner": "openeverest",
+      "name": "openeverest",
+      "slug": "openeverest-openeverest",
+      "merged": 1,
+      "open": 2,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 3561,
+          "title": "fix(cli): skip operators without a CSV in namespaces list",
+          "url": "https://github.com/openeverest/openeverest/pull/3561",
+          "state": "open",
+          "created": "2026-11-09",
+          "closedAt": null
+        },
+        {
+          "number": 3563,
+          "title": "fix(rbac): fall back to deploy check when create denies a reference",
+          "url": "https://github.com/openeverest/openeverest/pull/3563",
+          "state": "open",
+          "created": "2026-11-09",
+          "closedAt": null
+        },
+        {
+          "number": 2851,
+          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid",
+          "url": "https://github.com/openeverest/openeverest/pull/2851",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-10"
+        },
+        {
+          "number": 2862,
+          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid (release-2.0)",
+          "url": "https://github.com/openeverest/openeverest/pull/2862",
+          "state": "closed",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-11"
+        }
+      ]
+    },
+    {
       "full": "prefix-dev/pixi",
       "owner": "prefix-dev",
       "name": "pixi",
       "slug": "prefix-dev-pixi",
       "merged": 1,
-      "open": 3,
-      "closed": 0,
+      "open": 0,
+      "closed": 3,
       "prs": [
         {
           "number": 7106,
           "title": "fix: bound the connect timeout so it does not vary by platform",
           "url": "https://github.com/prefix-dev/pixi/pull/7106",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-27",
-          "closedAt": null
+          "closedAt": "2026-11-11"
         },
         {
           "number": 7107,
           "title": "fix: raise the open file limit before solving, not only before installing",
           "url": "https://github.com/prefix-dev/pixi/pull/7107",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-27",
-          "closedAt": null
+          "closedAt": "2026-11-11"
         },
         {
           "number": 7095,
@@ -764,9 +866,9 @@
           "number": 7089,
           "title": "fix: suspend the progress bars while the task environment prompt is shown",
           "url": "https://github.com/prefix-dev/pixi/pull/7089",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-24",
-          "closedAt": null
+          "closedAt": "2026-11-11"
         }
       ]
     },
@@ -841,29 +943,29 @@
       ]
     },
     {
-      "full": "openeverest/openeverest",
-      "owner": "openeverest",
-      "name": "openeverest",
-      "slug": "openeverest-openeverest",
+      "full": "AI-Hypercomputer/maxtext",
+      "owner": "AI-Hypercomputer",
+      "name": "maxtext",
+      "slug": "ai-hypercomputer-maxtext",
       "merged": 1,
       "open": 0,
       "closed": 1,
       "prs": [
         {
-          "number": 2851,
-          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid",
-          "url": "https://github.com/openeverest/openeverest/pull/2851",
+          "number": 4691,
+          "title": "Validate rampup batch size settings in the Pydantic config",
+          "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4691",
           "state": "merged",
-          "created": "2026-08-10",
-          "closedAt": "2026-08-10"
+          "created": "2026-07-31",
+          "closedAt": "2026-11-13"
         },
         {
-          "number": 2862,
-          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid (release-2.0)",
-          "url": "https://github.com/openeverest/openeverest/pull/2862",
+          "number": 4528,
+          "title": "Fix broken documentation links flagged by weekly link checker",
+          "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4528",
           "state": "closed",
-          "created": "2026-08-10",
-          "closedAt": "2026-08-11"
+          "created": "2026-07-17",
+          "closedAt": "2026-08-21"
         }
       ]
     },
@@ -1044,8 +1146,8 @@
       "name": "flower",
       "slug": "flwrlabs-flower",
       "merged": 0,
-      "open": 9,
-      "closed": 0,
+      "open": 8,
+      "closed": 1,
       "prs": [
         {
           "number": 7765,
@@ -1075,9 +1177,9 @@
           "number": 7652,
           "title": "fix(framework): Do not crash push_messages() on an empty messages_list",
           "url": "https://github.com/flwrlabs/flower/pull/7652",
-          "state": "open",
+          "state": "closed",
           "created": "2026-07-20",
-          "closedAt": null
+          "closedAt": "2026-11-01"
         },
         {
           "number": 7646,
@@ -1178,8 +1280,8 @@
       "name": "conda-smithy",
       "slug": "conda-forge-conda-smithy",
       "merged": 0,
-      "open": 3,
-      "closed": 1,
+      "open": 2,
+      "closed": 2,
       "prs": [
         {
           "number": 2708,
@@ -1193,9 +1295,9 @@
           "number": 2709,
           "title": "do not raise on an empty or mistyped v0 field",
           "url": "https://github.com/conda-forge/conda-smithy/pull/2709",
-          "state": "open",
+          "state": "closed",
           "created": "2026-09-28",
-          "closedAt": null
+          "closedAt": "2026-11-01"
         },
         {
           "number": 2706,
@@ -1399,6 +1501,60 @@
       ]
     },
     {
+      "full": "google/artemis",
+      "owner": "google",
+      "name": "artemis",
+      "slug": "google-artemis",
+      "merged": 0,
+      "open": 1,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 244,
+          "title": "fix(coordinates): honor an explicit zero swipe/scroll duration",
+          "url": "https://github.com/google/artemis/pull/244",
+          "state": "open",
+          "created": "2026-11-14",
+          "closedAt": null
+        },
+        {
+          "number": 82,
+          "title": "fix(coordinates): honor an explicit zero swipe/scroll duration",
+          "url": "https://github.com/google/artemis/pull/82",
+          "state": "closed",
+          "created": "2026-09-13",
+          "closedAt": "2026-09-14"
+        }
+      ]
+    },
+    {
+      "full": "mlflow/mlflow",
+      "owner": "mlflow",
+      "name": "mlflow",
+      "slug": "mlflow-mlflow",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 27570,
+          "title": "Bound `get-history` when `max_results` is omitted",
+          "url": "https://github.com/mlflow/mlflow/pull/27570",
+          "state": "closed",
+          "created": "2026-11-07",
+          "closedAt": "2026-11-07"
+        },
+        {
+          "number": 24888,
+          "title": "Fix Vertex AI gateway `eu`/`us` multi-region endpoint routing",
+          "url": "https://github.com/mlflow/mlflow/pull/24888",
+          "state": "closed",
+          "created": "2026-08-04",
+          "closedAt": "2026-08-04"
+        }
+      ]
+    },
+    {
       "full": "kubeflow/pipelines",
       "owner": "kubeflow",
       "name": "pipelines",
@@ -1480,33 +1636,6 @@
       ]
     },
     {
-      "full": "AI-Hypercomputer/maxtext",
-      "owner": "AI-Hypercomputer",
-      "name": "maxtext",
-      "slug": "ai-hypercomputer-maxtext",
-      "merged": 0,
-      "open": 1,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 4691,
-          "title": "Validate rampup batch size settings in the Pydantic config",
-          "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4691",
-          "state": "open",
-          "created": "2026-07-31",
-          "closedAt": null
-        },
-        {
-          "number": 4528,
-          "title": "Fix broken documentation links flagged by weekly link checker",
-          "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4528",
-          "state": "closed",
-          "created": "2026-07-17",
-          "closedAt": "2026-08-21"
-        }
-      ]
-    },
-    {
       "full": "youki-dev/youki",
       "owner": "youki-dev",
       "name": "youki",
@@ -1530,6 +1659,101 @@
           "state": "closed",
           "created": "2026-07-04",
           "closedAt": "2026-07-09"
+        }
+      ]
+    },
+    {
+      "full": "openMF/mifosx-platform",
+      "owner": "openMF",
+      "name": "mifosx-platform",
+      "slug": "openmf-mifosx-platform",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 41,
+          "title": "fix: download mariadb .env from the right path in install.sh",
+          "url": "https://github.com/openMF/mifosx-platform/pull/41",
+          "state": "open",
+          "created": "2026-11-13",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "bowtie-json-schema/bowtie",
+      "owner": "bowtie-json-schema",
+      "name": "bowtie",
+      "slug": "bowtie-json-schema-bowtie",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 3175,
+          "title": "Add a --format option to filter-dialects",
+          "url": "https://github.com/bowtie-json-schema/bowtie/pull/3175",
+          "state": "open",
+          "created": "2026-11-08",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "WalletWasabi/WalletWasabi",
+      "owner": "WalletWasabi",
+      "name": "WalletWasabi",
+      "slug": "walletwasabi-walletwasabi",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 15266,
+          "title": "Fail the build if the bundled Tor is running",
+          "url": "https://github.com/WalletWasabi/WalletWasabi/pull/15266",
+          "state": "open",
+          "created": "2026-11-07",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "prefix-dev/rattler-build",
+      "owner": "prefix-dev",
+      "name": "rattler-build",
+      "slug": "prefix-dev-rattler-build",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2928,
+          "title": "fix: cap the file table in the GitHub step summary",
+          "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
+          "state": "open",
+          "created": "2026-11-07",
+          "closedAt": null
+        }
+      ]
+    },
+    {
+      "full": "langfuse/langfuse-python",
+      "owner": "langfuse",
+      "name": "langfuse-python",
+      "slug": "langfuse-langfuse-python",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2112,
+          "title": "fix(langchain): use the model name reported in the response",
+          "url": "https://github.com/langfuse/langfuse-python/pull/2112",
+          "state": "open",
+          "created": "2026-11-06",
+          "closedAt": null
         }
       ]
     },
@@ -1591,25 +1815,6 @@
       ]
     },
     {
-      "full": "google/artemis",
-      "owner": "google",
-      "name": "artemis",
-      "slug": "google-artemis",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 82,
-          "title": "fix(coordinates): honor an explicit zero swipe/scroll duration",
-          "url": "https://github.com/google/artemis/pull/82",
-          "state": "closed",
-          "created": "2026-09-13",
-          "closedAt": "2026-09-14"
-        }
-      ]
-    },
-    {
       "full": "sarvamai/skills",
       "owner": "sarvamai",
       "name": "skills",
@@ -1667,40 +1872,21 @@
       ]
     },
     {
-      "full": "mlflow/mlflow",
-      "owner": "mlflow",
-      "name": "mlflow",
-      "slug": "mlflow-mlflow",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 24888,
-          "title": "Fix Vertex AI gateway `eu`/`us` multi-region endpoint routing",
-          "url": "https://github.com/mlflow/mlflow/pull/24888",
-          "state": "closed",
-          "created": "2026-08-04",
-          "closedAt": "2026-08-04"
-        }
-      ]
-    },
-    {
       "full": "pyannote/pyannote-audio",
       "owner": "pyannote",
       "name": "pyannote-audio",
       "slug": "pyannote-pyannote-audio",
       "merged": 0,
-      "open": 1,
-      "closed": 0,
+      "open": 0,
+      "closed": 1,
       "prs": [
         {
           "number": 2043,
           "title": "fix: stop DER frame counts from saturating float16",
           "url": "https://github.com/pyannote/pyannote-audio/pull/2043",
-          "state": "open",
+          "state": "closed",
           "created": "2026-07-30",
-          "closedAt": null
+          "closedAt": "2026-11-06"
         }
       ]
     },
