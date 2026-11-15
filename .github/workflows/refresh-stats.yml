@@ -1,0 +1,47 @@
+name: refresh-stats
+
+# Scheduled refresh that updates open source PR stats, competitive programming
+# ratings, active Chrome Web Store user counts, and GitHub contribution graphs.
+#
+# Runs twice daily or on manual trigger. Commits and pushes changes to main,
+# which automatically triggers deploy.yml to rebuild and republish GitHub Pages.
+
+on:
+  schedule:
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-stats
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Fetch and regenerate all dynamic stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run refresh:all
+
+      - name: Commit and push if stats changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/oss-stats.ts src/content/oss-data.json src/content/cp.ts src/content/activity.ts src/content/store.ts
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): automated dynamic stats refresh [skip ci]"
+            git push
+          else
+            echo "No stats changed, skipping commit."
+          fi

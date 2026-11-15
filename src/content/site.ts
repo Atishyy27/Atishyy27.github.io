@@ -262,12 +262,12 @@ export const govtWork: Work[] = [
 
 export const clientWork: Work[] = [
   {
-    name: "4Moral",
+    name: "MoralOne (4Moral)",
     blurb:
-      "Production social and marketplace app. Six account types, real-time chat over sockets, orders using Mongo transactions, JWT auth, media pipeline, EC2. I also ran the pre-launch security pass, fixing NoSQL injection, IDOR and mass-assignment holes and taking dependency vulnerabilities from 21 to 9 without breaking the build.",
-    stack: ["MERN", "Flutter", "AWS EC2"],
+      "Production social and marketplace platform across six account types. Shipped as an unlisted release. Real-time chat over sockets, orders using Mongo transactions, JWT auth, media pipeline on EC2. Also conducted the pre-launch security audit, fixing NoSQL injection, IDOR and mass-assignment vulnerabilities and reducing dependency alerts from 21 to 9 without breaking builds.",
+    stack: ["MERN", "Flutter", "AWS EC2", "Socket.io", "MongoDB"],
     links: [],
-    privateNote: "Private client repo. Happy to walk through the architecture.",
+    privateNote: "Client production release (currently unlisted). Happy to walk through the architecture.",
     featured: true,
   },
   {
@@ -489,6 +489,17 @@ export const devTools: Work[] = [
 ];
 
 export const hackathons: Work[] = [
+  {
+    name: "Ek Awaaz",
+    blurb:
+      "Voice-AI cross-lingual voiceover engine for Gnani AI challenge. Speak once in Hinglish with spoken-consent verification, extract a voice print via Gnani Prisma v3.0, and generate speech in your cloned voice across 10 Indian languages translated via Gemini 2.5 Flash.",
+    stack: ["Next.js", "React 19", "TypeScript", "Gnani AI", "Gemini", "Clerk", "Neon Postgres"],
+    links: [
+      { label: "Live", href: "https://gnani-entry.vercel.app" },
+      { label: "Code", href: "https://github.com/Atishyy27/gnani-entry" },
+    ],
+    featured: true,
+  },
   {
     name: "CIIS, Anti-money-laundering detection",
     blurb:

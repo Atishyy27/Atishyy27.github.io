@@ -58,6 +58,10 @@ const STORIES: Record<string, string> = {
     "A booking system was double-allocating slots under load. The fix was not more servers, it was row-level locking on the rows that actually contend.",
   sram: "A labour-department platform that had to survive being used by people on cheap phones and bad networks.",
   "4moral": "Six account types, real-time chat and money movement in one app, then a security pass before launch that found injection, IDOR and mass-assignment holes.",
+  "moralone-4moral":
+    "Six account types, real-time chat and money movement in one app, then a pre-launch security pass that found injection, IDOR and mass-assignment holes. Shipped as an unlisted release.",
+  "ek-awaaz":
+    "Speak once, be heard in 10 Indian languages. Spoken consent verification, Gnani Prisma v3.0 voice cloning, and Gemini 2.5 Flash translation.",
   "genius-solar-services": "A small marketing site where the only metric that mattered was whether the lead form worked.",
   dlab: "Full-stack web and mobile build for a private client.",
   livehood: "Inherited a live site with real defects and made it behave, without a rewrite.",
@@ -86,6 +90,18 @@ const STORIES: Record<string, string> = {
 // no inflation. Only filled where the honest version exists; others fall back to
 // the blurb.
 const POINTS: Record<string, string[]> = {
+  "ek-awaaz": [
+    "Voice-AI cross-lingual voiceover platform: speak once in Hinglish, get cloned audio in 10 Indian languages (Tamil, Telugu, Bengali, Marathi, Hindi, etc.).",
+    "Spoken consent verification: voice print is registered only if the recording includes the spoken consent verification line, preventing unauthorized voice creation.",
+    "Dual-engine pipeline: Gnani Prisma v3.0 for STT and voice cloning, Gemini 2.5 Flash for contextual translation.",
+    "Server-side security: voice prints stay on server with account-level isolation and immediate deletion controls.",
+  ],
+  "moralone-4moral": [
+    "Production social and marketplace application supporting six account types.",
+    "Real-time socket messaging, transactional order workflows in MongoDB, JWT authentication, and media processing pipeline on AWS EC2.",
+    "Pre-launch security audit: mitigated NoSQL injection, IDOR vulnerabilities, and mass-assignment risks, reducing third-party CVEs from 21 to 9.",
+    "Shipped as an unlisted release.",
+  ],
   baithak: [
     "Voice-AI meeting notetaker: records the mic or a meeting tab, or takes an uploaded file, and returns a transcript, a topic-wise summary, and action items grouped by the person who owns them.",
     "Accounts with per-user data isolation: every session is scoped to its owner at the query layer, so no account can read or edit another's.",
@@ -206,6 +222,7 @@ export const featuredProjects: Project[] = allProjects.filter((p) => p.featured)
 // not derivable from the data: a store app that works and a half-finished repo both
 // "have a link", so the difference has to be stated, not inferred.
 export const SHOWCASE_SLUGS: string[] = [
+  "ek-awaaz",
   "baithak",
   "tripkit",
   "yes-wellness-platform",
