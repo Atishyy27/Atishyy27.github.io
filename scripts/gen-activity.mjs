@@ -39,7 +39,7 @@ const HANDLES = {
 };
 
 const OUT = path.join(process.cwd(), "src", "content", "activity.ts");
-const TIMEOUT = 20000;
+const TIMEOUT = 45000;
 
 // Every source is bucketed by UTC day. The three platforms disagree about
 // this and cannot be reconciled: GitHub buckets by the timezone on his
@@ -61,6 +61,35 @@ async function getJSON(url, init) {
 }
 
 async function github() {
+  // Direct from GitHub's official contributions endpoint, fast and official.
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), TIMEOUT);
+    const res = await fetch(`https://github.com/users/${HANDLES.github}/contributions`, {
+      signal: ctrl.signal,
+      headers: { "User-Agent": "Mozilla/5.0" },
+    });
+    clearTimeout(timer);
+    if (res.ok) {
+      const html = await res.text();
+      const regex = /<td[^>]*data-date="(\d{4}-\d{2}-\d{2})"[^>]*>[\s\S]*?<tool-tip[^>]*>([^<]+)<\/tool-tip>/g;
+      const out = {};
+      let match;
+      while ((match = regex.exec(html)) !== null) {
+        const date = match[1];
+        const tip = match[2];
+        const countMatch = tip.match(/^(\d+)\s+contribution/);
+        if (countMatch) {
+          const count = parseInt(countMatch[1], 10);
+          if (count > 0) out[date] = count;
+        }
+      }
+      if (Object.keys(out).length > 0) return out;
+    }
+  } catch {
+    // Fall back to jogruber mirror if direct fetch failed
+  }
+
   // jogruber's mirror of the contribution graph. CORS-open and reachable
   // from the browser too, which is why the client keeps it as a live refresh.
   const j = await getJSON(`https://github-contributions-api.jogruber.de/v4/${HANDLES.github}?y=last`);

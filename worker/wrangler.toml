@@ -1,0 +1,24 @@
+# Private-area Worker for atishay.tech. Deployed with wrangler, separate from the
+# static GitHub Pages site. Nothing here is secret; the Google service-account
+# key is a Worker SECRET set out of band (never in this file, never in the repo):
+#   wrangler secret put GOOGLE_SA_KEY
+name = "atishay-private"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+# The *.workers.dev and preview hostnames are NOT behind Access. The JWT check
+# already blocks them, but do not expose them at all.
+workers_dev = true
+preview_urls = false
+
+# Non-secret config. Replace the placeholders after the Cloudflare Access app
+# exists, then deploy. ALLOWED_EMAIL is the single Google identity Access admits.
+[vars]
+TEAM_DOMAIN = "https://throbbing-darkness-4cc5.cloudflareaccess.com"
+POLICY_AUD = "dc9df427e4e1265e8eebc55cdaa116ec48bb3c76a01a0eec4c320e7a3aa84003"
+ALLOWED_EMAIL = "sethatishayjain@gmail.com"
+
+# Bind the private area to app.atishay.tech once DNS is on Cloudflare:
+# [[routes]]
+# pattern = "app.atishay.tech/*"
+# zone_name = "atishay.tech"
