@@ -61,7 +61,10 @@ export function repoSlugs(): string[] {
  * verified PR list, which is still true. An invented description of what
  * cilium does would be worse than none.
  */
-export const REPO_NOTES: Record<string, string> = {};
+export const REPO_NOTES: Record<string, string> = {
+  "fedimint-fedimint":
+    "Four pull requests explicitly cited across production releases v0.13.0 and v0.12.0, covering P2P frame consensus reliability, untrusted timestamp panic prevention, Lightning address validation, and payment fee limits.",
+};
 
 /**
  * Contribution tiers as a visual tier list (ATZOSS v2, source cnc/OSS/TIERS.md).

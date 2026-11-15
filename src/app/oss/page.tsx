@@ -9,6 +9,7 @@ import LiveOssCounts from "@/components/LiveOssCounts";
 import { OssSceneMount } from "@/components/SceneMount";
 import RepoLogo from "@/components/RepoLogo";
 import PinnedRepos from "@/components/PinnedRepos";
+import CitationsSection from "@/components/CitationsSection";
 import OssScorecard from "@/components/OssScorecard";
 
 export const metadata: Metadata = {
@@ -63,6 +64,10 @@ export default function Oss() {
       {/* Above the sphere and the table. The page led with counts and then 58
           rows, which is the record but not an answer; these six are. */}
       <PinnedRepos />
+
+      {/* Production release notes citing specific PRs. Verifiable evidence
+          that code landed in production releases. */}
+      <CitationsSection />
 
       {/* The repository sphere. It lived on the home page, which is the wrong
           place for it: the home page's subject is the projects, and this is
