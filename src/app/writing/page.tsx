@@ -3,6 +3,7 @@ import { listedEntries, readingMinutes } from "@/lib/journal";
 import { log } from "@/content/log";
 import WritingFeed, { type FeedItem } from "@/components/WritingFeed";
 import Terminal from "@/components/Terminal";
+import ResearchPapersSection from "@/components/ResearchPapersSection";
 import { Keyboard3DMount } from "@/components/SceneMount";
 import { Head, Wrap } from "@/components/Section";
 
@@ -36,10 +37,13 @@ export default function Writing() {
       <Wrap id="writing">
         <Head
           n="01"
-          title="Writing"
-          kicker={`${journal.length} essays and ${log.length} build-log notes, newest first. Each one is a thing that went wrong, or a number that turned out to be false, written up while it was still fresh.`}
+          title="Writing & Research"
+          kicker={`${journal.length} essays, research investigations, and ${log.length} build-log notes. Each one explores architectural design, failure points, and systems verification.`}
         />
-        <WritingFeed journal={journal} />
+        <ResearchPapersSection />
+        <div className="mt-14">
+          <WritingFeed journal={journal} />
+        </div>
       </Wrap>
 
       <Wrap id="terminal">

@@ -5,18 +5,22 @@ import Link from "next/link";
 import { cpProfiles, person } from "@/content/site";
 import { Reveal, Tilt } from "./Chrome";
 import UnifiedHeatmap from "./UnifiedHeatmap";
+import UnifiedRatingChart from "./UnifiedRatingChart";
 import { OSS_STATS } from "@/content/oss-stats";
 import { STORE_USERS } from "@/content/store";
 import { RELEASE_CITATIONS } from "@/content/citations";
 import rawIssues from "@/content/oss-issues.json";
+import { PHOTOS } from "@/content/photos";
 
 export function CpSection() {
   const totalCitations = RELEASE_CITATIONS.length;
   const totalIssues = (rawIssues as unknown[]).length;
+  const icpcPhotos = PHOTOS["icpc-2025"] ?? [];
+  const [activePhoto, setActivePhoto] = useState<number | null>(null);
 
   return (
     <div className="space-y-8">
-      {/* ICPC Regional On-Site Banner */}
+      {/* ICPC Regional On-Site Banner with Photos */}
       <Reveal>
         <div className="rounded-2xl border border-[var(--accent)]/40 bg-[var(--accent-soft)] p-6 sm:p-8">
           <div className="flex flex-wrap items-baseline justify-between gap-4">
@@ -28,14 +32,59 @@ export function CpSection() {
                 Rank 12 · ICPC Asia Amritapuri Multisite Regional 2025
               </h3>
               <p className="mt-2 text-sm text-[var(--fg-muted)] max-w-2xl leading-relaxed">
-                Competed on-site at the Mysuru regional finals. Solved algorithmic problemsets under strict 5-hour
-                ACM contest constraints.
+                Competed on-site at the Mysuru regional finals. Solved 4 algorithmic problems under strict 5-hour
+                ACM contest constraints against India&apos;s top university teams.
               </p>
             </div>
             <div className="rounded-xl border border-[var(--accent)]/50 bg-[var(--bg)] px-4 py-2 font-mono text-xs text-[var(--accent)] shrink-0">
               Mysuru Site · On-Site Finalist
             </div>
           </div>
+
+          {/* ICPC Photo Strip */}
+          {icpcPhotos.length > 0 && (
+            <div className="mt-5 border-t border-[var(--accent)]/20 pt-4">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] block mb-2 font-medium">
+                On-Site Final Photos (Mysuru Venue)
+              </span>
+              <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1">
+                {icpcPhotos.map((p, i) => (
+                  <button
+                    key={p.src}
+                    type="button"
+                    onClick={() => setActivePhoto(i)}
+                    className="group h-[110px] shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--bg)] transition-colors hover:border-[var(--accent)]"
+                    style={{ width: Math.round((110 * p.w) / p.h) }}
+                    aria-label={`ICPC Mysuru photo ${i + 1}`}
+                  >
+                    <img
+                      src={p.src}
+                      width={p.w}
+                      height={p.h}
+                      alt={`ICPC Mysuru photo ${i + 1}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activePhoto !== null && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm"
+              onClick={() => setActivePhoto(null)}
+              role="dialog"
+              aria-modal="true"
+            >
+              <img
+                src={icpcPhotos[activePhoto]?.src}
+                alt="ICPC Mysuru Regional"
+                className="max-h-[85vh] max-w-full rounded-xl border border-[var(--line)] object-contain"
+              />
+            </div>
+          )}
         </div>
       </Reveal>
 
@@ -131,6 +180,11 @@ export function CpSection() {
           );
         })}
       </div>
+
+      {/* Multi-Platform Unified Rating Graph */}
+      <Reveal>
+        <UnifiedRatingChart />
+      </Reveal>
 
       {/* Cross-Platform Activity Skyline & Heatmap */}
       <UnifiedHeatmap />

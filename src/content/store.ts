@@ -76,6 +76,8 @@ export const listings: Listing[] = [
     store: "Google Play",
     cta: "Get it on Google Play",
     href: "https://play.google.com/store/apps/details?id=in.gov.mp.shree.yes",
+    users: "500+ downloads",
+    countedOn: "2026-11-15",
     icon: "/ext/yes-wellness-platform.webp",
   },
   {

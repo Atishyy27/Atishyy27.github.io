@@ -4,7 +4,7 @@ import { canEmbed } from "@/lib/embeddable";
 import LiveDemos, { type Demo } from "@/components/LiveDemos";
 import { otherHackathons } from "@/content/site";
 import ProjectExplorer from "@/components/ProjectExplorer";
-import StoreShelf from "@/components/StoreShelf";
+import InBrowserPreview from "@/components/InBrowserPreview";
 
 export const metadata: Metadata = {
   title: "Projects · Atishay Jain",
@@ -40,11 +40,10 @@ export default function ProjectsIndex() {
         private client work and say so.
       </p>
 
-      {/* Above the grid, not inside it. Four of these nineteen are published
-          in a store and can be installed in one click, and burying that in a
-          filterable list of nineteen made the only directly actionable thing
-          on the page the hardest to find. */}
-      <StoreShelf />
+      {/* Interactive in-browser live window replacing the duplicate store shelf */}
+      <section className="mt-12">
+        <InBrowserPreview />
+      </section>
 
       <LiveDemos demos={demos} />
 

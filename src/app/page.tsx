@@ -94,10 +94,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ---------------- the argument: shipped products & systems citations ---------------- */}
+      {/* ---------------- the argument: systems citations & shipped products ---------------- */}
       <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 space-y-16">
+        <CitationsSection initialLimit={3} className="border-t border-[var(--line)] pt-12" />
         <StoreShelf />
-        <CitationsSection initialLimit={3} />
       </div>
 
       {/* ---------------- counted facts ---------------- */}

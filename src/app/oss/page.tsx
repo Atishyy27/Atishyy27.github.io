@@ -10,7 +10,6 @@ import { OssSceneMount } from "@/components/SceneMount";
 import PinnedRepos from "@/components/PinnedRepos";
 import CitationsSection from "@/components/CitationsSection";
 import OssScorecard from "@/components/OssScorecard";
-import OssIssuesSection from "@/components/OssIssuesSection";
 import UnifiedOssRepos from "@/components/UnifiedOssRepos";
 
 export const metadata: Metadata = {
@@ -93,10 +92,7 @@ export default function Oss() {
         </div>
       </section>
 
-      {/* 6. Self-Sourced Upstream Issues */}
-      <OssIssuesSection />
-
-      {/* 7. Current Work / Grant */}
+      {/* 6. Current Work / Grant */}
       <section className="mt-20 border-t border-[var(--line)] pt-12">
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
           <h2 className="text-[length:var(--step-h2)] font-medium">{currentWork.title}</h2>

@@ -1,9 +1,21 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Link from "next/link";
 import RepoLogo from "@/components/RepoLogo";
 import type { OssRepo } from "@/content/oss";
+import rawIssues from "@/content/oss-issues.json";
+
+interface UpstreamIssue {
+  title: string;
+  number: number;
+  repo: string;
+  url: string;
+  state: string;
+  state_reason: string | null;
+  created_at: string;
+  closed_at: string | null;
+  comments: number;
+}
 
 const PAGE_SIZE = 12;
 
@@ -12,7 +24,20 @@ interface Props {
 }
 
 export default function UnifiedOssRepos({ repos }: Props) {
-  const [filter, setFilter] = useState<"all" | "landed" | "in-flight">("all");
+  const issues = rawIssues as UpstreamIssue[];
+
+  // Index issues by lowercase repository full name
+  const issuesByRepo = useMemo(() => {
+    const map = new Map<string, UpstreamIssue[]>();
+    for (const it of issues) {
+      const key = it.repo.toLowerCase();
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(it);
+    }
+    return map;
+  }, [issues]);
+
+  const [filter, setFilter] = useState<"all" | "landed" | "in-flight" | "has-issues">("all");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [expandedRepos, setExpandedRepos] = useState<Record<string, boolean>>({});
@@ -23,17 +48,26 @@ export default function UnifiedOssRepos({ repos }: Props) {
 
   const filtered = useMemo(() => {
     return repos.filter((r) => {
+      const repoIssues = issuesByRepo.get(r.full.toLowerCase()) || [];
+
       if (filter === "landed" && r.merged === 0) return false;
       if (filter === "in-flight" && r.merged > 0) return false;
+      if (filter === "has-issues" && repoIssues.length === 0) return false;
+
       if (search.trim()) {
         const query = search.toLowerCase();
         const matchesRepo = r.full.toLowerCase().includes(query);
-        const matchesPr = r.prs.some((p) => p.title.toLowerCase().includes(query) || String(p.number).includes(query));
-        return matchesRepo || matchesPr;
+        const matchesPr = r.prs.some(
+          (p) => p.title.toLowerCase().includes(query) || String(p.number).includes(query)
+        );
+        const matchesIssue = repoIssues.some(
+          (i) => i.title.toLowerCase().includes(query) || String(i.number).includes(query)
+        );
+        return matchesRepo || matchesPr || matchesIssue;
       }
       return true;
     });
-  }, [repos, filter, search]);
+  }, [repos, filter, search, issuesByRepo]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
@@ -44,14 +78,19 @@ export default function UnifiedOssRepos({ repos }: Props) {
 
   const landedCount = useMemo(() => repos.filter((r) => r.merged > 0).length, [repos]);
   const inFlightCount = useMemo(() => repos.filter((r) => r.merged === 0).length, [repos]);
+  const reposWithIssuesCount = useMemo(
+    () => repos.filter((r) => (issuesByRepo.get(r.full.toLowerCase()) || []).length > 0).length,
+    [repos, issuesByRepo]
+  );
 
   return (
     <section className="mt-20 border-t border-[var(--line)] pt-12">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3">
         <div>
-          <h2 className="text-[length:var(--step-h2)] font-medium">All Repositories</h2>
+          <h2 className="text-[length:var(--step-h2)] font-medium">All Contributions & Repositories</h2>
           <p className="mt-1 text-[length:var(--step-small)] text-[var(--fg-muted)]">
-            Consolidated record across {repos.length} upstream codebases. Showing both landed and in-flight pull requests per repository.
+            Consolidated record across {repos.length} upstream codebases. Merged PRs, open PRs, closed PRs,
+            and self-sourced issues grouped per repository.
           </p>
         </div>
 
@@ -99,6 +138,20 @@ export default function UnifiedOssRepos({ repos }: Props) {
           >
             In Flight ({inFlightCount})
           </button>
+          <button
+            type="button"
+            onClick={() => {
+              setFilter("has-issues");
+              setPage(1);
+            }}
+            className={`rounded-full px-3 py-1 font-mono text-xs transition-colors ${
+              filter === "has-issues"
+                ? "bg-[var(--accent)] text-[#06181a] font-medium"
+                : "border border-[var(--line)] bg-[var(--bg-raised)] text-[var(--fg-muted)] hover:text-[var(--fg)]"
+            }`}
+          >
+            Issues Filed ({reposWithIssuesCount})
+          </button>
         </div>
       </div>
 
@@ -111,7 +164,7 @@ export default function UnifiedOssRepos({ repos }: Props) {
             setSearch(e.target.value);
             setPage(1);
           }}
-          placeholder="Filter by repo name, subsystem, or PR title (e.g. cilium, fedimint, panic, consensus)..."
+          placeholder="Filter by repository, PR/issue title, or subsystem (e.g. cilium, fedimint, panic, consensus)..."
           className="w-full rounded-xl border border-[var(--line)] bg-[var(--bg-raised)] px-4 py-2.5 text-sm placeholder:text-[var(--fg-muted)] focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
@@ -125,8 +178,16 @@ export default function UnifiedOssRepos({ repos }: Props) {
         ) : (
           paginated.map((r) => {
             const isExpanded = !!expandedRepos[r.slug];
-            const hasMultiple = r.prs.length > 1;
-            const previewPrs = isExpanded ? r.prs : r.prs.slice(0, 1);
+            const repoIssues = issuesByRepo.get(r.full.toLowerCase()) || [];
+            const totalWorkItems = r.prs.length + repoIssues.length;
+            const hasMultiple = totalWorkItems > 1;
+
+            // When collapsed, show top item (merged first, or first PR)
+            const previewPrs = isExpanded
+              ? r.prs
+              : r.prs.filter((p) => p.state === "merged").slice(0, 1).concat(
+                  r.prs.filter((p) => p.state !== "merged").slice(0, r.merged === 0 ? 1 : 0)
+                );
 
             return (
               <div
@@ -136,15 +197,17 @@ export default function UnifiedOssRepos({ repos }: Props) {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
                     <RepoLogo owner={r.owner} size={24} />
-                    <Link
-                      href={`/oss/${r.slug}/`}
+                    <a
+                      href={`https://github.com/${r.full}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="font-medium text-base hover:text-[var(--accent)] hover:underline truncate"
                     >
-                      {r.full}
-                    </Link>
+                      {r.full} <span className="font-mono text-xs opacity-50" aria-hidden>↗</span>
+                    </a>
                   </div>
 
-                  {/* Status Badges */}
+                  {/* Status Badges - Only show non-zero */}
                   <div className="flex flex-wrap items-center gap-2 shrink-0">
                     {r.merged > 0 && (
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-[#a371f7]/15 border border-[#a371f7]/30 px-2.5 py-0.5 font-mono text-xs text-[#a371f7] font-medium">
@@ -163,13 +226,15 @@ export default function UnifiedOssRepos({ repos }: Props) {
                         {r.closed} closed
                       </span>
                     )}
-                    <span className="font-mono text-xs text-[var(--fg-muted)]">
-                      {r.prs.length} {r.prs.length === 1 ? "PR" : "PRs"}
-                    </span>
+                    {repoIssues.length > 0 && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)]/30 px-2.5 py-0.5 font-mono text-xs text-[var(--accent)] font-medium">
+                        {repoIssues.length} {repoIssues.length === 1 ? "issue" : "issues"}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                {/* PR Preview List */}
+                {/* PR Preview / Full List */}
                 <div className="mt-3 space-y-1.5 border-t border-[var(--line)]/50 pt-2.5">
                   {previewPrs.map((pr) => {
                     const stateColor =
@@ -201,9 +266,39 @@ export default function UnifiedOssRepos({ repos }: Props) {
                       </div>
                     );
                   })}
+
+                  {/* Expanded Upstream Issues */}
+                  {isExpanded && repoIssues.length > 0 && (
+                    <div className="mt-3 border-t border-[var(--line)]/40 pt-2 space-y-1.5">
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] font-medium">
+                        Self-Sourced Upstream Issues ({repoIssues.length})
+                      </div>
+                      {repoIssues.map((issue) => (
+                        <div key={issue.number} className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-sm">
+                          <a
+                            href={issue.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-2 hover:text-[var(--accent)] transition-colors min-w-0"
+                          >
+                            <span className="rounded bg-[var(--accent-soft)] px-1.5 py-0.2 font-mono text-[10px] uppercase font-semibold text-[var(--accent)]">
+                              issue #{issue.number}
+                            </span>
+                            <span className="truncate group-hover:underline text-[13px]">{issue.title}</span>
+                            <span className="font-mono text-xs opacity-50 shrink-0" aria-hidden>
+                              ↗
+                            </span>
+                          </a>
+                          <span className="font-mono text-[10px] text-[var(--fg-muted)] shrink-0">
+                            {issue.created_at.slice(0, 10)}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
-                {/* Show more toggle or repo detail link */}
+                {/* Show more / Collapse toggle */}
                 {hasMultiple && (
                   <div className="mt-2.5 flex items-center justify-between pt-1">
                     <button
@@ -211,14 +306,15 @@ export default function UnifiedOssRepos({ repos }: Props) {
                       onClick={() => toggleExpand(r.slug)}
                       className="text-xs text-[var(--accent)] hover:underline font-mono"
                     >
-                      {isExpanded ? "Collapse PRs ↑" : `View all ${r.prs.length} PRs in ${r.name} ↓`}
+                      {isExpanded
+                        ? "Collapse items ↑"
+                        : `View all ${totalWorkItems} contributions in ${r.name} (${r.prs.length} PRs${
+                            repoIssues.length > 0 ? `, ${repoIssues.length} issues` : ""
+                          }) ↓`}
                     </button>
-                    <Link
-                      href={`/oss/${r.slug}/`}
-                      className="text-xs text-[var(--fg-muted)] hover:text-[var(--fg)] hover:underline font-mono"
-                    >
-                      Dedicated page &rarr;
-                    </Link>
+                    <span className="font-mono text-[10px] text-[var(--fg-muted)]">
+                      {totalWorkItems} total items
+                    </span>
                   </div>
                 )}
               </div>
