@@ -4,8 +4,8 @@
   "excludedCount": 7,
   "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   "totals": {
-    "merged": 51,
-    "open": 70,
+    "merged": 53,
+    "open": 68,
     "closed": 45,
     "prs": 166
   },
@@ -830,6 +830,49 @@
       ]
     },
     {
+      "full": "conda-forge/conda-smithy",
+      "owner": "conda-forge",
+      "name": "conda-smithy",
+      "slug": "conda-forge-conda-smithy",
+      "merged": 1,
+      "open": 1,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 2708,
+          "title": "do not raise on a malformed v1 recipe",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2708",
+          "state": "open",
+          "created": "2026-09-28",
+          "closedAt": null
+        },
+        {
+          "number": 2709,
+          "title": "do not raise on an empty or mistyped v0 field",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2709",
+          "state": "closed",
+          "created": "2026-09-28",
+          "closedAt": "2026-11-01"
+        },
+        {
+          "number": 2706,
+          "title": "allow conda_build_config.yaml keys in v1 noarch conditionals",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2706",
+          "state": "merged",
+          "created": "2026-09-27",
+          "closedAt": "2026-11-16"
+        },
+        {
+          "number": 2707,
+          "title": "retry recipe parsing with selectors resolved",
+          "url": "https://github.com/conda-forge/conda-smithy/pull/2707",
+          "state": "closed",
+          "created": "2026-09-27",
+          "closedAt": "2026-09-27"
+        }
+      ]
+    },
+    {
       "full": "prefix-dev/pixi",
       "owner": "prefix-dev",
       "name": "pixi",
@@ -966,6 +1009,25 @@
           "state": "closed",
           "created": "2026-07-17",
           "closedAt": "2026-08-21"
+        }
+      ]
+    },
+    {
+      "full": "prefix-dev/rattler-build",
+      "owner": "prefix-dev",
+      "name": "rattler-build",
+      "slug": "prefix-dev-rattler-build",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2928,
+          "title": "fix: cap the file table in the GitHub step summary",
+          "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
+          "state": "merged",
+          "created": "2026-11-07",
+          "closedAt": "2026-11-16"
         }
       ]
     },
@@ -1271,49 +1333,6 @@
           "state": "open",
           "created": "2026-07-17",
           "closedAt": null
-        }
-      ]
-    },
-    {
-      "full": "conda-forge/conda-smithy",
-      "owner": "conda-forge",
-      "name": "conda-smithy",
-      "slug": "conda-forge-conda-smithy",
-      "merged": 0,
-      "open": 2,
-      "closed": 2,
-      "prs": [
-        {
-          "number": 2708,
-          "title": "do not raise on a malformed v1 recipe",
-          "url": "https://github.com/conda-forge/conda-smithy/pull/2708",
-          "state": "open",
-          "created": "2026-09-28",
-          "closedAt": null
-        },
-        {
-          "number": 2709,
-          "title": "do not raise on an empty or mistyped v0 field",
-          "url": "https://github.com/conda-forge/conda-smithy/pull/2709",
-          "state": "closed",
-          "created": "2026-09-28",
-          "closedAt": "2026-11-01"
-        },
-        {
-          "number": 2706,
-          "title": "allow conda_build_config.yaml keys in v1 noarch conditionals",
-          "url": "https://github.com/conda-forge/conda-smithy/pull/2706",
-          "state": "open",
-          "created": "2026-09-27",
-          "closedAt": null
-        },
-        {
-          "number": 2707,
-          "title": "retry recipe parsing with selectors resolved",
-          "url": "https://github.com/conda-forge/conda-smithy/pull/2707",
-          "state": "closed",
-          "created": "2026-09-27",
-          "closedAt": "2026-09-27"
         }
       ]
     },
@@ -1713,25 +1732,6 @@
           "number": 15266,
           "title": "Fail the build if the bundled Tor is running",
           "url": "https://github.com/WalletWasabi/WalletWasabi/pull/15266",
-          "state": "open",
-          "created": "2026-11-07",
-          "closedAt": null
-        }
-      ]
-    },
-    {
-      "full": "prefix-dev/rattler-build",
-      "owner": "prefix-dev",
-      "name": "rattler-build",
-      "slug": "prefix-dev-rattler-build",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 2928,
-          "title": "fix: cap the file table in the GitHub step summary",
-          "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
           "state": "open",
           "created": "2026-11-07",
           "closedAt": null

@@ -2,11 +2,11 @@
 // The two numbers the landing page states about open source, counted rather
 // than typed. Fetched 2026-11-16.
 export const OSS_STATS = {
-  merged: 51,
-  open: 70,
+  merged: 53,
+  open: 68,
   closed: 45,
   prs: 166,
   repos: 57,
-  mergedRepos: 27,
+  mergedRepos: 29,
   fetchedAt: "2026-11-16",
 } as const;
