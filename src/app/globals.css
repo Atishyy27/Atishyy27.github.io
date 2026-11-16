@@ -296,6 +296,22 @@ html[data-lights="flat"] *::after {
   input, textarea, select { font-size: 16px !important; }
 }
 
+/* ---------- marquee ---------- */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Touch targets: the lights switch is the smallest control on the site. */
 @media (pointer: coarse) {
   .lights-seg { min-height: 38px; padding-inline: 0.75rem; }

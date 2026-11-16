@@ -102,12 +102,13 @@ export default function UnifiedOssRepos({ repos }: Props) {
               setFilter("all");
               setPage(1);
             }}
-            className={`rounded-full px-3 py-1 font-mono text-xs transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-xs transition-colors ${
               filter === "all"
                 ? "bg-[var(--accent)] text-[#06181a] font-medium"
                 : "border border-[var(--line)] bg-[var(--bg-raised)] text-[var(--fg-muted)] hover:text-[var(--fg)]"
             }`}
           >
+            <span className={`h-1.5 w-1.5 rounded-full ${filter === "all" ? "bg-[#06181a]" : "bg-[var(--fg-muted)]"}`} />
             All ({repos.length})
           </button>
           <button
@@ -116,12 +117,13 @@ export default function UnifiedOssRepos({ repos }: Props) {
               setFilter("landed");
               setPage(1);
             }}
-            className={`rounded-full px-3 py-1 font-mono text-xs transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-xs transition-colors ${
               filter === "landed"
                 ? "bg-[#a371f7] text-white font-medium"
                 : "border border-[var(--line)] bg-[var(--bg-raised)] text-[var(--fg-muted)] hover:text-[var(--fg)]"
             }`}
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#a371f7]" />
             Landed ({landedCount})
           </button>
           <button
@@ -130,12 +132,13 @@ export default function UnifiedOssRepos({ repos }: Props) {
               setFilter("in-flight");
               setPage(1);
             }}
-            className={`rounded-full px-3 py-1 font-mono text-xs transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-xs transition-colors ${
               filter === "in-flight"
                 ? "bg-[#3fb950] text-[#06181a] font-medium"
                 : "border border-[var(--line)] bg-[var(--bg-raised)] text-[var(--fg-muted)] hover:text-[var(--fg)]"
             }`}
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#3fb950] animate-pulse" />
             In Flight ({inFlightCount})
           </button>
           <button
@@ -144,12 +147,13 @@ export default function UnifiedOssRepos({ repos }: Props) {
               setFilter("has-issues");
               setPage(1);
             }}
-            className={`rounded-full px-3 py-1 font-mono text-xs transition-colors ${
+            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-xs transition-colors ${
               filter === "has-issues"
                 ? "bg-[var(--accent)] text-[#06181a] font-medium"
                 : "border border-[var(--line)] bg-[var(--bg-raised)] text-[var(--fg-muted)] hover:text-[var(--fg)]"
             }`}
           >
+            <span className={`h-1.5 w-1.5 rounded-full ${filter === "has-issues" ? "bg-[#06181a]" : "bg-[var(--accent)]"}`} />
             Issues Filed ({reposWithIssuesCount})
           </button>
         </div>
@@ -217,17 +221,19 @@ export default function UnifiedOssRepos({ repos }: Props) {
                     )}
                     {r.open > 0 && (
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3fb950]/15 border border-[#3fb950]/30 px-2.5 py-0.5 font-mono text-xs text-[#3fb950] font-medium">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#3fb950]" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#3fb950] animate-pulse" />
                         {r.open} open
                       </span>
                     )}
                     {r.closed > 0 && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--bg)] border border-[var(--line)] px-2 py-0.5 font-mono text-xs text-[var(--fg-muted)]">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f85149]/10 border border-[#f85149]/25 px-2 py-0.5 font-mono text-xs text-[var(--fg-muted)]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#f85149]" />
                         {r.closed} closed
                       </span>
                     )}
                     {repoIssues.length > 0 && (
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)]/30 px-2.5 py-0.5 font-mono text-xs text-[var(--accent)] font-medium">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
                         {repoIssues.length} {repoIssues.length === 1 ? "issue" : "issues"}
                       </span>
                     )}
@@ -237,12 +243,14 @@ export default function UnifiedOssRepos({ repos }: Props) {
                 {/* PR Preview / Full List */}
                 <div className="mt-3 space-y-1.5 border-t border-[var(--line)]/50 pt-2.5">
                   {previewPrs.map((pr) => {
-                    const stateColor =
-                      pr.state === "merged"
-                        ? "text-[#a371f7] bg-[#a371f7]/10"
-                        : pr.state === "open"
-                        ? "text-[#3fb950] bg-[#3fb950]/10"
-                        : "text-[var(--fg-muted)] bg-[var(--bg)]";
+                    const isMerged = pr.state === "merged";
+                    const isOpen = pr.state === "open";
+                    const dotColor = isMerged ? "bg-[#a371f7]" : isOpen ? "bg-[#3fb950] animate-pulse" : "bg-[#f85149]";
+                    const badgeClass = isMerged
+                      ? "text-[#a371f7] bg-[#a371f7]/15 border border-[#a371f7]/30"
+                      : isOpen
+                      ? "text-[#3fb950] bg-[#3fb950]/15 border border-[#3fb950]/30"
+                      : "text-[var(--fg-muted)] bg-[var(--bg)] border border-[var(--line)]";
 
                     return (
                       <div key={pr.number} className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-sm">
@@ -252,7 +260,8 @@ export default function UnifiedOssRepos({ repos }: Props) {
                           rel="noopener noreferrer"
                           className="group inline-flex items-center gap-2 hover:text-[var(--accent)] transition-colors min-w-0"
                         >
-                          <span className={`rounded px-1.5 py-0.2 font-mono text-[10px] uppercase font-semibold ${stateColor}`}>
+                          <span className={`inline-flex items-center gap-1.5 rounded px-2 py-0.5 font-mono text-[10px] uppercase font-semibold ${badgeClass}`}>
+                            <span className={`h-1.5 w-1.5 rounded-full ${dotColor}`} />
                             {pr.state} #{pr.number}
                           </span>
                           <span className="truncate group-hover:underline text-[13px]">{pr.title}</span>
@@ -270,7 +279,8 @@ export default function UnifiedOssRepos({ repos }: Props) {
                   {/* Expanded Upstream Issues */}
                   {isExpanded && repoIssues.length > 0 && (
                     <div className="mt-3 border-t border-[var(--line)]/40 pt-2 space-y-1.5">
-                      <div className="font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] font-medium">
+                      <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-[var(--accent)] font-medium">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
                         Self-Sourced Upstream Issues ({repoIssues.length})
                       </div>
                       {repoIssues.map((issue) => (
@@ -281,7 +291,8 @@ export default function UnifiedOssRepos({ repos }: Props) {
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-2 hover:text-[var(--accent)] transition-colors min-w-0"
                           >
-                            <span className="rounded bg-[var(--accent-soft)] px-1.5 py-0.2 font-mono text-[10px] uppercase font-semibold text-[var(--accent)]">
+                            <span className="inline-flex items-center gap-1.5 rounded bg-[var(--accent-soft)] border border-[var(--accent)]/30 px-2 py-0.5 font-mono text-[10px] uppercase font-semibold text-[var(--accent)]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
                               issue #{issue.number}
                             </span>
                             <span className="truncate group-hover:underline text-[13px]">{issue.title}</span>

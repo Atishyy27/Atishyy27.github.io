@@ -7,6 +7,8 @@ import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import LiveCounts from "@/components/LiveCounts";
 import StoreShelf from "@/components/StoreShelf";
 import CitationsSection from "@/components/CitationsSection";
+import ProofMarquee from "@/components/ProofMarquee";
+import HomeResearchCards from "@/components/HomeResearchCards";
 import { ProjectGraphMount } from "@/components/SceneMount";
 import { nodes, edges, sharedTech } from "@/content/graph";
 import { capture } from "@/lib/posthog";
@@ -94,10 +96,21 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ---------------- the argument: systems citations & shipped products ---------------- */}
-      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 space-y-16">
-        <CitationsSection initialLimit={3} className="border-t border-[var(--line)] pt-12" />
+      {/* ---------------- proof of work: infinite scrolling ticker ---------------- */}
+      <div className="mt-14 w-full">
+        <ProofMarquee />
+      </div>
+
+      {/* ---------------- the argument: installables, citations & research ---------------- */}
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 space-y-16 mt-16">
+        {/* 1. The 5 things a stranger can install in one click */}
         <StoreShelf />
+
+        {/* 2. Open-source work cited in production releases */}
+        <CitationsSection initialLimit={3} className="border-t border-[var(--line)] pt-12" />
+
+        {/* 3. Systems Research, Federated Learning & Topological Forensics */}
+        <HomeResearchCards />
       </div>
 
       {/* ---------------- counted facts ---------------- */}
