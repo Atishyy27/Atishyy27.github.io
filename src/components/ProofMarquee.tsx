@@ -95,12 +95,18 @@ export default function ProofMarquee() {
 
   return (
     <div className="relative w-full overflow-hidden border-y border-[var(--line)] bg-[var(--bg-raised)]/60 py-3 backdrop-blur-sm">
+      {/* Screen-reader-only accessible summary to avoid duplicate auditory content */}
+      <div className="sr-only">
+        Key engineering highlights: 500+ Android installs, 223 Chrome users, 51 merged open-source PRs, 
+        production citations in Cilium, SHAP, and Pixi, 94.2% AUC federated learning research, and Rank 12 ICPC regional finalist.
+      </div>
+
       {/* Edge Gradient Fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[var(--bg)] to-transparent z-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[var(--bg)] to-transparent z-10" />
 
       {/* Marquee Track */}
-      <div className="animate-marquee flex items-center gap-4">
+      <div className="animate-marquee flex items-center gap-4" aria-hidden="true">
         {doubled.map((item, i) => {
           const content = (
             <div className="inline-flex items-center gap-2.5 rounded-full border border-[var(--line)] bg-[var(--bg)] px-3.5 py-1.5 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]/20 whitespace-nowrap">
