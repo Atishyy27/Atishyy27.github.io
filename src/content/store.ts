@@ -46,7 +46,7 @@ export const listings: Listing[] = [
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba",
     users: "224 users",
-    countedOn: "2026-11-16",
+    countedOn: "2026-11-17",
     icon: "/ext/leetcode-analytics.webp",
   },
   {
@@ -56,7 +56,7 @@ export const listings: Listing[] = [
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/sync-lis/hcpjipoofgpnenpfjddkkodbobehonlb",
     users: "13 users",
-    countedOn: "2026-11-16",
+    countedOn: "2026-11-17",
     icon: "/ext/sync-lis.webp",
   },
   {
@@ -68,7 +68,7 @@ export const listings: Listing[] = [
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/prd-verification-tool/lhebknliliiigghklkdkljobkkmbhaoj",
     users: "135 users",
-    countedOn: "2026-11-16",
+    countedOn: "2026-11-17",
   },
   {
     slug: "yes-wellness-platform",
