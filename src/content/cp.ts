@@ -3,9 +3,9 @@
 // own API (CodeChef has none, so its public profile page is parsed). Hardcoded
 // versions of these four lines had all drifted; see the script for the diff.
 //
-// Generated 2026-11-18T06:17:27.694Z
+// Generated 2026-11-18T20:05:30.294Z
 export const CP = {
- "generated": "2026-11-18T06:17:27.694Z",
+ "generated": "2026-11-18T20:05:30.294Z",
  "handles": {
   "leetcode": "atishayjain78001",
   "codeforces": "sethatishayjain",
@@ -15,19 +15,19 @@ export const CP = {
  "meta": {
   "leetcode": {
    "ok": true,
-   "at": "2026-11-18T06:17:26.957Z"
+   "at": "2026-11-18T20:05:28.999Z"
   },
   "codeforces": {
    "ok": true,
-   "at": "2026-11-18T06:17:27.260Z"
+   "at": "2026-11-18T20:05:29.381Z"
   },
   "codechef": {
    "ok": true,
-   "at": "2026-11-18T06:17:27.489Z"
+   "at": "2026-11-18T20:05:30.085Z"
   },
   "atcoder": {
    "ok": true,
-   "at": "2026-11-18T06:17:27.694Z"
+   "at": "2026-11-18T20:05:30.294Z"
   }
  },
  "profiles": [
@@ -45,7 +45,7 @@ export const CP = {
     "rating": 1786,
     "topPercentage": 9.03,
     "contests": 84,
-    "globalRanking": 33445
+    "globalRanking": 33359
    }
   },
   {
