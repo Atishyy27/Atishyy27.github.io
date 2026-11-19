@@ -3,9 +3,9 @@
 // own API (CodeChef has none, so its public profile page is parsed). Hardcoded
 // versions of these four lines had all drifted; see the script for the diff.
 //
-// Generated 2026-11-18T20:05:30.294Z
+// Generated 2026-11-19T06:19:32.201Z
 export const CP = {
- "generated": "2026-11-18T20:05:30.294Z",
+ "generated": "2026-11-19T06:19:32.201Z",
  "handles": {
   "leetcode": "atishayjain78001",
   "codeforces": "sethatishayjain",
@@ -15,19 +15,19 @@ export const CP = {
  "meta": {
   "leetcode": {
    "ok": true,
-   "at": "2026-11-18T20:05:28.999Z"
+   "at": "2026-11-19T06:19:31.029Z"
   },
   "codeforces": {
    "ok": true,
-   "at": "2026-11-18T20:05:29.381Z"
+   "at": "2026-11-19T06:19:31.332Z"
   },
   "codechef": {
    "ok": true,
-   "at": "2026-11-18T20:05:30.085Z"
+   "at": "2026-11-19T06:19:31.844Z"
   },
   "atcoder": {
    "ok": true,
-   "at": "2026-11-18T20:05:30.294Z"
+   "at": "2026-11-19T06:19:32.201Z"
   }
  },
  "profiles": [
@@ -35,12 +35,12 @@ export const CP = {
    "site": "LeetCode",
    "handle": "atishayjain78001",
    "rank": "Knight",
-   "detail": "1024 solved, contest rating 1786",
+   "detail": "1025 solved, contest rating 1786",
    "href": "https://leetcode.com/u/atishayjain78001/",
    "raw": {
-    "solved": 1024,
+    "solved": 1025,
     "easy": 359,
-    "medium": 528,
+    "medium": 529,
     "hard": 137,
     "rating": 1786,
     "topPercentage": 9.03,
