@@ -36,7 +36,7 @@ type Node = {
   slug: string;
   full: string;
   merged: number;
-  total: number;
+  open: number;
   size: number;
   pos: THREE.Vector3;
 };
@@ -69,7 +69,7 @@ function useNodes(): Node[] {
       slug: r.slug,
       full: r.full,
       merged: r.merged,
-      total: r.prs.length,
+      open: r.open,
       // sqrt so one dominant repo does not flatten everything else
       size: 0.16 + 0.42 * Math.sqrt(r.merged / maxMerged),
       pos: pts[i],
@@ -223,7 +223,7 @@ function Nodes({
           <div className="graph-label">
             {active.full}
             <span>
-              {active.merged} merged of {active.total}
+              {active.merged} merged · {active.open} open
             </span>
           </div>
         </Html>
@@ -368,7 +368,7 @@ export default function CoreScene() {
       <p aria-live="polite" className="min-h-[2.5rem] text-[length:var(--step-small)] sm:min-h-[1.25rem]">
         {hover ? (
           <span className="text-[var(--fg)]">
-            {hover.full} — {hover.merged} merged of {hover.total}.{" "}
+            {hover.full} — {hover.merged} merged · {hover.open} open.{" "}
             {coarse ? (
               <button type="button" onClick={() => open(hover)} className="min-h-[40px] text-[var(--accent)] underline">
                 Open it

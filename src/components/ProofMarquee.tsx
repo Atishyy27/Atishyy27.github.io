@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { ACTIVITY } from "@/content/activity";
+import { ossHeadline } from "@/content/oss-headline";
+import issues from "@/content/oss-issues.json";
 
 interface ProofItem {
   label: string;
@@ -26,8 +29,8 @@ const PROOF_ITEMS: ProofItem[] = [
     href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba",
   },
   {
-    label: "51 Merged Upstream PRs",
-    detail: "across 27 repositories",
+    label: `${ossHeadline.contributions} ${ossHeadline.nounTitle}`,
+    detail: ossHeadline.counts,
     tag: "Open Source",
     color: "#a371f7",
     href: "/oss/",
@@ -61,8 +64,8 @@ const PROOF_ITEMS: ProofItem[] = [
     href: "/writing/",
   },
   {
-    label: "1,812 Contributions",
-    detail: "173 active days on GitHub",
+    label: `${ACTIVITY.meta.github.total.toLocaleString("en-US")} GitHub activity`,
+    detail: `last year, ${ACTIVITY.meta.github.days} active days`,
     tag: "Activity",
     color: "#a371f7",
     href: "/stats/",
@@ -75,7 +78,7 @@ const PROOF_ITEMS: ProofItem[] = [
     href: "/stats/",
   },
   {
-    label: "50 Upstream Issues",
+    label: `${(issues as unknown[]).length} Upstream Issues`,
     detail: "self-sourced reports across OTel, Podman, jc",
     tag: "Upstream",
     color: "#5eb3b3",
@@ -97,7 +100,7 @@ export default function ProofMarquee() {
     <div className="relative w-full overflow-hidden border-y border-[var(--line)] bg-[var(--bg-raised)]/60 py-3 backdrop-blur-sm">
       {/* Screen-reader-only accessible summary to avoid duplicate auditory content */}
       <div className="sr-only">
-        Key engineering highlights: 500+ Android installs, 223 Chrome users, 51 merged open-source PRs, 
+        Key engineering highlights: 500+ Android installs, 223 Chrome users, {ossHeadline.contributions} open-source {ossHeadline.noun}, {ossHeadline.counts}, {ossHeadline.orgs}, 
         production citations in Cilium, SHAP, and Pixi, 94.2% AUC federated learning research, and Rank 12 ICPC regional finalist.
       </div>
 

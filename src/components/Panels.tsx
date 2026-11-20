@@ -6,7 +6,7 @@ import { cpProfiles, person } from "@/content/site";
 import { Reveal, Tilt } from "./Chrome";
 import UnifiedHeatmap from "./UnifiedHeatmap";
 import UnifiedRatingChart from "./UnifiedRatingChart";
-import { OSS_STATS } from "@/content/oss-stats";
+import OssHeadline from "@/components/OssHeadline";
 import { STORE_USERS } from "@/content/store";
 import { RELEASE_CITATIONS } from "@/content/citations";
 import rawIssues from "@/content/oss-issues.json";
@@ -204,12 +204,7 @@ export function CpSection() {
           <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-4">
             <Link href="/oss/" className="group">
               <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--fg-muted)]">Open Source</span>
-              <div className="text-2xl sm:text-3xl font-medium mt-1 text-[var(--accent)] tabular-nums">
-                {OSS_STATS.merged} Merged
-              </div>
-              <div className="text-xs text-[var(--fg-muted)] mt-0.5 group-hover:text-[var(--fg)]">
-                across {OSS_STATS.mergedRepos} repositories
-              </div>
+              <OssHeadline variant="stack" className="mt-1 [&>p:first-child]:text-[var(--accent)]" />
             </Link>
 
             <Link href="/oss/" className="group">

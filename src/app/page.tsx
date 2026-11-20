@@ -15,6 +15,8 @@ import LiveCounts from "@/components/LiveCounts";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import { ProjectGraphMount } from "@/components/SceneMount";
 import { nodes, edges, sharedTech } from "@/content/graph";
+import OssHeadline from "@/components/OssHeadline";
+import { ACTIVITY } from "@/content/activity";
 import { capture } from "@/lib/posthog";
 import { Reveal, Tilt } from "@/components/Chrome";
 
@@ -60,7 +62,7 @@ export default function Home() {
             {/* Proof Metric Highlights */}
             <div className="mt-5 flex flex-wrap items-center gap-2 font-mono text-xs text-[var(--accent)]">
               <span className="rounded bg-[var(--bg-raised)] border border-[var(--line)] px-2.5 py-1">
-                51 merged upstream PRs
+                <OssHeadline variant="inline" />
               </span>
               <span className="rounded bg-[var(--bg-raised)] border border-[var(--line)] px-2.5 py-1">
                 2 government apps shipped
@@ -128,8 +130,8 @@ export default function Home() {
 
               <div className="mt-5 space-y-4 font-mono text-xs">
                 <div className="flex items-baseline justify-between border-b border-[var(--line)]/50 pb-2.5">
-                  <span className="text-[var(--fg-muted)]">UPSTREAM PRS</span>
-                  <span className="text-[var(--fg)] font-medium">51 MERGED · 27 REPOS</span>
+                  <span className="text-[var(--fg-muted)]">OPEN SOURCE</span>
+                  <OssHeadline variant="compact" className="uppercase text-[var(--fg)] font-medium" />
                 </div>
                 <div className="flex items-baseline justify-between border-b border-[var(--line)]/50 pb-2.5">
                   <span className="text-[var(--fg-muted)]">RELEASE CITATIONS</span>
@@ -148,8 +150,10 @@ export default function Home() {
                   <span className="text-[var(--fg)] font-medium">RANK 12 (AMRITAPURI)</span>
                 </div>
                 <div className="flex items-baseline justify-between pb-1">
-                  <span className="text-[var(--fg-muted)]">GITHUB CONTRIBUTIONS</span>
-                  <span className="text-[var(--accent)] font-medium">1,812 ANNUAL (173 DAYS)</span>
+                  <span className="text-[var(--fg-muted)]">GITHUB ACTIVITY (LAST YEAR)</span>
+                  <span className="text-[var(--accent)] font-medium">
+                    {ACTIVITY.meta.github.total.toLocaleString("en-US")} ({ACTIVITY.meta.github.days} DAYS)
+                  </span>
                 </div>
               </div>
 

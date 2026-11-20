@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 };
 
 export default function Oss() {
-  const { totals, repoCount, fetchedAt } = oss;
+  const { totals, fetchedAt } = oss;
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-24 sm:px-8">
       <h1 className="display text-[length:var(--step-display)]">Open source</h1>
       <p className="mt-6 max-w-prose text-lg leading-relaxed text-[var(--fg-muted)]">
-        {totals.prs} pull requests opened against {repoCount} repositories I do not own.
+        {totals.prs} pull requests opened against {oss.totals.repos} repositories I do not own.
         Every row links to the pull request itself.
       </p>
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Reveal, Tilt } from "./Chrome";
+import { ossHeadline } from "@/content/oss-headline";
 
 interface ImpactItem {
   metric: string;
@@ -13,9 +14,9 @@ interface ImpactItem {
 
 const IMPACT_ITEMS: ImpactItem[] = [
   {
-    metric: "51",
-    label: "Merged Upstream PRs",
-    context: "Accepted changes across 27 external repositories including Cilium (CNCF), rust-lightning, SHAP, and Pixi.",
+    metric: String(ossHeadline.contributions),
+    label: `Open-Source ${ossHeadline.nounTitle}`,
+    context: `${ossHeadline.counts}, ${ossHeadline.orgs}, including Cilium (CNCF), rust-lightning, SHAP, and Pixi.`,
     href: "/oss/",
     badge: "Open Source",
   },

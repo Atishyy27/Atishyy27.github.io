@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import { Reveal, Tilt } from "./Chrome";
+import { ossHeadline as H } from "@/content/oss-headline";
+import { RELEASE_CITATIONS } from "@/content/citations";
+
+const RELEASES = RELEASE_CITATIONS.length;
 
 interface CaseStudy {
   id: string;
@@ -57,10 +61,10 @@ const CASE_STUDIES: CaseStudy[] = [
     solution:
       "Diagnosed edge-case failures through minimal reproduction scripts: Envoy XDS node IP parsing in Cilium, KernelExplainer DataFrame column mismatch in SHAP, and suggestions in Pixi.",
     verification:
-      "51 accepted upstream PRs across 27 repositories, with contributions included and explicitly cited in 11 tagged production releases.",
-    badges: ["Cilium (CNCF)", "rust-lightning", "SHAP", "11 Tagged Releases"],
+      `${H.contributions} ${H.noun} ${H.orgs} (${H.counts}), cited in ${RELEASES} tagged production releases.`,
+    badges: ["Cilium (CNCF)", "rust-lightning", "SHAP", `${RELEASES} Tagged Releases`],
     href: "/oss/",
-    meta: "51 MERGED PRS · 27 REPOSITORIES · 11 RELEASES",
+    meta: `${H.contributions} ${H.noun} · ${H.counts} · ${RELEASES} RELEASES`.toUpperCase(),
   },
 ];
 

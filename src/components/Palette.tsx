@@ -133,7 +133,7 @@ export default function Palette({
       out.push({
         id: `o:${r.slug}`,
         label: r.full,
-        hint: r.merged > 0 ? `${r.merged} merged` : `${r.prs.length} open or closed`,
+        hint: r.merged > 0 ? `${r.merged} merged` : `${r.open} open`,
         group: "Open source",
         run: route(`/oss/${r.slug}/`),
       });

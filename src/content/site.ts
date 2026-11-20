@@ -4,7 +4,7 @@
  */
 
 import { CP_PROFILES, CP_GENERATED } from "./cp";
-import { OSS_STATS } from "./oss-stats";
+import { ossHeadline } from "./oss-headline";
 import { listings } from "./store";
 
 export const person = {
@@ -57,8 +57,8 @@ export const proof = [
   // permanently excluded; scripts/fetch-oss.mjs drops them in the query and
   // again in a filter, so this number cannot quietly pick them back up.
   {
-    stat: `${OSS_STATS.merged} merged`,
-    label: `pull requests into repos I do not own, across ${OSS_STATS.mergedRepos} projects`,
+    stat: `${ossHeadline.contributions} ${ossHeadline.noun}`,
+    label: `${ossHeadline.counts}, ${ossHeadline.orgs}`,
     href: "/oss/",
   },
   // Derived from content/store.ts, not typed. This line said "392 users on my

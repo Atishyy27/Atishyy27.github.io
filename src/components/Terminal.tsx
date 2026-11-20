@@ -7,7 +7,7 @@ import {
   extensions, hackathons, ownWork, devTools, cpProfiles,
 } from "@/content/site";
 import { answer as ragAnswer } from "@/lib/rag";
-import { oss } from "@/content/oss";
+import { ossHeadlineText } from "@/content/oss-headline";
 
 /* ==================================================================
    The terminal. Commands run instantly; `ask <question>` searches my
@@ -110,7 +110,7 @@ export default function Terminal() {
         // became undefined when that label changed, and linked to "#opensource",
         // an anchor that stopped existing when the page became eight routes.
         push(
-          { t: "out", text: `${oss.totals.merged} merged into ${oss.repos.filter((r) => r.merged > 0).length} repos I do not own, out of ${oss.totals.prs} opened across ${oss.repoCount}. ${oss.totals.open} still open.` },
+          { t: "out", text: `${ossHeadlineText()} in projects I do not own.` },
           { t: "link", text: "see every one", href: "/oss/" }
         );
         break;
