@@ -1,16 +1,34 @@
-import card from "@/content/oss-scorecard.json";
+import cardRaw from "@/content/oss-scorecard.json";
+import { formatIst } from "@/lib/date";
+
+type Card = {
+  snapshot: string;
+  merged: number;
+  contributions?: number;
+  maintainersWhoMerged: number;
+  orgsWithMerge?: number;
+  medianDaysToMerge: number;
+  medianHoursToFirstReview: number;
+  bySize: { bucket: string; merged: number }[];
+  byMonth: { month: string; merged: number }[];
+};
+const card = cardRaw as unknown as Card;
 
 // How the work lands, not how much of it there is. Numbers come from
-// oss-scorecard.json, written nightly by the private dashboard script with
-// public fields only.
+// oss-scorecard.json, written by the same fetch as the rest of the open-source data.
 export default function OssScorecard() {
-  const rate = card.mergeRate === null ? "n/a" : `${Math.round(card.mergeRate * 100)}%`;
+  const landed = card.contributions ?? card.merged;
   const tiles: [string, string, string][] = [
-    ["Merge rate", rate, `${card.merged} merged of ${card.decided} decided`],
-    ["Maintainers", String(card.maintainersWhoMerged), `merged my work, across ${card.reposWithMerge} repos`],
+    ["Contributions landed", String(landed), `${card.merged} merged pull requests plus carried commits and fixed reports`],
+    [
+      "Maintainers",
+      String(card.maintainersWhoMerged),
+      card.orgsWithMerge ? `merged my work, across ${card.orgsWithMerge} organisations` : "merged my work",
+    ],
     ["To first review", `${card.medianHoursToFirstReview}h`, "median"],
     ["To merge", `${card.medianDaysToMerge}d`, "median"],
   ];
+  const topSize = Math.max(1, ...card.bySize.map((b) => b.merged));
   const top = Math.max(1, ...card.byMonth.map((m) => m.merged));
   return (
     <section className="mt-16 border-t border-[var(--line)] pt-8">
@@ -29,12 +47,12 @@ export default function OssScorecard() {
           <h3 className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">Merged by size</h3>
           <div className="mt-3 space-y-2">
             {card.bySize.map((b) => {
-              const pct = b.decided ? Math.round((100 * b.merged) / b.decided) : 0;
+              const pct = Math.round((100 * b.merged) / topSize);
               return (
                 <div key={b.bucket} className="text-[length:var(--step-small)]">
                   <div className="flex justify-between tabular-nums">
                     <span>{b.bucket} lines</span>
-                    <span className="text-[var(--fg-muted)]">{b.decided ? `${pct}% (${b.merged}/${b.decided})` : "none yet"}</span>
+                    <span className="text-[var(--fg-muted)]">{b.merged ? `${b.merged} merged` : "none yet"}</span>
                   </div>
                   <div className="mt-1 h-1.5 rounded-full bg-[var(--line)]">
                     <div className="h-1.5 rounded-full bg-[var(--accent)]" style={{ width: `${pct}%` }} />
@@ -48,9 +66,9 @@ export default function OssScorecard() {
           <h3 className="font-mono text-[10px] tracking-[0.12em] text-[var(--fg-muted)] uppercase">Merged per month</h3>
           <div className="mt-3 flex h-28 items-end gap-2 pt-2">
             {card.byMonth.map((m) => {
-              const pct = top > 0 ? Math.round((100 * m.merged) / top) : 0;
+              const pct = Math.round((100 * m.merged) / top);
               return (
-                <div key={m.month} className="flex h-full flex-1 flex-col items-center justify-end gap-1" title={`${m.month}: ${m.merged} merged`}>
+                <div key={m.month} className="flex h-full min-w-0 flex-1 flex-col items-center justify-end gap-1" title={`${m.month}: ${m.merged} merged`}>
                   <span className="font-mono text-[10px] tabular-nums text-[var(--fg-muted)]">{m.merged}</span>
                   <div className="w-full flex-1 flex items-end">
                     <div className="w-full rounded-sm bg-[var(--accent)] min-h-[4px]" style={{ height: `${pct}%` }} />
@@ -63,7 +81,7 @@ export default function OssScorecard() {
         </div>
       </div>
       <p className="mt-6 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
-        Decided means merged or closed; open pull requests are left out of the rate. Snapshot {card.snapshot}.
+        Counted {formatIst(card.snapshot)}.
       </p>
     </section>
   );
