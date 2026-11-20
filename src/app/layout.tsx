@@ -12,6 +12,9 @@ import Posthog from "@/components/Posthog";
 
 const SITE = "https://atishay.tech";
 const CLARITY = process.env.NEXT_PUBLIC_CLARITY_ID;
+// atishay.tech/?me=1 marks this browser as his own so his visits stop counting as
+// visitors (two thirds of all page views were his, 21 Nov 2026). ?me=0 undoes it.
+const ME_CHECK = `(function(){try{var m=new URLSearchParams(location.search).get("me");if(m==="1")localStorage.setItem("atishay-me","1");if(m==="0")localStorage.removeItem("atishay-me");return localStorage.getItem("atishay-me")==="1"}catch(e){return false}})()`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -85,7 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: LIGHTS_BOOT }} />
         {CLARITY && (
           <script
-            dangerouslySetInnerHTML={{ __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY}");` }}
+            dangerouslySetInnerHTML={{ __html: `if(!${ME_CHECK})(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY}");` }}
           />
         )}
         <script

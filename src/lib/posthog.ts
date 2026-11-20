@@ -40,7 +40,7 @@ let starting: Promise<Client | null> | null = null;
 const pending: [string, Record<string, unknown> | undefined][] = [];
 
 export function startPosthog(): Promise<Client | null> {
-  if (!KEY) return Promise.resolve(null);
+  if (!KEY || isMe()) return Promise.resolve(null);
   if (starting) return starting;
   starting = import("posthog-js")
     .then(({ default: posthog }) => {
@@ -72,9 +72,21 @@ export function startPosthog(): Promise<Client | null> {
   return starting;
 }
 
+/** His own browsers, marked once with atishay.tech/?me=1 (see layout.tsx), send nothing. */
+function isMe(): boolean {
+  try {
+    const m = new URLSearchParams(location.search).get("me");
+    if (m === "1") localStorage.setItem("atishay-me", "1");
+    if (m === "0") localStorage.removeItem("atishay-me");
+    return localStorage.getItem("atishay-me") === "1";
+  } catch {
+    return false;
+  }
+}
+
 /** Safe everywhere: a no-op when there is no key, queued before the chunk lands. */
 export function capture(event: string, props?: Record<string, unknown>) {
-  if (!KEY) return;
+  if (!KEY || isMe()) return;
   if (client) client.capture(event, props);
   else {
     pending.push([event, props]);
