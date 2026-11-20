@@ -1,15 +1,785 @@
 {
+  "schema": 2,
   "user": "Atishyy27",
-  "fetchedAt": "2026-11-20",
-  "excludedCount": 7,
-  "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
+  "fetchedAt": "2026-11-20T20:26:31.374Z",
+  "definition": "PLACEHOLDER v2-lite derived from the old snapshot; the real fetch replaces it.",
   "totals": {
+    "contributions": 56,
     "merged": 56,
     "open": 64,
+    "carried": 0,
+    "reportsFixed": 0,
     "closed": 46,
-    "prs": 166
+    "prs": 166,
+    "orgs": 47,
+    "orgsLanded": 27,
+    "repos": 57,
+    "reposLanded": 29
   },
-  "repoCount": 57,
+  "orgs": [
+    {
+      "org": "fedimint",
+      "slug": "fedimint",
+      "avatar": "https://github.com/fedimint.png",
+      "kind": "Organization",
+      "merged": 7,
+      "open": 3,
+      "closed": 4,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 7,
+      "level": "L3",
+      "repos": [
+        "fedimint/fedimint",
+        "fedimint/ecash-app"
+      ]
+    },
+    {
+      "org": "braidpool",
+      "slug": "braidpool",
+      "avatar": "https://github.com/braidpool.png",
+      "kind": "Organization",
+      "merged": 6,
+      "open": 3,
+      "closed": 6,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 6,
+      "level": "L3",
+      "repos": [
+        "braidpool/braidpool"
+      ]
+    },
+    {
+      "org": "open-telemetry",
+      "slug": "open-telemetry",
+      "avatar": "https://github.com/open-telemetry.png",
+      "kind": "Organization",
+      "merged": 5,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 5,
+      "level": "L3",
+      "repos": [
+        "open-telemetry/opentelemetry-python-contrib",
+        "open-telemetry/opentelemetry-collector-contrib"
+      ]
+    },
+    {
+      "org": "citadel-foss",
+      "slug": "citadel-foss",
+      "avatar": "https://github.com/citadel-foss.png",
+      "kind": "Organization",
+      "merged": 4,
+      "open": 0,
+      "closed": 4,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 4,
+      "level": "L2",
+      "repos": [
+        "citadel-foss/openswap"
+      ]
+    },
+    {
+      "org": "podman-container-tools",
+      "slug": "podman-container-tools",
+      "avatar": "https://github.com/podman-container-tools.png",
+      "kind": "Organization",
+      "merged": 4,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 4,
+      "level": "L2",
+      "repos": [
+        "podman-container-tools/podman"
+      ]
+    },
+    {
+      "org": "pyannote",
+      "slug": "pyannote",
+      "avatar": "https://github.com/pyannote.png",
+      "kind": "Organization",
+      "merged": 3,
+      "open": 2,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 3,
+      "level": "L2",
+      "repos": [
+        "pyannote/pyannote-metrics",
+        "pyannote/pyannote-audio"
+      ]
+    },
+    {
+      "org": "meshery",
+      "slug": "meshery",
+      "avatar": "https://github.com/meshery.png",
+      "kind": "Organization",
+      "merged": 2,
+      "open": 10,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 2,
+      "level": "L2",
+      "repos": [
+        "meshery/meshery",
+        "meshery/meshkit",
+        "meshery/schemas"
+      ]
+    },
+    {
+      "org": "kmesh-net",
+      "slug": "kmesh-net",
+      "avatar": "https://github.com/kmesh-net.png",
+      "kind": "Organization",
+      "merged": 2,
+      "open": 2,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 2,
+      "level": "L2",
+      "repos": [
+        "kmesh-net/kmesh"
+      ]
+    },
+    {
+      "org": "michaeldcanady",
+      "slug": "michaeldcanady",
+      "avatar": "https://github.com/michaeldcanady.png",
+      "kind": "Organization",
+      "merged": 2,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 2,
+      "level": "L2",
+      "repos": [
+        "michaeldcanady/servicenow-sdk-go"
+      ]
+    },
+    {
+      "org": "ManiMatter",
+      "slug": "manimatter",
+      "avatar": "https://github.com/ManiMatter.png",
+      "kind": "Organization",
+      "merged": 2,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 2,
+      "level": "L2",
+      "repos": [
+        "ManiMatter/decluttarr"
+      ]
+    },
+    {
+      "org": "open-policy-agent",
+      "slug": "open-policy-agent",
+      "avatar": "https://github.com/open-policy-agent.png",
+      "kind": "Organization",
+      "merged": 2,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 2,
+      "level": "L2",
+      "repos": [
+        "open-policy-agent/opa"
+      ]
+    },
+    {
+      "org": "prefix-dev",
+      "slug": "prefix-dev",
+      "avatar": "https://github.com/prefix-dev.png",
+      "kind": "Organization",
+      "merged": 2,
+      "open": 0,
+      "closed": 3,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 2,
+      "level": "L2",
+      "repos": [
+        "prefix-dev/pixi",
+        "prefix-dev/rattler-build"
+      ]
+    },
+    {
+      "org": "kubernetes",
+      "slug": "kubernetes",
+      "avatar": "https://github.com/kubernetes.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 5,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "kubernetes/website"
+      ]
+    },
+    {
+      "org": "zowe",
+      "slug": "zowe",
+      "avatar": "https://github.com/zowe.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 3,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "zowe/zowe-cli"
+      ]
+    },
+    {
+      "org": "openeverest",
+      "slug": "openeverest",
+      "avatar": "https://github.com/openeverest.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 2,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "openeverest/openeverest"
+      ]
+    },
+    {
+      "org": "conda-forge",
+      "slug": "conda-forge",
+      "avatar": "https://github.com/conda-forge.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 1,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "conda-forge/conda-smithy"
+      ]
+    },
+    {
+      "org": "AI-Hypercomputer",
+      "slug": "ai-hypercomputer",
+      "avatar": "https://github.com/AI-Hypercomputer.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "AI-Hypercomputer/maxtext"
+      ]
+    },
+    {
+      "org": "cilium",
+      "slug": "cilium",
+      "avatar": "https://github.com/cilium.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "cilium/cilium"
+      ]
+    },
+    {
+      "org": "comet-ml",
+      "slug": "comet-ml",
+      "avatar": "https://github.com/comet-ml.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "comet-ml/opik"
+      ]
+    },
+    {
+      "org": "google-deepmind",
+      "slug": "google-deepmind",
+      "avatar": "https://github.com/google-deepmind.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "google-deepmind/open_spiel",
+        "google-deepmind/mujoco"
+      ]
+    },
+    {
+      "org": "goyek",
+      "slug": "goyek",
+      "avatar": "https://github.com/goyek.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "goyek/goyek"
+      ]
+    },
+    {
+      "org": "hyperledger",
+      "slug": "hyperledger",
+      "avatar": "https://github.com/hyperledger.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "hyperledger/fabric"
+      ]
+    },
+    {
+      "org": "kellyjonbrazil",
+      "slug": "kellyjonbrazil",
+      "avatar": "https://github.com/kellyjonbrazil.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "kellyjonbrazil/jc"
+      ]
+    },
+    {
+      "org": "lightningdevkit",
+      "slug": "lightningdevkit",
+      "avatar": "https://github.com/lightningdevkit.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "lightningdevkit/rust-lightning"
+      ]
+    },
+    {
+      "org": "openatx",
+      "slug": "openatx",
+      "avatar": "https://github.com/openatx.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "openatx/uiautomator2"
+      ]
+    },
+    {
+      "org": "py-pdf",
+      "slug": "py-pdf",
+      "avatar": "https://github.com/py-pdf.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "py-pdf/pypdf"
+      ]
+    },
+    {
+      "org": "shap",
+      "slug": "shap",
+      "avatar": "https://github.com/shap.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L1",
+      "repos": [
+        "shap/shap"
+      ]
+    },
+    {
+      "org": "flwrlabs",
+      "slug": "flwrlabs",
+      "avatar": "https://github.com/flwrlabs.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 8,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "flwrlabs/flower"
+      ]
+    },
+    {
+      "org": "sktime",
+      "slug": "sktime",
+      "avatar": "https://github.com/sktime.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 7,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "sktime/sktime",
+        "sktime/pytorch-forecasting",
+        "sktime/skpro"
+      ]
+    },
+    {
+      "org": "conda",
+      "slug": "conda",
+      "avatar": "https://github.com/conda.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "conda/rattler"
+      ]
+    },
+    {
+      "org": "spdx",
+      "slug": "spdx",
+      "avatar": "https://github.com/spdx.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "spdx/tools-python"
+      ]
+    },
+    {
+      "org": "kubeflow",
+      "slug": "kubeflow",
+      "avatar": "https://github.com/kubeflow.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 2,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "kubeflow/pipelines",
+        "kubeflow/sdk"
+      ]
+    },
+    {
+      "org": "bowtie-json-schema",
+      "slug": "bowtie-json-schema",
+      "avatar": "https://github.com/bowtie-json-schema.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "bowtie-json-schema/bowtie"
+      ]
+    },
+    {
+      "org": "getsentry",
+      "slug": "getsentry",
+      "avatar": "https://github.com/getsentry.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "getsentry/responses"
+      ]
+    },
+    {
+      "org": "google",
+      "slug": "google",
+      "avatar": "https://github.com/google.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "google/artemis"
+      ]
+    },
+    {
+      "org": "hibiken",
+      "slug": "hibiken",
+      "avatar": "https://github.com/hibiken.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "hibiken/asynq"
+      ]
+    },
+    {
+      "org": "langfuse",
+      "slug": "langfuse",
+      "avatar": "https://github.com/langfuse.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "langfuse/langfuse-python"
+      ]
+    },
+    {
+      "org": "openMF",
+      "slug": "openmf",
+      "avatar": "https://github.com/openMF.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "openMF/mifosx-platform"
+      ]
+    },
+    {
+      "org": "patternfly",
+      "slug": "patternfly",
+      "avatar": "https://github.com/patternfly.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "patternfly/react-log-viewer"
+      ]
+    },
+    {
+      "org": "sarvamai",
+      "slug": "sarvamai",
+      "avatar": "https://github.com/sarvamai.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "sarvamai/skills"
+      ]
+    },
+    {
+      "org": "WalletWasabi",
+      "slug": "walletwasabi",
+      "avatar": "https://github.com/WalletWasabi.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "WalletWasabi/WalletWasabi"
+      ]
+    },
+    {
+      "org": "cbomkit",
+      "slug": "cbomkit",
+      "avatar": "https://github.com/cbomkit.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "cbomkit/sonar-cryptography"
+      ]
+    },
+    {
+      "org": "e2b-dev",
+      "slug": "e2b-dev",
+      "avatar": "https://github.com/e2b-dev.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "e2b-dev/E2B"
+      ]
+    },
+    {
+      "org": "intuit",
+      "slug": "intuit",
+      "avatar": "https://github.com/intuit.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "intuit/infigraph"
+      ]
+    },
+    {
+      "org": "mlflow",
+      "slug": "mlflow",
+      "avatar": "https://github.com/mlflow.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "mlflow/mlflow"
+      ]
+    },
+    {
+      "org": "urunc-dev",
+      "slug": "urunc-dev",
+      "avatar": "https://github.com/urunc-dev.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 4,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "urunc-dev/urunc"
+      ]
+    },
+    {
+      "org": "youki-dev",
+      "slug": "youki-dev",
+      "avatar": "https://github.com/youki-dev.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "youki-dev/youki"
+      ]
+    }
+  ],
   "repos": [
     {
       "full": "fedimint/fedimint",
@@ -26,7 +796,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9503",
           "state": "merged",
           "created": "2026-11-10",
-          "closedAt": "2026-11-12"
+          "closedAt": "2026-11-12",
+          "mergedAt": "2026-11-12"
         },
         {
           "number": 9482,
@@ -34,7 +805,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9482",
           "state": "open",
           "created": "2026-11-07",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 9483,
@@ -42,7 +814,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9483",
           "state": "open",
           "created": "2026-11-07",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 9329,
@@ -50,7 +823,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9329",
           "state": "merged",
           "created": "2026-10-09",
-          "closedAt": "2026-10-20"
+          "closedAt": "2026-10-20",
+          "mergedAt": "2026-10-20"
         },
         {
           "number": 9216,
@@ -58,7 +832,10 @@
           "url": "https://github.com/fedimint/fedimint/pull/9216",
           "state": "closed",
           "created": "2026-09-28",
-          "closedAt": "2026-11-01"
+          "closedAt": "2026-11-01",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 9202,
@@ -66,7 +843,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9202",
           "state": "open",
           "created": "2026-09-25",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 9203,
@@ -74,7 +852,10 @@
           "url": "https://github.com/fedimint/fedimint/pull/9203",
           "state": "closed",
           "created": "2026-09-25",
-          "closedAt": "2026-10-19"
+          "closedAt": "2026-10-19",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 9198,
@@ -82,7 +863,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9198",
           "state": "merged",
           "created": "2026-09-24",
-          "closedAt": "2026-10-08"
+          "closedAt": "2026-10-08",
+          "mergedAt": "2026-10-08"
         },
         {
           "number": 9182,
@@ -90,7 +872,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9182",
           "state": "merged",
           "created": "2026-09-20",
-          "closedAt": "2026-10-19"
+          "closedAt": "2026-10-19",
+          "mergedAt": "2026-10-19"
         },
         {
           "number": 9143,
@@ -98,7 +881,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/9143",
           "state": "merged",
           "created": "2026-09-13",
-          "closedAt": "2026-09-16"
+          "closedAt": "2026-09-16",
+          "mergedAt": "2026-09-16"
         },
         {
           "number": 8921,
@@ -106,7 +890,8 @@
           "url": "https://github.com/fedimint/fedimint/pull/8921",
           "state": "merged",
           "created": "2026-07-30",
-          "closedAt": "2026-07-30"
+          "closedAt": "2026-07-30",
+          "mergedAt": "2026-07-30"
         },
         {
           "number": 8907,
@@ -114,7 +899,10 @@
           "url": "https://github.com/fedimint/fedimint/pull/8907",
           "state": "closed",
           "created": "2026-07-29",
-          "closedAt": "2026-08-04"
+          "closedAt": "2026-08-04",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 8854,
@@ -122,9 +910,14 @@
           "url": "https://github.com/fedimint/fedimint/pull/8854",
           "state": "merged",
           "created": "2026-07-22",
-          "closedAt": "2026-09-13"
+          "closedAt": "2026-09-13",
+          "mergedAt": "2026-09-13"
         }
-      ]
+      ],
+      "org": "fedimint",
+      "stars": 0,
+      "reach": "C",
+      "level": "L3"
     },
     {
       "full": "braidpool/braidpool",
@@ -141,7 +934,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/583",
           "state": "open",
           "created": "2026-10-09",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 584,
@@ -149,7 +943,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/584",
           "state": "merged",
           "created": "2026-10-09",
-          "closedAt": "2026-11-20"
+          "closedAt": "2026-11-20",
+          "mergedAt": "2026-11-20"
         },
         {
           "number": 570,
@@ -157,7 +952,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/570",
           "state": "merged",
           "created": "2026-09-24",
-          "closedAt": "2026-11-20"
+          "closedAt": "2026-11-20",
+          "mergedAt": "2026-11-20"
         },
         {
           "number": 551,
@@ -165,7 +961,10 @@
           "url": "https://github.com/braidpool/braidpool/pull/551",
           "state": "closed",
           "created": "2026-09-16",
-          "closedAt": "2026-10-13"
+          "closedAt": "2026-10-13",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 552,
@@ -173,7 +972,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/552",
           "state": "open",
           "created": "2026-09-16",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 554,
@@ -181,7 +981,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/554",
           "state": "open",
           "created": "2026-09-16",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 548,
@@ -189,7 +990,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/548",
           "state": "merged",
           "created": "2026-09-14",
-          "closedAt": "2026-11-20"
+          "closedAt": "2026-11-20",
+          "mergedAt": "2026-11-20"
         },
         {
           "number": 547,
@@ -197,7 +999,10 @@
           "url": "https://github.com/braidpool/braidpool/pull/547",
           "state": "closed",
           "created": "2026-09-12",
-          "closedAt": "2026-09-14"
+          "closedAt": "2026-09-14",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 524,
@@ -205,7 +1010,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/524",
           "state": "merged",
           "created": "2026-08-06",
-          "closedAt": "2026-08-09"
+          "closedAt": "2026-08-09",
+          "mergedAt": "2026-08-09"
         },
         {
           "number": 522,
@@ -213,7 +1019,10 @@
           "url": "https://github.com/braidpool/braidpool/pull/522",
           "state": "closed",
           "created": "2026-08-05",
-          "closedAt": "2026-08-06"
+          "closedAt": "2026-08-06",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 517,
@@ -221,7 +1030,8 @@
           "url": "https://github.com/braidpool/braidpool/pull/517",
           "state": "merged",
           "created": "2026-07-27",
-          "closedAt": "2026-07-28"
+          "closedAt": "2026-07-28",
+          "mergedAt": "2026-07-28"
         },
         {
           "number": 495,
@@ -229,7 +1039,10 @@
           "url": "https://github.com/braidpool/braidpool/pull/495",
           "state": "closed",
           "created": "2026-07-08",
-          "closedAt": "2026-07-12"
+          "closedAt": "2026-07-12",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 496,
@@ -237,7 +1050,10 @@
           "url": "https://github.com/braidpool/braidpool/pull/496",
           "state": "closed",
           "created": "2026-07-08",
-          "closedAt": "2026-07-12"
+          "closedAt": "2026-07-12",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 493,
@@ -245,7 +1061,10 @@
           "url": "https://github.com/braidpool/braidpool/pull/493",
           "state": "closed",
           "created": "2026-07-06",
-          "closedAt": "2026-11-20"
+          "closedAt": "2026-11-20",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 490,
@@ -253,9 +1072,14 @@
           "url": "https://github.com/braidpool/braidpool/pull/490",
           "state": "merged",
           "created": "2026-07-04",
-          "closedAt": "2026-07-05"
+          "closedAt": "2026-07-05",
+          "mergedAt": "2026-07-05"
         }
-      ]
+      ],
+      "org": "braidpool",
+      "stars": 0,
+      "reach": "C",
+      "level": "L3"
     },
     {
       "full": "citadel-foss/openswap",
@@ -272,7 +1096,8 @@
           "url": "https://github.com/citadel-foss/openswap/pull/1131",
           "state": "merged",
           "created": "2026-10-10",
-          "closedAt": "2026-10-18"
+          "closedAt": "2026-10-18",
+          "mergedAt": "2026-10-18"
         },
         {
           "number": 1132,
@@ -280,7 +1105,8 @@
           "url": "https://github.com/citadel-foss/openswap/pull/1132",
           "state": "merged",
           "created": "2026-10-10",
-          "closedAt": "2026-10-18"
+          "closedAt": "2026-10-18",
+          "mergedAt": "2026-10-18"
         },
         {
           "number": 1035,
@@ -288,7 +1114,8 @@
           "url": "https://github.com/citadel-foss/openswap/pull/1035",
           "state": "merged",
           "created": "2026-09-21",
-          "closedAt": "2026-09-30"
+          "closedAt": "2026-09-30",
+          "mergedAt": "2026-09-30"
         },
         {
           "number": 1036,
@@ -296,7 +1123,8 @@
           "url": "https://github.com/citadel-foss/openswap/pull/1036",
           "state": "merged",
           "created": "2026-09-21",
-          "closedAt": "2026-09-26"
+          "closedAt": "2026-09-26",
+          "mergedAt": "2026-09-26"
         },
         {
           "number": 1031,
@@ -304,7 +1132,10 @@
           "url": "https://github.com/citadel-foss/openswap/pull/1031",
           "state": "closed",
           "created": "2026-09-17",
-          "closedAt": "2026-09-21"
+          "closedAt": "2026-09-21",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 1032,
@@ -312,7 +1143,10 @@
           "url": "https://github.com/citadel-foss/openswap/pull/1032",
           "state": "closed",
           "created": "2026-09-17",
-          "closedAt": "2026-09-21"
+          "closedAt": "2026-09-21",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 968,
@@ -320,7 +1154,10 @@
           "url": "https://github.com/citadel-foss/openswap/pull/968",
           "state": "closed",
           "created": "2026-08-03",
-          "closedAt": "2026-08-25"
+          "closedAt": "2026-08-25",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 964,
@@ -328,9 +1165,16 @@
           "url": "https://github.com/citadel-foss/openswap/pull/964",
           "state": "closed",
           "created": "2026-08-01",
-          "closedAt": "2026-08-25"
+          "closedAt": "2026-08-25",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "citadel-foss",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "podman-container-tools/podman",
@@ -347,7 +1191,8 @@
           "url": "https://github.com/podman-container-tools/podman/pull/29653",
           "state": "merged",
           "created": "2026-08-26",
-          "closedAt": "2026-09-10"
+          "closedAt": "2026-09-10",
+          "mergedAt": "2026-09-10"
         },
         {
           "number": 29654,
@@ -355,7 +1200,8 @@
           "url": "https://github.com/podman-container-tools/podman/pull/29654",
           "state": "merged",
           "created": "2026-08-26",
-          "closedAt": "2026-09-01"
+          "closedAt": "2026-09-01",
+          "mergedAt": "2026-09-01"
         },
         {
           "number": 29598,
@@ -363,7 +1209,10 @@
           "url": "https://github.com/podman-container-tools/podman/pull/29598",
           "state": "closed",
           "created": "2026-08-20",
-          "closedAt": "2026-08-21"
+          "closedAt": "2026-08-21",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 29534,
@@ -371,7 +1220,8 @@
           "url": "https://github.com/podman-container-tools/podman/pull/29534",
           "state": "merged",
           "created": "2026-08-15",
-          "closedAt": "2026-08-20"
+          "closedAt": "2026-08-20",
+          "mergedAt": "2026-08-20"
         },
         {
           "number": 29446,
@@ -379,9 +1229,14 @@
           "url": "https://github.com/podman-container-tools/podman/pull/29446",
           "state": "merged",
           "created": "2026-08-10",
-          "closedAt": "2026-08-11"
+          "closedAt": "2026-08-11",
+          "mergedAt": "2026-08-11"
         }
-      ]
+      ],
+      "org": "podman-container-tools",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "open-telemetry/opentelemetry-python-contrib",
@@ -398,7 +1253,8 @@
           "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4942",
           "state": "merged",
           "created": "2026-08-10",
-          "closedAt": "2026-09-11"
+          "closedAt": "2026-09-11",
+          "mergedAt": "2026-09-11"
         },
         {
           "number": 4943,
@@ -406,7 +1262,8 @@
           "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4943",
           "state": "merged",
           "created": "2026-08-10",
-          "closedAt": "2026-09-11"
+          "closedAt": "2026-09-11",
+          "mergedAt": "2026-09-11"
         },
         {
           "number": 4936,
@@ -414,7 +1271,8 @@
           "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4936",
           "state": "merged",
           "created": "2026-08-08",
-          "closedAt": "2026-09-11"
+          "closedAt": "2026-09-11",
+          "mergedAt": "2026-09-11"
         },
         {
           "number": 4934,
@@ -422,9 +1280,14 @@
           "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/4934",
           "state": "merged",
           "created": "2026-08-06",
-          "closedAt": "2026-10-16"
+          "closedAt": "2026-10-16",
+          "mergedAt": "2026-10-16"
         }
-      ]
+      ],
+      "org": "open-telemetry",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "pyannote/pyannote-metrics",
@@ -441,7 +1304,8 @@
           "url": "https://github.com/pyannote/pyannote-metrics/pull/99",
           "state": "open",
           "created": "2026-09-11",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 96,
@@ -449,7 +1313,8 @@
           "url": "https://github.com/pyannote/pyannote-metrics/pull/96",
           "state": "open",
           "created": "2026-07-30",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 92,
@@ -457,7 +1322,8 @@
           "url": "https://github.com/pyannote/pyannote-metrics/pull/92",
           "state": "merged",
           "created": "2026-07-29",
-          "closedAt": "2026-07-29"
+          "closedAt": "2026-07-29",
+          "mergedAt": "2026-07-29"
         },
         {
           "number": 94,
@@ -465,7 +1331,8 @@
           "url": "https://github.com/pyannote/pyannote-metrics/pull/94",
           "state": "merged",
           "created": "2026-07-29",
-          "closedAt": "2026-07-29"
+          "closedAt": "2026-07-29",
+          "mergedAt": "2026-07-29"
         },
         {
           "number": 90,
@@ -473,9 +1340,14 @@
           "url": "https://github.com/pyannote/pyannote-metrics/pull/90",
           "state": "merged",
           "created": "2026-07-28",
-          "closedAt": "2026-07-29"
+          "closedAt": "2026-07-29",
+          "mergedAt": "2026-07-29"
         }
-      ]
+      ],
+      "org": "pyannote",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "meshery/meshery",
@@ -492,7 +1364,8 @@
           "url": "https://github.com/meshery/meshery/pull/21441",
           "state": "open",
           "created": "2026-08-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 21319,
@@ -500,7 +1373,8 @@
           "url": "https://github.com/meshery/meshery/pull/21319",
           "state": "open",
           "created": "2026-08-10",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 21208,
@@ -508,7 +1382,8 @@
           "url": "https://github.com/meshery/meshery/pull/21208",
           "state": "merged",
           "created": "2026-08-07",
-          "closedAt": "2026-08-07"
+          "closedAt": "2026-08-07",
+          "mergedAt": "2026-08-07"
         },
         {
           "number": 21115,
@@ -516,7 +1391,8 @@
           "url": "https://github.com/meshery/meshery/pull/21115",
           "state": "open",
           "created": "2026-08-04",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 21051,
@@ -524,7 +1400,8 @@
           "url": "https://github.com/meshery/meshery/pull/21051",
           "state": "open",
           "created": "2026-08-01",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 20989,
@@ -532,7 +1409,10 @@
           "url": "https://github.com/meshery/meshery/pull/20989",
           "state": "closed",
           "created": "2026-07-28",
-          "closedAt": "2026-11-01"
+          "closedAt": "2026-11-01",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 20733,
@@ -540,9 +1420,14 @@
           "url": "https://github.com/meshery/meshery/pull/20733",
           "state": "merged",
           "created": "2026-07-17",
-          "closedAt": "2026-07-20"
+          "closedAt": "2026-07-20",
+          "mergedAt": "2026-07-20"
         }
-      ]
+      ],
+      "org": "meshery",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "kmesh-net/kmesh",
@@ -559,7 +1444,8 @@
           "url": "https://github.com/kmesh-net/kmesh/pull/1905",
           "state": "merged",
           "created": "2026-08-08",
-          "closedAt": "2026-08-20"
+          "closedAt": "2026-08-20",
+          "mergedAt": "2026-08-20"
         },
         {
           "number": 1907,
@@ -567,7 +1453,8 @@
           "url": "https://github.com/kmesh-net/kmesh/pull/1907",
           "state": "open",
           "created": "2026-08-08",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 1889,
@@ -575,7 +1462,8 @@
           "url": "https://github.com/kmesh-net/kmesh/pull/1889",
           "state": "open",
           "created": "2026-08-07",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 1887,
@@ -583,9 +1471,14 @@
           "url": "https://github.com/kmesh-net/kmesh/pull/1887",
           "state": "merged",
           "created": "2026-08-06",
-          "closedAt": "2026-08-07"
+          "closedAt": "2026-08-07",
+          "mergedAt": "2026-08-07"
         }
-      ]
+      ],
+      "org": "kmesh-net",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "michaeldcanady/servicenow-sdk-go",
@@ -602,7 +1495,8 @@
           "url": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/971",
           "state": "open",
           "created": "2026-11-14",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 644,
@@ -610,7 +1504,8 @@
           "url": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/644",
           "state": "merged",
           "created": "2026-08-20",
-          "closedAt": "2026-08-21"
+          "closedAt": "2026-08-21",
+          "mergedAt": "2026-08-21"
         },
         {
           "number": 591,
@@ -618,9 +1513,14 @@
           "url": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/591",
           "state": "merged",
           "created": "2026-08-05",
-          "closedAt": "2026-08-09"
+          "closedAt": "2026-08-09",
+          "mergedAt": "2026-08-09"
         }
-      ]
+      ],
+      "org": "michaeldcanady",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "ManiMatter/decluttarr",
@@ -637,7 +1537,8 @@
           "url": "https://github.com/ManiMatter/decluttarr/pull/393",
           "state": "merged",
           "created": "2026-11-09",
-          "closedAt": "2026-11-14"
+          "closedAt": "2026-11-14",
+          "mergedAt": "2026-11-14"
         },
         {
           "number": 394,
@@ -645,9 +1546,14 @@
           "url": "https://github.com/ManiMatter/decluttarr/pull/394",
           "state": "merged",
           "created": "2026-11-09",
-          "closedAt": "2026-11-14"
+          "closedAt": "2026-11-14",
+          "mergedAt": "2026-11-14"
         }
-      ]
+      ],
+      "org": "ManiMatter",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "open-policy-agent/opa",
@@ -664,7 +1570,8 @@
           "url": "https://github.com/open-policy-agent/opa/pull/8887",
           "state": "merged",
           "created": "2026-07-13",
-          "closedAt": "2026-07-17"
+          "closedAt": "2026-07-17",
+          "mergedAt": "2026-07-17"
         },
         {
           "number": 8885,
@@ -672,9 +1579,14 @@
           "url": "https://github.com/open-policy-agent/opa/pull/8885",
           "state": "merged",
           "created": "2026-07-12",
-          "closedAt": "2026-07-13"
+          "closedAt": "2026-07-13",
+          "mergedAt": "2026-07-13"
         }
-      ]
+      ],
+      "org": "open-policy-agent",
+      "stars": 0,
+      "reach": "C",
+      "level": "L2"
     },
     {
       "full": "kubernetes/website",
@@ -691,7 +1603,8 @@
           "url": "https://github.com/kubernetes/website/pull/56378",
           "state": "open",
           "created": "2026-07-04",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 56379,
@@ -699,7 +1612,8 @@
           "url": "https://github.com/kubernetes/website/pull/56379",
           "state": "open",
           "created": "2026-07-04",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 56380,
@@ -707,7 +1621,8 @@
           "url": "https://github.com/kubernetes/website/pull/56380",
           "state": "merged",
           "created": "2026-07-04",
-          "closedAt": "2026-09-16"
+          "closedAt": "2026-09-16",
+          "mergedAt": "2026-09-16"
         },
         {
           "number": 56381,
@@ -715,7 +1630,8 @@
           "url": "https://github.com/kubernetes/website/pull/56381",
           "state": "open",
           "created": "2026-07-04",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 56382,
@@ -723,7 +1639,8 @@
           "url": "https://github.com/kubernetes/website/pull/56382",
           "state": "open",
           "created": "2026-07-04",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 56383,
@@ -731,9 +1648,14 @@
           "url": "https://github.com/kubernetes/website/pull/56383",
           "state": "open",
           "created": "2026-07-04",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "kubernetes",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "zowe/zowe-cli",
@@ -750,7 +1672,8 @@
           "url": "https://github.com/zowe/zowe-cli/pull/2794",
           "state": "open",
           "created": "2026-07-13",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2795,
@@ -758,7 +1681,10 @@
           "url": "https://github.com/zowe/zowe-cli/pull/2795",
           "state": "closed",
           "created": "2026-07-13",
-          "closedAt": "2026-07-13"
+          "closedAt": "2026-07-13",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 2793,
@@ -766,7 +1692,8 @@
           "url": "https://github.com/zowe/zowe-cli/pull/2793",
           "state": "open",
           "created": "2026-07-12",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2789,
@@ -774,7 +1701,8 @@
           "url": "https://github.com/zowe/zowe-cli/pull/2789",
           "state": "merged",
           "created": "2026-07-10",
-          "closedAt": "2026-07-20"
+          "closedAt": "2026-07-20",
+          "mergedAt": "2026-07-20"
         },
         {
           "number": 2792,
@@ -782,9 +1710,14 @@
           "url": "https://github.com/zowe/zowe-cli/pull/2792",
           "state": "open",
           "created": "2026-07-10",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "zowe",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "openeverest/openeverest",
@@ -801,7 +1734,8 @@
           "url": "https://github.com/openeverest/openeverest/pull/3561",
           "state": "open",
           "created": "2026-11-09",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 3563,
@@ -809,7 +1743,8 @@
           "url": "https://github.com/openeverest/openeverest/pull/3563",
           "state": "open",
           "created": "2026-11-09",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2851,
@@ -817,7 +1752,8 @@
           "url": "https://github.com/openeverest/openeverest/pull/2851",
           "state": "merged",
           "created": "2026-08-10",
-          "closedAt": "2026-08-10"
+          "closedAt": "2026-08-10",
+          "mergedAt": "2026-08-10"
         },
         {
           "number": 2862,
@@ -825,9 +1761,16 @@
           "url": "https://github.com/openeverest/openeverest/pull/2862",
           "state": "closed",
           "created": "2026-08-10",
-          "closedAt": "2026-08-11"
+          "closedAt": "2026-08-11",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "openeverest",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "conda-forge/conda-smithy",
@@ -844,7 +1787,8 @@
           "url": "https://github.com/conda-forge/conda-smithy/pull/2708",
           "state": "open",
           "created": "2026-09-28",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2709,
@@ -852,7 +1796,10 @@
           "url": "https://github.com/conda-forge/conda-smithy/pull/2709",
           "state": "closed",
           "created": "2026-09-28",
-          "closedAt": "2026-11-01"
+          "closedAt": "2026-11-01",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 2706,
@@ -860,7 +1807,8 @@
           "url": "https://github.com/conda-forge/conda-smithy/pull/2706",
           "state": "merged",
           "created": "2026-09-27",
-          "closedAt": "2026-11-16"
+          "closedAt": "2026-11-16",
+          "mergedAt": "2026-11-16"
         },
         {
           "number": 2707,
@@ -868,9 +1816,16 @@
           "url": "https://github.com/conda-forge/conda-smithy/pull/2707",
           "state": "closed",
           "created": "2026-09-27",
-          "closedAt": "2026-09-27"
+          "closedAt": "2026-09-27",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "conda-forge",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "prefix-dev/pixi",
@@ -887,7 +1842,10 @@
           "url": "https://github.com/prefix-dev/pixi/pull/7106",
           "state": "closed",
           "created": "2026-09-27",
-          "closedAt": "2026-11-11"
+          "closedAt": "2026-11-11",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 7107,
@@ -895,7 +1853,10 @@
           "url": "https://github.com/prefix-dev/pixi/pull/7107",
           "state": "closed",
           "created": "2026-09-27",
-          "closedAt": "2026-11-11"
+          "closedAt": "2026-11-11",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 7095,
@@ -903,7 +1864,8 @@
           "url": "https://github.com/prefix-dev/pixi/pull/7095",
           "state": "merged",
           "created": "2026-09-25",
-          "closedAt": "2026-10-05"
+          "closedAt": "2026-10-05",
+          "mergedAt": "2026-10-05"
         },
         {
           "number": 7089,
@@ -911,9 +1873,16 @@
           "url": "https://github.com/prefix-dev/pixi/pull/7089",
           "state": "closed",
           "created": "2026-09-24",
-          "closedAt": "2026-11-11"
+          "closedAt": "2026-11-11",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "prefix-dev",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "cilium/cilium",
@@ -930,7 +1899,10 @@
           "url": "https://github.com/cilium/cilium/pull/47561",
           "state": "closed",
           "created": "2026-07-28",
-          "closedAt": "2026-09-08"
+          "closedAt": "2026-09-08",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 47546,
@@ -938,7 +1910,10 @@
           "url": "https://github.com/cilium/cilium/pull/47546",
           "state": "closed",
           "created": "2026-07-27",
-          "closedAt": "2026-09-12"
+          "closedAt": "2026-09-12",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 47516,
@@ -946,9 +1921,14 @@
           "url": "https://github.com/cilium/cilium/pull/47516",
           "state": "merged",
           "created": "2026-07-26",
-          "closedAt": "2026-07-27"
+          "closedAt": "2026-07-27",
+          "mergedAt": "2026-07-27"
         }
-      ]
+      ],
+      "org": "cilium",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "lightningdevkit/rust-lightning",
@@ -965,7 +1945,10 @@
           "url": "https://github.com/lightningdevkit/rust-lightning/pull/4622",
           "state": "closed",
           "created": "2026-05-19",
-          "closedAt": "2026-07-03"
+          "closedAt": "2026-07-03",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 4499,
@@ -973,7 +1956,10 @@
           "url": "https://github.com/lightningdevkit/rust-lightning/pull/4499",
           "state": "closed",
           "created": "2026-03-19",
-          "closedAt": "2026-05-21"
+          "closedAt": "2026-05-21",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 4478,
@@ -981,9 +1967,14 @@
           "url": "https://github.com/lightningdevkit/rust-lightning/pull/4478",
           "state": "merged",
           "created": "2026-03-11",
-          "closedAt": "2026-03-19"
+          "closedAt": "2026-03-19",
+          "mergedAt": "2026-03-19"
         }
-      ]
+      ],
+      "org": "lightningdevkit",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "AI-Hypercomputer/maxtext",
@@ -1000,7 +1991,8 @@
           "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4691",
           "state": "merged",
           "created": "2026-07-31",
-          "closedAt": "2026-11-13"
+          "closedAt": "2026-11-13",
+          "mergedAt": "2026-11-13"
         },
         {
           "number": 4528,
@@ -1008,9 +2000,16 @@
           "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4528",
           "state": "closed",
           "created": "2026-07-17",
-          "closedAt": "2026-08-21"
+          "closedAt": "2026-08-21",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "AI-Hypercomputer",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "prefix-dev/rattler-build",
@@ -1027,9 +2026,14 @@
           "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
           "state": "merged",
           "created": "2026-11-07",
-          "closedAt": "2026-11-16"
+          "closedAt": "2026-11-16",
+          "mergedAt": "2026-11-16"
         }
-      ]
+      ],
+      "org": "prefix-dev",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "py-pdf/pypdf",
@@ -1046,9 +2050,14 @@
           "url": "https://github.com/py-pdf/pypdf/pull/4129",
           "state": "merged",
           "created": "2026-09-24",
-          "closedAt": "2026-09-30"
+          "closedAt": "2026-09-30",
+          "mergedAt": "2026-09-30"
         }
-      ]
+      ],
+      "org": "py-pdf",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "kellyjonbrazil/jc",
@@ -1065,9 +2074,14 @@
           "url": "https://github.com/kellyjonbrazil/jc/pull/776",
           "state": "merged",
           "created": "2026-09-24",
-          "closedAt": "2026-10-17"
+          "closedAt": "2026-10-17",
+          "mergedAt": "2026-10-17"
         }
-      ]
+      ],
+      "org": "kellyjonbrazil",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "comet-ml/opik",
@@ -1084,9 +2098,14 @@
           "url": "https://github.com/comet-ml/opik/pull/8536",
           "state": "merged",
           "created": "2026-09-24",
-          "closedAt": "2026-09-24"
+          "closedAt": "2026-09-24",
+          "mergedAt": "2026-09-24"
         }
-      ]
+      ],
+      "org": "comet-ml",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "openatx/uiautomator2",
@@ -1103,9 +2122,14 @@
           "url": "https://github.com/openatx/uiautomator2/pull/1195",
           "state": "merged",
           "created": "2026-09-24",
-          "closedAt": "2026-10-04"
+          "closedAt": "2026-10-04",
+          "mergedAt": "2026-10-04"
         }
-      ]
+      ],
+      "org": "openatx",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "shap/shap",
@@ -1122,9 +2146,14 @@
           "url": "https://github.com/shap/shap/pull/5164",
           "state": "merged",
           "created": "2026-09-17",
-          "closedAt": "2026-09-25"
+          "closedAt": "2026-09-25",
+          "mergedAt": "2026-09-25"
         }
-      ]
+      ],
+      "org": "shap",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "goyek/goyek",
@@ -1141,9 +2170,14 @@
           "url": "https://github.com/goyek/goyek/pull/674",
           "state": "merged",
           "created": "2026-08-05",
-          "closedAt": "2026-08-19"
+          "closedAt": "2026-08-19",
+          "mergedAt": "2026-08-19"
         }
-      ]
+      ],
+      "org": "goyek",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "open-telemetry/opentelemetry-collector-contrib",
@@ -1160,9 +2194,14 @@
           "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/49857",
           "state": "merged",
           "created": "2026-07-23",
-          "closedAt": "2026-08-14"
+          "closedAt": "2026-08-14",
+          "mergedAt": "2026-08-14"
         }
-      ]
+      ],
+      "org": "open-telemetry",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "hyperledger/fabric",
@@ -1179,9 +2218,14 @@
           "url": "https://github.com/hyperledger/fabric/pull/5529",
           "state": "merged",
           "created": "2026-07-22",
-          "closedAt": "2026-07-28"
+          "closedAt": "2026-07-28",
+          "mergedAt": "2026-07-28"
         }
-      ]
+      ],
+      "org": "hyperledger",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "google-deepmind/open_spiel",
@@ -1198,9 +2242,14 @@
           "url": "https://github.com/google-deepmind/open_spiel/pull/1570",
           "state": "merged",
           "created": "2026-07-17",
-          "closedAt": "2026-08-11"
+          "closedAt": "2026-08-11",
+          "mergedAt": "2026-08-11"
         }
-      ]
+      ],
+      "org": "google-deepmind",
+      "stars": 0,
+      "reach": "C",
+      "level": "L1"
     },
     {
       "full": "flwrlabs/flower",
@@ -1217,7 +2266,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7765",
           "state": "open",
           "created": "2026-08-05",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7709,
@@ -1225,7 +2275,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7709",
           "state": "open",
           "created": "2026-07-29",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7694,
@@ -1233,7 +2284,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7694",
           "state": "open",
           "created": "2026-07-27",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7652,
@@ -1241,7 +2293,10 @@
           "url": "https://github.com/flwrlabs/flower/pull/7652",
           "state": "closed",
           "created": "2026-07-20",
-          "closedAt": "2026-11-01"
+          "closedAt": "2026-11-01",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 7646,
@@ -1249,7 +2304,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7646",
           "state": "open",
           "created": "2026-07-19",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7631,
@@ -1257,7 +2313,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7631",
           "state": "open",
           "created": "2026-07-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7633,
@@ -1265,7 +2322,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7633",
           "state": "open",
           "created": "2026-07-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7636,
@@ -1273,7 +2331,8 @@
           "url": "https://github.com/flwrlabs/flower/pull/7636",
           "state": "open",
           "created": "2026-07-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 7637,
@@ -1281,9 +2340,14 @@
           "url": "https://github.com/flwrlabs/flower/pull/7637",
           "state": "open",
           "created": "2026-07-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "flwrlabs",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "meshery/meshkit",
@@ -1300,7 +2364,8 @@
           "url": "https://github.com/meshery/meshkit/pull/1093",
           "state": "open",
           "created": "2026-08-15",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 1094,
@@ -1308,7 +2373,8 @@
           "url": "https://github.com/meshery/meshkit/pull/1094",
           "state": "open",
           "created": "2026-08-15",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 1076,
@@ -1316,7 +2382,8 @@
           "url": "https://github.com/meshery/meshkit/pull/1076",
           "state": "open",
           "created": "2026-07-28",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 1078,
@@ -1324,7 +2391,8 @@
           "url": "https://github.com/meshery/meshkit/pull/1078",
           "state": "open",
           "created": "2026-07-28",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 1065,
@@ -1332,9 +2400,14 @@
           "url": "https://github.com/meshery/meshkit/pull/1065",
           "state": "open",
           "created": "2026-07-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "meshery",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "urunc-dev/urunc",
@@ -1351,7 +2424,10 @@
           "url": "https://github.com/urunc-dev/urunc/pull/812",
           "state": "closed",
           "created": "2026-07-08",
-          "closedAt": "2026-07-09"
+          "closedAt": "2026-07-09",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 813,
@@ -1359,7 +2435,10 @@
           "url": "https://github.com/urunc-dev/urunc/pull/813",
           "state": "closed",
           "created": "2026-07-08",
-          "closedAt": "2026-07-09"
+          "closedAt": "2026-07-09",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 681,
@@ -1367,7 +2446,10 @@
           "url": "https://github.com/urunc-dev/urunc/pull/681",
           "state": "closed",
           "created": "2026-05-14",
-          "closedAt": "2026-05-14"
+          "closedAt": "2026-05-14",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 682,
@@ -1375,9 +2457,16 @@
           "url": "https://github.com/urunc-dev/urunc/pull/682",
           "state": "closed",
           "created": "2026-05-14",
-          "closedAt": "2026-07-09"
+          "closedAt": "2026-07-09",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "urunc-dev",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "conda/rattler",
@@ -1394,7 +2483,8 @@
           "url": "https://github.com/conda/rattler/pull/2842",
           "state": "open",
           "created": "2026-09-24",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2818,
@@ -1402,7 +2492,8 @@
           "url": "https://github.com/conda/rattler/pull/2818",
           "state": "open",
           "created": "2026-09-21",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2819,
@@ -1410,9 +2501,14 @@
           "url": "https://github.com/conda/rattler/pull/2819",
           "state": "open",
           "created": "2026-09-21",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "conda",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "sktime/sktime",
@@ -1429,7 +2525,8 @@
           "url": "https://github.com/sktime/sktime/pull/11238",
           "state": "open",
           "created": "2026-09-21",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 11240,
@@ -1437,7 +2534,8 @@
           "url": "https://github.com/sktime/sktime/pull/11240",
           "state": "open",
           "created": "2026-09-21",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 11219,
@@ -1445,9 +2543,14 @@
           "url": "https://github.com/sktime/sktime/pull/11219",
           "state": "open",
           "created": "2026-09-20",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "sktime",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "sktime/pytorch-forecasting",
@@ -1464,7 +2567,8 @@
           "url": "https://github.com/sktime/pytorch-forecasting/pull/2432",
           "state": "open",
           "created": "2026-09-19",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2433,
@@ -1472,7 +2576,8 @@
           "url": "https://github.com/sktime/pytorch-forecasting/pull/2433",
           "state": "open",
           "created": "2026-09-19",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 2431,
@@ -1480,9 +2585,14 @@
           "url": "https://github.com/sktime/pytorch-forecasting/pull/2431",
           "state": "open",
           "created": "2026-09-17",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "sktime",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "spdx/tools-python",
@@ -1499,7 +2609,8 @@
           "url": "https://github.com/spdx/tools-python/pull/904",
           "state": "open",
           "created": "2026-07-29",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 902,
@@ -1507,7 +2618,8 @@
           "url": "https://github.com/spdx/tools-python/pull/902",
           "state": "open",
           "created": "2026-07-27",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 900,
@@ -1515,9 +2627,14 @@
           "url": "https://github.com/spdx/tools-python/pull/900",
           "state": "open",
           "created": "2026-07-09",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "spdx",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "google/artemis",
@@ -1534,7 +2651,8 @@
           "url": "https://github.com/google/artemis/pull/244",
           "state": "open",
           "created": "2026-11-14",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 82,
@@ -1542,9 +2660,16 @@
           "url": "https://github.com/google/artemis/pull/82",
           "state": "closed",
           "created": "2026-09-13",
-          "closedAt": "2026-09-14"
+          "closedAt": "2026-09-14",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "google",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "mlflow/mlflow",
@@ -1561,7 +2686,10 @@
           "url": "https://github.com/mlflow/mlflow/pull/27570",
           "state": "closed",
           "created": "2026-11-07",
-          "closedAt": "2026-11-07"
+          "closedAt": "2026-11-07",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 24888,
@@ -1569,9 +2697,16 @@
           "url": "https://github.com/mlflow/mlflow/pull/24888",
           "state": "closed",
           "created": "2026-08-04",
-          "closedAt": "2026-08-04"
+          "closedAt": "2026-08-04",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "mlflow",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "kubeflow/pipelines",
@@ -1588,7 +2723,10 @@
           "url": "https://github.com/kubeflow/pipelines/pull/14038",
           "state": "closed",
           "created": "2026-08-14",
-          "closedAt": "2026-09-23"
+          "closedAt": "2026-09-23",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 13877,
@@ -1596,9 +2734,16 @@
           "url": "https://github.com/kubeflow/pipelines/pull/13877",
           "state": "closed",
           "created": "2026-07-26",
-          "closedAt": "2026-09-23"
+          "closedAt": "2026-09-23",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "kubeflow",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "intuit/infigraph",
@@ -1615,7 +2760,10 @@
           "url": "https://github.com/intuit/infigraph/pull/60",
           "state": "closed",
           "created": "2026-08-13",
-          "closedAt": "2026-10-02"
+          "closedAt": "2026-10-02",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 61,
@@ -1623,9 +2771,16 @@
           "url": "https://github.com/intuit/infigraph/pull/61",
           "state": "closed",
           "created": "2026-08-13",
-          "closedAt": "2026-08-13"
+          "closedAt": "2026-08-13",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "intuit",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "kubeflow/sdk",
@@ -1642,7 +2797,8 @@
           "url": "https://github.com/kubeflow/sdk/pull/717",
           "state": "open",
           "created": "2026-08-03",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         },
         {
           "number": 707,
@@ -1650,9 +2806,14 @@
           "url": "https://github.com/kubeflow/sdk/pull/707",
           "state": "open",
           "created": "2026-08-01",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "kubeflow",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "youki-dev/youki",
@@ -1669,7 +2830,10 @@
           "url": "https://github.com/youki-dev/youki/pull/3637",
           "state": "closed",
           "created": "2026-07-04",
-          "closedAt": "2026-07-09"
+          "closedAt": "2026-07-09",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         },
         {
           "number": 3638,
@@ -1677,9 +2841,16 @@
           "url": "https://github.com/youki-dev/youki/pull/3638",
           "state": "closed",
           "created": "2026-07-04",
-          "closedAt": "2026-07-09"
+          "closedAt": "2026-07-09",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "youki-dev",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "openMF/mifosx-platform",
@@ -1696,9 +2867,14 @@
           "url": "https://github.com/openMF/mifosx-platform/pull/41",
           "state": "open",
           "created": "2026-11-13",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "openMF",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "bowtie-json-schema/bowtie",
@@ -1715,9 +2891,14 @@
           "url": "https://github.com/bowtie-json-schema/bowtie/pull/3175",
           "state": "open",
           "created": "2026-11-08",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "bowtie-json-schema",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "WalletWasabi/WalletWasabi",
@@ -1734,9 +2915,14 @@
           "url": "https://github.com/WalletWasabi/WalletWasabi/pull/15266",
           "state": "open",
           "created": "2026-11-07",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "WalletWasabi",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "langfuse/langfuse-python",
@@ -1753,9 +2939,14 @@
           "url": "https://github.com/langfuse/langfuse-python/pull/2112",
           "state": "open",
           "created": "2026-11-06",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "langfuse",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "getsentry/responses",
@@ -1772,9 +2963,14 @@
           "url": "https://github.com/getsentry/responses/pull/828",
           "state": "open",
           "created": "2026-09-24",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "getsentry",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "e2b-dev/E2B",
@@ -1791,9 +2987,16 @@
           "url": "https://github.com/e2b-dev/E2B/pull/1891",
           "state": "closed",
           "created": "2026-09-22",
-          "closedAt": "2026-09-25"
+          "closedAt": "2026-09-25",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "e2b-dev",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "sktime/skpro",
@@ -1810,9 +3013,14 @@
           "url": "https://github.com/sktime/skpro/pull/1150",
           "state": "open",
           "created": "2026-09-16",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "sktime",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "sarvamai/skills",
@@ -1829,9 +3037,14 @@
           "url": "https://github.com/sarvamai/skills/pull/18",
           "state": "open",
           "created": "2026-08-28",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "sarvamai",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "patternfly/react-log-viewer",
@@ -1848,9 +3061,14 @@
           "url": "https://github.com/patternfly/react-log-viewer/pull/110",
           "state": "open",
           "created": "2026-08-19",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "patternfly",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "hibiken/asynq",
@@ -1867,9 +3085,14 @@
           "url": "https://github.com/hibiken/asynq/pull/1174",
           "state": "open",
           "created": "2026-08-07",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "hibiken",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "pyannote/pyannote-audio",
@@ -1886,9 +3109,16 @@
           "url": "https://github.com/pyannote/pyannote-audio/pull/2043",
           "state": "closed",
           "created": "2026-07-30",
-          "closedAt": "2026-11-06"
+          "closedAt": "2026-11-06",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "pyannote",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "meshery/schemas",
@@ -1905,9 +3135,14 @@
           "url": "https://github.com/meshery/schemas/pull/1096",
           "state": "open",
           "created": "2026-07-26",
-          "closedAt": null
+          "closedAt": null,
+          "mergedAt": null
         }
-      ]
+      ],
+      "org": "meshery",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "google-deepmind/mujoco",
@@ -1924,9 +3159,16 @@
           "url": "https://github.com/google-deepmind/mujoco/pull/3415",
           "state": "closed",
           "created": "2026-07-20",
-          "closedAt": "2026-08-14"
+          "closedAt": "2026-08-14",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "google-deepmind",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "cbomkit/sonar-cryptography",
@@ -1943,9 +3185,16 @@
           "url": "https://github.com/cbomkit/sonar-cryptography/pull/412",
           "state": "closed",
           "created": "2026-05-14",
-          "closedAt": "2026-05-14"
+          "closedAt": "2026-05-14",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "cbomkit",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
     },
     {
       "full": "fedimint/ecash-app",
@@ -1962,9 +3211,25 @@
           "url": "https://github.com/fedimint/ecash-app/pull/413",
           "state": "closed",
           "created": "2026-03-21",
-          "closedAt": "2026-03-24"
+          "closedAt": "2026-03-24",
+          "mergedAt": null,
+          "closeReason": "unknown",
+          "closeEvidence": ""
         }
-      ]
+      ],
+      "org": "fedimint",
+      "stars": 0,
+      "reach": "C",
+      "level": ""
+    }
+  ],
+  "carried": [],
+  "reportsFixed": [],
+  "closedReasons": [
+    {
+      "key": "unknown",
+      "label": "Not classified yet",
+      "count": 46
     }
   ]
 }
