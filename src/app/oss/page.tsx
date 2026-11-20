@@ -29,21 +29,24 @@ export default function Oss() {
         Every row links to GitHub.
       </p>
 
-      <dl className="mt-12 grid grid-cols-3 gap-x-4 sm:gap-x-6">
-        {[
-          ["Contributions", OSS_STATS.contributions, "var(--accent)"],
-          ["Merged", OSS_STATS.merged, "#a371f7"],
-          ["Open", OSS_STATS.open, "#3fb950"],
-        ].map(([label, n, color]) => (
-          <div key={label as string} className="border-t border-[var(--line)] pt-4">
-            <dt className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full" style={{ background: color as string }} />
-              <span data-oss-count={(label as string).toLowerCase()} className="text-2xl font-medium tabular-nums">{n as number}</span>
-            </dt>
-            <dd className="mt-1 text-[length:var(--step-small)] text-[var(--fg-muted)]">{label as string}</dd>
-          </div>
-        ))}
-      </dl>
+      <div className="mt-12 border-t border-[var(--line)] pt-6">
+        <p className="flex items-baseline gap-3">
+          <span data-oss-count="contributions" className="text-5xl font-medium tabular-nums tracking-tight sm:text-6xl">
+            {OSS_STATS.contributions}
+          </span>
+          <span className="text-xl text-[var(--fg-muted)] sm:text-2xl">{ossHeadline.nounTitle}</span>
+        </p>
+        <p className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-sm text-[var(--fg-muted)]">
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-[#a371f7]" />
+            <span data-oss-count="merged" className="text-[var(--fg)]">{OSS_STATS.merged}</span> merged
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-[#3fb950]" />
+            <span data-oss-count="open" className="text-[var(--fg)]">{OSS_STATS.open}</span> open
+          </span>
+        </p>
+      </div>
 
       <p className="mt-6 max-w-prose text-[length:var(--step-small)] leading-relaxed text-[var(--fg-muted)]">
         A contribution is a merged pull request ({OSS_STATS.merged}), a commit of mine that a maintainer carried
