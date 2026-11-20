@@ -5,12 +5,13 @@ import { person } from "@/content/site";
 import { HANDLES, PROFILE_URL } from "@/lib/activity";
 
 /* ==================================================================
-   Four numbers, none of them typed by hand.
+   Two numbers, none of them typed by hand.
 
    Every count here is fetched from the platform that owns it when the
-   page loads. That is the point: a portfolio that states "12 merged
-   PRs" in the source is a number that was true once. These go stale
-   only if the platform does.
+   page loads. That is the point: a number typed into the source is a
+   number that was true once. These go stale only if the platform does.
+   Pull request counts are not here: they come from the generated data,
+   so the whole site states one number.
 
    A source that fails says "unavailable" and links out. It never
    falls back to a remembered number, because a remembered number
@@ -51,24 +52,9 @@ async function ghCount(q: string): Promise<number> {
 }
 
 export default function LiveCounts() {
-  // Each tile links to the GitHub search that produced its number, not to the
-  // bare profile. A count you cannot click through to is a claim, not evidence.
-  const search = (q: string) =>
-    `https://github.com/search?q=${encodeURIComponent(q)}&type=pullrequests`;
-
+  // Each tile links to the search that produced its number, not to the bare
+  // profile. A count you cannot click through to is a claim, not evidence.
   const [tiles, setTiles] = useState<Tile[]>([
-    {
-      key: "merged",
-      label: "Merged upstream",
-      href: search(`author:${USER} type:pr is:merged -user:${USER}`),
-      value: null,
-    },
-    {
-      key: "open",
-      label: "Open upstream",
-      href: search(`author:${USER} type:pr is:open -user:${USER}`),
-      value: null,
-    },
     {
       key: "issues",
       label: "Issues filed",
@@ -86,18 +72,7 @@ export default function LiveCounts() {
       alive && setTiles((prev) => prev.map((t) => (t.key === key ? { ...t, ...patch } : t)));
 
     // Each source settles on its own. One failing platform must not blank the
-    // other three, which is why these are not a single Promise.all.
-    // "-user:USER" excludes his own repositories. Merging your own pull request
-    // is not an open-source contribution, and counting it as one is the single
-    // easiest way to inflate this number.
-    ghCount(`author:${USER} type:pr is:merged -user:${USER}`)
-      .then((n) => set("merged", { value: n }))
-      .catch(() => set("merged", { value: false }));
-
-    ghCount(`author:${USER} type:pr is:open -user:${USER}`)
-      .then((n) => set("open", { value: n }))
-      .catch(() => set("open", { value: false }));
-
+    // other, which is why these are not a single Promise.all.
     ghCount(`author:${USER} type:issue`)
       .then((n) => set("issues", { value: n }))
       .catch(() => set("issues", { value: false }));
@@ -137,7 +112,7 @@ export default function LiveCounts() {
         </p>
       </div>
 
-      <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-px sm:grid-cols-4">
+      <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-px sm:grid-cols-2">
         {tiles.map((t) => (
           <a
             key={t.key}
