@@ -1,0 +1,10 @@
+{
+  "note": "Hand-kept inputs the script cannot find on its own. Every entry is re-verified against GitHub on each run and is not counted if verification fails. carried: a commit of his that a maintainer landed through their own pull request (checked by author login); replaces lists his own closed PR numbers that this one replaced. reportsFixed: a bug report of his that was fixed upstream without GitHub linking the fix to the issue.",
+  "carried": [
+    { "repo": "fedimint/fedimint", "pr": 9404, "commit": "b682afab", "replaces": [9216] }
+  ],
+  "reportsFixed": [
+    { "repo": "headroomlabs-ai/headroom", "number": 2221, "fixedBy": "PR #2223 by another contributor" },
+    { "repo": "kellyjonbrazil/jc", "number": 775, "fixedBy": "the maintainer" }
+  ]
+}

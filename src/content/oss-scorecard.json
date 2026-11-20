@@ -1,58 +1,74 @@
 {
- "snapshot": "2026-11-16",
- "merged": 51,
- "decided": 96,
- "mergeRate": 0.531,
- "medianDaysToMerge": 5.9,
- "medianHoursToFirstReview": 40,
- "maintainersWhoMerged": 32,
- "reposWithMerge": 27,
- "bySize": [
-  {
-   "bucket": "1-30",
-   "merged": 24,
-   "decided": 45
-  },
-  {
-   "bucket": "31-100",
-   "merged": 21,
-   "decided": 32
-  },
-  {
-   "bucket": "101-300",
-   "merged": 6,
-   "decided": 18
-  },
-  {
-   "bucket": "300+",
-   "merged": 0,
-   "decided": 1
+  "snapshot": "2026-11-20T20:34:05.207Z",
+  "merged": 56,
+  "contributions": 64,
+  "maintainersWhoMerged": 33,
+  "orgsWithMerge": 27,
+  "medianDaysToMerge": 7.7,
+  "medianHoursToFirstReview": 42,
+  "bySize": [
+    {
+      "bucket": "1-30",
+      "merged": 24,
+      "decided": 46
+    },
+    {
+      "bucket": "31-100",
+      "merged": 21,
+      "decided": 32
+    },
+    {
+      "bucket": "101-300",
+      "merged": 11,
+      "decided": 23
+    },
+    {
+      "bucket": "300+",
+      "merged": 0,
+      "decided": 1
+    }
+  ],
+  "byMonth": [
+    {
+      "month": "2026-03",
+      "merged": 1
+    },
+    {
+      "month": "2026-04",
+      "merged": 0
+    },
+    {
+      "month": "2026-05",
+      "merged": 0
+    },
+    {
+      "month": "2026-06",
+      "merged": 0
+    },
+    {
+      "month": "2026-07",
+      "merged": 12
+    },
+    {
+      "month": "2026-08",
+      "merged": 12
+    },
+    {
+      "month": "2026-09",
+      "merged": 13
+    },
+    {
+      "month": "2026-10",
+      "merged": 9
+    },
+    {
+      "month": "2026-11",
+      "merged": 9
+    }
+  ],
+  "definition": "Medians over merged PRs (days to merge) and over all PRs that got a human reply (hours to first review or comment). Sizes are lines added plus deleted.",
+  "detail": {
+    "decided": 102,
+    "mergeRate": 0.549
   }
- ],
- "byMonth": [
-  {
-   "month": "2026-03",
-   "merged": 1
-  },
-  {
-   "month": "2026-07",
-   "merged": 12
-  },
-  {
-   "month": "2026-08",
-   "merged": 12
-  },
-  {
-   "month": "2026-09",
-   "merged": 13
-  },
-  {
-   "month": "2026-10",
-   "merged": 9
-  },
-  {
-   "month": "2026-11",
-   "merged": 4
-  }
- ]
 }
