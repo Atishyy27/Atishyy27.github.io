@@ -50,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: r.merged > 0 ? 0.6 : 0.4,
     })),
 
+    // One per organisation.
+    ...oss.orgs.map((o) => ({
+      url: `${SITE}/oss/org/${o.slug}/`,
+      lastModified: new Date(oss.fetchedAt),
+      priority: o.contributions > 0 ? 0.7 : 0.4,
+    })),
+
     // One per tag, so a reader arriving on a topic has somewhere to land.
     ...tagSlugs().map((tag) => ({
       url: `${SITE}/journal/tag/${tag}/`,

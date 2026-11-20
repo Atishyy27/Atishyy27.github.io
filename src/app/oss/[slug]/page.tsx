@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getRepo, repoSlugs, REPO_NOTES, type PrState } from "@/content/oss";
+import { getRepo, repoSlugs, orgOfRepo, mergedPrs, openPrs, REPO_NOTES } from "@/content/oss";
 import { formatDate } from "@/lib/date";
 import RepoLogo from "@/components/RepoLogo";
 import RepoCard from "@/components/RepoCard";
+import ClosedReasons from "@/components/ClosedReasons";
 
 export const dynamicParams = false;
 
@@ -20,15 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!r) return { title: "Open source" };
   return {
     title: `${r.full} · Open source · Atishay Jain`,
-    description: `${r.prs.length} pull requests to ${r.full}, ${r.merged} merged.`,
+    description: `${r.merged} merged and ${r.open} open pull requests to ${r.full}.`,
   };
 }
 
-const STATE_STYLE: Record<PrState, { label: string; color: string }> = {
+const STATE_STYLE = {
   merged: { label: "merged", color: "#a371f7" },
   open: { label: "open", color: "#3fb950" },
-  closed: { label: "closed", color: "#f85149" },
-};
+} as const;
 
 export default async function RepoPage({ params }: Props) {
   const { slug } = await params;
@@ -36,12 +36,23 @@ export default async function RepoPage({ params }: Props) {
   if (!r) notFound();
 
   const note = REPO_NOTES[r.slug];
-  const first = r.prs[r.prs.length - 1];
-  const latest = r.prs[0];
+  const live = [...mergedPrs(r.prs), ...openPrs(r.prs)];
+  const byCreated = [...live].sort((a, b) => (a.created < b.created ? -1 : 1));
+  const first = byCreated[0];
+  const latest = byCreated[byCreated.length - 1];
+  const org = orgOfRepo(r);
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-24 sm:px-8">
-      <Link href="/oss/" className="link text-sm">Open source</Link>
+      <p className="flex flex-wrap items-center gap-x-2 text-sm">
+        <Link href="/oss/" className="link inline-flex min-h-11 items-center">Open source</Link>
+        {org ? (
+          <>
+            <span className="text-[var(--fg-muted)]" aria-hidden>/</span>
+            <Link href={`/oss/org/${org.slug}/`} className="link inline-flex min-h-11 items-center">{org.org}</Link>
+          </>
+        ) : null}
+      </p>
 
       <header className="mt-10">
         <div className="flex items-center gap-3">
@@ -50,7 +61,7 @@ export default async function RepoPage({ params }: Props) {
         </div>
         <h1 className="display mt-3 text-4xl leading-[1.05] sm:text-5xl">{r.name}</h1>
         <p className="mt-5 text-lg text-[var(--fg-muted)]">
-          {r.prs.length} pull request{r.prs.length === 1 ? "" : "s"}, {r.merged} merged.
+          {r.merged} merged, {r.open} open.
           {first && latest && first.created !== latest.created
             ? ` First ${formatDate(first.created)}, most recent ${formatDate(latest.created)}.`
             : first
@@ -62,7 +73,7 @@ export default async function RepoPage({ params }: Props) {
             href={`https://github.com/${r.full}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="link text-[var(--accent)] text-sm"
+            className="link inline-flex min-h-11 items-center text-[var(--accent)] text-sm"
           >
             github.com/{r.full} ↗
           </a>
@@ -85,10 +96,10 @@ export default async function RepoPage({ params }: Props) {
       ) : null}
 
       <section className="mt-12">
-        <h2 className="text-sm font-medium text-[var(--fg-muted)]">Every pull request</h2>
+        <h2 className="text-sm font-medium text-[var(--fg-muted)]">Merged and open pull requests</h2>
         <div className="mt-4">
-          {r.prs.map((pr) => {
-            const s = STATE_STYLE[pr.state];
+          {live.map((pr) => {
+            const s = STATE_STYLE[pr.state as "merged" | "open"];
             return (
               <a
                 key={pr.number}
@@ -105,7 +116,9 @@ export default async function RepoPage({ params }: Props) {
                   <span className="row-name">{pr.title}</span>
                   <span className="row-line block">
                     #{pr.number} · opened {formatDate(pr.created)}
-                    {pr.closedAt && pr.state !== "open" ? ` · ${s.label} ${formatDate(pr.closedAt)}` : ""}
+                    {pr.state === "merged" && (pr.mergedAt ?? pr.closedAt)
+                      ? ` · merged ${formatDate((pr.mergedAt ?? pr.closedAt)!.slice(0, 10))}`
+                      : ""}
                   </span>
                 </span>
                 <span className="row-kind whitespace-nowrap">↗</span>
@@ -114,6 +127,8 @@ export default async function RepoPage({ params }: Props) {
           })}
         </div>
       </section>
+
+      <ClosedReasons prs={r.prs} />
     </main>
   );
 }

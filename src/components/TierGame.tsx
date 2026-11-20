@@ -1,12 +1,12 @@
 "use client";
 
-/* A playable tier maker over the real open-source record. Every merged repo
+/* A playable tier maker over the real open-source record. Every organisation with a level
    starts in the pool; drag a card into S/A/B/C (or tap a card, then tap a band,
    for touch). Once all are placed it scores you against the objective tiers
    from content/oss.ts. Pure client state, no backend, nothing persisted. */
 import { useEffect, useMemo, useState } from "react";
 import RepoLogo from "@/components/RepoLogo";
-import type { Tier, TierRepo } from "@/content/oss";
+import type { Tier, TierOrg } from "@/content/oss";
 
 const BANDS = [
   { id: "S", color: "#a371f7", real: "L4" },
@@ -26,18 +26,18 @@ function chip(active: boolean) {
 }
 
 export default function TierGame({ tiers }: { tiers: Tier[] }) {
-  const repos = useMemo(() => tiers.flatMap((t) => t.repos), [tiers]);
+  const repos = useMemo(() => tiers.flatMap((t) => t.orgs), [tiers]);
   const real = useMemo(() => {
     const m: Record<string, Slot> = {};
     for (const t of tiers) {
       const band = BANDS.find((b) => b.real === t.level);
-      for (const r of t.repos) m[r.full] = band ? band.id : "C";
+      for (const r of t.orgs) m[r.org] = band ? band.id : "C";
     }
     return m;
   }, [tiers]);
 
   const empty = (): Record<string, Slot> =>
-    Object.fromEntries(repos.map((r) => [r.full, "pool" as Slot]));
+    Object.fromEntries(repos.map((r) => [r.org, "pool" as Slot]));
   const [place, setPlace] = useState<Record<string, Slot>>(empty);
   const [held, setHeld] = useState<string | null>(null);
   const [over, setOver] = useState<Slot | null>(null);
@@ -56,24 +56,24 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
     setOver(null);
   };
 
-  const inSlot = (slot: Slot) => repos.filter((r) => place[r.full] === slot);
-  const placed = repos.filter((r) => place[r.full] !== "pool").length;
+  const inSlot = (slot: Slot) => repos.filter((r) => place[r.org] === slot);
+  const placed = repos.filter((r) => place[r.org] !== "pool").length;
   const done = repos.length > 0 && placed === repos.length;
-  const right = repos.filter((r) => place[r.full] === real[r.full]).length;
+  const right = repos.filter((r) => place[r.org] === real[r.org]).length;
   const close = repos.filter((r) => {
-    const a = BANDS.findIndex((b) => b.id === place[r.full]);
-    const b = BANDS.findIndex((x) => x.id === real[r.full]);
+    const a = BANDS.findIndex((b) => b.id === place[r.org]);
+    const b = BANDS.findIndex((x) => x.id === real[r.org]);
     return a >= 0 && Math.abs(a - b) === 1;
   }).length;
 
-  const card = (r: TierRepo, ghost = false) => (
+  const card = (r: TierOrg, ghost = false) => (
     <div
-      key={r.full}
+      key={r.org}
       draggable={!coarse}
       onDragStart={(e) => {
-        e.dataTransfer.setData("text/plain", r.full);
+        e.dataTransfer.setData("text/plain", r.org);
         e.dataTransfer.effectAllowed = "move";
-        setHeld(r.full);
+        setHeld(r.org);
       }}
       onDragEnd={() => {
         setHeld(null);
@@ -84,33 +84,33 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
         // holding a card and tapping one that already sits in a band means
         // "put it in that band": the cards fill the band, so there is little
         // bare band left to tap on a phone
-        const there = place[r.full];
-        if (held && held !== r.full && there !== "pool") {
+        const there = place[r.org];
+        if (held && held !== r.org && there !== "pool") {
           put(held, there);
           return;
         }
-        setHeld(held === r.full ? null : r.full);
+        setHeld(held === r.org ? null : r.org);
       }}
       role="button"
       tabIndex={0}
-      aria-pressed={held === r.full}
+      aria-pressed={held === r.org}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          setHeld(held === r.full ? null : r.full);
+          setHeld(held === r.org ? null : r.org);
         }
       }}
-      title={`${r.full}, ${r.merges} merged`}
+      title={`${r.org}, ${r.contributions} contributions`}
       className={`flex min-h-[44px] max-w-full cursor-grab touch-manipulation select-none items-center gap-2 rounded-lg border bg-[var(--bg-raised)] px-2.5 py-1.5 transition duration-150 [-webkit-touch-callout:none] active:cursor-grabbing sm:min-h-0 ${
-        held === r.full
+        held === r.org
           ? "border-[var(--accent)] ring-1 ring-[var(--accent)]"
           : "border-[var(--line)] hover:border-[var(--accent)]"
       } ${ghost ? "opacity-60" : ""}`}
     >
-      <RepoLogo owner={r.owner} size={20} />
-      <span className="min-w-0 truncate text-sm font-medium">{r.short}</span>
+      <RepoLogo owner={r.org} size={20} />
+      <span className="min-w-0 truncate text-sm font-medium">{r.org}</span>
       <span className="tabular-nums text-[length:var(--step-small)] text-[var(--fg-muted)]">
-        {r.merges}
+        {r.contributions}
       </span>
     </div>
   );
@@ -169,19 +169,19 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
               } ${over === b.id ? "outline outline-1 -outline-offset-4 outline-[var(--accent)]" : ""}`}
             >
               {inSlot(b.id).map((r) => (
-                <span key={r.full} className="inline-flex flex-col items-start gap-1">
+                <span key={r.org} className="inline-flex flex-col items-start gap-1">
                   {card(r)}
                   {done || revealed ? (
                     <span className="font-mono text-[10px] text-[var(--fg-muted)]">
-                      real: {real[r.full]}
-                      {real[r.full] === b.id ? " (match)" : ""}
+                      real: {real[r.org]}
+                      {real[r.org] === b.id ? " (match)" : ""}
                     </span>
                   ) : null}
                 </span>
               ))}
               {inSlot(b.id).length === 0 ? (
                 <span className="px-2 text-[length:var(--step-small)] text-[var(--fg-muted)]">
-                  {coarse ? "tap here to place" : "drop repos here"}
+                  {coarse ? "tap here to place" : "drop organisations here"}
                 </span>
               ) : null}
             </div>
@@ -211,9 +211,9 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
         ) : held ? (
           "Now tap a band to place it."
         ) : coarse ? (
-          "Tap a repo, then tap a band. The number is merged PRs there."
+          "Tap an organisation, then tap a band. The number is contributions there."
         ) : (
-          "Drag a repo into a band, or tap a repo and then a band. The number is merged PRs there."
+          "Drag an organisation into a band, or tap one and then a band. The number is contributions there."
         )}
       </p>
 
@@ -222,11 +222,11 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
       {held ? (
         <div
           role="group"
-          aria-label="place the selected repo"
+          aria-label="place the selected organisation"
           className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--line)] bg-[var(--bg)] px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 sm:hidden"
         >
           <p className="mb-2 truncate font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-muted)]">
-            place {repos.find((r) => r.full === held)?.short}
+            place {repos.find((r) => r.org === held)?.org}
           </p>
           <div className="grid grid-cols-6 gap-2">
             {BANDS.map((b) => (
@@ -261,7 +261,7 @@ export default function TierGame({ tiers }: { tiers: Tier[] }) {
                 {b.real}
               </div>
               <div className="flex flex-1 flex-wrap items-center gap-2 p-3">
-                {repos.filter((r) => real[r.full] === b.id).map((r) => card(r, true))}
+                {repos.filter((r) => real[r.org] === b.id).map((r) => card(r, true))}
               </div>
             </div>
           ))}

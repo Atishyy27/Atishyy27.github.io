@@ -4,8 +4,8 @@ import { ossTiers } from "@/content/oss";
 import TierGame from "@/components/TierGame";
 
 export const metadata: Metadata = {
-  title: "Tier my repos · Atishay Jain",
-  description: "Drag my merged open-source repos into S to C tiers, then see how close you got.",
+  title: "Tier my organisations · Atishay Jain",
+  description: "Drag the organisations I have contributed to into S to C tiers, then see how close you got.",
 };
 
 export default function TierGamePage() {
@@ -17,9 +17,9 @@ export default function TierGamePage() {
       >
         &larr; open source
       </Link>
-      <h1 className="display mt-6 text-[length:var(--step-display)]">Tier my repos</h1>
+      <h1 className="display mt-6 text-[length:var(--step-display)]">Tier my organisations</h1>
       <p className="mt-6 max-w-prose text-lg leading-relaxed text-[var(--fg-muted)]">
-        Every repository where a pull request of mine landed. Rank them yourself, then
+        Every organisation where my work landed. Rank them yourself, then
         compare with the objective tiers (S is L4, A is L3, B is L2, C is L1).
       </p>
       <div className="mt-10">

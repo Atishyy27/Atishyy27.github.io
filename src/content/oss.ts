@@ -7,6 +7,8 @@
 
 import raw from "./oss-data.json";
 import prsRaw from "./oss-prs.json";
+import { LEVELS } from "./oss-levels";
+import { formatDate } from "@/lib/date";
 
 export type PrState = "merged" | "open" | "closed";
 
@@ -257,18 +259,16 @@ export const REPO_NOTES: Record<string, string> = {
 
 /**
  * Contribution tiers as a visual tier list (ATZOSS v2, source cnc/OSS/TIERS.md).
- * Level is per repo, computed from its merged count: one is drive-by, two to four
- * recurring, five or a shipped feature is trusted. Each repo is one card placed in
- * its tier band, with reach (repo prominence, A to D) as a badge and the kinds of
- * work it holds. Data is the committed per-PR snapshot in oss-prs.json, not live.
+ * The unit is the organisation and its level comes from the data. Each
+ * organisation is one card in its tier band, with reach (prominence of its
+ * biggest repo, A to D) as a badge and the kinds of work it holds. Every count
+ * is read from oss-data.json and oss-prs.json, nothing is typed here.
  */
 export type TierPr = { number: number; title: string; url: string; kind: string };
-export type TierRepo = {
-  full: string;
-  short: string;
-  owner: string;
-  slug?: string;
-  merges: number;
+export type TierOrg = {
+  org: string;
+  slug: string;
+  contributions: number;
   reach: string;
   kinds: string[];
   prs: TierPr[];
@@ -278,43 +278,44 @@ export type Tier = {
   label: string;
   meaning: string;
   color: string;
-  repos: TierRepo[];
+  orgs: TierOrg[];
 };
 
-export const tierSnapshot = "7 Nov 2026";
+/** Date of the data the tiers were built from, e.g. "21 Nov 2026". */
+export const tierSnapshot = formatDate(oss.fetchedAt.slice(0, 10));
 
-const TIER_DEFS: Omit<Tier, "repos">[] = [
-  { level: "L4", label: "Maintainer-track", meaning: "triage or write access inside a project", color: "#a371f7" },
-  { level: "L3", label: "Trusted", meaning: "five or more merges, or a shipped feature", color: "#d29922" },
-  { level: "L2", label: "Recurring", meaning: "a maintainer took the work more than once", color: "#3fb950" },
-  { level: "L1", label: "Drive-by", meaning: "a single fix that landed", color: "#58a6ff" },
-];
+const TIER_DEFS: Omit<Tier, "orgs">[] = LEVELS.map((l) => ({ ...l }));
+
+const REACH_RANK: Record<string, number> = { A: 4, B: 3, C: 2, D: 1 };
 
 function buildOssTiers(): Tier[] {
-  type RawPr = { repo: string; number: number; title: string; url: string; kind: string; level: string; reach: string };
+  type RawPr = { repo: string; number: number; title: string; url: string; kind: string };
   const prs = (prsRaw as { prs: RawPr[] }).prs;
-  const reachRank: Record<string, number> = { A: 4, B: 3, C: 2, D: 1 };
-  const byRepo = new Map<string, TierRepo & { level: string }>();
-  for (const p of prs) {
-    let r = byRepo.get(p.repo);
-    if (!r) {
-      const [owner, short] = p.repo.split("/");
-      const slug = oss.repos.find((x) => x.full === p.repo)?.slug;
-      r = { full: p.repo, short, owner, slug, merges: 0, reach: p.reach, kinds: [], prs: [], level: p.level };
-      byRepo.set(p.repo, r);
-    }
-    r.merges += 1;
-    if ((reachRank[p.reach] ?? 0) > (reachRank[r.reach] ?? 0)) r.reach = p.reach;
-    if (!r.kinds.includes(p.kind)) r.kinds.push(p.kind);
-    r.prs.push({ number: p.number, title: p.title, url: p.url, kind: p.kind });
-  }
-  const repos = [...byRepo.values()];
+  const repoOrg = new Map(oss.repos.map((r) => [lc(r.full), lc(r.org ?? r.owner)]));
   return TIER_DEFS.map((d) => ({
     ...d,
-    repos: repos
-      .filter((r) => r.level === d.level)
-      .sort((a, b) => b.merges - a.merges || (reachRank[b.reach] ?? 0) - (reachRank[a.reach] ?? 0)),
+    orgs: oss.orgs
+      .filter((o) => o.level === d.level)
+      .map((o) => {
+        const mine = prs.filter((p) => repoOrg.get(lc(p.repo)) === lc(o.org));
+        const reach = reposOfOrg(o).reduce(
+          (best, r) => ((REACH_RANK[r.reach ?? ""] ?? 0) > (REACH_RANK[best] ?? 0) ? (r.reach as string) : best),
+          "D"
+        );
+        return {
+          org: o.org,
+          slug: o.slug,
+          contributions: o.contributions,
+          reach,
+          kinds: [...new Set(mine.map((p) => p.kind))],
+          prs: mine.map((p) => ({ number: p.number, title: p.title, url: p.url, kind: p.kind })),
+        };
+      })
+      .sort((a, b) => b.contributions - a.contributions || (REACH_RANK[b.reach] ?? 0) - (REACH_RANK[a.reach] ?? 0)),
   }));
 }
 
 export const ossTiers: Tier[] = buildOssTiers();
+
+/** Contributions held by organisations that have a level, so the page can say how much of the total the tiers cover. */
+export const tieredContributions = ossTiers.reduce((n, t) => n + t.orgs.reduce((m, o) => m + o.contributions, 0), 0);

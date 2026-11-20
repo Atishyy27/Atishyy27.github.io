@@ -1,6 +1,6 @@
 "use client";
 
-/* Merged pull requests over time, one swimlane per repository, one dot per PR.
+/* Merged pull requests over time, one swimlane per organisation, one dot per PR.
    Built from the committed merged_at dates in oss-prs.json. Hover (or focus) a
    dot to read repo, title and date in the caption underneath; click opens the
    pull request. No chart library: positions are plain percentages of the span. */
@@ -10,6 +10,8 @@ import { formatDate } from "@/lib/date";
 
 type Pr = { repo: string; number: number; title: string; url: string; merged_at: string; kind: string };
 
+type Lane = { org: string; list: Pr[]; first: number };
+
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const KIND_COLOR: Record<string, string> = {
   Fix: "#5eb3b3",
@@ -18,7 +20,8 @@ const KIND_COLOR: Record<string, string> = {
   Infra: "#58a6ff",
 };
 
-export default function OssTimeline() {
+/** `orgOf` maps a lowercase repo full name to its organisation, built on the server from oss-data.json. */
+export default function OssTimeline({ orgOf }: { orgOf: Record<string, string> }) {
   const [hot, setHot] = useState<Pr | null>(null);
   // Hover and focus do not exist under a finger, and a tap on a link navigates
   // at once. On touch the first tap on a dot reads it, the second opens it.
@@ -30,6 +33,7 @@ export default function OssTimeline() {
 
   const { lanes, start, span, ticks } = useMemo(() => {
     const prs = (prsRaw as { prs: Pr[] }).prs.filter((p) => p.merged_at);
+    if (prs.length === 0) return { lanes: [] as Lane[], start: 0, span: 1, ticks: [] as { at: number; label: string }[] };
     const times = prs.map((p) => Date.parse(p.merged_at));
     const first = new Date(Math.min(...times));
     const last = Math.max(...times);
@@ -38,11 +42,14 @@ export default function OssTimeline() {
     const endD = new Date(last);
     const e = Date.UTC(endD.getUTCFullYear(), endD.getUTCMonth() + 1, 1);
 
-    const byRepo = new Map<string, Pr[]>();
-    for (const p of prs) byRepo.set(p.repo, [...(byRepo.get(p.repo) ?? []), p]);
-    const ls = [...byRepo.entries()]
-      .map(([repo, list]) => ({
-        repo,
+    const byOrg = new Map<string, Pr[]>();
+    for (const p of prs) {
+      const org = orgOf[p.repo.toLowerCase()] ?? p.repo.split("/")[0];
+      byOrg.set(org, [...(byOrg.get(org) ?? []), p]);
+    }
+    const ls: Lane[] = [...byOrg.entries()]
+      .map(([org, list]) => ({
+        org,
         list,
         first: Math.min(...list.map((p) => Date.parse(p.merged_at))),
       }))
@@ -53,7 +60,7 @@ export default function OssTimeline() {
       t.push({ at: d.getTime(), label: MONTHS[d.getUTCMonth()] });
     }
     return { lanes: ls, start: s, span: e - s, ticks: t };
-  }, []);
+  }, [orgOf]);
 
   if (lanes.length === 0) return null;
   const pct = (ms: number) => ((ms - start) / span) * 100;
@@ -90,12 +97,12 @@ export default function OssTimeline() {
             </div>
 
             {lanes.map((l) => (
-              <div key={l.repo} className="flex items-center">
+              <div key={l.org} className="flex items-center">
                 <span
                   className="sticky left-0 z-10 w-28 shrink-0 truncate bg-[var(--bg)] px-3 text-[length:var(--step-small)] sm:static sm:w-44"
-                  title={l.repo}
+                  title={l.org}
                 >
-                  {l.repo.split("/")[1]}
+                  {l.org}
                 </span>
                 <div className="relative mr-4 h-8 flex-1 sm:h-6">
                   <div className="absolute inset-x-0 top-1/2 border-t border-[var(--line)]" />
@@ -169,8 +176,8 @@ export default function OssTimeline() {
         ) : (
           <span className="text-[var(--fg-muted)]">
             {coarse
-              ? "Tap a dot for the pull request, tap it again to open it. Swipe the chart sideways. Oldest repo first."
-              : "Hover a dot for the pull request, click to open it. Oldest repo first."}
+              ? "Tap a dot for the pull request, tap it again to open it. Swipe the chart sideways. Oldest organisation first."
+              : "Hover a dot for the pull request, click to open it. Oldest organisation first."}
           </span>
         )}
       </p>
