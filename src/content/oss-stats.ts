@@ -2,9 +2,9 @@
 // The two numbers the landing page states about open source, counted rather
 // than typed. Fetched 2026-11-20.
 export const OSS_STATS = {
-  merged: 53,
-  open: 68,
-  closed: 45,
+  merged: 56,
+  open: 64,
+  closed: 46,
   prs: 166,
   repos: 57,
   mergedRepos: 29,

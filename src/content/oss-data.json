@@ -4,9 +4,9 @@
   "excludedCount": 7,
   "note": "Upstream only: repositories Atishyy27 does not own. Two repositories that are not open-source contributions are permanently excluded; they are named in this script, not in this file, because this file ships to the browser. GitHub search indexes public repositories, and counts a PR as merged only when it was closed with the merge button. Work landed by a maintainer rebasing and closing shows as closed.",
   "totals": {
-    "merged": 53,
-    "open": 68,
-    "closed": 45,
+    "merged": 56,
+    "open": 64,
+    "closed": 46,
     "prs": 166
   },
   "repoCount": 57,
@@ -123,6 +123,137 @@
           "state": "merged",
           "created": "2026-07-22",
           "closedAt": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "full": "braidpool/braidpool",
+      "owner": "braidpool",
+      "name": "braidpool",
+      "slug": "braidpool-braidpool",
+      "merged": 6,
+      "open": 3,
+      "closed": 6,
+      "prs": [
+        {
+          "number": 583,
+          "title": "bead: require a timestamp for every parent on the wire",
+          "url": "https://github.com/braidpool/braidpool/pull/583",
+          "state": "open",
+          "created": "2026-10-09",
+          "closedAt": null
+        },
+        {
+          "number": 584,
+          "title": "bead: bound the two peer-supplied strings in committed metadata",
+          "url": "https://github.com/braidpool/braidpool/pull/584",
+          "state": "merged",
+          "created": "2026-10-09",
+          "closedAt": "2026-11-20"
+        },
+        {
+          "number": 570,
+          "title": "behaviour: disconnect the peer when a bead sync response channel is closed",
+          "url": "https://github.com/braidpool/braidpool/pull/570",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-11-20"
+        },
+        {
+          "number": 551,
+          "title": "fuzz: add cargo-fuzz targets for the bead sync decoders",
+          "url": "https://github.com/braidpool/braidpool/pull/551",
+          "state": "closed",
+          "created": "2026-09-16",
+          "closedAt": "2026-10-13"
+        },
+        {
+          "number": 552,
+          "title": "bead: cap peer-supplied length before preallocating in vec decoders",
+          "url": "https://github.com/braidpool/braidpool/pull/552",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null
+        },
+        {
+          "number": 554,
+          "title": "bead: cap bytes read from a peer before decoding sync messages",
+          "url": "https://github.com/braidpool/braidpool/pull/554",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null
+        },
+        {
+          "number": 548,
+          "title": "bead: return decode error for out-of-range parent timestamps instead of panicking",
+          "url": "https://github.com/braidpool/braidpool/pull/548",
+          "state": "merged",
+          "created": "2026-09-14",
+          "closedAt": "2026-11-20"
+        },
+        {
+          "number": 547,
+          "title": "fuzz: add cargo-fuzz harness with a merkle path proof target",
+          "url": "https://github.com/braidpool/braidpool/pull/547",
+          "state": "closed",
+          "created": "2026-09-12",
+          "closedAt": "2026-09-14"
+        },
+        {
+          "number": 524,
+          "title": "fix(node): return decode errors instead of panicking on malformed peer metadata",
+          "url": "https://github.com/braidpool/braidpool/pull/524",
+          "state": "merged",
+          "created": "2026-08-06",
+          "closedAt": "2026-08-09"
+        },
+        {
+          "number": 522,
+          "title": "fix(node): drop peer connection instead of panicking on a malformed message",
+          "url": "https://github.com/braidpool/braidpool/pull/522",
+          "state": "closed",
+          "created": "2026-08-05",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "number": 517,
+          "title": "db: read parent timestamp as u32 in fetch_bead_by_bead_hash",
+          "url": "https://github.com/braidpool/braidpool/pull/517",
+          "state": "merged",
+          "created": "2026-07-27",
+          "closedAt": "2026-07-28"
+        },
+        {
+          "number": 495,
+          "title": "db: validate persisted bead metadata on read to prevent crash-on-restart",
+          "url": "https://github.com/braidpool/braidpool/pull/495",
+          "state": "closed",
+          "created": "2026-07-08",
+          "closedAt": "2026-07-12"
+        },
+        {
+          "number": 496,
+          "title": "rpc: restrict bitcoinproxy to a read-only method allowlist",
+          "url": "https://github.com/braidpool/braidpool/pull/496",
+          "state": "closed",
+          "created": "2026-07-08",
+          "closedAt": "2026-07-12"
+        },
+        {
+          "number": 493,
+          "title": "tests: fix mutable default argument in all_ancestors",
+          "url": "https://github.com/braidpool/braidpool/pull/493",
+          "state": "closed",
+          "created": "2026-07-06",
+          "closedAt": "2026-11-20"
+        },
+        {
+          "number": 490,
+          "title": "db: read parent_timestamp as u32 to avoid 2038 overflow",
+          "url": "https://github.com/braidpool/braidpool/pull/490",
+          "state": "merged",
+          "created": "2026-07-04",
+          "closedAt": "2026-07-05"
         }
       ]
     },
@@ -292,137 +423,6 @@
           "state": "merged",
           "created": "2026-08-06",
           "closedAt": "2026-10-16"
-        }
-      ]
-    },
-    {
-      "full": "braidpool/braidpool",
-      "owner": "braidpool",
-      "name": "braidpool",
-      "slug": "braidpool-braidpool",
-      "merged": 3,
-      "open": 7,
-      "closed": 5,
-      "prs": [
-        {
-          "number": 583,
-          "title": "bead: require a timestamp for every parent on the wire",
-          "url": "https://github.com/braidpool/braidpool/pull/583",
-          "state": "open",
-          "created": "2026-10-09",
-          "closedAt": null
-        },
-        {
-          "number": 584,
-          "title": "bead: bound the two peer-supplied strings in committed metadata",
-          "url": "https://github.com/braidpool/braidpool/pull/584",
-          "state": "open",
-          "created": "2026-10-09",
-          "closedAt": null
-        },
-        {
-          "number": 570,
-          "title": "behaviour: disconnect the peer when a bead sync response channel is closed",
-          "url": "https://github.com/braidpool/braidpool/pull/570",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null
-        },
-        {
-          "number": 551,
-          "title": "fuzz: add cargo-fuzz targets for the bead sync decoders",
-          "url": "https://github.com/braidpool/braidpool/pull/551",
-          "state": "closed",
-          "created": "2026-09-16",
-          "closedAt": "2026-10-13"
-        },
-        {
-          "number": 552,
-          "title": "bead: cap peer-supplied length before preallocating in vec decoders",
-          "url": "https://github.com/braidpool/braidpool/pull/552",
-          "state": "open",
-          "created": "2026-09-16",
-          "closedAt": null
-        },
-        {
-          "number": 554,
-          "title": "bead: cap bytes read from a peer before decoding sync messages",
-          "url": "https://github.com/braidpool/braidpool/pull/554",
-          "state": "open",
-          "created": "2026-09-16",
-          "closedAt": null
-        },
-        {
-          "number": 548,
-          "title": "bead: return decode error for out-of-range parent timestamps instead of panicking",
-          "url": "https://github.com/braidpool/braidpool/pull/548",
-          "state": "open",
-          "created": "2026-09-14",
-          "closedAt": null
-        },
-        {
-          "number": 547,
-          "title": "fuzz: add cargo-fuzz harness with a merkle path proof target",
-          "url": "https://github.com/braidpool/braidpool/pull/547",
-          "state": "closed",
-          "created": "2026-09-12",
-          "closedAt": "2026-09-14"
-        },
-        {
-          "number": 524,
-          "title": "fix(node): return decode errors instead of panicking on malformed peer metadata",
-          "url": "https://github.com/braidpool/braidpool/pull/524",
-          "state": "merged",
-          "created": "2026-08-06",
-          "closedAt": "2026-08-09"
-        },
-        {
-          "number": 522,
-          "title": "fix(node): drop peer connection instead of panicking on a malformed message",
-          "url": "https://github.com/braidpool/braidpool/pull/522",
-          "state": "closed",
-          "created": "2026-08-05",
-          "closedAt": "2026-08-06"
-        },
-        {
-          "number": 517,
-          "title": "db: read parent timestamp as u32 in fetch_bead_by_bead_hash",
-          "url": "https://github.com/braidpool/braidpool/pull/517",
-          "state": "merged",
-          "created": "2026-07-27",
-          "closedAt": "2026-07-28"
-        },
-        {
-          "number": 495,
-          "title": "db: validate persisted bead metadata on read to prevent crash-on-restart",
-          "url": "https://github.com/braidpool/braidpool/pull/495",
-          "state": "closed",
-          "created": "2026-07-08",
-          "closedAt": "2026-07-12"
-        },
-        {
-          "number": 496,
-          "title": "rpc: restrict bitcoinproxy to a read-only method allowlist",
-          "url": "https://github.com/braidpool/braidpool/pull/496",
-          "state": "closed",
-          "created": "2026-07-08",
-          "closedAt": "2026-07-12"
-        },
-        {
-          "number": 493,
-          "title": "tests: fix mutable default argument in all_ancestors",
-          "url": "https://github.com/braidpool/braidpool/pull/493",
-          "state": "open",
-          "created": "2026-07-06",
-          "closedAt": null
-        },
-        {
-          "number": 490,
-          "title": "db: read parent_timestamp as u32 to avoid 2038 overflow",
-          "url": "https://github.com/braidpool/braidpool/pull/490",
-          "state": "merged",
-          "created": "2026-07-04",
-          "closedAt": "2026-07-05"
         }
       ]
     },
