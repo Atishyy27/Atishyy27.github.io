@@ -61,7 +61,7 @@ function useNodes(): Node[] {
   return useMemo(() => {
     // Biggest contributions first, so they land near the equator where the
     // lattice puts its densest, most readable band.
-    const repos = [...oss.repos].sort((a, b) => b.merged - a.merged || b.prs.length - a.prs.length);
+    const repos = oss.repos.filter((r) => r.merged + r.open > 0).sort((a, b) => b.merged - a.merged || b.prs.length - a.prs.length);
     const pts = lattice(repos.length);
     const maxMerged = Math.max(1, ...repos.map((r) => r.merged));
 
