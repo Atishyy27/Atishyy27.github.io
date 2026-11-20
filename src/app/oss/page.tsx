@@ -38,7 +38,7 @@ export default function Oss() {
           <div key={label as string} className="border-t border-[var(--line)] pt-4">
             <dt className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full" style={{ background: color as string }} />
-              <span className="text-2xl font-medium tabular-nums">{n as number}</span>
+              <span data-oss-count={(label as string).toLowerCase()} className="text-2xl font-medium tabular-nums">{n as number}</span>
             </dt>
             <dd className="mt-1 text-[length:var(--step-small)] text-[var(--fg-muted)]">{label as string}</dd>
           </div>

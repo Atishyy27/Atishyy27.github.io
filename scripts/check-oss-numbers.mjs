@@ -87,24 +87,20 @@ if (fs.existsSync(out)) {
     .replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ");
   const num = (s) => Number(s.replace(/,/g, ""));
-  const pages = [["index.html", true], ["oss/index.html", false]];
-  for (const [rel, strictAll] of pages) {
+  for (const rel of ["index.html", "oss/index.html"]) {
     const file = path.join(out, rel);
     if (!fs.existsSync(file)) { fail(`built page missing: ${rel}`); continue; }
+    const html = fs.readFileSync(file, "utf8");
     const text = textOf(file);
-    const all = (word) => [...text.matchAll(new RegExp(`(\\d[\\d,]*)\\s+${word}\\b`, "gi"))].map((m) => num(m[1]));
-    const contrib = all("contributions?");
-    if (!contrib.length) fail(`${rel} states no contribution count`);
-    else if (contrib.some((n) => n !== stats.contributions)) fail(`${rel} says ${[...new Set(contrib)].join("/")} contributions, data says ${stats.contributions}`);
-    else pass(`${rel} says ${stats.contributions} contributions everywhere (${contrib.length} mention(s))`);
-    const merged = all("merged");
-    const open = all("open");
-    if (strictAll) {
-      if (merged.some((n) => n !== stats.merged)) fail(`${rel} says ${[...new Set(merged)].join("/")} merged, data says ${stats.merged}`);
-      else if (merged.length) pass(`${rel} says ${stats.merged} merged everywhere (${merged.length})`);
-    } else if (merged.length && merged[0] !== stats.merged) fail(`${rel} first says ${merged[0]} merged, data says ${stats.merged}`);
-    else if (merged.length) pass(`${rel} headline merged = ${stats.merged}`);
-    if (open.length && open[0] !== stats.open && strictAll) fail(`${rel} first says ${open[0]} open, data says ${stats.open}`);
+    // Headline numbers are tagged data-oss-count by OssHeadline. Untagged numbers next
+    // to the same words are other things (per-org counts, GitHub's activity graph), and
+    // layer 2 already stops anyone typing a headline number by hand.
+    const tagged = [...html.matchAll(/data-oss-count="(\w+)"[^>]*>\s*(?:<!--[^>]*-->)?\s*([\d,]+)/g)];
+    if (!tagged.some((m) => m[1] === "contributions")) fail(`${rel} has no tagged contribution headline`);
+    for (const [, key, n] of tagged) {
+      if (num(n) !== stats[key]) fail(`${rel} headline says ${n} ${key}, data says ${stats[key]}`);
+    }
+    if (!fails.some((m) => m.startsWith(rel))) pass(`${rel} headline matches the data (${tagged.length} tagged)`);
     for (const banned of ["Closed unmerged", "Merge rate", "closed unmerged"]) {
       if (text.includes(banned)) fail(`${rel} contains "${banned}", closed work is detail-page only`);
     }

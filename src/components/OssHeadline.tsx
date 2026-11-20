@@ -18,7 +18,7 @@ export default function OssHeadline({
   if (variant === "inline") {
     return (
       <span className={className}>
-        {H.contributions} {H.noun} · {H.counts}
+        <span data-oss-count="contributions">{H.contributions}</span> {H.noun} · {H.counts}
       </span>
     );
   }
@@ -27,7 +27,7 @@ export default function OssHeadline({
     return (
       <span className={`inline-flex flex-col items-end text-right ${className}`}>
         <span>
-          {H.contributions} {H.noun}
+          <span data-oss-count="contributions">{H.contributions}</span> {H.noun}
         </span>
         <span className="text-[10px] font-normal text-[var(--fg-muted)]">{H.counts}</span>
       </span>
@@ -39,7 +39,7 @@ export default function OssHeadline({
   return (
     <div className={className}>
       <p className={`${big} font-medium tabular-nums tracking-tight`}>
-        {H.contributions} <span className={`${word} text-[var(--fg-muted)]`}>{H.noun}</span>
+        <span data-oss-count="contributions">{H.contributions}</span> <span className={`${word} text-[var(--fg-muted)]`}>{H.noun}</span>
       </p>
       <p className="mt-1 font-mono text-sm text-[var(--fg-muted)]">{H.counts}</p>
       {orgs ? <p className="mt-0.5 text-[length:var(--step-small)] text-[var(--fg-muted)]">{H.orgs}</p> : null}
