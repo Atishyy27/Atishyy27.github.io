@@ -1,18 +1,17 @@
 {
   "schema": 2,
   "user": "Atishyy27",
-  "fetchedAt": "2026-11-20T20:26:31.374Z",
-  "definition": "PLACEHOLDER v2-lite derived from the old snapshot; the real fetch replaces it.",
+  "definition": "A contribution is a merged pull request, a commit of mine that a maintainer carried through their own pull request, or a bug report of mine that was fixed upstream. Open pull requests are counted beside it, not inside it. Public repositories I do not own, counted from GitHub itself.",
   "totals": {
-    "contributions": 56,
+    "contributions": 64,
     "merged": 56,
     "open": 64,
-    "carried": 0,
-    "reportsFixed": 0,
+    "carried": 1,
+    "reportsFixed": 7,
     "closed": 46,
     "prs": 166,
-    "orgs": 47,
-    "orgsLanded": 27,
+    "orgs": 48,
+    "orgsLanded": 28,
     "repos": 57,
     "reposLanded": 29
   },
@@ -25,9 +24,9 @@
       "merged": 7,
       "open": 3,
       "closed": 4,
-      "carried": 0,
+      "carried": 1,
       "reportsFixed": 0,
-      "contributions": 7,
+      "contributions": 8,
       "level": "L3",
       "repos": [
         "fedimint/fedimint",
@@ -59,12 +58,45 @@
       "open": 0,
       "closed": 0,
       "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 5,
+      "reportsFixed": 1,
+      "contributions": 6,
       "level": "L3",
       "repos": [
         "open-telemetry/opentelemetry-python-contrib",
         "open-telemetry/opentelemetry-collector-contrib"
+      ]
+    },
+    {
+      "org": "podman-container-tools",
+      "slug": "podman-container-tools",
+      "avatar": "https://github.com/podman-container-tools.png",
+      "kind": "Organization",
+      "merged": 4,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 1,
+      "contributions": 5,
+      "level": "L2",
+      "repos": [
+        "podman-container-tools/podman"
+      ]
+    },
+    {
+      "org": "pyannote",
+      "slug": "pyannote",
+      "avatar": "https://github.com/pyannote.png",
+      "kind": "Organization",
+      "merged": 3,
+      "open": 2,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 1,
+      "contributions": 4,
+      "level": "L2",
+      "repos": [
+        "pyannote/pyannote-metrics",
+        "pyannote/pyannote-audio"
       ]
     },
     {
@@ -84,39 +116,6 @@
       ]
     },
     {
-      "org": "podman-container-tools",
-      "slug": "podman-container-tools",
-      "avatar": "https://github.com/podman-container-tools.png",
-      "kind": "Organization",
-      "merged": 4,
-      "open": 0,
-      "closed": 1,
-      "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 4,
-      "level": "L2",
-      "repos": [
-        "podman-container-tools/podman"
-      ]
-    },
-    {
-      "org": "pyannote",
-      "slug": "pyannote",
-      "avatar": "https://github.com/pyannote.png",
-      "kind": "Organization",
-      "merged": 3,
-      "open": 2,
-      "closed": 1,
-      "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 3,
-      "level": "L2",
-      "repos": [
-        "pyannote/pyannote-metrics",
-        "pyannote/pyannote-audio"
-      ]
-    },
-    {
       "org": "meshery",
       "slug": "meshery",
       "avatar": "https://github.com/meshery.png",
@@ -125,13 +124,29 @@
       "open": 10,
       "closed": 1,
       "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 2,
+      "reportsFixed": 1,
+      "contributions": 3,
       "level": "L2",
       "repos": [
         "meshery/meshery",
         "meshery/meshkit",
         "meshery/schemas"
+      ]
+    },
+    {
+      "org": "michaeldcanady",
+      "slug": "michaeldcanady",
+      "avatar": "https://github.com/michaeldcanady.png",
+      "kind": "User",
+      "merged": 2,
+      "open": 1,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 1,
+      "contributions": 3,
+      "level": "L2",
+      "repos": [
+        "michaeldcanady/servicenow-sdk-go"
       ]
     },
     {
@@ -151,33 +166,33 @@
       ]
     },
     {
-      "org": "michaeldcanady",
-      "slug": "michaeldcanady",
-      "avatar": "https://github.com/michaeldcanady.png",
-      "kind": "Organization",
-      "merged": 2,
-      "open": 1,
+      "org": "kellyjonbrazil",
+      "slug": "kellyjonbrazil",
+      "avatar": "https://github.com/kellyjonbrazil.png",
+      "kind": "User",
+      "merged": 1,
+      "open": 0,
       "closed": 0,
       "carried": 0,
-      "reportsFixed": 0,
+      "reportsFixed": 1,
       "contributions": 2,
-      "level": "L2",
+      "level": "L1",
       "repos": [
-        "michaeldcanady/servicenow-sdk-go"
+        "kellyjonbrazil/jc"
       ]
     },
     {
       "org": "ManiMatter",
       "slug": "manimatter",
       "avatar": "https://github.com/ManiMatter.png",
-      "kind": "Organization",
+      "kind": "User",
       "merged": 2,
       "open": 0,
       "closed": 0,
       "carried": 0,
       "reportsFixed": 0,
       "contributions": 2,
-      "level": "L2",
+      "level": "L3",
       "repos": [
         "ManiMatter/decluttarr"
       ]
@@ -211,8 +226,8 @@
       "contributions": 2,
       "level": "L2",
       "repos": [
-        "prefix-dev/pixi",
-        "prefix-dev/rattler-build"
+        "prefix-dev/rattler-build",
+        "prefix-dev/pixi"
       ]
     },
     {
@@ -226,7 +241,7 @@
       "carried": 0,
       "reportsFixed": 0,
       "contributions": 1,
-      "level": "L1",
+      "level": "L3",
       "repos": [
         "kubernetes/website"
       ]
@@ -340,8 +355,8 @@
       "contributions": 1,
       "level": "L1",
       "repos": [
-        "google-deepmind/open_spiel",
-        "google-deepmind/mujoco"
+        "google-deepmind/mujoco",
+        "google-deepmind/open_spiel"
       ]
     },
     {
@@ -361,6 +376,20 @@
       ]
     },
     {
+      "org": "headroomlabs-ai",
+      "slug": "headroomlabs-ai",
+      "avatar": "https://github.com/headroomlabs-ai.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 1,
+      "contributions": 1,
+      "level": "",
+      "repos": []
+    },
+    {
       "org": "hyperledger",
       "slug": "hyperledger",
       "avatar": "https://github.com/hyperledger.png",
@@ -374,22 +403,6 @@
       "level": "L1",
       "repos": [
         "hyperledger/fabric"
-      ]
-    },
-    {
-      "org": "kellyjonbrazil",
-      "slug": "kellyjonbrazil",
-      "avatar": "https://github.com/kellyjonbrazil.png",
-      "kind": "Organization",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 1,
-      "level": "L1",
-      "repos": [
-        "kellyjonbrazil/jc"
       ]
     },
     {
@@ -591,7 +604,7 @@
       "org": "hibiken",
       "slug": "hibiken",
       "avatar": "https://github.com/hibiken.png",
-      "kind": "Organization",
+      "kind": "User",
       "merged": 0,
       "open": 1,
       "closed": 0,
@@ -786,6 +799,10 @@
       "owner": "fedimint",
       "name": "fedimint",
       "slug": "fedimint-fedimint",
+      "org": "fedimint",
+      "stars": 709,
+      "reach": "C",
+      "level": "L3",
       "merged": 7,
       "open": 3,
       "closed": 3,
@@ -797,7 +814,10 @@
           "state": "merged",
           "created": "2026-11-10",
           "closedAt": "2026-11-12",
-          "mergedAt": "2026-11-12"
+          "mergedAt": "2026-11-12T04:42:50Z",
+          "additions": 7,
+          "deletions": 2,
+          "mergedBy": "dpc"
         },
         {
           "number": 9482,
@@ -806,7 +826,9 @@
           "state": "open",
           "created": "2026-11-07",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 3129,
+          "deletions": 82
         },
         {
           "number": 9483,
@@ -815,7 +837,9 @@
           "state": "open",
           "created": "2026-11-07",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 136,
+          "deletions": 4
         },
         {
           "number": 9329,
@@ -824,7 +848,10 @@
           "state": "merged",
           "created": "2026-10-09",
           "closedAt": "2026-10-20",
-          "mergedAt": "2026-10-20"
+          "mergedAt": "2026-10-20T19:24:10Z",
+          "additions": 6,
+          "deletions": 4,
+          "mergedBy": "dpc"
         },
         {
           "number": 9216,
@@ -834,8 +861,11 @@
           "created": "2026-09-28",
           "closedAt": "2026-11-01",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 117,
+          "deletions": 27,
+          "closeReason": "landed",
+          "closeEvidence": "landed through PR #9404",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 9202,
@@ -844,7 +874,9 @@
           "state": "open",
           "created": "2026-09-25",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 260,
+          "deletions": 32
         },
         {
           "number": 9203,
@@ -854,8 +886,11 @@
           "created": "2026-09-25",
           "closedAt": "2026-10-19",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 139,
+          "deletions": 4,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @dpc",
+          "closedBy": "dpc"
         },
         {
           "number": 9198,
@@ -864,7 +899,10 @@
           "state": "merged",
           "created": "2026-09-24",
           "closedAt": "2026-10-08",
-          "mergedAt": "2026-10-08"
+          "mergedAt": "2026-10-08T12:19:24Z",
+          "additions": 176,
+          "deletions": 10,
+          "mergedBy": "elsirion"
         },
         {
           "number": 9182,
@@ -873,7 +911,10 @@
           "state": "merged",
           "created": "2026-09-20",
           "closedAt": "2026-10-19",
-          "mergedAt": "2026-10-19"
+          "mergedAt": "2026-10-19T17:53:18Z",
+          "additions": 88,
+          "deletions": 0,
+          "mergedBy": "dpc"
         },
         {
           "number": 9143,
@@ -882,7 +923,10 @@
           "state": "merged",
           "created": "2026-09-13",
           "closedAt": "2026-09-16",
-          "mergedAt": "2026-09-16"
+          "mergedAt": "2026-09-16T19:14:30Z",
+          "additions": 23,
+          "deletions": 2,
+          "mergedBy": "dpc"
         },
         {
           "number": 8921,
@@ -891,7 +935,10 @@
           "state": "merged",
           "created": "2026-07-30",
           "closedAt": "2026-07-30",
-          "mergedAt": "2026-07-30"
+          "mergedAt": "2026-07-30T17:53:04Z",
+          "additions": 80,
+          "deletions": 22,
+          "mergedBy": "m1sterc001guy"
         },
         {
           "number": 8907,
@@ -901,8 +948,11 @@
           "created": "2026-07-29",
           "closedAt": "2026-08-04",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 54,
+          "deletions": 11,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @elsirion",
+          "closedBy": "elsirion"
         },
         {
           "number": 8854,
@@ -911,19 +961,22 @@
           "state": "merged",
           "created": "2026-07-22",
           "closedAt": "2026-09-13",
-          "mergedAt": "2026-09-13"
+          "mergedAt": "2026-09-13T06:09:29Z",
+          "additions": 66,
+          "deletions": 1,
+          "mergedBy": "dpc"
         }
-      ],
-      "org": "fedimint",
-      "stars": 0,
-      "reach": "C",
-      "level": "L3"
+      ]
     },
     {
       "full": "braidpool/braidpool",
       "owner": "braidpool",
       "name": "braidpool",
       "slug": "braidpool-braidpool",
+      "org": "braidpool",
+      "stars": 150,
+      "reach": "C",
+      "level": "L3",
       "merged": 6,
       "open": 3,
       "closed": 6,
@@ -935,7 +988,9 @@
           "state": "open",
           "created": "2026-10-09",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 66,
+          "deletions": 0
         },
         {
           "number": 584,
@@ -944,7 +999,10 @@
           "state": "merged",
           "created": "2026-10-09",
           "closedAt": "2026-11-20",
-          "mergedAt": "2026-11-20"
+          "mergedAt": "2026-11-20T16:57:36Z",
+          "additions": 102,
+          "deletions": 2,
+          "mergedBy": "zaidmstrr"
         },
         {
           "number": 570,
@@ -953,7 +1011,10 @@
           "state": "merged",
           "created": "2026-09-24",
           "closedAt": "2026-11-20",
-          "mergedAt": "2026-11-20"
+          "mergedAt": "2026-11-20T17:01:06Z",
+          "additions": 70,
+          "deletions": 33,
+          "mergedBy": "zaidmstrr"
         },
         {
           "number": 551,
@@ -963,8 +1024,11 @@
           "created": "2026-09-16",
           "closedAt": "2026-10-13",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 141,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @Sansh2356",
+          "closedBy": "Sansh2356"
         },
         {
           "number": 552,
@@ -973,7 +1037,9 @@
           "state": "open",
           "created": "2026-09-16",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 28,
+          "deletions": 2
         },
         {
           "number": 554,
@@ -982,7 +1048,9 @@
           "state": "open",
           "created": "2026-09-16",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 267,
+          "deletions": 12
         },
         {
           "number": 548,
@@ -991,7 +1059,10 @@
           "state": "merged",
           "created": "2026-09-14",
           "closedAt": "2026-11-20",
-          "mergedAt": "2026-11-20"
+          "mergedAt": "2026-11-20T14:47:51Z",
+          "additions": 17,
+          "deletions": 1,
+          "mergedBy": "zaidmstrr"
         },
         {
           "number": 547,
@@ -1001,8 +1072,11 @@
           "created": "2026-09-12",
           "closedAt": "2026-09-14",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 130,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 524,
@@ -1011,7 +1085,10 @@
           "state": "merged",
           "created": "2026-08-06",
           "closedAt": "2026-08-09",
-          "mergedAt": "2026-08-09"
+          "mergedAt": "2026-08-09T07:58:38Z",
+          "additions": 28,
+          "deletions": 6,
+          "mergedBy": "zaidmstrr"
         },
         {
           "number": 522,
@@ -1021,8 +1098,11 @@
           "created": "2026-08-05",
           "closedAt": "2026-08-06",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 13,
+          "deletions": 1,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 517,
@@ -1031,7 +1111,10 @@
           "state": "merged",
           "created": "2026-07-27",
           "closedAt": "2026-07-28",
-          "mergedAt": "2026-07-28"
+          "mergedAt": "2026-07-28T07:42:20Z",
+          "additions": 2,
+          "deletions": 2,
+          "mergedBy": "zaidmstrr"
         },
         {
           "number": 495,
@@ -1041,8 +1124,11 @@
           "created": "2026-07-08",
           "closedAt": "2026-07-12",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 176,
+          "deletions": 88,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 496,
@@ -1052,8 +1138,11 @@
           "created": "2026-07-08",
           "closedAt": "2026-07-12",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 104,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 493,
@@ -1063,8 +1152,11 @@
           "created": "2026-07-06",
           "closedAt": "2026-11-20",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 23,
+          "deletions": 2,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @zaidmstrr",
+          "closedBy": "zaidmstrr"
         },
         {
           "number": 490,
@@ -1073,19 +1165,22 @@
           "state": "merged",
           "created": "2026-07-04",
           "closedAt": "2026-07-05",
-          "mergedAt": "2026-07-05"
+          "mergedAt": "2026-07-05T14:06:55Z",
+          "additions": 2,
+          "deletions": 2,
+          "mergedBy": "zaidmstrr"
         }
-      ],
-      "org": "braidpool",
-      "stars": 0,
-      "reach": "C",
-      "level": "L3"
+      ]
     },
     {
       "full": "citadel-foss/openswap",
       "owner": "citadel-foss",
       "name": "openswap",
       "slug": "citadel-foss-openswap",
+      "org": "citadel-foss",
+      "stars": 175,
+      "reach": "C",
+      "level": "L2",
       "merged": 4,
       "open": 0,
       "closed": 4,
@@ -1097,7 +1192,10 @@
           "state": "merged",
           "created": "2026-10-10",
           "closedAt": "2026-10-18",
-          "mergedAt": "2026-10-18"
+          "mergedAt": "2026-10-18T08:46:32Z",
+          "additions": 63,
+          "deletions": 15,
+          "mergedBy": "mojoX911"
         },
         {
           "number": 1132,
@@ -1106,7 +1204,10 @@
           "state": "merged",
           "created": "2026-10-10",
           "closedAt": "2026-10-18",
-          "mergedAt": "2026-10-18"
+          "mergedAt": "2026-10-18T08:47:35Z",
+          "additions": 22,
+          "deletions": 1,
+          "mergedBy": "mojoX911"
         },
         {
           "number": 1035,
@@ -1115,7 +1216,10 @@
           "state": "merged",
           "created": "2026-09-21",
           "closedAt": "2026-09-30",
-          "mergedAt": "2026-09-30"
+          "mergedAt": "2026-09-30T17:15:57Z",
+          "additions": 40,
+          "deletions": 0,
+          "mergedBy": "mojoX911"
         },
         {
           "number": 1036,
@@ -1124,7 +1228,10 @@
           "state": "merged",
           "created": "2026-09-21",
           "closedAt": "2026-09-26",
-          "mergedAt": "2026-09-26"
+          "mergedAt": "2026-09-26T11:38:39Z",
+          "additions": 55,
+          "deletions": 0,
+          "mergedBy": "mojoX911"
         },
         {
           "number": 1031,
@@ -1134,8 +1241,11 @@
           "created": "2026-09-17",
           "closedAt": "2026-09-21",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 205,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 1032,
@@ -1145,8 +1255,11 @@
           "created": "2026-09-17",
           "closedAt": "2026-09-21",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 1,
+          "deletions": 254,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 968,
@@ -1156,8 +1269,11 @@
           "created": "2026-08-03",
           "closedAt": "2026-08-25",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 28,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @mojoX911",
+          "closedBy": "mojoX911"
         },
         {
           "number": 964,
@@ -1167,20 +1283,23 @@
           "created": "2026-08-01",
           "closedAt": "2026-08-25",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 30,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @mojoX911",
+          "closedBy": "mojoX911"
         }
-      ],
-      "org": "citadel-foss",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "podman-container-tools/podman",
       "owner": "podman-container-tools",
       "name": "podman",
       "slug": "podman-container-tools-podman",
+      "org": "podman-container-tools",
+      "stars": 33347,
+      "reach": "A",
+      "level": "L2",
       "merged": 4,
       "open": 0,
       "closed": 1,
@@ -1192,7 +1311,10 @@
           "state": "merged",
           "created": "2026-08-26",
           "closedAt": "2026-09-10",
-          "mergedAt": "2026-09-10"
+          "mergedAt": "2026-09-10T16:20:32Z",
+          "additions": 31,
+          "deletions": 2,
+          "mergedBy": "Luap99"
         },
         {
           "number": 29654,
@@ -1201,7 +1323,10 @@
           "state": "merged",
           "created": "2026-08-26",
           "closedAt": "2026-09-01",
-          "mergedAt": "2026-09-01"
+          "mergedAt": "2026-09-01T11:55:18Z",
+          "additions": 2,
+          "deletions": 3,
+          "mergedBy": "Honny1"
         },
         {
           "number": 29598,
@@ -1211,8 +1336,11 @@
           "created": "2026-08-20",
           "closedAt": "2026-08-21",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 12,
+          "deletions": 2,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 29534,
@@ -1221,7 +1349,10 @@
           "state": "merged",
           "created": "2026-08-15",
           "closedAt": "2026-08-20",
-          "mergedAt": "2026-08-20"
+          "mergedAt": "2026-08-20T18:37:08Z",
+          "additions": 15,
+          "deletions": 3,
+          "mergedBy": "mheon"
         },
         {
           "number": 29446,
@@ -1230,19 +1361,22 @@
           "state": "merged",
           "created": "2026-08-10",
           "closedAt": "2026-08-11",
-          "mergedAt": "2026-08-11"
+          "mergedAt": "2026-08-11T10:22:16Z",
+          "additions": 11,
+          "deletions": 0,
+          "mergedBy": "giuseppe"
         }
-      ],
-      "org": "podman-container-tools",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "open-telemetry/opentelemetry-python-contrib",
       "owner": "open-telemetry",
       "name": "opentelemetry-python-contrib",
       "slug": "open-telemetry-opentelemetry-python-contrib",
+      "org": "open-telemetry",
+      "stars": 1129,
+      "reach": "B",
+      "level": "L2",
       "merged": 4,
       "open": 0,
       "closed": 0,
@@ -1254,7 +1388,10 @@
           "state": "merged",
           "created": "2026-08-10",
           "closedAt": "2026-09-11",
-          "mergedAt": "2026-09-11"
+          "mergedAt": "2026-09-11T14:13:15Z",
+          "additions": 22,
+          "deletions": 2,
+          "mergedBy": "xrmx"
         },
         {
           "number": 4943,
@@ -1263,7 +1400,10 @@
           "state": "merged",
           "created": "2026-08-10",
           "closedAt": "2026-09-11",
-          "mergedAt": "2026-09-11"
+          "mergedAt": "2026-09-11T13:54:35Z",
+          "additions": 30,
+          "deletions": 2,
+          "mergedBy": "xrmx"
         },
         {
           "number": 4936,
@@ -1272,7 +1412,10 @@
           "state": "merged",
           "created": "2026-08-08",
           "closedAt": "2026-09-11",
-          "mergedAt": "2026-09-11"
+          "mergedAt": "2026-09-11T14:25:28Z",
+          "additions": 25,
+          "deletions": 1,
+          "mergedBy": "xrmx"
         },
         {
           "number": 4934,
@@ -1281,19 +1424,22 @@
           "state": "merged",
           "created": "2026-08-06",
           "closedAt": "2026-10-16",
-          "mergedAt": "2026-10-16"
+          "mergedAt": "2026-10-16T16:22:28Z",
+          "additions": 26,
+          "deletions": 1,
+          "mergedBy": "xrmx"
         }
-      ],
-      "org": "open-telemetry",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "pyannote/pyannote-metrics",
       "owner": "pyannote",
       "name": "pyannote-metrics",
       "slug": "pyannote-pyannote-metrics",
+      "org": "pyannote",
+      "stars": 259,
+      "reach": "C",
+      "level": "L2",
       "merged": 3,
       "open": 2,
       "closed": 0,
@@ -1305,7 +1451,9 @@
           "state": "open",
           "created": "2026-09-11",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 229,
+          "deletions": 0
         },
         {
           "number": 96,
@@ -1314,7 +1462,9 @@
           "state": "open",
           "created": "2026-07-30",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 29,
+          "deletions": 25
         },
         {
           "number": 92,
@@ -1323,7 +1473,10 @@
           "state": "merged",
           "created": "2026-07-29",
           "closedAt": "2026-07-29",
-          "mergedAt": "2026-07-29"
+          "mergedAt": "2026-07-29T21:16:19Z",
+          "additions": 13,
+          "deletions": 2,
+          "mergedBy": "hbredin"
         },
         {
           "number": 94,
@@ -1332,7 +1485,10 @@
           "state": "merged",
           "created": "2026-07-29",
           "closedAt": "2026-07-29",
-          "mergedAt": "2026-07-29"
+          "mergedAt": "2026-07-29T21:22:24Z",
+          "additions": 18,
+          "deletions": 2,
+          "mergedBy": "hbredin"
         },
         {
           "number": 90,
@@ -1341,19 +1497,22 @@
           "state": "merged",
           "created": "2026-07-28",
           "closedAt": "2026-07-29",
-          "mergedAt": "2026-07-29"
+          "mergedAt": "2026-07-29T21:11:58Z",
+          "additions": 77,
+          "deletions": 3,
+          "mergedBy": "hbredin"
         }
-      ],
-      "org": "pyannote",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "meshery/meshery",
       "owner": "meshery",
       "name": "meshery",
       "slug": "meshery-meshery",
+      "org": "meshery",
+      "stars": 12267,
+      "reach": "A",
+      "level": "L2",
       "merged": 2,
       "open": 4,
       "closed": 1,
@@ -1365,7 +1524,9 @@
           "state": "open",
           "created": "2026-08-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 90,
+          "deletions": 17
         },
         {
           "number": 21319,
@@ -1374,7 +1535,9 @@
           "state": "open",
           "created": "2026-08-10",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 85,
+          "deletions": 2
         },
         {
           "number": 21208,
@@ -1383,7 +1546,10 @@
           "state": "merged",
           "created": "2026-08-07",
           "closedAt": "2026-08-07",
-          "mergedAt": "2026-08-07"
+          "mergedAt": "2026-08-07T13:46:35Z",
+          "additions": 2,
+          "deletions": 0,
+          "mergedBy": "alexquincy"
         },
         {
           "number": 21115,
@@ -1392,7 +1558,9 @@
           "state": "open",
           "created": "2026-08-04",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 3,
+          "deletions": 1
         },
         {
           "number": 21051,
@@ -1401,7 +1569,9 @@
           "state": "open",
           "created": "2026-08-01",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 264,
+          "deletions": 15
         },
         {
           "number": 20989,
@@ -1411,8 +1581,11 @@
           "created": "2026-07-28",
           "closedAt": "2026-11-01",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 2,
+          "deletions": 2,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 20733,
@@ -1421,19 +1594,22 @@
           "state": "merged",
           "created": "2026-07-17",
           "closedAt": "2026-07-20",
-          "mergedAt": "2026-07-20"
+          "mergedAt": "2026-07-20T13:20:49Z",
+          "additions": 108,
+          "deletions": 4,
+          "mergedBy": "ritzorama"
         }
-      ],
-      "org": "meshery",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "kmesh-net/kmesh",
       "owner": "kmesh-net",
       "name": "kmesh",
       "slug": "kmesh-net-kmesh",
+      "org": "kmesh-net",
+      "stars": 769,
+      "reach": "C",
+      "level": "L2",
       "merged": 2,
       "open": 2,
       "closed": 0,
@@ -1445,7 +1621,9 @@
           "state": "merged",
           "created": "2026-08-08",
           "closedAt": "2026-08-20",
-          "mergedAt": "2026-08-20"
+          "mergedAt": "2026-08-20T11:37:09Z",
+          "additions": 64,
+          "deletions": 7
         },
         {
           "number": 1907,
@@ -1454,7 +1632,9 @@
           "state": "open",
           "created": "2026-08-08",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 71,
+          "deletions": 1
         },
         {
           "number": 1889,
@@ -1463,7 +1643,9 @@
           "state": "open",
           "created": "2026-08-07",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 62,
+          "deletions": 0
         },
         {
           "number": 1887,
@@ -1472,19 +1654,21 @@
           "state": "merged",
           "created": "2026-08-06",
           "closedAt": "2026-08-07",
-          "mergedAt": "2026-08-07"
+          "mergedAt": "2026-08-07T09:07:58Z",
+          "additions": 70,
+          "deletions": 5
         }
-      ],
-      "org": "kmesh-net",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "michaeldcanady/servicenow-sdk-go",
       "owner": "michaeldcanady",
       "name": "servicenow-sdk-go",
       "slug": "michaeldcanady-servicenow-sdk-go",
+      "org": "michaeldcanady",
+      "stars": 32,
+      "reach": "D",
+      "level": "L2",
       "merged": 2,
       "open": 1,
       "closed": 0,
@@ -1496,7 +1680,9 @@
           "state": "open",
           "created": "2026-11-14",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 771,
+          "deletions": 9
         },
         {
           "number": 644,
@@ -1505,7 +1691,10 @@
           "state": "merged",
           "created": "2026-08-20",
           "closedAt": "2026-08-21",
-          "mergedAt": "2026-08-21"
+          "mergedAt": "2026-08-21T00:46:10Z",
+          "additions": 44,
+          "deletions": 17,
+          "mergedBy": "michaeldcanady"
         },
         {
           "number": 591,
@@ -1514,19 +1703,22 @@
           "state": "merged",
           "created": "2026-08-05",
           "closedAt": "2026-08-09",
-          "mergedAt": "2026-08-09"
+          "mergedAt": "2026-08-09T16:44:09Z",
+          "additions": 61,
+          "deletions": 0,
+          "mergedBy": "michaeldcanady"
         }
-      ],
-      "org": "michaeldcanady",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "ManiMatter/decluttarr",
       "owner": "ManiMatter",
       "name": "decluttarr",
       "slug": "manimatter-decluttarr",
+      "org": "ManiMatter",
+      "stars": 906,
+      "reach": "D",
+      "level": "L3",
       "merged": 2,
       "open": 0,
       "closed": 0,
@@ -1538,7 +1730,10 @@
           "state": "merged",
           "created": "2026-11-09",
           "closedAt": "2026-11-14",
-          "mergedAt": "2026-11-14"
+          "mergedAt": "2026-11-14T20:46:49Z",
+          "additions": 149,
+          "deletions": 4,
+          "mergedBy": "lolimmlost"
         },
         {
           "number": 394,
@@ -1547,19 +1742,22 @@
           "state": "merged",
           "created": "2026-11-09",
           "closedAt": "2026-11-14",
-          "mergedAt": "2026-11-14"
+          "mergedAt": "2026-11-14T20:48:20Z",
+          "additions": 71,
+          "deletions": 1,
+          "mergedBy": "lolimmlost"
         }
-      ],
-      "org": "ManiMatter",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "open-policy-agent/opa",
       "owner": "open-policy-agent",
       "name": "opa",
       "slug": "open-policy-agent-opa",
+      "org": "open-policy-agent",
+      "stars": 12501,
+      "reach": "A",
+      "level": "L2",
       "merged": 2,
       "open": 0,
       "closed": 0,
@@ -1571,7 +1769,10 @@
           "state": "merged",
           "created": "2026-07-13",
           "closedAt": "2026-07-17",
-          "mergedAt": "2026-07-17"
+          "mergedAt": "2026-07-17T14:04:08Z",
+          "additions": 165,
+          "deletions": 4,
+          "mergedBy": "sspaink"
         },
         {
           "number": 8885,
@@ -1580,19 +1781,22 @@
           "state": "merged",
           "created": "2026-07-12",
           "closedAt": "2026-07-13",
-          "mergedAt": "2026-07-13"
+          "mergedAt": "2026-07-13T08:02:22Z",
+          "additions": 23,
+          "deletions": 1,
+          "mergedBy": "srenatus"
         }
-      ],
-      "org": "open-policy-agent",
-      "stars": 0,
-      "reach": "C",
-      "level": "L2"
+      ]
     },
     {
       "full": "kubernetes/website",
       "owner": "kubernetes",
       "name": "website",
       "slug": "kubernetes-website",
+      "org": "kubernetes",
+      "stars": 5431,
+      "reach": "B",
+      "level": "L3",
       "merged": 1,
       "open": 5,
       "closed": 0,
@@ -1604,7 +1808,9 @@
           "state": "open",
           "created": "2026-07-04",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 90,
+          "deletions": 0
         },
         {
           "number": 56379,
@@ -1613,7 +1819,9 @@
           "state": "open",
           "created": "2026-07-04",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 52,
+          "deletions": 0
         },
         {
           "number": 56380,
@@ -1622,7 +1830,9 @@
           "state": "merged",
           "created": "2026-07-04",
           "closedAt": "2026-09-16",
-          "mergedAt": "2026-09-16"
+          "mergedAt": "2026-09-16T23:41:21Z",
+          "additions": 46,
+          "deletions": 0
         },
         {
           "number": 56381,
@@ -1631,7 +1841,9 @@
           "state": "open",
           "created": "2026-07-04",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 49,
+          "deletions": 0
         },
         {
           "number": 56382,
@@ -1640,7 +1852,9 @@
           "state": "open",
           "created": "2026-07-04",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 32,
+          "deletions": 0
         },
         {
           "number": 56383,
@@ -1649,19 +1863,21 @@
           "state": "open",
           "created": "2026-07-04",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 52,
+          "deletions": 0
         }
-      ],
-      "org": "kubernetes",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "zowe/zowe-cli",
       "owner": "zowe",
       "name": "zowe-cli",
       "slug": "zowe-zowe-cli",
+      "org": "zowe",
+      "stars": 139,
+      "reach": "C",
+      "level": "L1",
       "merged": 1,
       "open": 3,
       "closed": 1,
@@ -1673,7 +1889,9 @@
           "state": "open",
           "created": "2026-07-13",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 117,
+          "deletions": 10
         },
         {
           "number": 2795,
@@ -1683,8 +1901,11 @@
           "created": "2026-07-13",
           "closedAt": "2026-07-13",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 34,
+          "deletions": 3,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @t1m0thyj",
+          "closedBy": "t1m0thyj"
         },
         {
           "number": 2793,
@@ -1693,7 +1914,9 @@
           "state": "open",
           "created": "2026-07-12",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 46,
+          "deletions": 19
         },
         {
           "number": 2789,
@@ -1702,7 +1925,10 @@
           "state": "merged",
           "created": "2026-07-10",
           "closedAt": "2026-07-20",
-          "mergedAt": "2026-07-20"
+          "mergedAt": "2026-07-20T12:49:21Z",
+          "additions": 23,
+          "deletions": 1,
+          "mergedBy": "zFernand0"
         },
         {
           "number": 2792,
@@ -1711,72 +1937,21 @@
           "state": "open",
           "created": "2026-07-10",
           "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "zowe",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "openeverest/openeverest",
-      "owner": "openeverest",
-      "name": "openeverest",
-      "slug": "openeverest-openeverest",
-      "merged": 1,
-      "open": 2,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 3561,
-          "title": "fix(cli): skip operators without a CSV in namespaces list",
-          "url": "https://github.com/openeverest/openeverest/pull/3561",
-          "state": "open",
-          "created": "2026-11-09",
-          "closedAt": null,
-          "mergedAt": null
-        },
-        {
-          "number": 3563,
-          "title": "fix(rbac): fall back to deploy check when create denies a reference",
-          "url": "https://github.com/openeverest/openeverest/pull/3563",
-          "state": "open",
-          "created": "2026-11-09",
-          "closedAt": null,
-          "mergedAt": null
-        },
-        {
-          "number": 2851,
-          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid",
-          "url": "https://github.com/openeverest/openeverest/pull/2851",
-          "state": "merged",
-          "created": "2026-08-10",
-          "closedAt": "2026-08-10",
-          "mergedAt": "2026-08-10"
-        },
-        {
-          "number": 2862,
-          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid (release-2.0)",
-          "url": "https://github.com/openeverest/openeverest/pull/2862",
-          "state": "closed",
-          "created": "2026-08-10",
-          "closedAt": "2026-08-11",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 58,
+          "deletions": 7
         }
-      ],
-      "org": "openeverest",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "conda-forge/conda-smithy",
       "owner": "conda-forge",
       "name": "conda-smithy",
       "slug": "conda-forge-conda-smithy",
+      "org": "conda-forge",
+      "stars": 181,
+      "reach": "C",
+      "level": "L1",
       "merged": 1,
       "open": 1,
       "closed": 2,
@@ -1788,7 +1963,9 @@
           "state": "open",
           "created": "2026-09-28",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 254,
+          "deletions": 13
         },
         {
           "number": 2709,
@@ -1798,8 +1975,11 @@
           "created": "2026-09-28",
           "closedAt": "2026-11-01",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 139,
+          "deletions": 24,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 2706,
@@ -1808,7 +1988,10 @@
           "state": "merged",
           "created": "2026-09-27",
           "closedAt": "2026-11-16",
-          "mergedAt": "2026-11-16"
+          "mergedAt": "2026-11-16T15:25:24Z",
+          "additions": 85,
+          "deletions": 20,
+          "mergedBy": "beckermr"
         },
         {
           "number": 2707,
@@ -1818,20 +2001,86 @@
           "created": "2026-09-27",
           "closedAt": "2026-09-27",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 135,
+          "deletions": 23,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         }
-      ],
-      "org": "conda-forge",
-      "stars": 0,
+      ]
+    },
+    {
+      "full": "openeverest/openeverest",
+      "owner": "openeverest",
+      "name": "openeverest",
+      "slug": "openeverest-openeverest",
+      "org": "openeverest",
+      "stars": 974,
       "reach": "C",
-      "level": "L1"
+      "level": "L1",
+      "merged": 1,
+      "open": 2,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 3561,
+          "title": "fix(cli): skip operators without a CSV in namespaces list",
+          "url": "https://github.com/openeverest/openeverest/pull/3561",
+          "state": "open",
+          "created": "2026-11-09",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 102,
+          "deletions": 2
+        },
+        {
+          "number": 3563,
+          "title": "fix(rbac): fall back to deploy check when create denies a reference",
+          "url": "https://github.com/openeverest/openeverest/pull/3563",
+          "state": "open",
+          "created": "2026-11-09",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 121,
+          "deletions": 18
+        },
+        {
+          "number": 2851,
+          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid",
+          "url": "https://github.com/openeverest/openeverest/pull/2851",
+          "state": "merged",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-10",
+          "mergedAt": "2026-08-10T15:51:00Z",
+          "additions": 86,
+          "deletions": 1,
+          "mergedBy": "recharte"
+        },
+        {
+          "number": 2862,
+          "title": "fix(session): avoid nil pointer panic when the JWT private key PEM is invalid (release-2.0)",
+          "url": "https://github.com/openeverest/openeverest/pull/2862",
+          "state": "closed",
+          "created": "2026-08-10",
+          "closedAt": "2026-08-11",
+          "mergedAt": null,
+          "additions": 0,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @spron-in",
+          "closedBy": "spron-in"
+        }
+      ]
     },
     {
       "full": "prefix-dev/pixi",
       "owner": "prefix-dev",
       "name": "pixi",
       "slug": "prefix-dev-pixi",
+      "org": "prefix-dev",
+      "stars": 8001,
+      "reach": "B",
+      "level": "L1",
       "merged": 1,
       "open": 0,
       "closed": 3,
@@ -1844,8 +2093,11 @@
           "created": "2026-09-27",
           "closedAt": "2026-11-11",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 14,
+          "deletions": 1,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @Hofer-Julian",
+          "closedBy": "Hofer-Julian"
         },
         {
           "number": 7107,
@@ -1855,8 +2107,11 @@
           "created": "2026-09-27",
           "closedAt": "2026-11-11",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 7,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @Hofer-Julian",
+          "closedBy": "Hofer-Julian"
         },
         {
           "number": 7095,
@@ -1865,7 +2120,10 @@
           "state": "merged",
           "created": "2026-09-25",
           "closedAt": "2026-10-05",
-          "mergedAt": "2026-10-05"
+          "mergedAt": "2026-10-05T14:47:06Z",
+          "additions": 46,
+          "deletions": 0,
+          "mergedBy": "lucascolley"
         },
         {
           "number": 7089,
@@ -1875,20 +2133,23 @@
           "created": "2026-09-24",
           "closedAt": "2026-11-11",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 11,
+          "deletions": 7,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @Hofer-Julian",
+          "closedBy": "Hofer-Julian"
         }
-      ],
-      "org": "prefix-dev",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "cilium/cilium",
       "owner": "cilium",
       "name": "cilium",
       "slug": "cilium-cilium",
+      "org": "cilium",
+      "stars": 25876,
+      "reach": "A",
+      "level": "L1",
       "merged": 1,
       "open": 0,
       "closed": 2,
@@ -1901,8 +2162,11 @@
           "created": "2026-07-28",
           "closedAt": "2026-09-08",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 6,
+          "deletions": 8,
+          "closeReason": "auto",
+          "closeEvidence": "label: stale",
+          "closedBy": "tklauser"
         },
         {
           "number": 47546,
@@ -1912,8 +2176,11 @@
           "created": "2026-07-27",
           "closedAt": "2026-09-12",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 3,
+          "deletions": 3,
+          "closeReason": "auto",
+          "closeEvidence": "closed by github-actions",
+          "closedBy": "github-actions"
         },
         {
           "number": 47516,
@@ -1922,19 +2189,22 @@
           "state": "merged",
           "created": "2026-07-26",
           "closedAt": "2026-07-27",
-          "mergedAt": "2026-07-27"
+          "mergedAt": "2026-07-27T12:13:12Z",
+          "additions": 2,
+          "deletions": 2,
+          "mergedBy": "mhofstetter"
         }
-      ],
-      "org": "cilium",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "lightningdevkit/rust-lightning",
       "owner": "lightningdevkit",
       "name": "rust-lightning",
       "slug": "lightningdevkit-rust-lightning",
+      "org": "lightningdevkit",
+      "stars": 1373,
+      "reach": "B",
+      "level": "L1",
       "merged": 1,
       "open": 0,
       "closed": 2,
@@ -1947,8 +2217,11 @@
           "created": "2026-05-19",
           "closedAt": "2026-07-03",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 47,
+          "deletions": 3,
+          "closeReason": "auto",
+          "closeEvidence": "closed by ldk-reviews-bot",
+          "closedBy": "ldk-reviews-bot"
         },
         {
           "number": 4499,
@@ -1958,8 +2231,11 @@
           "created": "2026-03-19",
           "closedAt": "2026-05-21",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 194,
+          "deletions": 39,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @TheBlueMatt",
+          "closedBy": "TheBlueMatt"
         },
         {
           "number": 4478,
@@ -1968,19 +2244,22 @@
           "state": "merged",
           "created": "2026-03-11",
           "closedAt": "2026-03-19",
-          "mergedAt": "2026-03-19"
+          "mergedAt": "2026-03-19T14:26:49Z",
+          "additions": 6,
+          "deletions": 3,
+          "mergedBy": "TheBlueMatt"
         }
-      ],
-      "org": "lightningdevkit",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "AI-Hypercomputer/maxtext",
       "owner": "AI-Hypercomputer",
       "name": "maxtext",
       "slug": "ai-hypercomputer-maxtext",
+      "org": "AI-Hypercomputer",
+      "stars": 2468,
+      "reach": "B",
+      "level": "L1",
       "merged": 1,
       "open": 0,
       "closed": 1,
@@ -1992,7 +2271,9 @@
           "state": "merged",
           "created": "2026-07-31",
           "closedAt": "2026-11-13",
-          "mergedAt": "2026-11-13"
+          "mergedAt": "2026-11-13T20:20:40Z",
+          "additions": 107,
+          "deletions": 0
         },
         {
           "number": 4528,
@@ -2002,92 +2283,23 @@
           "created": "2026-07-17",
           "closedAt": "2026-08-21",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 1,
+          "deletions": 1,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         }
-      ],
-      "org": "AI-Hypercomputer",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "prefix-dev/rattler-build",
-      "owner": "prefix-dev",
-      "name": "rattler-build",
-      "slug": "prefix-dev-rattler-build",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 2928,
-          "title": "fix: cap the file table in the GitHub step summary",
-          "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
-          "state": "merged",
-          "created": "2026-11-07",
-          "closedAt": "2026-11-16",
-          "mergedAt": "2026-11-16"
-        }
-      ],
-      "org": "prefix-dev",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "py-pdf/pypdf",
-      "owner": "py-pdf",
-      "name": "pypdf",
-      "slug": "py-pdf-pypdf",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 4129,
-          "title": "BUG: FloatObject.hash_bin hashes the as_numeric method, not the value",
-          "url": "https://github.com/py-pdf/pypdf/pull/4129",
-          "state": "merged",
-          "created": "2026-09-24",
-          "closedAt": "2026-09-30",
-          "mergedAt": "2026-09-30"
-        }
-      ],
-      "org": "py-pdf",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "kellyjonbrazil/jc",
-      "owner": "kellyjonbrazil",
-      "name": "jc",
-      "slug": "kellyjonbrazil-jc",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 776,
-          "title": "Fix cksum/sum IndexError on stdin output without a filename",
-          "url": "https://github.com/kellyjonbrazil/jc/pull/776",
-          "state": "merged",
-          "created": "2026-09-24",
-          "closedAt": "2026-10-17",
-          "mergedAt": "2026-10-17"
-        }
-      ],
-      "org": "kellyjonbrazil",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "comet-ml/opik",
       "owner": "comet-ml",
       "name": "opik",
       "slug": "comet-ml-opik",
+      "org": "comet-ml",
+      "stars": 23474,
+      "reach": "A",
+      "level": "L1",
       "merged": 1,
       "open": 0,
       "closed": 0,
@@ -2099,139 +2311,22 @@
           "state": "merged",
           "created": "2026-09-24",
           "closedAt": "2026-09-24",
-          "mergedAt": "2026-09-24"
+          "mergedAt": "2026-09-24T16:49:42Z",
+          "additions": 31,
+          "deletions": 0,
+          "mergedBy": "aadereiko"
         }
-      ],
-      "org": "comet-ml",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "openatx/uiautomator2",
-      "owner": "openatx",
-      "name": "uiautomator2",
-      "slug": "openatx-uiautomator2",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 1195,
-          "title": "fix: correct ends-with match on @content-desc in strict_xpath",
-          "url": "https://github.com/openatx/uiautomator2/pull/1195",
-          "state": "merged",
-          "created": "2026-09-24",
-          "closedAt": "2026-10-04",
-          "mergedAt": "2026-10-04"
-        }
-      ],
-      "org": "openatx",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "shap/shap",
-      "owner": "shap",
-      "name": "shap",
-      "slug": "shap-shap",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 5164,
-          "title": "FIX: match KernelExplainer DataFrame columns to the background by name",
-          "url": "https://github.com/shap/shap/pull/5164",
-          "state": "merged",
-          "created": "2026-09-17",
-          "closedAt": "2026-09-25",
-          "mergedAt": "2026-09-25"
-        }
-      ],
-      "org": "shap",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "goyek/goyek",
-      "owner": "goyek",
-      "name": "goyek",
-      "slug": "goyek-goyek",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 674,
-          "title": "fix: avoid panic in middleware.ReportLongRun for non-positive duration",
-          "url": "https://github.com/goyek/goyek/pull/674",
-          "state": "merged",
-          "created": "2026-08-05",
-          "closedAt": "2026-08-19",
-          "mergedAt": "2026-08-19"
-        }
-      ],
-      "org": "goyek",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "open-telemetry/opentelemetry-collector-contrib",
-      "owner": "open-telemetry",
-      "name": "opentelemetry-collector-contrib",
-      "slug": "open-telemetry-opentelemetry-collector-contrib",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 49857,
-          "title": "[processor/tailsampling] Give composite sub-policies omitted from rat…",
-          "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/49857",
-          "state": "merged",
-          "created": "2026-07-23",
-          "closedAt": "2026-08-14",
-          "mergedAt": "2026-08-14"
-        }
-      ],
-      "org": "open-telemetry",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
-    },
-    {
-      "full": "hyperledger/fabric",
-      "owner": "hyperledger",
-      "name": "fabric",
-      "slug": "hyperledger-fabric",
-      "merged": 1,
-      "open": 0,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 5529,
-          "title": "Fix statedb errors silently swallowed in multi-key queries",
-          "url": "https://github.com/hyperledger/fabric/pull/5529",
-          "state": "merged",
-          "created": "2026-07-22",
-          "closedAt": "2026-07-28",
-          "mergedAt": "2026-07-28"
-        }
-      ],
-      "org": "hyperledger",
-      "stars": 0,
-      "reach": "C",
-      "level": "L1"
+      ]
     },
     {
       "full": "google-deepmind/open_spiel",
       "owner": "google-deepmind",
       "name": "open_spiel",
       "slug": "google-deepmind-open-spiel",
+      "org": "google-deepmind",
+      "stars": 5601,
+      "reach": "B",
+      "level": "L1",
       "merged": 1,
       "open": 0,
       "closed": 0,
@@ -2243,19 +2338,238 @@
           "state": "merged",
           "created": "2026-07-17",
           "closedAt": "2026-08-11",
-          "mergedAt": "2026-08-11"
+          "mergedAt": "2026-08-11T20:11:58Z",
+          "additions": 1,
+          "deletions": 2,
+          "mergedBy": "jhtschultz"
         }
-      ],
-      "org": "google-deepmind",
-      "stars": 0,
+      ]
+    },
+    {
+      "full": "goyek/goyek",
+      "owner": "goyek",
+      "name": "goyek",
+      "slug": "goyek-goyek",
+      "org": "goyek",
+      "stars": 703,
       "reach": "C",
-      "level": "L1"
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 674,
+          "title": "fix: avoid panic in middleware.ReportLongRun for non-positive duration",
+          "url": "https://github.com/goyek/goyek/pull/674",
+          "state": "merged",
+          "created": "2026-08-05",
+          "closedAt": "2026-08-19",
+          "mergedAt": "2026-08-19T06:30:14Z",
+          "additions": 31,
+          "deletions": 0,
+          "mergedBy": "pellared"
+        }
+      ]
+    },
+    {
+      "full": "hyperledger/fabric",
+      "owner": "hyperledger",
+      "name": "fabric",
+      "slug": "hyperledger-fabric",
+      "org": "hyperledger",
+      "stars": 16780,
+      "reach": "A",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 5529,
+          "title": "Fix statedb errors silently swallowed in multi-key queries",
+          "url": "https://github.com/hyperledger/fabric/pull/5529",
+          "state": "merged",
+          "created": "2026-07-22",
+          "closedAt": "2026-07-28",
+          "mergedAt": "2026-07-28T06:55:58Z",
+          "additions": 41,
+          "deletions": 2,
+          "mergedBy": "pfi79"
+        }
+      ]
+    },
+    {
+      "full": "kellyjonbrazil/jc",
+      "owner": "kellyjonbrazil",
+      "name": "jc",
+      "slug": "kellyjonbrazil-jc",
+      "org": "kellyjonbrazil",
+      "stars": 8705,
+      "reach": "D",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 776,
+          "title": "Fix cksum/sum IndexError on stdin output without a filename",
+          "url": "https://github.com/kellyjonbrazil/jc/pull/776",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-10-17",
+          "mergedAt": "2026-10-17T22:02:27Z",
+          "additions": 24,
+          "deletions": 5,
+          "mergedBy": "kellyjonbrazil"
+        }
+      ]
+    },
+    {
+      "full": "open-telemetry/opentelemetry-collector-contrib",
+      "owner": "open-telemetry",
+      "name": "opentelemetry-collector-contrib",
+      "slug": "open-telemetry-opentelemetry-collector-contrib",
+      "org": "open-telemetry",
+      "stars": 5061,
+      "reach": "B",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 49857,
+          "title": "[processor/tailsampling] Give composite sub-policies omitted from rat…",
+          "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/49857",
+          "state": "merged",
+          "created": "2026-07-23",
+          "closedAt": "2026-08-14",
+          "mergedAt": "2026-08-14T20:29:53Z",
+          "additions": 79,
+          "deletions": 4,
+          "mergedBy": "atoulme"
+        }
+      ]
+    },
+    {
+      "full": "openatx/uiautomator2",
+      "owner": "openatx",
+      "name": "uiautomator2",
+      "slug": "openatx-uiautomator2",
+      "org": "openatx",
+      "stars": 8518,
+      "reach": "B",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1195,
+          "title": "fix: correct ends-with match on @content-desc in strict_xpath",
+          "url": "https://github.com/openatx/uiautomator2/pull/1195",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-10-04",
+          "mergedAt": "2026-10-04T23:57:35Z",
+          "additions": 17,
+          "deletions": 1,
+          "mergedBy": "codeskyblue"
+        }
+      ]
+    },
+    {
+      "full": "prefix-dev/rattler-build",
+      "owner": "prefix-dev",
+      "name": "rattler-build",
+      "slug": "prefix-dev-rattler-build",
+      "org": "prefix-dev",
+      "stars": 383,
+      "reach": "C",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2928,
+          "title": "fix: cap the file table in the GitHub step summary",
+          "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
+          "state": "merged",
+          "created": "2026-11-07",
+          "closedAt": "2026-11-16",
+          "mergedAt": "2026-11-16T16:06:29Z",
+          "additions": 107,
+          "deletions": 38,
+          "mergedBy": "wolfv"
+        }
+      ]
+    },
+    {
+      "full": "py-pdf/pypdf",
+      "owner": "py-pdf",
+      "name": "pypdf",
+      "slug": "py-pdf-pypdf",
+      "org": "py-pdf",
+      "stars": 10304,
+      "reach": "A",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 4129,
+          "title": "BUG: FloatObject.hash_bin hashes the as_numeric method, not the value",
+          "url": "https://github.com/py-pdf/pypdf/pull/4129",
+          "state": "merged",
+          "created": "2026-09-24",
+          "closedAt": "2026-09-30",
+          "mergedAt": "2026-09-30T13:54:08Z",
+          "additions": 3,
+          "deletions": 1,
+          "mergedBy": "stefan6419846"
+        }
+      ]
+    },
+    {
+      "full": "shap/shap",
+      "owner": "shap",
+      "name": "shap",
+      "slug": "shap-shap",
+      "org": "shap",
+      "stars": 25881,
+      "reach": "A",
+      "level": "L1",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 5164,
+          "title": "FIX: match KernelExplainer DataFrame columns to the background by name",
+          "url": "https://github.com/shap/shap/pull/5164",
+          "state": "merged",
+          "created": "2026-09-17",
+          "closedAt": "2026-09-25",
+          "mergedAt": "2026-09-25T19:23:27Z",
+          "additions": 107,
+          "deletions": 2,
+          "mergedBy": "CloseChoice"
+        }
+      ]
     },
     {
       "full": "flwrlabs/flower",
       "owner": "flwrlabs",
       "name": "flower",
       "slug": "flwrlabs-flower",
+      "org": "flwrlabs",
+      "stars": 7216,
+      "reach": "B",
+      "level": "",
       "merged": 0,
       "open": 8,
       "closed": 1,
@@ -2267,7 +2581,9 @@
           "state": "open",
           "created": "2026-08-05",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 25,
+          "deletions": 2
         },
         {
           "number": 7709,
@@ -2276,7 +2592,9 @@
           "state": "open",
           "created": "2026-07-29",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 27,
+          "deletions": 0
         },
         {
           "number": 7694,
@@ -2285,7 +2603,9 @@
           "state": "open",
           "created": "2026-07-27",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 21,
+          "deletions": 0
         },
         {
           "number": 7652,
@@ -2295,8 +2615,11 @@
           "created": "2026-07-20",
           "closedAt": "2026-11-01",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 26,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 7646,
@@ -2305,7 +2628,9 @@
           "state": "open",
           "created": "2026-07-19",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 46,
+          "deletions": 0
         },
         {
           "number": 7631,
@@ -2314,7 +2639,9 @@
           "state": "open",
           "created": "2026-07-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 39,
+          "deletions": 2
         },
         {
           "number": 7633,
@@ -2323,7 +2650,9 @@
           "state": "open",
           "created": "2026-07-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 45,
+          "deletions": 4
         },
         {
           "number": 7636,
@@ -2332,7 +2661,9 @@
           "state": "open",
           "created": "2026-07-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 117,
+          "deletions": 2
         },
         {
           "number": 7637,
@@ -2341,19 +2672,21 @@
           "state": "open",
           "created": "2026-07-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 0,
+          "deletions": 0
         }
-      ],
-      "org": "flwrlabs",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "meshery/meshkit",
       "owner": "meshery",
       "name": "meshkit",
       "slug": "meshery-meshkit",
+      "org": "meshery",
+      "stars": 240,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 5,
       "closed": 0,
@@ -2365,7 +2698,9 @@
           "state": "open",
           "created": "2026-08-15",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 51,
+          "deletions": 0
         },
         {
           "number": 1094,
@@ -2374,7 +2709,9 @@
           "state": "open",
           "created": "2026-08-15",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 54,
+          "deletions": 1
         },
         {
           "number": 1076,
@@ -2383,7 +2720,9 @@
           "state": "open",
           "created": "2026-07-28",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 1,
+          "deletions": 1
         },
         {
           "number": 1078,
@@ -2392,7 +2731,9 @@
           "state": "open",
           "created": "2026-07-28",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 8,
+          "deletions": 1
         },
         {
           "number": 1065,
@@ -2401,19 +2742,21 @@
           "state": "open",
           "created": "2026-07-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 97,
+          "deletions": 0
         }
-      ],
-      "org": "meshery",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "urunc-dev/urunc",
       "owner": "urunc-dev",
       "name": "urunc",
       "slug": "urunc-dev-urunc",
+      "org": "urunc-dev",
+      "stars": 311,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 0,
       "closed": 4,
@@ -2426,8 +2769,11 @@
           "created": "2026-07-08",
           "closedAt": "2026-07-09",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 60,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 813,
@@ -2437,8 +2783,11 @@
           "created": "2026-07-08",
           "closedAt": "2026-07-09",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 90,
+          "deletions": 3,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 681,
@@ -2448,8 +2797,11 @@
           "created": "2026-05-14",
           "closedAt": "2026-05-14",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 5,
+          "deletions": 0,
+          "closeReason": "superseded",
+          "closeEvidence": "label: duplicate",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 682,
@@ -2459,20 +2811,23 @@
           "created": "2026-05-14",
           "closedAt": "2026-07-09",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 3,
+          "deletions": 3,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         }
-      ],
-      "org": "urunc-dev",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "conda/rattler",
       "owner": "conda",
       "name": "rattler",
       "slug": "conda-rattler",
+      "org": "conda",
+      "stars": 467,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 3,
       "closed": 0,
@@ -2484,7 +2839,9 @@
           "state": "open",
           "created": "2026-09-24",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 108,
+          "deletions": 1
         },
         {
           "number": 2818,
@@ -2493,7 +2850,9 @@
           "state": "open",
           "created": "2026-09-21",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 270,
+          "deletions": 7
         },
         {
           "number": 2819,
@@ -2502,61 +2861,21 @@
           "state": "open",
           "created": "2026-09-21",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 101,
+          "deletions": 0
         }
-      ],
-      "org": "conda",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "sktime/sktime",
-      "owner": "sktime",
-      "name": "sktime",
-      "slug": "sktime-sktime",
-      "merged": 0,
-      "open": 3,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 11238,
-          "title": "[BUG] use the offset alias of a PeriodIndex frequency in the hypertrees forecasters",
-          "url": "https://github.com/sktime/sktime/pull/11238",
-          "state": "open",
-          "created": "2026-09-21",
-          "closedAt": null,
-          "mergedAt": null
-        },
-        {
-          "number": 11240,
-          "title": "[BUG] normalise the frequency alias in the neuralforecast adapter",
-          "url": "https://github.com/sktime/sktime/pull/11240",
-          "state": "open",
-          "created": "2026-09-21",
-          "closedAt": null,
-          "mergedAt": null
-        },
-        {
-          "number": 11219,
-          "title": "[BUG] slice X by the steps pmdarima predicts in the pmdarima adapter",
-          "url": "https://github.com/sktime/sktime/pull/11219",
-          "state": "open",
-          "created": "2026-09-20",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "sktime",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "sktime/pytorch-forecasting",
       "owner": "sktime",
       "name": "pytorch-forecasting",
       "slug": "sktime-pytorch-forecasting",
+      "org": "sktime",
+      "stars": 5010,
+      "reach": "B",
+      "level": "",
       "merged": 0,
       "open": 3,
       "closed": 0,
@@ -2568,7 +2887,9 @@
           "state": "open",
           "created": "2026-09-19",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 6,
+          "deletions": 2
         },
         {
           "number": 2433,
@@ -2577,7 +2898,9 @@
           "state": "open",
           "created": "2026-09-19",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 3,
+          "deletions": 1
         },
         {
           "number": 2431,
@@ -2586,19 +2909,69 @@
           "state": "open",
           "created": "2026-09-17",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 93,
+          "deletions": 1
         }
-      ],
+      ]
+    },
+    {
+      "full": "sktime/sktime",
+      "owner": "sktime",
+      "name": "sktime",
+      "slug": "sktime-sktime",
       "org": "sktime",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      "stars": 10100,
+      "reach": "A",
+      "level": "",
+      "merged": 0,
+      "open": 3,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 11238,
+          "title": "[BUG] use the offset alias of a PeriodIndex frequency in the hypertrees forecasters",
+          "url": "https://github.com/sktime/sktime/pull/11238",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 61,
+          "deletions": 0
+        },
+        {
+          "number": 11240,
+          "title": "[BUG] normalise the frequency alias in the neuralforecast adapter",
+          "url": "https://github.com/sktime/sktime/pull/11240",
+          "state": "open",
+          "created": "2026-09-21",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 63,
+          "deletions": 25
+        },
+        {
+          "number": 11219,
+          "title": "[BUG] slice X by the steps pmdarima predicts in the pmdarima adapter",
+          "url": "https://github.com/sktime/sktime/pull/11219",
+          "state": "open",
+          "created": "2026-09-20",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 175,
+          "deletions": 8
+        }
+      ]
     },
     {
       "full": "spdx/tools-python",
       "owner": "spdx",
       "name": "tools-python",
       "slug": "spdx-tools-python",
+      "org": "spdx",
+      "stars": 260,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 3,
       "closed": 0,
@@ -2610,7 +2983,9 @@
           "state": "open",
           "created": "2026-07-29",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 15,
+          "deletions": 1
         },
         {
           "number": 902,
@@ -2619,7 +2994,9 @@
           "state": "open",
           "created": "2026-07-27",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 25,
+          "deletions": 1
         },
         {
           "number": 900,
@@ -2628,19 +3005,21 @@
           "state": "open",
           "created": "2026-07-09",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 36,
+          "deletions": 2
         }
-      ],
-      "org": "spdx",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "google/artemis",
       "owner": "google",
       "name": "artemis",
       "slug": "google-artemis",
+      "org": "google",
+      "stars": 17832,
+      "reach": "A",
+      "level": "",
       "merged": 0,
       "open": 1,
       "closed": 1,
@@ -2652,7 +3031,9 @@
           "state": "open",
           "created": "2026-11-14",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 64,
+          "deletions": 6
         },
         {
           "number": 82,
@@ -2662,94 +3043,23 @@
           "created": "2026-09-13",
           "closedAt": "2026-09-14",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 224693,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         }
-      ],
-      "org": "google",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "mlflow/mlflow",
-      "owner": "mlflow",
-      "name": "mlflow",
-      "slug": "mlflow-mlflow",
-      "merged": 0,
-      "open": 0,
-      "closed": 2,
-      "prs": [
-        {
-          "number": 27570,
-          "title": "Bound `get-history` when `max_results` is omitted",
-          "url": "https://github.com/mlflow/mlflow/pull/27570",
-          "state": "closed",
-          "created": "2026-11-07",
-          "closedAt": "2026-11-07",
-          "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
-        },
-        {
-          "number": 24888,
-          "title": "Fix Vertex AI gateway `eu`/`us` multi-region endpoint routing",
-          "url": "https://github.com/mlflow/mlflow/pull/24888",
-          "state": "closed",
-          "created": "2026-08-04",
-          "closedAt": "2026-08-04",
-          "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
-        }
-      ],
-      "org": "mlflow",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "kubeflow/pipelines",
-      "owner": "kubeflow",
-      "name": "pipelines",
-      "slug": "kubeflow-pipelines",
-      "merged": 0,
-      "open": 0,
-      "closed": 2,
-      "prs": [
-        {
-          "number": 14038,
-          "title": "fix(backend): guard toModelRun against a malformed PipelineInfo in the pipeline spec",
-          "url": "https://github.com/kubeflow/pipelines/pull/14038",
-          "state": "closed",
-          "created": "2026-08-14",
-          "closedAt": "2026-09-23",
-          "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
-        },
-        {
-          "number": 13877,
-          "title": "fix(cache): avoid admission-webhook panic on malformed ARGO_TEMPLATE",
-          "url": "https://github.com/kubeflow/pipelines/pull/13877",
-          "state": "closed",
-          "created": "2026-07-26",
-          "closedAt": "2026-09-23",
-          "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
-        }
-      ],
-      "org": "kubeflow",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "intuit/infigraph",
       "owner": "intuit",
       "name": "infigraph",
       "slug": "intuit-infigraph",
+      "org": "intuit",
+      "stars": 98,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 0,
       "closed": 2,
@@ -2762,8 +3072,11 @@
           "created": "2026-08-13",
           "closedAt": "2026-10-02",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 11,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @murari316",
+          "closedBy": "murari316"
         },
         {
           "number": 61,
@@ -2773,20 +3086,66 @@
           "created": "2026-08-13",
           "closedAt": "2026-08-13",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 11,
+          "deletions": 0,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         }
-      ],
-      "org": "intuit",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
+    },
+    {
+      "full": "kubeflow/pipelines",
+      "owner": "kubeflow",
+      "name": "pipelines",
+      "slug": "kubeflow-pipelines",
+      "org": "kubeflow",
+      "stars": 4268,
+      "reach": "B",
+      "level": "",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 14038,
+          "title": "fix(backend): guard toModelRun against a malformed PipelineInfo in the pipeline spec",
+          "url": "https://github.com/kubeflow/pipelines/pull/14038",
+          "state": "closed",
+          "created": "2026-08-14",
+          "closedAt": "2026-09-23",
+          "mergedAt": null,
+          "additions": 35,
+          "deletions": 2,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @droctothorpe",
+          "closedBy": "droctothorpe"
+        },
+        {
+          "number": 13877,
+          "title": "fix(cache): avoid admission-webhook panic on malformed ARGO_TEMPLATE",
+          "url": "https://github.com/kubeflow/pipelines/pull/13877",
+          "state": "closed",
+          "created": "2026-07-26",
+          "closedAt": "2026-09-23",
+          "mergedAt": null,
+          "additions": 29,
+          "deletions": 1,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @droctothorpe",
+          "closedBy": "droctothorpe"
+        }
+      ]
     },
     {
       "full": "kubeflow/sdk",
       "owner": "kubeflow",
       "name": "sdk",
       "slug": "kubeflow-sdk",
+      "org": "kubeflow",
+      "stars": 162,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 2,
       "closed": 0,
@@ -2798,7 +3157,9 @@
           "state": "open",
           "created": "2026-08-03",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 66,
+          "deletions": 1
         },
         {
           "number": 707,
@@ -2807,19 +3168,64 @@
           "state": "open",
           "created": "2026-08-01",
           "closedAt": null,
-          "mergedAt": null
+          "mergedAt": null,
+          "additions": 32,
+          "deletions": 1
         }
-      ],
-      "org": "kubeflow",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
+    },
+    {
+      "full": "mlflow/mlflow",
+      "owner": "mlflow",
+      "name": "mlflow",
+      "slug": "mlflow-mlflow",
+      "org": "mlflow",
+      "stars": 28912,
+      "reach": "A",
+      "level": "",
+      "merged": 0,
+      "open": 0,
+      "closed": 2,
+      "prs": [
+        {
+          "number": 27570,
+          "title": "Bound `get-history` when `max_results` is omitted",
+          "url": "https://github.com/mlflow/mlflow/pull/27570",
+          "state": "closed",
+          "created": "2026-11-07",
+          "closedAt": "2026-11-07",
+          "mergedAt": null,
+          "additions": 31,
+          "deletions": 6,
+          "closeReason": "auto",
+          "closeEvidence": "closed by github-actions",
+          "closedBy": "github-actions"
+        },
+        {
+          "number": 24888,
+          "title": "Fix Vertex AI gateway `eu`/`us` multi-region endpoint routing",
+          "url": "https://github.com/mlflow/mlflow/pull/24888",
+          "state": "closed",
+          "created": "2026-08-04",
+          "closedAt": "2026-08-04",
+          "mergedAt": null,
+          "additions": 100,
+          "deletions": 9,
+          "closeReason": "auto",
+          "closeEvidence": "closed by github-actions",
+          "closedBy": "github-actions"
+        }
+      ]
     },
     {
       "full": "youki-dev/youki",
       "owner": "youki-dev",
       "name": "youki",
       "slug": "youki-dev-youki",
+      "org": "youki-dev",
+      "stars": 7708,
+      "reach": "B",
+      "level": "",
       "merged": 0,
       "open": 0,
       "closed": 2,
@@ -2832,8 +3238,11 @@
           "created": "2026-07-04",
           "closedAt": "2026-07-09",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 55,
+          "deletions": 36,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         },
         {
           "number": 3638,
@@ -2843,44 +3252,23 @@
           "created": "2026-07-04",
           "closedAt": "2026-07-09",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 37,
+          "deletions": 9,
+          "closeReason": "mine",
+          "closeEvidence": "closed by me",
+          "closedBy": "Atishyy27"
         }
-      ],
-      "org": "youki-dev",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "openMF/mifosx-platform",
-      "owner": "openMF",
-      "name": "mifosx-platform",
-      "slug": "openmf-mifosx-platform",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 41,
-          "title": "fix: download mariadb .env from the right path in install.sh",
-          "url": "https://github.com/openMF/mifosx-platform/pull/41",
-          "state": "open",
-          "created": "2026-11-13",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "openMF",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "bowtie-json-schema/bowtie",
       "owner": "bowtie-json-schema",
       "name": "bowtie",
       "slug": "bowtie-json-schema-bowtie",
+      "org": "bowtie-json-schema",
+      "stars": 96,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 1,
       "closed": 0,
@@ -2892,289 +3280,21 @@
           "state": "open",
           "created": "2026-11-08",
           "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "bowtie-json-schema",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "WalletWasabi/WalletWasabi",
-      "owner": "WalletWasabi",
-      "name": "WalletWasabi",
-      "slug": "walletwasabi-walletwasabi",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 15266,
-          "title": "Fail the build if the bundled Tor is running",
-          "url": "https://github.com/WalletWasabi/WalletWasabi/pull/15266",
-          "state": "open",
-          "created": "2026-11-07",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "WalletWasabi",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "langfuse/langfuse-python",
-      "owner": "langfuse",
-      "name": "langfuse-python",
-      "slug": "langfuse-langfuse-python",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 2112,
-          "title": "fix(langchain): use the model name reported in the response",
-          "url": "https://github.com/langfuse/langfuse-python/pull/2112",
-          "state": "open",
-          "created": "2026-11-06",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "langfuse",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "getsentry/responses",
-      "owner": "getsentry",
-      "name": "responses",
-      "slug": "getsentry-responses",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 828,
-          "title": "Reject repeated keys in strict urlencoded_params_matcher",
-          "url": "https://github.com/getsentry/responses/pull/828",
-          "state": "open",
-          "created": "2026-09-24",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "getsentry",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "e2b-dev/E2B",
-      "owner": "e2b-dev",
-      "name": "E2B",
-      "slug": "e2b-dev-e2b",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 1891,
-          "title": "feat(python-sdk): mirror async result accessors on the sync CommandHandle",
-          "url": "https://github.com/e2b-dev/E2B/pull/1891",
-          "state": "closed",
-          "created": "2026-09-22",
-          "closedAt": "2026-09-25",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 111,
+          "deletions": 1
         }
-      ],
-      "org": "e2b-dev",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "sktime/skpro",
-      "owner": "sktime",
-      "name": "skpro",
-      "slug": "sktime-skpro",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 1150,
-          "title": "[ENH] add Categorical distribution",
-          "url": "https://github.com/sktime/skpro/pull/1150",
-          "state": "open",
-          "created": "2026-09-16",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "sktime",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "sarvamai/skills",
-      "owner": "sarvamai",
-      "name": "skills",
-      "slug": "sarvamai-skills",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 18,
-          "title": "sarvam-mcp: stt_transcribe defaults to saaras:v4, not v3",
-          "url": "https://github.com/sarvamai/skills/pull/18",
-          "state": "open",
-          "created": "2026-08-28",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "sarvamai",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "patternfly/react-log-viewer",
-      "owner": "patternfly",
-      "name": "react-log-viewer",
-      "slug": "patternfly-react-log-viewer",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 110,
-          "title": "fix(docs): make complex toolbar demo mobile-friendly",
-          "url": "https://github.com/patternfly/react-log-viewer/pull/110",
-          "state": "open",
-          "created": "2026-08-19",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "patternfly",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "hibiken/asynq",
-      "owner": "hibiken",
-      "name": "asynq",
-      "slug": "hibiken-asynq",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 1174,
-          "title": "feat(scheduler): elect a leader so replicas don't duplicate enqueues (#1013)",
-          "url": "https://github.com/hibiken/asynq/pull/1174",
-          "state": "open",
-          "created": "2026-08-07",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "hibiken",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "pyannote/pyannote-audio",
-      "owner": "pyannote",
-      "name": "pyannote-audio",
-      "slug": "pyannote-pyannote-audio",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 2043,
-          "title": "fix: stop DER frame counts from saturating float16",
-          "url": "https://github.com/pyannote/pyannote-audio/pull/2043",
-          "state": "closed",
-          "created": "2026-07-30",
-          "closedAt": "2026-11-06",
-          "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
-        }
-      ],
-      "org": "pyannote",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "meshery/schemas",
-      "owner": "meshery",
-      "name": "schemas",
-      "slug": "meshery-schemas",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 1096,
-          "title": "fix(validation): validate every non-deprecated construct version",
-          "url": "https://github.com/meshery/schemas/pull/1096",
-          "state": "open",
-          "created": "2026-07-26",
-          "closedAt": null,
-          "mergedAt": null
-        }
-      ],
-      "org": "meshery",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
-    },
-    {
-      "full": "google-deepmind/mujoco",
-      "owner": "google-deepmind",
-      "name": "mujoco",
-      "slug": "google-deepmind-mujoco",
-      "merged": 0,
-      "open": 0,
-      "closed": 1,
-      "prs": [
-        {
-          "number": 3415,
-          "title": "Fix duplicated word in simulation.rst",
-          "url": "https://github.com/google-deepmind/mujoco/pull/3415",
-          "state": "closed",
-          "created": "2026-07-20",
-          "closedAt": "2026-08-14",
-          "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
-        }
-      ],
-      "org": "google-deepmind",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
     },
     {
       "full": "cbomkit/sonar-cryptography",
       "owner": "cbomkit",
       "name": "sonar-cryptography",
       "slug": "cbomkit-sonar-cryptography",
+      "org": "cbomkit",
+      "stars": 97,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 0,
       "closed": 1,
@@ -3187,20 +3307,52 @@
           "created": "2026-05-14",
           "closedAt": "2026-05-14",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 15,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @san-zrl",
+          "closedBy": "san-zrl"
         }
-      ],
-      "org": "cbomkit",
-      "stars": 0,
-      "reach": "C",
-      "level": ""
+      ]
+    },
+    {
+      "full": "e2b-dev/E2B",
+      "owner": "e2b-dev",
+      "name": "E2B",
+      "slug": "e2b-dev-e2b",
+      "org": "e2b-dev",
+      "stars": 14944,
+      "reach": "A",
+      "level": "",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 1891,
+          "title": "feat(python-sdk): mirror async result accessors on the sync CommandHandle",
+          "url": "https://github.com/e2b-dev/E2B/pull/1891",
+          "state": "closed",
+          "created": "2026-09-22",
+          "closedAt": "2026-09-25",
+          "mergedAt": null,
+          "additions": 64,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @mishushakov",
+          "closedBy": "mishushakov"
+        }
+      ]
     },
     {
       "full": "fedimint/ecash-app",
       "owner": "fedimint",
       "name": "ecash-app",
       "slug": "fedimint-ecash-app",
+      "org": "fedimint",
+      "stars": 33,
+      "reach": "C",
+      "level": "",
       "merged": 0,
       "open": 0,
       "closed": 1,
@@ -3213,23 +3365,415 @@
           "created": "2026-03-21",
           "closedAt": "2026-03-24",
           "mergedAt": null,
-          "closeReason": "unknown",
-          "closeEvidence": ""
+          "additions": 14,
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @m1sterc001guy",
+          "closedBy": "m1sterc001guy"
         }
-      ],
-      "org": "fedimint",
-      "stars": 0,
+      ]
+    },
+    {
+      "full": "getsentry/responses",
+      "owner": "getsentry",
+      "name": "responses",
+      "slug": "getsentry-responses",
+      "org": "getsentry",
+      "stars": 4342,
+      "reach": "B",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 828,
+          "title": "Reject repeated keys in strict urlencoded_params_matcher",
+          "url": "https://github.com/getsentry/responses/pull/828",
+          "state": "open",
+          "created": "2026-09-24",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 48,
+          "deletions": 1
+        }
+      ]
+    },
+    {
+      "full": "google-deepmind/mujoco",
+      "owner": "google-deepmind",
+      "name": "mujoco",
+      "slug": "google-deepmind-mujoco",
+      "org": "google-deepmind",
+      "stars": 18351,
+      "reach": "A",
+      "level": "",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 3415,
+          "title": "Fix duplicated word in simulation.rst",
+          "url": "https://github.com/google-deepmind/mujoco/pull/3415",
+          "state": "closed",
+          "created": "2026-07-20",
+          "closedAt": "2026-08-14",
+          "mergedAt": null,
+          "additions": 1,
+          "deletions": 1,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @kevinzakka",
+          "closedBy": "kevinzakka"
+        }
+      ]
+    },
+    {
+      "full": "hibiken/asynq",
+      "owner": "hibiken",
+      "name": "asynq",
+      "slug": "hibiken-asynq",
+      "org": "hibiken",
+      "stars": 13848,
+      "reach": "D",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1174,
+          "title": "feat(scheduler): elect a leader so replicas don't duplicate enqueues (#1013)",
+          "url": "https://github.com/hibiken/asynq/pull/1174",
+          "state": "open",
+          "created": "2026-08-07",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 410,
+          "deletions": 0
+        }
+      ]
+    },
+    {
+      "full": "langfuse/langfuse-python",
+      "owner": "langfuse",
+      "name": "langfuse-python",
+      "slug": "langfuse-langfuse-python",
+      "org": "langfuse",
+      "stars": 515,
       "reach": "C",
-      "level": ""
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 2112,
+          "title": "fix(langchain): use the model name reported in the response",
+          "url": "https://github.com/langfuse/langfuse-python/pull/2112",
+          "state": "open",
+          "created": "2026-11-06",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 44,
+          "deletions": 0
+        }
+      ]
+    },
+    {
+      "full": "meshery/schemas",
+      "owner": "meshery",
+      "name": "schemas",
+      "slug": "meshery-schemas",
+      "org": "meshery",
+      "stars": 88,
+      "reach": "C",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1096,
+          "title": "fix(validation): validate every non-deprecated construct version",
+          "url": "https://github.com/meshery/schemas/pull/1096",
+          "state": "open",
+          "created": "2026-07-26",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 56,
+          "deletions": 19
+        }
+      ]
+    },
+    {
+      "full": "openMF/mifosx-platform",
+      "owner": "openMF",
+      "name": "mifosx-platform",
+      "slug": "openmf-mifosx-platform",
+      "org": "openMF",
+      "stars": 17,
+      "reach": "C",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 41,
+          "title": "fix: download mariadb .env from the right path in install.sh",
+          "url": "https://github.com/openMF/mifosx-platform/pull/41",
+          "state": "open",
+          "created": "2026-11-13",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 6,
+          "deletions": 1
+        }
+      ]
+    },
+    {
+      "full": "patternfly/react-log-viewer",
+      "owner": "patternfly",
+      "name": "react-log-viewer",
+      "slug": "patternfly-react-log-viewer",
+      "org": "patternfly",
+      "stars": 34,
+      "reach": "C",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 110,
+          "title": "fix(docs): make complex toolbar demo mobile-friendly",
+          "url": "https://github.com/patternfly/react-log-viewer/pull/110",
+          "state": "open",
+          "created": "2026-08-19",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 3,
+          "deletions": 3
+        }
+      ]
+    },
+    {
+      "full": "pyannote/pyannote-audio",
+      "owner": "pyannote",
+      "name": "pyannote-audio",
+      "slug": "pyannote-pyannote-audio",
+      "org": "pyannote",
+      "stars": 10816,
+      "reach": "A",
+      "level": "",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "prs": [
+        {
+          "number": 2043,
+          "title": "fix: stop DER frame counts from saturating float16",
+          "url": "https://github.com/pyannote/pyannote-audio/pull/2043",
+          "state": "closed",
+          "created": "2026-07-30",
+          "closedAt": "2026-11-06",
+          "mergedAt": null,
+          "additions": 67,
+          "deletions": 10,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @hbredin",
+          "closedBy": "hbredin"
+        }
+      ]
+    },
+    {
+      "full": "sarvamai/skills",
+      "owner": "sarvamai",
+      "name": "skills",
+      "slug": "sarvamai-skills",
+      "org": "sarvamai",
+      "stars": 74,
+      "reach": "C",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 18,
+          "title": "sarvam-mcp: stt_transcribe defaults to saaras:v4, not v3",
+          "url": "https://github.com/sarvamai/skills/pull/18",
+          "state": "open",
+          "created": "2026-08-28",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 1,
+          "deletions": 1
+        }
+      ]
+    },
+    {
+      "full": "sktime/skpro",
+      "owner": "sktime",
+      "name": "skpro",
+      "slug": "sktime-skpro",
+      "org": "sktime",
+      "stars": 339,
+      "reach": "C",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 1150,
+          "title": "[ENH] add Categorical distribution",
+          "url": "https://github.com/sktime/skpro/pull/1150",
+          "state": "open",
+          "created": "2026-09-16",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 905,
+          "deletions": 0
+        }
+      ]
+    },
+    {
+      "full": "WalletWasabi/WalletWasabi",
+      "owner": "WalletWasabi",
+      "name": "WalletWasabi",
+      "slug": "walletwasabi-walletwasabi",
+      "org": "WalletWasabi",
+      "stars": 2637,
+      "reach": "B",
+      "level": "",
+      "merged": 0,
+      "open": 1,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 15266,
+          "title": "Fail the build if the bundled Tor is running",
+          "url": "https://github.com/WalletWasabi/WalletWasabi/pull/15266",
+          "state": "open",
+          "created": "2026-11-07",
+          "closedAt": null,
+          "mergedAt": null,
+          "additions": 24,
+          "deletions": 0
+        }
+      ]
     }
   ],
-  "carried": [],
-  "reportsFixed": [],
+  "carried": [
+    {
+      "repo": "fedimint/fedimint",
+      "org": "fedimint",
+      "pr": 9404,
+      "commit": "b682afab",
+      "title": "fix(wallet-client): resume after committed recovery finalization",
+      "url": "https://github.com/fedimint/fedimint/pull/9404"
+    }
+  ],
+  "reportsFixed": [
+    {
+      "repo": "headroomlabs-ai/headroom",
+      "org": "headroomlabs-ai",
+      "number": 2221,
+      "title": "[BUG] Stale ANTHROPIC_BASE_URL left in settings.json after proxy stops, breaks fresh Claude Code sessions with ConnectionRefused",
+      "url": "https://github.com/headroomlabs-ai/headroom/issues/2221",
+      "fixedBy": "PR #2223 by another contributor",
+      "fixUrl": "https://github.com/headroomlabs-ai/headroom/issues/2221",
+      "how": "curated"
+    },
+    {
+      "repo": "kellyjonbrazil/jc",
+      "org": "kellyjonbrazil",
+      "number": 775,
+      "title": "cksum/sum parser raises IndexError on stdin output (no filename)",
+      "url": "https://github.com/kellyjonbrazil/jc/issues/775",
+      "fixedBy": "the maintainer",
+      "fixUrl": "https://github.com/kellyjonbrazil/jc/issues/775",
+      "how": "curated"
+    },
+    {
+      "repo": "meshery/meshery",
+      "org": "meshery",
+      "number": 20988,
+      "title": "[Server] getAvailableAddons panics on a ServiceMeshFilter without a type",
+      "url": "https://github.com/meshery/meshery/issues/20988",
+      "fixedBy": "@VimalN2005 in PR #22419",
+      "fixUrl": "https://github.com/meshery/meshery/pull/22419",
+      "how": "closed-by-pr"
+    },
+    {
+      "repo": "michaeldcanady/servicenow-sdk-go",
+      "org": "michaeldcanady",
+      "number": 645,
+      "title": "query: query builder does not escape values in conditions (encoded-query injection)",
+      "url": "https://github.com/michaeldcanady/servicenow-sdk-go/issues/645",
+      "fixedBy": "@michaeldcanady in PR #653",
+      "fixUrl": "https://github.com/michaeldcanady/servicenow-sdk-go/pull/653",
+      "how": "closed-by-pr"
+    },
+    {
+      "repo": "open-telemetry/opentelemetry-python-contrib",
+      "org": "open-telemetry",
+      "number": 5042,
+      "title": "sqlalchemy: db.operation.name carries the database name as well as the operation",
+      "url": "https://github.com/open-telemetry/opentelemetry-python-contrib/issues/5042",
+      "fixedBy": "@henry3260 in PR #5043",
+      "fixUrl": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/5043",
+      "how": "closed-by-pr"
+    },
+    {
+      "repo": "podman-container-tools/podman",
+      "org": "podman-container-tools",
+      "number": 29752,
+      "title": "pkg/api/handlers/libpod: quadlets multipart differs from manifests",
+      "url": "https://github.com/podman-container-tools/podman/issues/29752",
+      "fixedBy": "@madhoshyagnik in PR #29762",
+      "fixUrl": "https://github.com/podman-container-tools/podman/pull/29762",
+      "how": "closed-by-pr"
+    },
+    {
+      "repo": "pyannote/pyannote-audio",
+      "org": "pyannote",
+      "number": 2042,
+      "title": "Discrete DER reports 0.0 on long recordings because frame counts saturate float16",
+      "url": "https://github.com/pyannote/pyannote-audio/issues/2042",
+      "fixedBy": "@Kayvan-Zahiri in PR #2049",
+      "fixUrl": "https://github.com/pyannote/pyannote-audio/pull/2049",
+      "how": "closed-by-pr"
+    }
+  ],
   "closedReasons": [
     {
-      "key": "unknown",
-      "label": "Not classified yet",
-      "count": 46
+      "key": "landed",
+      "label": "Landed another way",
+      "count": 1
+    },
+    {
+      "key": "superseded",
+      "label": "Replaced by another PR",
+      "count": 1
+    },
+    {
+      "key": "auto",
+      "label": "Closed automatically",
+      "count": 5
+    },
+    {
+      "key": "mine",
+      "label": "Closed by me",
+      "count": 19
+    },
+    {
+      "key": "declined",
+      "label": "Closed by a maintainer",
+      "count": 20
     }
-  ]
+  ],
+  "fetchedAt": "2026-11-20T20:34:05.207Z"
 }

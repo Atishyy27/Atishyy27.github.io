@@ -1,7 +1,106 @@
 {
- "generated": "2026-11-08T10:49:42+00:00",
- "level_note": "per repo from merged counts; L4 not computed yet",
+ "generated": "2026-11-20T20:34:05.207Z",
+ "level_note": "per repo from merged counts and author association; kind from the PR title and labels unless set by hand",
  "prs": [
+  {
+   "repo": "braidpool/braidpool",
+   "number": 570,
+   "title": "behaviour: disconnect the peer when a bead sync response channel is closed",
+   "url": "https://github.com/braidpool/braidpool/pull/570",
+   "merged_at": "2026-11-20T17:01:06Z",
+   "size": 103,
+   "kind": "Fix",
+   "level": "L3",
+   "reach": "C"
+  },
+  {
+   "repo": "braidpool/braidpool",
+   "number": 584,
+   "title": "bead: bound the two peer-supplied strings in committed metadata",
+   "url": "https://github.com/braidpool/braidpool/pull/584",
+   "merged_at": "2026-11-20T16:57:36Z",
+   "size": 104,
+   "kind": "Fix",
+   "level": "L3",
+   "reach": "C"
+  },
+  {
+   "repo": "braidpool/braidpool",
+   "number": 548,
+   "title": "bead: return decode error for out-of-range parent timestamps instead of panicking",
+   "url": "https://github.com/braidpool/braidpool/pull/548",
+   "merged_at": "2026-11-20T14:47:51Z",
+   "size": 18,
+   "kind": "Fix",
+   "level": "L3",
+   "reach": "C"
+  },
+  {
+   "repo": "prefix-dev/rattler-build",
+   "number": 2928,
+   "title": "fix: cap the file table in the GitHub step summary",
+   "url": "https://github.com/prefix-dev/rattler-build/pull/2928",
+   "merged_at": "2026-11-16T16:06:29Z",
+   "size": 145,
+   "kind": "Fix",
+   "level": "L1",
+   "reach": "C"
+  },
+  {
+   "repo": "conda-forge/conda-smithy",
+   "number": 2706,
+   "title": "allow conda_build_config.yaml keys in v1 noarch conditionals",
+   "url": "https://github.com/conda-forge/conda-smithy/pull/2706",
+   "merged_at": "2026-11-16T15:25:24Z",
+   "size": 105,
+   "kind": "Fix",
+   "level": "L1",
+   "reach": "C"
+  },
+  {
+   "repo": "ManiMatter/decluttarr",
+   "number": 394,
+   "title": "Support api_key_file for arr instances",
+   "url": "https://github.com/ManiMatter/decluttarr/pull/394",
+   "merged_at": "2026-11-14T20:48:20Z",
+   "size": 72,
+   "kind": "Feature",
+   "level": "L3",
+   "reach": "D"
+  },
+  {
+   "repo": "ManiMatter/decluttarr",
+   "number": 393,
+   "title": "Skip unreleased items in search_missing",
+   "url": "https://github.com/ManiMatter/decluttarr/pull/393",
+   "merged_at": "2026-11-14T20:46:49Z",
+   "size": 153,
+   "kind": "Fix",
+   "level": "L3",
+   "reach": "D"
+  },
+  {
+   "repo": "AI-Hypercomputer/maxtext",
+   "number": 4691,
+   "title": "Validate rampup batch size settings in the Pydantic config",
+   "url": "https://github.com/AI-Hypercomputer/maxtext/pull/4691",
+   "merged_at": "2026-11-13T20:20:40Z",
+   "size": 107,
+   "kind": "Fix",
+   "level": "L1",
+   "reach": "B"
+  },
+  {
+   "repo": "fedimint/fedimint",
+   "number": 9503,
+   "title": "ci: measure the release closure size and fail when it cannot be read",
+   "url": "https://github.com/fedimint/fedimint/pull/9503",
+   "merged_at": "2026-11-12T04:42:50Z",
+   "size": 9,
+   "kind": "Infra",
+   "level": "L3",
+   "reach": "C"
+  },
   {
    "repo": "fedimint/fedimint",
    "number": 9329,
@@ -164,7 +263,7 @@
    "merged_at": "2026-09-16T23:41:21Z",
    "size": 46,
    "kind": "Docs",
-   "level": "L1",
+   "level": "L3",
    "reach": "B"
   },
   {
@@ -351,7 +450,7 @@
    "merged_at": "2026-08-09T07:58:38Z",
    "size": 34,
    "kind": "Fix",
-   "level": "L2",
+   "level": "L3",
    "reach": "C"
   },
   {
@@ -428,7 +527,7 @@
    "merged_at": "2026-07-28T07:42:20Z",
    "size": 4,
    "kind": "Fix",
-   "level": "L2",
+   "level": "L3",
    "reach": "C"
   },
   {
@@ -505,7 +604,7 @@
    "merged_at": "2026-07-05T14:06:55Z",
    "size": 4,
    "kind": "Fix",
-   "level": "L2",
+   "level": "L3",
    "reach": "C"
   },
   {
@@ -519,6 +618,5 @@
    "level": "L1",
    "reach": "B"
   }
- ],
- "definitions": "ATZOSS contribution tiers v2: level L1-L4 per repo, kind per PR, reach A-D by repo stars and owner"
+ ]
 }

@@ -38,6 +38,8 @@ jobs:
           # access; one was nearly pasted in as this value on 24 Oct 2026.
           NEXT_PUBLIC_POSTHOG_KEY: ${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
           NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
+      # Never publish pages whose open-source numbers disagree with each other.
+      - run: node scripts/check-oss-numbers.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
