@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { pagedProjects, getProject, CATEGORY_LABEL } from "@/content/projects";
 import { entriesForProject, formatDate } from "@/lib/journal";
 import LiveEmbed from "@/components/LiveEmbed";
@@ -22,10 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) return {};
-  return {
-    title: `${p.name} · Atishay Jain`,
-    description: p.story || p.blurb,
-  };
+  return seo(`/projects/${slug}/`, `${p.name} · Atishay Jain`, p.story || p.blurb);
 }
 
 export default async function ProjectPage({ params }: Props) {

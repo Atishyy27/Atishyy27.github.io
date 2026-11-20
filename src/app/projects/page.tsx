@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { allProjects, pagedProjects } from "@/content/projects";
 import { canEmbed } from "@/lib/embeddable";
 import LiveDemos, { type Demo } from "@/components/LiveDemos";
@@ -6,11 +7,11 @@ import { otherHackathons } from "@/content/site";
 import ProjectExplorer from "@/components/ProjectExplorer";
 import InBrowserPreview from "@/components/InBrowserPreview";
 
-export const metadata: Metadata = {
-  title: "Projects · Atishay Jain",
-  description:
-    "Every built thing: government platforms, client products, institute systems, Chrome extensions, developer tools, hackathon builds and personal projects. Filter by type or domain.",
-};
+export const metadata: Metadata = seo(
+  "/projects/",
+  "Projects · Atishay Jain",
+  "Every built thing: government platforms, client products, institute systems, Chrome extensions, developer tools, hackathon builds and personal projects. Filter by type or domain.",
+);
 
 // This was a flat table of text rows. The research that produced that shape was
 // about scannability, and it was right about scannability: a row is faster to

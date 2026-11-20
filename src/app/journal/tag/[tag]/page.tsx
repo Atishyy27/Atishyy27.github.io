@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { tagSlugs, entriesByTag, allTags, tagSlug, formatDate, readingMinutes } from "@/lib/journal";
 
 export const dynamicParams = false;
@@ -20,10 +21,7 @@ type Props = { params: Promise<{ tag: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
   const label = allTags().find((t) => tagSlug(t.tag) === tag)?.tag ?? tag;
-  return {
-    title: `${label} · Journal · Atishay Jain`,
-    description: `Journal entries tagged ${label}.`,
-  };
+  return seo(`/journal/tag/${tag}/`, `${label} · Journal · Atishay Jain`, `Journal entries tagged ${label}.`);
 }
 
 export default async function TagPage({ params }: Props) {

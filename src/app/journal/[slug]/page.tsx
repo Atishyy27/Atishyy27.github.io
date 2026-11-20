@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { entrySlugs, getEntry, renderMarkdown, formatDate, readingMinutes, neighbours, tagSlug } from "@/lib/journal";
 import JsonLd, { blogPosting } from "@/components/JsonLd";
 
@@ -25,8 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!entry) return { title: "Journal", robots: { index: false, follow: false } };
 
   return {
-    title: `${entry.title} · Journal`,
-    description: entry.place ? `${entry.title}, ${entry.place}` : entry.title,
+    ...seo(`/journal/${slug}/`, `${entry.title} · Journal`, entry.place ? `${entry.title}, ${entry.place}` : entry.title),
     // Unlisted entries stay reachable by link but must never be indexed.
     robots: entry.visibility === "unlisted" ? { index: false, follow: false } : undefined,
   };

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import {
   getOrg,
   orgSlugs,
@@ -28,10 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { org } = await params;
   const o = getOrg(org);
   if (!o) return { title: "Open source" };
-  return {
-    title: `${o.org} · Open source · Atishay Jain`,
-    description: `${o.contributions} ${o.contributions === 1 ? "contribution" : "contributions"} to ${o.org}: ${o.merged} merged, ${o.open} open.`,
-  };
+  return seo(
+    `/oss/org/${org}/`,
+    `${o.org} · Open source · Atishay Jain`,
+    `${o.contributions} ${o.contributions === 1 ? "contribution" : "contributions"} to ${o.org}: ${o.merged} merged, ${o.open} open.`,
+  );
 }
 
 function PrRow({ pr }: { pr: OssPr }) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { listedEntries, readingMinutes } from "@/lib/journal";
 import { log } from "@/content/log";
 import WritingFeed, { type FeedItem } from "@/components/WritingFeed";
@@ -7,11 +8,11 @@ import ResearchPapersSection from "@/components/ResearchPapersSection";
 import { Keyboard3DMount } from "@/components/SceneMount";
 import { Head, Wrap } from "@/components/Section";
 
-export const metadata: Metadata = {
-  title: "Writing · Atishay Jain",
-  description:
-    "Essays and build-log notes on shipping software: what broke, what the number actually was, and what the fix cost."
-};
+export const metadata: Metadata = seo(
+  "/writing/",
+  "Writing · Atishay Jain",
+  "Essays and build-log notes on shipping software: what broke, what the number actually was, and what the fix cost.",
+);
 
 // /journal, /log and /archive merged here on 22 Oct 2026. /archive already
 // carried all three sources, which made it a superset of the other two rather

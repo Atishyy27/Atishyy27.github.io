@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { oss, orgOfRepo, orgRows, ossTiers, tierSnapshot } from "@/content/oss";
 import { OSS_STATS } from "@/content/oss-stats";
 import { ossHeadlineText, ossHeadline } from "@/content/oss-headline";
@@ -13,10 +14,11 @@ import CitationsSection from "@/components/CitationsSection";
 import OssScorecard from "@/components/OssScorecard";
 import UnifiedOssOrgs from "@/components/UnifiedOssOrgs";
 
-export const metadata: Metadata = {
-  title: "Open source · Atishay Jain",
-  description: `Open-source work in projects I do not own: ${ossHeadlineText()}. Every row links to GitHub.`,
-};
+export const metadata: Metadata = seo(
+  "/oss/",
+  "Open source · Atishay Jain",
+  `Open-source work in projects I do not own: ${ossHeadlineText()}. Every row links to GitHub.`,
+);
 
 export default function Oss() {
   const orgOf = Object.fromEntries(oss.repos.map((r) => [r.full.toLowerCase(), orgOfRepo(r)?.org ?? r.owner]));

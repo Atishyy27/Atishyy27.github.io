@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { getRepo, repoSlugs, orgOfRepo, mergedPrs, openPrs, REPO_NOTES } from "@/content/oss";
 import { formatDate } from "@/lib/date";
 import RepoLogo from "@/components/RepoLogo";
@@ -19,10 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const r = getRepo(slug);
   if (!r) return { title: "Open source" };
-  return {
-    title: `${r.full} · Open source · Atishay Jain`,
-    description: `${r.merged} merged and ${r.open} open pull requests to ${r.full}.`,
-  };
+  return seo(
+    `/oss/${slug}/`,
+    `${r.full} · Open source · Atishay Jain`,
+    `My pull requests to ${r.full}: ${r.merged} merged, ${r.open} open.`,
+  );
 }
 
 const STATE_STYLE = {

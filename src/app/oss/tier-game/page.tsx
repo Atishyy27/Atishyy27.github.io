@@ -1,12 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { ossTiers } from "@/content/oss";
 import TierGame from "@/components/TierGame";
 
-export const metadata: Metadata = {
-  title: "Tier my organisations · Atishay Jain",
-  description: "Drag the organisations I have contributed to into S to C tiers, then see how close you got.",
-};
+export const metadata: Metadata = seo(
+  "/oss/tier-game/",
+  "Tier my organisations · Atishay Jain",
+  "Drag the organisations I have contributed to into S to C tiers, then see how close you got.",
+);
 
 export default function TierGamePage() {
   return (

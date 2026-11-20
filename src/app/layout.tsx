@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description: person.blurb,
     creator: "@atishyy27",
   },
-  alternates: { canonical: SITE },
+  alternates: { canonical: "/" },
 };
 
 /** Makes "Atishay Jain" resolve to this page rather than a scraper site. */
