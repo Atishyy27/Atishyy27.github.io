@@ -1,6 +1,6 @@
 [
   {
-    "title": "lightning: bump stuck HTLC spends and contest a racing refund",
+    "title": "lightning: HTLC spend follow-ups after #1247",
     "number": 1249,
     "repo": "citadel-foss/openswap",
     "url": "https://github.com/citadel-foss/openswap/issues/1249",
