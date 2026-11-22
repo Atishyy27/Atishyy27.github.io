@@ -1,5 +1,16 @@
 [
   {
+    "title": "lightning: bump stuck HTLC spends and contest a racing refund",
+    "number": 1249,
+    "repo": "citadel-foss/openswap",
+    "url": "https://github.com/citadel-foss/openswap/issues/1249",
+    "state": "open",
+    "state_reason": null,
+    "created_at": "2026-11-21T20:47:03Z",
+    "closed_at": null,
+    "comments": 1
+  },
+  {
     "title": "cksum/sum parser raises IndexError on stdin output (no filename)",
     "number": 775,
     "repo": "kellyjonbrazil/jc",
