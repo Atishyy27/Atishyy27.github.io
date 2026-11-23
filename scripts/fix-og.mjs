@@ -50,10 +50,14 @@ const REDIRECT_STUBS = new Set([
   "archive/index.html",
   "journal/index.html",
 ]);
+// The private OSS Desk (public/admin/desk/) is plain HTML outside Next, noindexed, and must
+// never unfurl as a shared card, so it is skipped too.
+const PRIVATE_DIRS = new Set(["admin/desk"]);
 const pages = [];
 (function walk(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
+    if (e.isDirectory() && PRIVATE_DIRS.has(path.relative(OUT, p).split(path.sep).join("/"))) continue;
     if (e.isDirectory()) walk(p);
     else if (e.name.endsWith(".html") && !REDIRECT_STUBS.has(path.relative(OUT, p).split(path.sep).join("/")))
       pages.push(p);
