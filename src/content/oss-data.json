@@ -1210,7 +1210,7 @@
           "created": "2026-11-21",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 2563,
+          "additions": 2834,
           "deletions": 104
         },
         {
@@ -1325,7 +1325,7 @@
       "name": "podman",
       "slug": "podman-container-tools-podman",
       "org": "podman-container-tools",
-      "stars": 33370,
+      "stars": 33372,
       "reach": "A",
       "level": "L2",
       "merged": 4,
@@ -2175,7 +2175,7 @@
       "name": "cilium",
       "slug": "cilium-cilium",
       "org": "cilium",
-      "stars": 25891,
+      "stars": 25892,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2325,7 +2325,7 @@
       "name": "opik",
       "slug": "comet-ml-opik",
       "org": "comet-ml",
-      "stars": 23492,
+      "stars": 23491,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2568,7 +2568,7 @@
       "name": "shap",
       "slug": "shap-shap",
       "org": "shap",
-      "stars": 25891,
+      "stars": 25892,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -3045,7 +3045,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 17955,
+      "stars": 17960,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3208,7 +3208,7 @@
       "name": "mlflow",
       "slug": "mlflow-mlflow",
       "org": "mlflow",
-      "stars": 28943,
+      "stars": 28944,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3433,7 +3433,7 @@
       "name": "mujoco",
       "slug": "google-deepmind-mujoco",
       "org": "google-deepmind",
-      "stars": 18429,
+      "stars": 18430,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3699,7 +3699,7 @@
       "name": "WalletWasabi",
       "slug": "walletwasabi-walletwasabi",
       "org": "WalletWasabi",
-      "stars": 2636,
+      "stars": 2635,
       "reach": "B",
       "level": "",
       "merged": 0,
@@ -3829,5 +3829,5 @@
       "count": 20
     }
   ],
-  "fetchedAt": "2026-11-23T22:01:22.818Z"
+  "fetchedAt": "2026-11-23T23:55:23.736Z"
 }
