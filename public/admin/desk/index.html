@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Desk</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0d1117; color: #e6edf3;
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  form { width: min(360px, 90vw); }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+  p { margin: 0 0 20px; color: #8b949e; font-size: 14px; }
+  input { width: 100%; box-sizing: border-box; padding: 12px; font-size: 16px; border-radius: 8px;
+          border: 1px solid #30363d; background: #161b22; color: inherit; }
+  button { margin-top: 12px; width: 100%; min-height: 44px; font-size: 16px; border: 0; border-radius: 8px;
+           background: #2f81f7; color: #fff; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: wait; }
+  #msg { min-height: 20px; margin-top: 12px; font-size: 14px; color: #f85149; }
+</style>
+</head>
+<body>
+<form id="f" autocomplete="off">
+  <h1>OSS Desk</h1>
+  <p>Private. The data is encrypted; your passphrase unlocks it in this browser only.</p>
+  <input id="pw" type="password" placeholder="Passphrase" autofocus required>
+  <button id="go" type="submit">Open</button>
+  <div id="msg" role="status"></div>
+</form>
+<script src="./desk-crypto.js"></script>
+<script>
+  // Already unlocked in this tab: straight in.
+  if (sessionStorage.getItem("oss-desk")) location.replace("./app.html");
+  const f = document.getElementById("f"), pw = document.getElementById("pw"),
+        go = document.getElementById("go"), msg = document.getElementById("msg");
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault(); go.disabled = true; msg.textContent = "";
+    try {
+      const box = await (await fetch("./data.enc.json", { cache: "no-store" })).json();
+      const text = await deskDecrypt(box, pw.value);
+      JSON.parse(text);
+      sessionStorage.setItem("oss-desk", text);
+      location.replace("./app.html");
+    } catch (err) {
+      msg.textContent = err && err.name === "OperationError" ? "Wrong passphrase." : "Could not open the desk: " + err.message;
+      go.disabled = false; pw.select();
+    }
+  });
+</script>
+</body>
+</html>
