@@ -47,6 +47,17 @@ eq("merged PRs listed under repos", data.repos.flatMap((r) => r.prs).filter((p) 
 eq("closed PRs carry a reason", data.repos.flatMap((r) => r.prs).filter((p) => p.state === "closed" && !p.closeReason).length, 0);
 eq("closed reasons add up to closed", data.closedReasons.reduce((t, c) => t + c.count, 0), T.closed);
 
+// The private OSS Desk (public/admin/desk/) may only ever ship encrypted. Its plaintext carries the
+// nudge and owed-reply lists; a static site cannot hide a file, so one slip would publish them.
+const deskDir = path.join(root, "public", "admin", "desk");
+if (fs.existsSync(deskDir)) {
+  const leaks = fs.readdirSync(deskDir).filter((f) => {
+    const t = fs.readFileSync(path.join(deskDir, f), "utf8");
+    return /window\.__DESK__\s*=\s*\{|"nudges"\s*:|"watchHistory"\s*:/.test(t);
+  });
+  eq("desk folder holds no unencrypted data", leaks.join(", ") || "none", "none");
+}
+
 // The hourly refresh job passes --data-only: a slip in someone's code must never stop
 // fresh numbers from publishing. CI and deploy run all three layers.
 if (process.argv.includes("--data-only")) {
