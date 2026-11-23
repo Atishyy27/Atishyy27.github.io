@@ -1,7 +1,18 @@
 {
- "generated": "2026-11-23T14:27:32.786Z",
+ "generated": "2026-11-23T20:23:54.370Z",
  "level_note": "per repo from merged counts and author association; kind from the PR title and labels unless set by hand",
  "prs": [
+  {
+   "repo": "fedimint/fedimint",
+   "number": 9202,
+   "title": "fix(wallet-client): retry a deposit the Bitcoin backend cannot prove",
+   "url": "https://github.com/fedimint/fedimint/pull/9202",
+   "merged_at": "2026-11-23T19:41:30Z",
+   "size": 292,
+   "kind": "Fix",
+   "level": "L3",
+   "reach": "C"
+  },
   {
    "repo": "braidpool/braidpool",
    "number": 570,
