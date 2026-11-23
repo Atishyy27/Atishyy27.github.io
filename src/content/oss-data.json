@@ -1210,8 +1210,8 @@
           "created": "2026-11-21",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 2410,
-          "deletions": 102
+          "additions": 2563,
+          "deletions": 104
         },
         {
           "number": 1131,
@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12300,
+      "stars": 12302,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2106,7 +2106,7 @@
       "name": "pixi",
       "slug": "prefix-dev-pixi",
       "org": "prefix-dev",
-      "stars": 8008,
+      "stars": 8009,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2406,7 +2406,7 @@
       "name": "fabric",
       "slug": "hyperledger-fabric",
       "org": "hyperledger",
-      "stars": 16784,
+      "stars": 16785,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2460,7 +2460,7 @@
       "name": "opentelemetry-collector-contrib",
       "slug": "open-telemetry-opentelemetry-collector-contrib",
       "org": "open-telemetry",
-      "stars": 5063,
+      "stars": 5064,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2568,7 +2568,7 @@
       "name": "shap",
       "slug": "shap-shap",
       "org": "shap",
-      "stars": 25890,
+      "stars": 25891,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -3085,7 +3085,7 @@
       "name": "infigraph",
       "slug": "intuit-infigraph",
       "org": "intuit",
-      "stars": 98,
+      "stars": 99,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3208,7 +3208,7 @@
       "name": "mlflow",
       "slug": "mlflow-mlflow",
       "org": "mlflow",
-      "stars": 28941,
+      "stars": 28943,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3349,7 +3349,7 @@
       "name": "E2B",
       "slug": "e2b-dev-e2b",
       "org": "e2b-dev",
-      "stars": 14983,
+      "stars": 14984,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3829,5 +3829,5 @@
       "count": 20
     }
   ],
-  "fetchedAt": "2026-11-23T20:23:54.370Z"
+  "fetchedAt": "2026-11-23T22:01:22.818Z"
 }
