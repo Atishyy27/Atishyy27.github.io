@@ -1325,7 +1325,7 @@
       "name": "podman",
       "slug": "podman-container-tools-podman",
       "org": "podman-container-tools",
-      "stars": 33379,
+      "stars": 33378,
       "reach": "A",
       "level": "L2",
       "merged": 4,
@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12309,
+      "stars": 12308,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -1783,7 +1783,7 @@
       "name": "opa",
       "slug": "open-policy-agent-opa",
       "org": "open-policy-agent",
-      "stars": 12513,
+      "stars": 12514,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2175,7 +2175,7 @@
       "name": "cilium",
       "slug": "cilium-cilium",
       "org": "cilium",
-      "stars": 25896,
+      "stars": 25898,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -3045,7 +3045,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 17993,
+      "stars": 17997,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3433,7 +3433,7 @@
       "name": "mujoco",
       "slug": "google-deepmind-mujoco",
       "org": "google-deepmind",
-      "stars": 18447,
+      "stars": 18449,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3829,5 +3829,5 @@
       "count": 20
     }
   ],
-  "fetchedAt": "2026-11-24T09:55:02.224Z"
+  "fetchedAt": "2026-11-24T11:55:25.414Z"
 }
