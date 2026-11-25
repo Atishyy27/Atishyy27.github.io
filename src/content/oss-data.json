@@ -1210,8 +1210,8 @@
           "created": "2026-11-21",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 3906,
-          "deletions": 229
+          "additions": 4433,
+          "deletions": 237
         },
         {
           "number": 1131,
@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12333,
+      "stars": 12334,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -1783,7 +1783,7 @@
       "name": "opa",
       "slug": "open-policy-agent-opa",
       "org": "open-policy-agent",
-      "stars": 12524,
+      "stars": 12525,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2106,7 +2106,7 @@
       "name": "pixi",
       "slug": "prefix-dev-pixi",
       "org": "prefix-dev",
-      "stars": 8014,
+      "stars": 8015,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2175,7 +2175,7 @@
       "name": "cilium",
       "slug": "cilium-cilium",
       "org": "cilium",
-      "stars": 25910,
+      "stars": 25911,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2352,7 +2352,7 @@
       "name": "open_spiel",
       "slug": "google-deepmind-open-spiel",
       "org": "google-deepmind",
-      "stars": 5611,
+      "stars": 5612,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2782,7 +2782,7 @@
       "name": "urunc",
       "slug": "urunc-dev-urunc",
       "org": "urunc-dev",
-      "stars": 312,
+      "stars": 313,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3045,7 +3045,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18077,
+      "stars": 18079,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3251,7 +3251,7 @@
       "name": "youki",
       "slug": "youki-dev-youki",
       "org": "youki-dev",
-      "stars": 7714,
+      "stars": 7715,
       "reach": "B",
       "level": "",
       "merged": 0,
@@ -3349,7 +3349,7 @@
       "name": "E2B",
       "slug": "e2b-dev-e2b",
       "org": "e2b-dev",
-      "stars": 15014,
+      "stars": 15015,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3688,8 +3688,8 @@
           "created": "2026-11-21",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 128,
-          "deletions": 12
+          "additions": 133,
+          "deletions": 13
         }
       ]
     },
@@ -3829,5 +3829,5 @@
       "count": 20
     }
   ],
-  "fetchedAt": "2026-11-25T20:59:28.986Z"
+  "fetchedAt": "2026-11-25T22:59:03.081Z"
 }
