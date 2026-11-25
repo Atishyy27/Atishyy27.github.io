@@ -34,20 +34,20 @@ test("about: the address is on the page and Copy puts it on the clipboard", asyn
 test("form: relay answers, the visitor sees Sent", async ({ page }) => {
   await mockNetwork(page, "ok");
   await sendOnAbout(page);
-  await expect(page.getByText("Sent")).toBeVisible();
+  await expect(page.getByText("Sent ✦")).toBeVisible();
 });
 
 test("form: relay slow but answering, shows Sending then Sent", async ({ page }) => {
   await mockNetwork(page, "slow");
   await sendOnAbout(page);
   await expect(page.getByRole("button", { name: /Sending/ })).toBeVisible();
-  await expect(page.getByText("Sent")).toBeVisible({ timeout: 8000 });
+  await expect(page.getByText("Sent ✦")).toBeVisible({ timeout: 8000 });
 });
 
 test("form: relay returns 500, the visitor gets the address instead of a dead end", async ({ page }) => {
   await mockNetwork(page, "500");
   await sendOnAbout(page);
-  const alert = page.getByRole("alert");
+  const alert = page.locator("form").getByRole("alert");
   await expect(alert).toContainText("Something broke");
   await expect(alert).toContainText(person.email);
   await expect(page.getByRole("button", { name: /Send message/ })).toBeEnabled();
@@ -58,7 +58,7 @@ test("form: relay never answers, it gives up after 10 s and the button comes bac
   await mockNetwork(page, "timeout");
   await sendOnAbout(page);
   await expect(page.getByRole("button", { name: /Sending/ })).toBeVisible();
-  await expect(page.getByRole("alert")).toContainText("That took too long", { timeout: 15_000 });
+  await expect(page.locator("form").getByRole("alert")).toContainText("That took too long", { timeout: 15_000 });
   await expect(page.getByRole("button", { name: /Send message/ })).toBeEnabled();
 });
 
