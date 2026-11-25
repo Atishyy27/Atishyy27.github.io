@@ -19,7 +19,12 @@ const SRC = path.join(process.cwd(), "src");
 // a <Tag> for it is normal. Deciding this structurally beats keeping a list of
 // names: the first version was a hand-maintained allowlist and it flagged the
 // next two routes that were added.
-const FRAMEWORK_NAMED = new Set(["generateMetadata", "generateStaticParams"]);
+// Route handlers (route.ts) export one function per HTTP verb, by name.
+const FRAMEWORK_NAMED = new Set([
+  "generateMetadata",
+  "generateStaticParams",
+  "GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS",
+]);
 
 function isFrameworkEntrypoint(file, name, isDefault) {
   const inApp = path.relative(process.cwd(), file).startsWith(path.join("src", "app"));

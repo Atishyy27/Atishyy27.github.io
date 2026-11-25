@@ -29,7 +29,9 @@
     "fetch:shots": "node scripts/fetch-shots.mjs",
     "check:claims": "node scripts/check-site-claims.mjs",
     "import:photos": "node scripts/import-photos.mjs",
-    "check:lights": "node scripts/check-lights.mjs"
+    "check:lights": "node scripts/check-lights.mjs",
+    "test": "node --experimental-strip-types --import ./scripts/tests/register.mjs --test scripts/tests/*.test.mjs",
+    "check:fast": "npm run check:rag && npm run check:activity && npm run check:cp && npm run check:orphans && npm run check:content && node scripts/check-oss-numbers.mjs --data-only && npm test"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

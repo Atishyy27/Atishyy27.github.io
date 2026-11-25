@@ -18,6 +18,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Everything in `npm run verify` that needs no build, plus the type-checker and
+  # the unit tests. Node 22 because these read the app's TypeScript directly;
+  # the build job below stays on 20. check:resume is not here: it is red on main
+  # for a content reason (the published résumé PDF) that is his call, not a code one.
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run check:fast
+
   build:
     runs-on: ubuntu-latest
     steps:
