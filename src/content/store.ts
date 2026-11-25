@@ -45,7 +45,7 @@ export const listings: Listing[] = [
     store: "Chrome Web Store",
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba",
-    users: "224 users",
+    users: "226 users",
     countedOn: "2026-11-25",
     icon: "/ext/leetcode-analytics.webp",
   },
