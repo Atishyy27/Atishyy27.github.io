@@ -12,3 +12,4 @@
 - fixed locators, pushed d87ded6: CI run 45678183087 all 5 jobs green. Shots downloaded to docs/review-2026-11-25/shots (18 jpg, largest 34 KB).
 - step 7 review started (one Sonnet code-reviewer, both lenses).
 - step 7 round 1 (Sonnet reviewer, both lenses): no blocking finding. Fixed: timeout message says it may have gone through, failed Copy tells the visitor, doc-basics asserts on the contact component (data-email-copy), copy timer cleared, mock layer gated to non-production. Left: #content is a div not main (works for keyboard), banner has two mailto targets (existing button).
+- CI run 45679816783 on c3762a3: all 5 jobs green. Review round 1 found nothing above a nit; no round 2 needed. Deliverables D1-D7 written.
