@@ -79,3 +79,39 @@ jobs:
           name: playwright-results
           path: test-results
           if-no-files-found: ignore
+
+  # Before and after screenshots of what the review changed, at 1280 px and 360 px.
+  # "before" is main, "after" is this commit. Uploaded as artifacts; nothing here
+  # pushes or deploys.
+  shots:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: before
+            ref: main
+          - label: after
+            ref: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.ref }}
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm ci
+        working-directory: site
+      - run: npm run build
+        working-directory: site
+        env:
+          NEXT_PUBLIC_COMMIT: ${{ matrix.ref }}
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/shots.mjs site/out ${{ matrix.label }} shots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shots-${{ matrix.label }}
+          path: shots
