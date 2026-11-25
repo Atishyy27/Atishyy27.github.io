@@ -32,9 +32,10 @@ const html = new Map(pages.map((p) => [path.relative(OUT, p).split(path.sep).joi
 // not part of the public site and are not this check's to judge.
 const real = [...html].filter(([p, h]) => !h.includes('http-equiv="refresh"') && !p.startsWith("admin/"));
 
+// The address as text inside the contact component, not any stray text node.
 const emailText = (h) => {
-  const body = h.replace(/<script[\s\S]*?<\/script>/g, "");
-  return />[^<>]*[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}[^<>]*</.test(body);
+  const m = h.match(/<p[^>]*data-email-copy[^>]*>([\s\S]*?)<\/p>/);
+  return Boolean(m && /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}/.test(m[1].replace(/href="[^"]*"/g, "")));
 };
 for (const page of ["index.html", "about/index.html"]) {
   const h = html.get(page);

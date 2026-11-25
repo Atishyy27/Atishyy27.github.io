@@ -91,7 +91,10 @@ export default function Contact() {
           </button>
           {(state === "error" || state === "timeout") && (
             <span role="alert" className="text-sm text-[var(--accent-2)]">
-              {state === "timeout" ? "That took too long." : "Something broke."} Email me directly at {person.email}
+              {state === "timeout"
+                ? "That took too long, and it may still have gone through."
+                : "Something broke."}{" "}
+              Email me directly at {person.email}
             </span>
           )}
           {state === "mailto" && (

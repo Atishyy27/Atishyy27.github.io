@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { person } from "@/content/site";
 import { copyText } from "@/lib/contact";
 import { capture } from "@/lib/posthog";
@@ -11,18 +11,20 @@ import { capture } from "@/lib/posthog";
  * the address out of it.
  */
 export default function EmailCopy({ from, className = "" }: { from: string; className?: string }) {
-  const [copied, setCopied] = useState(false);
+  const [state, setState] = useState<"idle" | "copied" | "failed">("idle");
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
 
   async function onCopy() {
     const ok = await copyText(person.email);
     capture("email_copy", { from, ok });
-    if (!ok) return;
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1600);
+    setState(ok ? "copied" : "failed");
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => setState("idle"), ok ? 1600 : 4000);
   }
 
   return (
-    <p className={`flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm ${className}`}>
+    <p data-email-copy className={`flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm ${className}`}>
       <a href={`mailto:${person.email}`} className="link select-all break-all">
         {person.email}
       </a>
@@ -32,11 +34,14 @@ export default function EmailCopy({ from, className = "" }: { from: string; clas
         data-cursor
         className="min-h-11 rounded-full border border-[var(--line)] px-4 text-xs text-[var(--fg-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
       >
-        {copied ? "Copied" : "Copy"}
+        {state === "copied" ? "Copied" : "Copy"}
       </button>
       <span role="status" aria-live="polite" className="sr-only">
-        {copied ? "Email address copied" : ""}
+        {state === "copied" ? "Email address copied" : state === "failed" ? "Could not copy, select the address instead" : ""}
       </span>
+      {state === "failed" ? (
+        <span className="w-full text-xs text-[var(--fg-muted)]">Could not copy. Select the address instead.</span>
+      ) : null}
     </p>
   );
 }

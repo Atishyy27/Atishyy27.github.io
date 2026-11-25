@@ -18,6 +18,7 @@ test("EmailCopy shows the address as text, a mailto link and a copy button", () 
   assert.match(html, new RegExp(`>${esc}<`));
   assert.match(html, new RegExp(`href="mailto:${esc}"`));
   assert.match(html, />Copy</);
+  assert.match(html, /data-email-copy/);
 });
 
 test("EmailCopy lets a long address wrap instead of overflowing a 360px screen", () => {

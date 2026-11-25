@@ -20,7 +20,7 @@ function site(pages) {
 }
 const run = (cwd) => spawnSync(process.execPath, [script], { cwd, encoding: "utf8" });
 const SKIP = '<a href="#content" class="skip-link">Skip to content</a>';
-const withMail = `${SKIP}<main><h1>x</h1><a href="mailto:a@example.com">a@example.com</a></main>`;
+const withMail = `${SKIP}<main><h1>x</h1><p data-email-copy class="x"><a href="mailto:a@example.com">a@example.com</a><button>Copy</button></p></main>`;
 const plain = (body = "") => `${SKIP}<main><h1>x</h1>${body}</main>`;
 
 test("passes when / and /about/ show the address as text", () => {
@@ -82,4 +82,12 @@ test("redirect stubs and the admin pages are not judged", () => {
     "admin/index.html": "<main>no skip link, no h1</main>",
   });
   assert.equal(run(dir).status, 0);
+});
+
+test("a stray address elsewhere on the page is not the contact component", () => {
+  const stray = plain("<span>a@example.com</span>");
+  const dir = site({ "index.html": stray, "about/index.html": withMail });
+  const r = run(dir);
+  assert.equal(r.status, 1);
+  assert.match(r.stdout, /index\.html does not show the email address as text/);
 });
