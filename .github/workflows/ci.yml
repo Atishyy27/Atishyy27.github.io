@@ -51,3 +51,31 @@ jobs:
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
       # The open-source numbers must agree everywhere before this can be merged.
       - run: node scripts/check-oss-numbers.mjs
+      # The built pages show the contact address as text.
+      - run: node scripts/check-doc-basics.mjs
+
+  # The built site in a real browser, with every request that leaves the page
+  # answered by the synthetic fixtures in src/lib/mocks/http.ts. Built with a
+  # test relay key so the contact form takes its Web3Forms path; the key reaches
+  # no real service because the relay host is mocked.
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_COMMIT: ${{ github.sha }}
+          NEXT_PUBLIC_WEB3FORMS_KEY: ci-test-key
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-results
+          path: test-results
+          if-no-files-found: ignore

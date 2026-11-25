@@ -23,3 +23,7 @@ photos-inbox/
 .env
 .env.local
 .env.*.local
+
+# Playwright output (CI only)
+test-results/
+playwright-report/

@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { person } from "@/content/site";
+import { submitContact } from "@/lib/contact";
+import { apiFetch } from "@/lib/net";
 import { Reveal } from "./Chrome";
+import EmailCopy from "./EmailCopy";
 
 // Web3Forms: a static-friendly form relay — no server of ours needed.
 // Get a free access key at https://web3forms.com (put it in .env.local as
@@ -10,36 +13,23 @@ import { Reveal } from "./Chrome";
 const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 
 export default function Contact() {
-  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "sent" | "mailto" | "error" | "timeout">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = new FormData(form);
-
-    const name = (data.get("name") as string) || "someone";
-    const mail = (data.get("email") as string) || "no email — anonymous";
-
-    if (!KEY) {
-      // no key configured → open the user's mail client, prefilled
-      const body = `${data.get("message")}\n\n— ${name} (${mail})`;
-      window.location.href = `mailto:${person.email}?subject=${encodeURIComponent(
-        "Hello from atishay.tech"
-      )}&body=${encodeURIComponent(body)}`;
-      return;
-    }
 
     setState("sending");
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
-      });
-      setState(res.ok ? "sent" : "error");
-      if (res.ok) form.reset();
-    } catch {
-      setState("error");
+    const r = await submitContact(new FormData(form), { key: KEY, to: person.email, fetchImpl: apiFetch });
+    if (r.kind === "mailto") {
+      // no key configured: open the user's mail client, prefilled
+      window.location.href = r.href;
+      setState("mailto");
+    } else if (r.kind === "sent") {
+      setState("sent");
+      form.reset();
+    } else {
+      setState(r.reason === "timeout" ? "timeout" : "error");
     }
   }
 
@@ -56,6 +46,7 @@ export default function Contact() {
 
   return (
     <Reveal>
+      <EmailCopy from="about" className="mb-6" />
       <form onSubmit={onSubmit} className="glass rounded-2xl p-7 sm:p-9">
         <input type="hidden" name="access_key" value={KEY} />
         <input type="hidden" name="subject" value="New message from atishay.tech" />
@@ -98,12 +89,17 @@ export default function Contact() {
           >
             {state === "sending" ? "Sending…" : "Send message →"}
           </button>
-          {state === "error" && (
-            <span className="text-sm text-[var(--accent-2)]">
-              Something broke. Email me directly at {person.email}
+          {(state === "error" || state === "timeout") && (
+            <span role="alert" className="text-sm text-[var(--accent-2)]">
+              {state === "timeout" ? "That took too long." : "Something broke."} Email me directly at {person.email}
             </span>
           )}
-          {!KEY && (
+          {state === "mailto" && (
+            <span role="status" className="text-xs text-[var(--fg-muted)]">
+              If your mail app did not open, copy the address above.
+            </span>
+          )}
+          {!KEY && state !== "mailto" && (
             <span className="text-xs text-[var(--fg-muted)]">Opens your mail app.</span>
           )}
         </div>
