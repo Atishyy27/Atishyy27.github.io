@@ -1325,7 +1325,7 @@
       "name": "podman",
       "slug": "podman-container-tools-podman",
       "org": "podman-container-tools",
-      "stars": 33389,
+      "stars": 33390,
       "reach": "A",
       "level": "L2",
       "merged": 4,
@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12331,
+      "stars": 12332,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -1783,7 +1783,7 @@
       "name": "opa",
       "slug": "open-policy-agent-opa",
       "org": "open-policy-agent",
-      "stars": 12523,
+      "stars": 12524,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2406,7 +2406,7 @@
       "name": "fabric",
       "slug": "hyperledger-fabric",
       "org": "hyperledger",
-      "stars": 16784,
+      "stars": 16785,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -3349,7 +3349,7 @@
       "name": "E2B",
       "slug": "e2b-dev-e2b",
       "org": "e2b-dev",
-      "stars": 15012,
+      "stars": 15013,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3829,5 +3829,5 @@
       "count": 20
     }
   ],
-  "fetchedAt": "2026-11-25T17:55:20.432Z"
+  "fetchedAt": "2026-11-25T19:09:23.497Z"
 }
