@@ -5,3 +5,6 @@
 - product pass: live crawl 167 URLs (0 email text, 0 skip, 3 no h1), 5 references read.
 - plan: docs/review-2026-11-25.md written, top 3 chosen.
 - 25 Nov plan gate: coordinator asked to stop after the plan doc. A prototype of all 3 changes was already written and is left UNCOMMITTED in the worktree (22 local tests green); it is not on the branch.
+- change 3 committed: orphan check fix, npm test + check:fast, ci checks job (node 22). local: check:fast green, 4 gate tests.
+- change 1 committed: contact address as text + copy, form timeout, mocks, e2e infra (playwright, serve-out), doc-basics check. local: tsc clean, 24 node tests pass.
+- change 2 committed: skip link, nav aria-current via usePathname, h1 on stats/writing/about, doc-basics extended. local: tsc clean, 33 node tests pass.

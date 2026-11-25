@@ -38,6 +38,7 @@ export default function Writing() {
       <Wrap id="writing">
         <Head
           n="01"
+          as="h1"
           title="Writing & Research"
           kicker={`${journal.length} essays, research investigations, and ${log.length} build-log notes. Each one explores architectural design, failure points, and systems verification.`}
         />

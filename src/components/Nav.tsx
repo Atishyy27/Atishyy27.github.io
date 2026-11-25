@@ -1,21 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import LightsToggle from "./LightsToggle";
+import { NAV_LINKS, activeNav } from "@/lib/nav";
 
-const LINKS: [string, string][] = [
-  ["Projects", "/projects/"],
-  ["Open source", "/oss/"],
-  ["Stats", "/stats/"],
-  ["Writing", "/writing/"],
-  ["About", "/about/"],
-];
-
-// Real routes, not anchors on this page. Kept separate so the scroll-spy above
-// never tries to observe an element that does not exist on the current page.
+const LINKS = NAV_LINKS;
 
 export default function Nav() {
-  const [active, setActive] = useState("");
+  const active = activeNav(usePathname() ?? "");
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -27,24 +20,10 @@ export default function Nav() {
   }, [open]);
 
   useEffect(() => {
-    const ids: string[] = [];
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    });
     const onScroll = () => setSolid(window.scrollY > window.innerHeight * 0.6);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => {
-      obs.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -68,6 +47,7 @@ export default function Nav() {
             <a
               key={id}
               href={id}
+              aria-current={active === id ? "page" : undefined}
               className={`text-xs transition-colors ${
                 active === id ? "text-[var(--accent)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
               }`}
@@ -108,6 +88,7 @@ export default function Nav() {
             <a
               key={href}
               href={href}
+              aria-current={active === href ? "page" : undefined}
               onClick={() => setOpen(false)}
               className={`flex min-h-12 items-center border-b border-[var(--line)] text-base last:border-b-0 ${
                 active === href ? "text-[var(--accent)]" : "text-[var(--fg)]"

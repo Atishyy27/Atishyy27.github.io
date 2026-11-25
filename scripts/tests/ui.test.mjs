@@ -8,6 +8,8 @@ import { renderToStaticMarkup as render } from "react-dom/server";
 import { person } from "../../src/content/site.ts";
 import EmailCopy from "../../src/components/EmailCopy.tsx";
 import Contact from "../../src/components/Contact.tsx";
+import Nav from "../../src/components/Nav.tsx";
+import { Head } from "../../src/components/Section.tsx";
 
 const esc = person.email.replace(/[.]/g, "[.]");
 
@@ -30,4 +32,15 @@ test("contact section carries the address and the form, and says it opens the ma
   assert.match(html, /<form/);
   assert.match(html, /Opens your mail app\./);
   assert.doesNotMatch(html, /Something broke|That took too long|If your mail app did not open/);
+});
+
+test("Head renders h2 by default and h1 when asked", () => {
+  assert.match(render(h(Head, { n: "01", title: "T" })), /<h2[^>]*>T<\/h2>/);
+  assert.match(render(h(Head, { n: "01", title: "T", as: "h1" })), /<h1[^>]*>T<\/h1>/);
+});
+
+test("Nav lists the five routes and marks none as current outside a router", () => {
+  const html = render(h(Nav));
+  for (const label of ["Projects", "Open source", "Stats", "Writing", "About"]) assert.ok(html.includes(label), label);
+  assert.doesNotMatch(html, /aria-current/);
 });
