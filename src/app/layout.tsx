@@ -99,12 +99,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             the site scrolled like a plain document. SmoothScroll bails out under
             prefers-reduced-motion and lazy-loads Lenis, so it costs nothing to
             a visitor who does not get it. */}
+        <a href="#content" className="skip-link">
+          Skip to content
+        </a>
         <SmoothScroll />
         <ScrollProgress />
         <Nav />
         <Palette journalIndex={journalIndex} tagIndex={tagIndex} />
         <Track />
         <Posthog />
+        <div id="content" tabIndex={-1} />
         {children}
         <Colophon />
       </body>
