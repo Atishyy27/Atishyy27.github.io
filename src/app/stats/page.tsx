@@ -12,6 +12,7 @@ export default function Stats() {
       <Wrap id="cp">
         <Head
           n="01"
+          as="h1"
           title="The numbers"
           kicker="ICPC 2025, Rank 12 at the Mysuru on-site regionals. Live cards straight from each platform, then a year of days summed across all three."
         />

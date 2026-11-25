@@ -22,6 +22,7 @@ export default function About() {
 
   return (
     <main className="relative pt-24">
+      <h1 className="sr-only">About Atishay Jain</h1>
       {/* 1. PINNED RESUME */}
       <Wrap id="resume">
         <Head

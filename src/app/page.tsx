@@ -11,6 +11,7 @@ import HomeResearchCards from "@/components/HomeResearchCards";
 import ExperienceHighlights from "@/components/ExperienceHighlights";
 import EngineeringPhilosophy from "@/components/EngineeringPhilosophy";
 import StoreShelf from "@/components/StoreShelf";
+import EmailCopy from "@/components/EmailCopy";
 import LiveCounts from "@/components/LiveCounts";
 import UnifiedHeatmap from "@/components/UnifiedHeatmap";
 import { ProjectGraphMount } from "@/components/SceneMount";
@@ -289,6 +290,7 @@ export default function Home() {
                 Download Résumé, PDF ↗
               </a>
             </div>
+            <EmailCopy from="home" className="mt-5 justify-center" />
           </div>
         </section>
       </div>
