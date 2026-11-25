@@ -13,5 +13,5 @@ export const OSS_STATS = {
   mergedRepos: 29,
   closed: 46,
   prs: 168,
-  fetchedAt: "2026-11-25T08:17:44.140Z",
+  fetchedAt: "2026-11-25T10:55:53.745Z",
 } as const;
