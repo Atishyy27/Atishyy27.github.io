@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12340,
+      "stars": 12342,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -3045,7 +3045,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18160,
+      "stars": 18165,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3349,7 +3349,7 @@
       "name": "E2B",
       "slug": "e2b-dev-e2b",
       "org": "e2b-dev",
-      "stars": 15031,
+      "stars": 15033,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3462,7 +3462,7 @@
       "name": "asynq",
       "slug": "hibiken-asynq",
       "org": "hibiken",
-      "stars": 13856,
+      "stars": 13857,
       "reach": "D",
       "level": "",
       "merged": 0,
@@ -3514,7 +3514,7 @@
       "name": "schemas",
       "slug": "meshery-schemas",
       "org": "meshery",
-      "stars": 88,
+      "stars": 89,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3832,5 +3832,5 @@
       "count": 21
     }
   ],
-  "fetchedAt": "2026-11-26T22:16:07.063Z"
+  "fetchedAt": "2026-11-26T23:55:47.342Z"
 }
