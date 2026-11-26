@@ -3,7 +3,7 @@
 export const OSS_STATS = {
   contributions: 65,
   merged: 57,
-  open: 65,
+  open: 64,
   carried: 1,
   reportsFixed: 7,
   orgsLanded: 28,
@@ -11,7 +11,7 @@ export const OSS_STATS = {
   orgs: 49,
   repos: 58,
   mergedRepos: 29,
-  closed: 46,
+  closed: 47,
   prs: 168,
-  fetchedAt: "2026-11-26T04:55:20.589Z",
+  fetchedAt: "2026-11-26T12:15:36.675Z",
 } as const;

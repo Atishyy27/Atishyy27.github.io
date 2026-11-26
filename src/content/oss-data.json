@@ -5,10 +5,10 @@
   "totals": {
     "contributions": 65,
     "merged": 57,
-    "open": 65,
+    "open": 64,
     "carried": 1,
     "reportsFixed": 7,
-    "closed": 46,
+    "closed": 47,
     "prs": 168,
     "orgs": 49,
     "orgsLanded": 28,
@@ -697,22 +697,6 @@
       ]
     },
     {
-      "org": "WalletWasabi",
-      "slug": "walletwasabi",
-      "avatar": "https://github.com/WalletWasabi.png",
-      "kind": "Organization",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 0,
-      "level": "",
-      "repos": [
-        "WalletWasabi/WalletWasabi"
-      ]
-    },
-    {
       "org": "cbomkit",
       "slug": "cbomkit",
       "avatar": "https://github.com/cbomkit.png",
@@ -790,6 +774,22 @@
       "level": "",
       "repos": [
         "urunc-dev/urunc"
+      ]
+    },
+    {
+      "org": "WalletWasabi",
+      "slug": "walletwasabi",
+      "avatar": "https://github.com/WalletWasabi.png",
+      "kind": "Organization",
+      "merged": 0,
+      "open": 0,
+      "closed": 1,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 0,
+      "level": "",
+      "repos": [
+        "WalletWasabi/WalletWasabi"
       ]
     },
     {
@@ -1325,7 +1325,7 @@
       "name": "podman",
       "slug": "podman-container-tools-podman",
       "org": "podman-container-tools",
-      "stars": 33396,
+      "stars": 33397,
       "reach": "A",
       "level": "L2",
       "merged": 4,
@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12335,
+      "stars": 12337,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -1783,7 +1783,7 @@
       "name": "opa",
       "slug": "open-policy-agent-opa",
       "org": "open-policy-agent",
-      "stars": 12525,
+      "stars": 12530,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2175,7 +2175,7 @@
       "name": "cilium",
       "slug": "cilium-cilium",
       "org": "cilium",
-      "stars": 25916,
+      "stars": 25918,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2325,7 +2325,7 @@
       "name": "opik",
       "slug": "comet-ml-opik",
       "org": "comet-ml",
-      "stars": 23518,
+      "stars": 23519,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2406,7 +2406,7 @@
       "name": "fabric",
       "slug": "hyperledger-fabric",
       "org": "hyperledger",
-      "stars": 16787,
+      "stars": 16788,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2487,7 +2487,7 @@
       "name": "uiautomator2",
       "slug": "openatx-uiautomator2",
       "org": "openatx",
-      "stars": 8541,
+      "stars": 8542,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2568,7 +2568,7 @@
       "name": "shap",
       "slug": "shap-shap",
       "org": "shap",
-      "stars": 25898,
+      "stars": 25900,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2949,7 +2949,7 @@
       "name": "sktime",
       "slug": "sktime-sktime",
       "org": "sktime",
-      "stars": 10104,
+      "stars": 10106,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3045,7 +3045,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18083,
+      "stars": 18127,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3128,7 +3128,7 @@
       "name": "pipelines",
       "slug": "kubeflow-pipelines",
       "org": "kubeflow",
-      "stars": 4271,
+      "stars": 4272,
       "reach": "B",
       "level": "",
       "merged": 0,
@@ -3208,7 +3208,7 @@
       "name": "mlflow",
       "slug": "mlflow-mlflow",
       "org": "mlflow",
-      "stars": 28973,
+      "stars": 28978,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3349,7 +3349,7 @@
       "name": "E2B",
       "slug": "e2b-dev-e2b",
       "org": "e2b-dev",
-      "stars": 15024,
+      "stars": 15027,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3433,7 +3433,7 @@
       "name": "mujoco",
       "slug": "google-deepmind-mujoco",
       "org": "google-deepmind",
-      "stars": 18491,
+      "stars": 18497,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3462,7 +3462,7 @@
       "name": "asynq",
       "slug": "hibiken-asynq",
       "org": "hibiken",
-      "stars": 13855,
+      "stars": 13856,
       "reach": "D",
       "level": "",
       "merged": 0,
@@ -3488,7 +3488,7 @@
       "name": "langfuse-python",
       "slug": "langfuse-langfuse-python",
       "org": "langfuse",
-      "stars": 519,
+      "stars": 520,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3514,7 +3514,7 @@
       "name": "schemas",
       "slug": "meshery-schemas",
       "org": "meshery",
-      "stars": 88,
+      "stars": 89,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3592,7 +3592,7 @@
       "name": "pyannote-audio",
       "slug": "pyannote-pyannote-audio",
       "org": "pyannote",
-      "stars": 10842,
+      "stars": 10843,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3703,19 +3703,22 @@
       "reach": "B",
       "level": "",
       "merged": 0,
-      "open": 1,
-      "closed": 0,
+      "open": 0,
+      "closed": 1,
       "prs": [
         {
           "number": 15266,
           "title": "Fail the build if the bundled Tor is running",
           "url": "https://github.com/WalletWasabi/WalletWasabi/pull/15266",
-          "state": "open",
+          "state": "closed",
           "created": "2026-11-07",
-          "closedAt": null,
+          "closedAt": "2026-11-26",
           "mergedAt": null,
           "additions": 24,
-          "deletions": 0
+          "deletions": 0,
+          "closeReason": "declined",
+          "closeEvidence": "closed by @Carti-it",
+          "closedBy": "Carti-it"
         }
       ]
     }
@@ -3826,8 +3829,8 @@
     {
       "key": "declined",
       "label": "Closed by a maintainer",
-      "count": 20
+      "count": 21
     }
   ],
-  "fetchedAt": "2026-11-26T04:55:20.589Z"
+  "fetchedAt": "2026-11-26T12:15:36.675Z"
 }
