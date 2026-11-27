@@ -45,7 +45,7 @@ export const listings: Listing[] = [
     store: "Chrome Web Store",
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/leetcode-analytics/pcgnpclciloahjpjhhmjbalpcdmlkpba",
-    users: "226 users",
+    users: "224 users",
     countedOn: "2026-11-27",
     icon: "/ext/leetcode-analytics.webp",
   },
@@ -67,7 +67,7 @@ export const listings: Listing[] = [
     store: "Chrome Web Store",
     cta: "Add to Chrome",
     href: "https://chromewebstore.google.com/detail/prd-verification-tool/lhebknliliiigghklkdkljobkkmbhaoj",
-    users: "129 users",
+    users: "130 users",
     countedOn: "2026-11-27",
   },
   {

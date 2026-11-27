@@ -1,16 +1,16 @@
 {
-  "snapshot": "2026-11-27T08:55:43.804Z",
-  "merged": 57,
-  "contributions": 65,
-  "maintainersWhoMerged": 33,
-  "orgsWithMerge": 27,
-  "medianDaysToMerge": 7.8,
+  "snapshot": "2026-11-27T14:56:06.163Z",
+  "merged": 58,
+  "contributions": 66,
+  "maintainersWhoMerged": 34,
+  "orgsWithMerge": 28,
+  "medianDaysToMerge": 7.9,
   "medianHoursToFirstReview": 47,
   "bySize": [
     {
       "bucket": "1-30",
-      "merged": 24,
-      "decided": 47
+      "merged": 25,
+      "decided": 48
     },
     {
       "bucket": "31-100",
@@ -63,12 +63,12 @@
     },
     {
       "month": "2026-11",
-      "merged": 10
+      "merged": 11
     }
   ],
   "definition": "Medians over merged PRs (days to merge) and over all PRs that got a human reply (hours to first review or comment). Sizes are lines added plus deleted.",
   "detail": {
-    "decided": 104,
-    "mergeRate": 0.548
+    "decided": 105,
+    "mergeRate": 0.552
   }
 }

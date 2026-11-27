@@ -3,17 +3,17 @@
   "user": "Atishyy27",
   "definition": "A contribution is a merged pull request, a commit of mine that a maintainer carried through their own pull request, or a bug report of mine that was fixed upstream. Open pull requests are counted beside it, not inside it. Public repositories I do not own, counted from GitHub itself.",
   "totals": {
-    "contributions": 65,
-    "merged": 57,
-    "open": 64,
+    "contributions": 66,
+    "merged": 58,
+    "open": 63,
     "carried": 1,
     "reportsFixed": 7,
     "closed": 47,
     "prs": 168,
     "orgs": 49,
-    "orgsLanded": 28,
+    "orgsLanded": 29,
     "repos": 58,
-    "reposLanded": 29
+    "reposLanded": 30
   },
   "orgs": [
     {
@@ -438,6 +438,22 @@
       ]
     },
     {
+      "org": "openMF",
+      "slug": "openmf",
+      "avatar": "https://github.com/openMF.png",
+      "kind": "Organization",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "carried": 0,
+      "reportsFixed": 0,
+      "contributions": 1,
+      "level": "L4",
+      "repos": [
+        "openMF/mifosx-platform"
+      ]
+    },
+    {
       "org": "py-pdf",
       "slug": "py-pdf",
       "avatar": "https://github.com/py-pdf.png",
@@ -630,22 +646,6 @@
       "level": "",
       "repos": [
         "langfuse/langfuse-python"
-      ]
-    },
-    {
-      "org": "openMF",
-      "slug": "openmf",
-      "avatar": "https://github.com/openMF.png",
-      "kind": "Organization",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "carried": 0,
-      "reportsFixed": 0,
-      "contributions": 0,
-      "level": "",
-      "repos": [
-        "openMF/mifosx-platform"
       ]
     },
     {
@@ -1325,7 +1325,7 @@
       "name": "podman",
       "slug": "podman-container-tools-podman",
       "org": "podman-container-tools",
-      "stars": 33405,
+      "stars": 33407,
       "reach": "A",
       "level": "L2",
       "merged": 4,
@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12342,
+      "stars": 12345,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2106,7 +2106,7 @@
       "name": "pixi",
       "slug": "prefix-dev-pixi",
       "org": "prefix-dev",
-      "stars": 8020,
+      "stars": 8021,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2175,7 +2175,7 @@
       "name": "cilium",
       "slug": "cilium-cilium",
       "org": "cilium",
-      "stars": 25922,
+      "stars": 25924,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2325,7 +2325,7 @@
       "name": "opik",
       "slug": "comet-ml-opik",
       "org": "comet-ml",
-      "stars": 23520,
+      "stars": 23522,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2352,7 +2352,7 @@
       "name": "open_spiel",
       "slug": "google-deepmind-open-spiel",
       "org": "google-deepmind",
-      "stars": 5616,
+      "stars": 5617,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2487,7 +2487,7 @@
       "name": "uiautomator2",
       "slug": "openatx-uiautomator2",
       "org": "openatx",
-      "stars": 8546,
+      "stars": 8547,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -2505,6 +2505,33 @@
           "additions": 17,
           "deletions": 1,
           "mergedBy": "codeskyblue"
+        }
+      ]
+    },
+    {
+      "full": "openMF/mifosx-platform",
+      "owner": "openMF",
+      "name": "mifosx-platform",
+      "slug": "openmf-mifosx-platform",
+      "org": "openMF",
+      "stars": 17,
+      "reach": "C",
+      "level": "L4",
+      "merged": 1,
+      "open": 0,
+      "closed": 0,
+      "prs": [
+        {
+          "number": 41,
+          "title": "fix: download mariadb .env from the right path in install.sh",
+          "url": "https://github.com/openMF/mifosx-platform/pull/41",
+          "state": "merged",
+          "created": "2026-11-13",
+          "closedAt": "2026-11-27",
+          "mergedAt": "2026-11-27T14:36:23Z",
+          "additions": 6,
+          "deletions": 1,
+          "mergedBy": "IOhacker"
         }
       ]
     },
@@ -3045,7 +3072,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18191,
+      "stars": 18204,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3208,7 +3235,7 @@
       "name": "mlflow",
       "slug": "mlflow-mlflow",
       "org": "mlflow",
-      "stars": 28990,
+      "stars": 28993,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3349,7 +3376,7 @@
       "name": "E2B",
       "slug": "e2b-dev-e2b",
       "org": "e2b-dev",
-      "stars": 15033,
+      "stars": 15036,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3433,7 +3460,7 @@
       "name": "mujoco",
       "slug": "google-deepmind-mujoco",
       "org": "google-deepmind",
-      "stars": 18521,
+      "stars": 18532,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3535,32 +3562,6 @@
       ]
     },
     {
-      "full": "openMF/mifosx-platform",
-      "owner": "openMF",
-      "name": "mifosx-platform",
-      "slug": "openmf-mifosx-platform",
-      "org": "openMF",
-      "stars": 17,
-      "reach": "C",
-      "level": "",
-      "merged": 0,
-      "open": 1,
-      "closed": 0,
-      "prs": [
-        {
-          "number": 41,
-          "title": "fix: download mariadb .env from the right path in install.sh",
-          "url": "https://github.com/openMF/mifosx-platform/pull/41",
-          "state": "open",
-          "created": "2026-11-13",
-          "closedAt": null,
-          "mergedAt": null,
-          "additions": 6,
-          "deletions": 1
-        }
-      ]
-    },
-    {
       "full": "patternfly/react-log-viewer",
       "owner": "patternfly",
       "name": "react-log-viewer",
@@ -3592,7 +3593,7 @@
       "name": "pyannote-audio",
       "slug": "pyannote-pyannote-audio",
       "org": "pyannote",
-      "stars": 10844,
+      "stars": 10845,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3832,5 +3833,5 @@
       "count": 21
     }
   ],
-  "fetchedAt": "2026-11-27T08:55:43.804Z"
+  "fetchedAt": "2026-11-27T14:56:06.163Z"
 }

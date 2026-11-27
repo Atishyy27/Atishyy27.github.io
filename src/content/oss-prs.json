@@ -1,7 +1,18 @@
 {
- "generated": "2026-11-27T08:55:43.804Z",
+ "generated": "2026-11-27T14:56:06.163Z",
  "level_note": "per repo from merged counts and author association; kind from the PR title and labels unless set by hand",
  "prs": [
+  {
+   "repo": "openMF/mifosx-platform",
+   "number": 41,
+   "title": "fix: download mariadb .env from the right path in install.sh",
+   "url": "https://github.com/openMF/mifosx-platform/pull/41",
+   "merged_at": "2026-11-27T14:36:23Z",
+   "size": 7,
+   "kind": "Fix",
+   "level": "L4",
+   "reach": "C"
+  },
   {
    "repo": "fedimint/fedimint",
    "number": 9202,
