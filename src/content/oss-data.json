@@ -1538,7 +1538,7 @@
       "name": "meshery",
       "slug": "meshery-meshery",
       "org": "meshery",
-      "stars": 12352,
+      "stars": 12353,
       "reach": "A",
       "level": "L2",
       "merged": 2,
@@ -2352,7 +2352,7 @@
       "name": "open_spiel",
       "slug": "google-deepmind-open-spiel",
       "org": "google-deepmind",
-      "stars": 5619,
+      "stars": 5620,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -3072,7 +3072,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18215,
+      "stars": 18216,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3347,7 +3347,7 @@
       "name": "sonar-cryptography",
       "slug": "cbomkit-sonar-cryptography",
       "org": "cbomkit",
-      "stars": 99,
+      "stars": 100,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3460,7 +3460,7 @@
       "name": "mujoco",
       "slug": "google-deepmind-mujoco",
       "org": "google-deepmind",
-      "stars": 18540,
+      "stars": 18541,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3674,7 +3674,7 @@
       "name": "Chainvoice",
       "slug": "stabilitynexus-chainvoice",
       "org": "StabilityNexus",
-      "stars": 14,
+      "stars": 15,
       "reach": "C",
       "level": "",
       "merged": 0,
@@ -3833,5 +3833,5 @@
       "count": 21
     }
   ],
-  "fetchedAt": "2026-11-27T22:54:47.711Z"
+  "fetchedAt": "2026-11-27T23:23:33.538Z"
 }
