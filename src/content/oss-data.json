@@ -1210,7 +1210,7 @@
           "created": "2026-11-21",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 4433,
+          "additions": 4947,
           "deletions": 237
         },
         {
@@ -1558,14 +1558,14 @@
         },
         {
           "number": 21319,
-          "title": "[mesheryctl] Guard type assertions in GetID and GetName",
+          "title": "[mesheryctl] Guard type assertions in GetName",
           "url": "https://github.com/meshery/meshery/pull/21319",
           "state": "open",
           "created": "2026-08-10",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 85,
-          "deletions": 2
+          "additions": 43,
+          "deletions": 1
         },
         {
           "number": 21208,
@@ -2043,7 +2043,7 @@
       "name": "openeverest",
       "slug": "openeverest-openeverest",
       "org": "openeverest",
-      "stars": 979,
+      "stars": 980,
       "reach": "C",
       "level": "L1",
       "merged": 1,
@@ -2058,19 +2058,19 @@
           "created": "2026-11-09",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 102,
-          "deletions": 2
+          "additions": 178,
+          "deletions": 4
         },
         {
           "number": 3563,
-          "title": "fix(rbac): fall back to deploy check when create denies a reference",
+          "title": "fix(rbac): try the preset path when create denies a reference",
           "url": "https://github.com/openeverest/openeverest/pull/3563",
           "state": "open",
           "created": "2026-11-09",
           "closedAt": null,
           "mergedAt": null,
-          "additions": 121,
-          "deletions": 18
+          "additions": 115,
+          "deletions": 16
         },
         {
           "number": 2851,
@@ -2325,7 +2325,7 @@
       "name": "opik",
       "slug": "comet-ml-opik",
       "org": "comet-ml",
-      "stars": 23518,
+      "stars": 23517,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -3045,7 +3045,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18181,
+      "stars": 18182,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3128,7 +3128,7 @@
       "name": "pipelines",
       "slug": "kubeflow-pipelines",
       "org": "kubeflow",
-      "stars": 4272,
+      "stars": 4271,
       "reach": "B",
       "level": "",
       "merged": 0,
@@ -3208,7 +3208,7 @@
       "name": "mlflow",
       "slug": "mlflow-mlflow",
       "org": "mlflow",
-      "stars": 28986,
+      "stars": 28987,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3251,7 +3251,7 @@
       "name": "youki",
       "slug": "youki-dev-youki",
       "org": "youki-dev",
-      "stars": 7717,
+      "stars": 7718,
       "reach": "B",
       "level": "",
       "merged": 0,
@@ -3433,7 +3433,7 @@
       "name": "mujoco",
       "slug": "google-deepmind-mujoco",
       "org": "google-deepmind",
-      "stars": 18513,
+      "stars": 18516,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3592,7 +3592,7 @@
       "name": "pyannote-audio",
       "slug": "pyannote-pyannote-audio",
       "org": "pyannote",
-      "stars": 10845,
+      "stars": 10844,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3832,5 +3832,5 @@
       "count": 21
     }
   ],
-  "fetchedAt": "2026-11-27T04:56:38.037Z"
+  "fetchedAt": "2026-11-27T06:55:31.395Z"
 }
