@@ -1325,7 +1325,7 @@
       "name": "podman",
       "slug": "podman-container-tools-podman",
       "org": "podman-container-tools",
-      "stars": 33410,
+      "stars": 33409,
       "reach": "A",
       "level": "L2",
       "merged": 4,
@@ -2043,7 +2043,7 @@
       "name": "openeverest",
       "slug": "openeverest-openeverest",
       "org": "openeverest",
-      "stars": 981,
+      "stars": 982,
       "reach": "C",
       "level": "L1",
       "merged": 1,
@@ -2325,7 +2325,7 @@
       "name": "opik",
       "slug": "comet-ml-opik",
       "org": "comet-ml",
-      "stars": 23523,
+      "stars": 23522,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -3072,7 +3072,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18216,
+      "stars": 18218,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3235,7 +3235,7 @@
       "name": "mlflow",
       "slug": "mlflow-mlflow",
       "org": "mlflow",
-      "stars": 28998,
+      "stars": 28993,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3833,5 +3833,5 @@
       "count": 21
     }
   ],
-  "fetchedAt": "2026-11-27T23:23:33.538Z"
+  "fetchedAt": "2026-11-28T00:54:50.423Z"
 }
