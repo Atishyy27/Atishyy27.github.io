@@ -2175,7 +2175,7 @@
       "name": "cilium",
       "slug": "cilium-cilium",
       "org": "cilium",
-      "stars": 25925,
+      "stars": 25926,
       "reach": "A",
       "level": "L1",
       "merged": 1,
@@ -2352,7 +2352,7 @@
       "name": "open_spiel",
       "slug": "google-deepmind-open-spiel",
       "org": "google-deepmind",
-      "stars": 5623,
+      "stars": 5624,
       "reach": "B",
       "level": "L1",
       "merged": 1,
@@ -3072,7 +3072,7 @@
       "name": "artemis",
       "slug": "google-artemis",
       "org": "google",
-      "stars": 18225,
+      "stars": 18226,
       "reach": "A",
       "level": "",
       "merged": 0,
@@ -3489,7 +3489,7 @@
       "name": "asynq",
       "slug": "hibiken-asynq",
       "org": "hibiken",
-      "stars": 13857,
+      "stars": 13858,
       "reach": "D",
       "level": "",
       "merged": 0,
@@ -3833,5 +3833,5 @@
       "count": 21
     }
   ],
-  "fetchedAt": "2026-11-28T06:55:26.099Z"
+  "fetchedAt": "2026-11-28T07:35:12.804Z"
 }
